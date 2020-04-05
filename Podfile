@@ -8,6 +8,8 @@ target 'EcommerceApp' do
   # Pods for EcommerceApp
 
   pod 'Alamofire', '~> 4.3'
+
+
   pod "AlamofireRSSParser"
   pod 'ObjectMapper', '~> 2.2'
 
