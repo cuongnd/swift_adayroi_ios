@@ -15,17 +15,18 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
 
     var products = [Product]();
     var data1 = [[String: AnyObject]]()
-
+    var page: Int = 0
+    var isPageRefreshing:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.DATA()
+        self.DATA(page1: 0)
     }
 
-    func DATA() {
-        let url = "http://45.119.84.18:1111/api/products/?start=0&limit=20"
-
+    func DATA(page1: Int) {
+        let mypage = String(page1*20)
+        let url = "http://45.119.84.18:1111/api/products/?start="+mypage+"&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
 
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
@@ -44,6 +45,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                             self.products.append(product);
 
                         }
+                        self.isPageRefreshing=false
                         self.collectionView?.reloadData()
                     } catch {
 
@@ -95,9 +97,22 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
         return UIEdgeInsetsMake(5, spacing, 5, spacing)
     }
 
+
     fileprivate func minimumCellSpacing() -> CGFloat {// The cell's size is 142 x 216
         let width = self.collectionView!.frame.size.width - 5
         let cellsPerRow = CGFloat(Int(width / 142.0))
         return (width - cellsPerRow * 142) / (cellsPerRow + 1)
     }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if((self.collectionView?.contentOffset.y)! >= ((self.collectionView?.contentSize.height)! - (self.collectionView?.bounds.size.height)!)) {
+            print("hello cuoi cung");
+            if !isPageRefreshing {
+                isPageRefreshing = true
+                print(page)
+                page = page + 1
+                DATA(page1: page)
+            }
+        }
+    }
+
 }
