@@ -24,7 +24,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     func DATA() {
-        let url = "http://45.119.84.18:1111/api/products/?start=0&limit=10"
+        let url = "http://45.119.84.18:1111/api/products/?start=0&limit=20"
 
         let request = NSMutableURLRequest(url: URL(string: url)!)
 
