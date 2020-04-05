@@ -22,8 +22,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productCategoryLabel.text = "sdfds"
     }
     func configureCell1(product: Product) {
-        print("hello2332");
-        productPriceLabel.text = product.productPrice as! String;
+        productPriceLabel.text = String(format:"%.1f", product.productPrice!);
         productTitleLabel.text = product.productName;
         productCategoryLabel.text = product.productCategory
     }
