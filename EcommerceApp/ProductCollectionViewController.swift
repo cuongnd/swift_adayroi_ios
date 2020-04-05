@@ -12,7 +12,13 @@ import UIKit
 private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+
+    var products: [Product] = [] {
+        didSet {
+            self.collectionView?.reloadData()
+        }
+    }
+
     var data1 = [Product]();
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                     do{
                         //array
                         let my_json=try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        print(my_json);
                         self.data1 = my_json as! [Product]
                          self.collectionView?.reloadData()
                     }catch
