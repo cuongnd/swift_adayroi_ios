@@ -22,6 +22,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productCategoryLabel.text = "sdfds"
     }
     func configureCell1(product: Product) {
+        if let url = product.productImageURL, let productImageView = productImageView {
+            productImageView.kf.setImage(with: URL(string: url))
+        }
         productPriceLabel.text = String(format:"%.1f", product.productPrice!);
         productTitleLabel.text = product.productName;
         productCategoryLabel.text = product.productCategory

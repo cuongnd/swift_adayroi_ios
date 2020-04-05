@@ -38,7 +38,9 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                         let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
 
                         for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product=Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: "",price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["sdfds"]);
+                            var product: Product
+                            print((current_product["default_photo"]!["img_path"])!);
+                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                             self.products.append(product);
 
                         }
