@@ -13,11 +13,7 @@ private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    var products: [Product] = [] {
-        didSet {
-            self.collectionView?.reloadData()
-        }
-    }
+    var products = [Product]();
 
     var data1 = [Product]();
 
@@ -29,7 +25,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     func DATA() {
-        let url = "http://45.119.84.18:1111/api/products/?start=0&limit=100"
+        let url = "http://45.119.84.18:1111/api/products/?start=0&limit=2"
 
         let request = NSMutableURLRequest(url: URL(string: url)!)
 
@@ -41,8 +37,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                     do {
                         //array
                         let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        print(my_json);
-                        self.data1 = my_json as! [Product]
+                        self.products = my_json as! [Product]
                         self.collectionView?.reloadData()
                     } catch {
 
@@ -71,18 +66,18 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data1.count
+        return products.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
-        cell.configureCell1(product: "sdfsdf")
+        cell.configureCell(product: products[indexPath.row])
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-        detailsVC.product = data1[indexPath.row]
+        detailsVC.product = products[indexPath.row]
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 

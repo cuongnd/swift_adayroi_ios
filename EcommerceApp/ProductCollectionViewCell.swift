@@ -17,14 +17,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productCategoryLabel: UILabel!
 
     func configureCell(product: Product) {
-        if let url = product.productImageURL, let productImageView = productImageView {
-            productImageView.kf.setImage(with: URL(string: url))
-        }
-        if let price = product.productPrice {
-            productPriceLabel.text = String(format:"$%.0f", price)
-        }
-        productTitleLabel.text = product.productName
-        productCategoryLabel.text = product.productCategory
+        print("hello2332");
+        productTitleLabel.text = "fdfgfd"
+        productCategoryLabel.text = "sdfds"
     }
     func configureCell1(product: String) {
         print("hello2332");
