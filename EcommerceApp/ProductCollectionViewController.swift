@@ -37,12 +37,11 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                         //array
                         let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
 
-                        for balance in my_json as! [[String: AnyObject]] {
-                           print(balance)
-                        }
+                        for current_product in my_json as! [[String: AnyObject]] {
+                            var product: Product=Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: "",price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["sdfds"]);
+                            self.products.append(product);
 
-                        //print(my_json)
-                        self.data1 = my_json as! [[String: AnyObject]]
+                        }
                         self.collectionView?.reloadData()
                     } catch {
 
@@ -71,12 +70,12 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data1.count
+        return products.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
-        cell.configureCell1(product: "sdas")
+        cell.configureCell1(product: products[indexPath.row])
         return cell
     }
 
