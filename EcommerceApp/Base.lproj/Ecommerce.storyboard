@@ -567,6 +567,9 @@
                                             </view>
                                         </collectionViewCell>
                                     </cells>
+                                    <connections>
+                                        <outlet property="delegate" destination="Du2-Nl-M9U" id="d7V-v9-omg"/>
+                                    </connections>
                                 </collectionView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZRV-mV-dIQ">
                                     <rect key="frame" x="168" y="72" width="39" height="37"/>
