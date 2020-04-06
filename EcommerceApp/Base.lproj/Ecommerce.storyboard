@@ -568,6 +568,10 @@
                                         </collectionViewCell>
                                     </cells>
                                 </collectionView>
+                                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZRV-mV-dIQ">
+                                    <rect key="frame" x="168" y="72" width="39" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </pageControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -628,6 +632,10 @@
                             <outlet property="delegate" destination="Du2-Nl-M9U" id="eaE-JI-Jw9"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="pageView" destination="ZRV-mV-dIQ" id="gFl-Su-mOV"/>
+                        <outlet property="sliderCollectionView" destination="evV-J6-N1J" id="QNg-3q-4j4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDz-Nv-fai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

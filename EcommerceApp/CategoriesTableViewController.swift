@@ -10,6 +10,8 @@ import UIKit
 
 class CategoriesTableViewController: UITableViewController {
 
+    @IBOutlet weak var sliderCollectionView: UICollectionView!
+    @IBOutlet weak var pageView: UIPageControl!
     fileprivate let reuseIdentifier = "CategoriesTableViewCell"
 
     var categories: [Category]? {
