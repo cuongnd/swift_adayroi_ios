@@ -13,7 +13,19 @@ class CategoriesTableViewController: UITableViewController {
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var pageView: UIPageControl!
     fileprivate let reuseIdentifier = "CategoriesTableViewCell"
-
+    var imgArr = [  UIImage(named:"Alexandra Daddario"),
+                    UIImage(named:"Angelina Jolie") ,
+                    UIImage(named:"Anne Hathaway") ,
+                    UIImage(named:"Dakota Johnson") ,
+                    UIImage(named:"Emma Stone") ,
+                    UIImage(named:"Emma Watson") ,
+                    UIImage(named:"Halle Berry") ,
+                    UIImage(named:"Jennifer Lawrence") ,
+                    UIImage(named:"Jessica Alba") ,
+                    UIImage(named:"Scarlett Johansson") ]
+    
+    var timer = Timer()
+    var counter = 0
     var categories: [Category]? {
         didSet {
             self.tableView.reloadData()
