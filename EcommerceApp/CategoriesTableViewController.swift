@@ -10,8 +10,8 @@ import UIKit
 
 class CategoriesTableViewController: UITableViewController {
 
-    @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var pageView: UIPageControl!
+    @IBOutlet weak var sliderCollectionView: UICollectionView!
     fileprivate let reuseIdentifier = "CategoriesTableViewCell"
     var imgArr = [  UIImage(named:"Alexandra Daddario"),
                     UIImage(named:"Angelina Jolie") ,
@@ -48,13 +48,13 @@ class CategoriesTableViewController: UITableViewController {
             let index = IndexPath.init(item: counter, section: 0)
             print("index")
             print(index)
-            //self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
             pageView.currentPage = counter
             counter += 1
         } else {
             counter = 0
             let index = IndexPath.init(item: counter, section: 0)
-            //self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
             pageView.currentPage = counter
             counter = 1
         }

@@ -636,8 +636,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="pageView" destination="ZRV-mV-dIQ" id="gFl-Su-mOV"/>
-                        <outlet property="sliderCollectionView" destination="evV-J6-N1J" id="QNg-3q-4j4"/>
+                        <outlet property="pageView" destination="ZRV-mV-dIQ" id="z96-Qe-1SF"/>
+                        <outlet property="sliderCollectionView" destination="evV-J6-N1J" id="mwH-sS-oG5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDz-Nv-fai" userLabel="First Responder" sceneMemberID="firstResponder"/>
