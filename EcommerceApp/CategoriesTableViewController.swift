@@ -45,13 +45,15 @@ class CategoriesTableViewController: UITableViewController {
     @objc func changeImage() {
         
         if counter < imgArr.count {
-            //let index = IndexPath.init(item: counter, section: 0)
+            let index = IndexPath.init(item: counter, section: 0)
+            print("index")
+            print(index)
             //self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
             pageView.currentPage = counter
             counter += 1
         } else {
             counter = 0
-            //let index = IndexPath.init(item: counter, section: 0)
+            let index = IndexPath.init(item: counter, section: 0)
             //self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
             pageView.currentPage = counter
             counter = 1
