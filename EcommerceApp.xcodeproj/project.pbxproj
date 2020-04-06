@@ -273,7 +273,6 @@
 			children = (
 				1782C8821E669B5800963945 /* API */,
 				1782C8851E669B5800963945 /* Assets */,
-				1782C8871E669B5800963945 /* Config */,
 				1782C8881E669B5800963945 /* Helpers */,
 				1782C88B1E669B5800963945 /* Models */,
 				1782C8931E669B5800963945 /* Networking */,
@@ -299,13 +298,6 @@
 				1782C8861E669B5800963945 /* Misc.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		1782C8871E669B5800963945 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 		1782C8881E669B5800963945 /* Helpers */ = {

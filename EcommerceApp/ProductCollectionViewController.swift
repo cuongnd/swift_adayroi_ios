@@ -8,7 +8,6 @@
 
 import Material
 import UIKit
-
 private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -26,7 +25,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
 
     func DATA(page1: Int) {
         let mypage = String(page1*20)
-        let url = "http://45.119.84.18:1111/api/products/?start="+mypage+"&limit=20"
+        let url = AppConfiguration.root_url+"api/products/?start="+mypage+"&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
 
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
