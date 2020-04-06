@@ -104,7 +104,6 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if((self.collectionView?.contentOffset.y)! >= ((self.collectionView?.contentSize.height)! - (self.collectionView?.bounds.size.height)!)) {
-            print("hello cuoi cung");
             if !isPageRefreshing {
                 isPageRefreshing = true
                 print(page)
