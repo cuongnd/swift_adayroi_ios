@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController ,UITableViewDataSource,UICollectionViewDataSource,UIScrollViewDelegate{
+class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -52,7 +52,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UICollectionVi
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 50
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,6 +66,13 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UICollectionVi
     }
     
     
+   
+    
+ 
+    
+}
+extension HomeViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -77,8 +84,6 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UICollectionVi
         return cell
     }
     
-    
- 
     
 }
 
