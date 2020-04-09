@@ -615,7 +615,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="HDK-fV-MdT" detailTextLabel="hbw-iG-vv1" rowHeight="145" style="IBUITableViewCellStyleValue1" id="AiS-P6-Dil">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="HDK-fV-MdT" detailTextLabel="hbw-iG-vv1" rowHeight="145" style="IBUITableViewCellStyleValue1" id="AiS-P6-Dil">
                                         <rect key="frame" x="0.0" y="28" width="320" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AiS-P6-Dil" id="Gnx-fc-GSV">
@@ -638,6 +638,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="cell"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -652,8 +653,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mytable" destination="Mmg-R0-O5I" id="bOo-q7-dpK"/>
-                        <outlet property="tableView" destination="Mmg-R0-O5I" id="amU-4l-jrA"/>
+                        <outlet property="tableView" destination="Mmg-R0-O5I" id="kAa-bd-TDq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-Tr-lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>

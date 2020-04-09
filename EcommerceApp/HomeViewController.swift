@@ -10,9 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController ,UITableViewDataSource{
 
-    @IBOutlet weak var mytable: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource=self
 
         // Do any additional setup after loading the view.
     }
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource{
     }
     
 
-    @IBOutlet weak var tableView: UITableView!
+
     /*
     // MARK: - Navigation
 
