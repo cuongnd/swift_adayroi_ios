@@ -611,17 +611,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-HS-Q54">
-                                <rect key="frame" x="121" y="151" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mmg-R0-O5I">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="AiS-P6-Dil">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AiS-P6-Dil" id="Gnx-fc-GSV">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="144.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Angelina Jolie" translatesAutoresizingMaskIntoConstraints="NO" id="PlC-Za-q0G">
+                                                    <rect key="frame" x="53" y="8" width="215" height="127"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mmg-R0-O5I" firstAttribute="height" secondItem="dBK-NT-glq" secondAttribute="height" multiplier="1/2" id="DeJ-vq-LyC"/>
+                            <constraint firstItem="Mmg-R0-O5I" firstAttribute="leading" secondItem="dBK-NT-glq" secondAttribute="leading" id="GaH-kX-jbG"/>
+                            <constraint firstItem="Mmg-R0-O5I" firstAttribute="width" secondItem="dBK-NT-glq" secondAttribute="width" id="Nmu-QW-GKE"/>
+                            <constraint firstAttribute="trailing" secondItem="Mmg-R0-O5I" secondAttribute="trailing" id="exj-oJ-3iW"/>
+                            <constraint firstItem="Mmg-R0-O5I" firstAttribute="top" secondItem="dBK-NT-glq" secondAttribute="top" id="vBw-5W-aAa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mytable" destination="Mmg-R0-O5I" id="bOo-q7-dpK"/>
+                        <outlet property="tableView" destination="Mmg-R0-O5I" id="amU-4l-jrA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-Tr-lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4610" y="37"/>
+            <point key="canvasLocation" x="4608.75" y="36.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="c4x-re-CR7">
@@ -641,4 +668,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Angelina Jolie" width="768" height="511"/>
+    </resources>
 </document>
