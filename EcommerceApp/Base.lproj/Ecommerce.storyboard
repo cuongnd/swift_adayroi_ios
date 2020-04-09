@@ -624,14 +624,14 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="top_slideshow" id="ORC-NQ-niu">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell_collection" id="ORC-NQ-niu">
                                                 <rect key="frame" x="0.0" y="-3.5" width="304" height="127"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="127"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Emma Watson" translatesAutoresizingMaskIntoConstraints="NO" id="zne-yq-uTj">
+                                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Emma Watson" translatesAutoresizingMaskIntoConstraints="NO" id="zne-yq-uTj">
                                                             <rect key="frame" x="0.0" y="-1" width="304" height="97"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -647,6 +647,10 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="hWx-7j-xOA">
+                                        <rect key="frame" x="140" y="41" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -710,7 +714,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell1" id="TuA-QG-ylm">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell_collection" id="TuA-QG-ylm">
                                                 <rect key="frame" x="0.0" y="-61" width="317" height="223"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -742,6 +746,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pageView" destination="hWx-7j-xOA" id="a7I-he-fR8"/>
                         <outlet property="slideShowCollectionView" destination="Hr8-q1-EfB" id="MGq-je-y4v"/>
                         <outlet property="tableView" destination="Mmg-R0-O5I" id="kAa-bd-TDq"/>
                         <outlet property="topSlideshowCollectionView" destination="qWS-p4-UpC" id="UV7-fA-OPv"/>
