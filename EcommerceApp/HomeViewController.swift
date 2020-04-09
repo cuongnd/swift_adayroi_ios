@@ -12,6 +12,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
 
     fileprivate let photos = [
@@ -26,7 +27,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource=self
-        slideShowCollectionView.dataSource=self
+        topSlideshowCollectionView.dataSource=self
 
         // Do any additional setup after loading the view.
     }
@@ -78,7 +79,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath);
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "top_slideshow", for: indexPath);
         
         
         return cell
