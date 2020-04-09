@@ -33,4 +33,7 @@ class StoryboardEntityProvider {
     func categoriesVC() -> CategoriesTableViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
     }
+    func homeVC() -> HomeViewController {
+        return ecommerceStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+    }
 }

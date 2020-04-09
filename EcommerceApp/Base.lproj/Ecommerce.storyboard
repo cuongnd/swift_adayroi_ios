@@ -532,70 +532,14 @@
         <!--Categories Table View Controller-->
         <scene sceneID="PT5-ZG-7Rz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KDz-Nv-fai" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="CategoriesTableViewController" id="Du2-Nl-M9U" customClass="CategoriesTableViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="185" sectionHeaderHeight="28" sectionFooterHeight="28" id="ekR-w1-ZIR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="n6k-5a-2ln">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evV-J6-N1J">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k9u-bT-l7v">
-                                        <size key="itemSize" width="255" height="187"/>
-                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </collectionViewFlowLayout>
-                                    <cells>
-                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TS0-Gn-JpN">
-                                            <rect key="frame" x="32.5" y="0.0" width="255" height="187"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                <rect key="frame" x="0.0" y="0.0" width="255" height="187"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kNS-w4-1An">
-                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="187"/>
-                                                    </imageView>
-                                                </subviews>
-                                            </view>
-                                            <constraints>
-                                                <constraint firstItem="kNS-w4-1An" firstAttribute="top" secondItem="TS0-Gn-JpN" secondAttribute="top" id="8yp-hh-MV6"/>
-                                                <constraint firstItem="kNS-w4-1An" firstAttribute="width" secondItem="TS0-Gn-JpN" secondAttribute="width" id="JMe-fj-1Du"/>
-                                                <constraint firstItem="kNS-w4-1An" firstAttribute="leading" secondItem="TS0-Gn-JpN" secondAttribute="leading" id="M7F-FR-WAe"/>
-                                                <constraint firstItem="kNS-w4-1An" firstAttribute="height" secondItem="TS0-Gn-JpN" secondAttribute="height" id="mFb-dg-gQe"/>
-                                                <constraint firstAttribute="trailing" secondItem="kNS-w4-1An" secondAttribute="trailing" id="vW3-bc-s1i"/>
-                                            </constraints>
-                                            <connections>
-                                                <outlet property="selectedBackgroundView" destination="evV-J6-N1J" id="OPl-Wg-2tK"/>
-                                            </connections>
-                                        </collectionViewCell>
-                                    </cells>
-                                    <connections>
-                                        <outlet property="delegate" destination="Du2-Nl-M9U" id="d7V-v9-omg"/>
-                                    </connections>
-                                </collectionView>
-                                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZRV-mV-dIQ">
-                                    <rect key="frame" x="168" y="72" width="39" height="37"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </pageControl>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="evV-J6-N1J" firstAttribute="height" secondItem="n6k-5a-2ln" secondAttribute="height" id="3zW-Ic-TsK"/>
-                                <constraint firstItem="evV-J6-N1J" firstAttribute="width" secondItem="n6k-5a-2ln" secondAttribute="width" id="8wB-7F-Xd8"/>
-                                <constraint firstAttribute="trailing" secondItem="evV-J6-N1J" secondAttribute="trailing" id="JTm-m8-Rh4"/>
-                                <constraint firstAttribute="trailing" secondItem="evV-J6-N1J" secondAttribute="trailing" id="uTq-Nb-Zsj"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoriesTableViewCell" rowHeight="185" id="qo8-Wk-keC" customClass="CategoriesTableViewCell" customModule="EcommerceApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="209" width="320" height="185"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="185"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qo8-Wk-keC" id="qrd-8c-bsb">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="184.5"/>
@@ -650,13 +594,34 @@
                             <outlet property="delegate" destination="Du2-Nl-M9U" id="eaE-JI-Jw9"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="pageView" destination="ZRV-mV-dIQ" id="z96-Qe-1SF"/>
-                        <outlet property="sliderCollectionView" destination="evV-J6-N1J" id="mwH-sS-oG5"/>
-                    </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDz-Nv-fai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3928.125" y="36.25"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="tEp-Ti-G7h">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Wp3-uY-1I3" customClass="HomeViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Y0-2f-RCK"/>
+                        <viewControllerLayoutGuide type="bottom" id="4IA-LG-G3O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dBK-NT-glq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-HS-Q54">
+                                <rect key="frame" x="121" y="151" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-Tr-lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4610" y="37"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="c4x-re-CR7">

@@ -59,8 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Home view controller - the categories screen
 
-        let homeVC = StoryboardEntityProvider().categoriesVC()
-        homeVC.categories = Category.mockCategories()
+        let homeVC = StoryboardEntityProvider().homeVC()
+        
         homeVC.title = "iShop"
 
         // Checkout/Cart View Controller - the checkout screen, containing the products in the card

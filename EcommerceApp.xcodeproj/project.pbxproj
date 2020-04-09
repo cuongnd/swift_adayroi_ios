@@ -70,7 +70,10 @@
 		1782C8D81E669B5900963945 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1782C8B21E669B5800963945 /* UIView.swift */; };
 		17A206351E513D7C00CCC2C8 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A206341E513D7C00CCC2C8 /* AppConfiguration.swift */; };
 		3C080925C4927DE51FF202F6 /* Pods_EcommerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77003E3BA55AED5BB62B93B /* Pods_EcommerceApp.framework */; };
+		FA26092B243EDC7A0096AED9 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26092A243EDC7A0096AED9 /* Slide.swift */; };
+		FA26092F243EDE900096AED9 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA26092E243EDE900096AED9 /* Slide.xib */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
+		FAF45D90243F6FBC00BFB8AD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,7 +148,10 @@
 		1EA0814B1EFE100BECD440B2 /* Pods-EcommerceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcommerceApp/Pods-EcommerceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		84C4903F70CB6CB03F788679 /* Pods-EcommerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcommerceApp/Pods-EcommerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		A77003E3BA55AED5BB62B93B /* Pods_EcommerceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcommerceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA26092A243EDC7A0096AED9 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		FA26092E243EDE900096AED9 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
+		FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 		177867441E33F86000BF7080 /* EcommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA260929243EDC400096AED9 /* Slideshow */,
 				1782C8731E6289AD00963945 /* Supporting Files */,
 				1782C86A1E6285A600963945 /* Configuration */,
 				1782C8671E62717000963945 /* Views */,
@@ -247,6 +254,7 @@
 				17825D8D1E356BF200A03FC5 /* ProductDetailsViewController.swift */,
 				17825D9C1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift */,
 				173DCFB11E58F598001092C7 /* CategoriesTableViewController.swift */,
+				FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -410,6 +418,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FA260929243EDC400096AED9 /* Slideshow */ = {
+			isa = PBXGroup;
+			children = (
+				FA26092A243EDC7A0096AED9 /* Slide.swift */,
+				FA26092E243EDE900096AED9 /* Slide.xib */,
+			);
+			name = Slideshow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -478,6 +495,7 @@
 				FA7EB22A2439D01D0034092B /* note.txt in Resources */,
 				177867501E33F86000BF7080 /* LaunchScreen.storyboard in Resources */,
 				1782C8CC1E669B5900963945 /* ATCMenuTableViewCell.xib in Resources */,
+				FA26092F243EDE900096AED9 /* Slide.xib in Resources */,
 				173DCFB01E56B187001092C7 /* GoogleService-Info.plist in Resources */,
 				1778674D1E33F86000BF7080 /* Assets.xcassets in Resources */,
 				1782C8D21E669B5900963945 /* ATCSettingsMoreTableViewCell.xib in Resources */,
@@ -602,11 +620,13 @@
 				17825D8E1E356BF200A03FC5 /* ProductDetailsViewController.swift in Sources */,
 				1782C8D11E669B5900963945 /* ATCSettingsMoreTableViewCell.swift in Sources */,
 				1782C8BE1E669B5900963945 /* ATCWordpressPost.swift in Sources */,
+				FAF45D90243F6FBC00BFB8AD /* HomeViewController.swift in Sources */,
 				1782C8C01E669B5900963945 /* ATCStripeButtons.swift in Sources */,
 				173DCFB41E58F5E4001092C7 /* CategoriesTableViewCell.swift in Sources */,
 				1782C8C21E669B5900963945 /* ATCStripeCheckoutViewController.swift in Sources */,
 				1782C8C71E669B5900963945 /* ATCTableViewController.swift in Sources */,
 				1782C86C1E6285D200963945 /* StringConstants.swift in Sources */,
+				FA26092B243EDC7A0096AED9 /* Slide.swift in Sources */,
 				1782C8D41E669B5900963945 /* ATCSettingsTextTableViewCell.swift in Sources */,
 				1782C8D01E669B5900963945 /* ATCNavigationDrawerController.swift in Sources */,
 				1782C8BF1E669B5900963945 /* ATCNetworkingManager.swift in Sources */,
