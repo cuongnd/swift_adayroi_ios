@@ -41,7 +41,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         super.viewDidLoad()
         tableView.dataSource=self
         topSlideshowCollectionView.dataSource=self
-
+        slideShowCollectionView.dataSource=self
         
         pageView.numberOfPages = imgArr.count
         pageView.currentPage = 0
