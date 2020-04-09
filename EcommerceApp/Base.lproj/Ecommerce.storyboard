@@ -642,17 +642,63 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUs-Ca-ssU">
+                                <rect key="frame" x="0.0" y="248" width="320" height="232"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-q1-EfB">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="232"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7lt-hU-Lmg">
+                                            <size key="itemSize" width="317" height="223"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell1" id="TuA-QG-ylm">
+                                                <rect key="frame" x="0.0" y="4.5" width="317" height="223"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="223"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Angelina Jolie" translatesAutoresizingMaskIntoConstraints="NO" id="EE1-A8-zVQ">
+                                                            <rect key="frame" x="20" y="15" width="286" height="146"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Hr8-q1-EfB" firstAttribute="width" secondItem="mUs-Ca-ssU" secondAttribute="width" id="1HL-y9-3dY"/>
+                                    <constraint firstItem="Hr8-q1-EfB" firstAttribute="top" secondItem="mUs-Ca-ssU" secondAttribute="top" id="60g-dk-wiI"/>
+                                    <constraint firstItem="Hr8-q1-EfB" firstAttribute="height" secondItem="mUs-Ca-ssU" secondAttribute="height" id="A8a-Ic-sPv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hr8-q1-EfB" secondAttribute="trailing" id="EIx-aE-lcl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hr8-q1-EfB" secondAttribute="bottom" id="RXp-I6-ZIl"/>
+                                    <constraint firstItem="Hr8-q1-EfB" firstAttribute="leading" secondItem="mUs-Ca-ssU" secondAttribute="leading" id="uAD-Zc-pqj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mUs-Ca-ssU" secondAttribute="trailing" id="83t-75-gnt"/>
                             <constraint firstItem="Mmg-R0-O5I" firstAttribute="height" secondItem="dBK-NT-glq" secondAttribute="height" multiplier="1/2" id="DeJ-vq-LyC"/>
+                            <constraint firstItem="mUs-Ca-ssU" firstAttribute="top" secondItem="Mmg-R0-O5I" secondAttribute="bottom" constant="8" id="ERa-o2-CyO"/>
                             <constraint firstItem="Mmg-R0-O5I" firstAttribute="leading" secondItem="dBK-NT-glq" secondAttribute="leading" id="GaH-kX-jbG"/>
                             <constraint firstItem="Mmg-R0-O5I" firstAttribute="width" secondItem="dBK-NT-glq" secondAttribute="width" id="Nmu-QW-GKE"/>
+                            <constraint firstItem="4IA-LG-G3O" firstAttribute="top" secondItem="mUs-Ca-ssU" secondAttribute="bottom" id="PN9-ky-3eQ"/>
+                            <constraint firstItem="mUs-Ca-ssU" firstAttribute="leading" secondItem="dBK-NT-glq" secondAttribute="leading" id="RTF-3u-xuS"/>
                             <constraint firstAttribute="trailing" secondItem="Mmg-R0-O5I" secondAttribute="trailing" id="exj-oJ-3iW"/>
+                            <constraint firstItem="mUs-Ca-ssU" firstAttribute="width" secondItem="dBK-NT-glq" secondAttribute="width" id="ugP-Yq-fet"/>
                             <constraint firstItem="Mmg-R0-O5I" firstAttribute="top" secondItem="dBK-NT-glq" secondAttribute="top" id="vBw-5W-aAa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="slideShowCollectionView" destination="Hr8-q1-EfB" id="MGq-je-y4v"/>
                         <outlet property="tableView" destination="Mmg-R0-O5I" id="kAa-bd-TDq"/>
                     </connections>
                 </viewController>
@@ -678,4 +724,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Angelina Jolie" width="768" height="511"/>
+    </resources>
 </document>

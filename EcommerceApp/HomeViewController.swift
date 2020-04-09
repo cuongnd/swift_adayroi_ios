@@ -8,12 +8,25 @@
 
 import UIKit
 
-class HomeViewController: UIViewController ,UITableViewDataSource{
+class HomeViewController: UIViewController ,UITableViewDataSource,UICollectionViewDataSource,UIScrollViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
+
+    fileprivate let photos = [
+        "Dakota Johnson",
+        "Dakota Johnson",
+        "Dakota Johnson",
+        "Dakota Johnson",
+        "Dakota Johnson"
+    ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource=self
+        slideShowCollectionView.dataSource=self
 
         // Do any additional setup after loading the view.
     }
@@ -52,6 +65,20 @@ class HomeViewController: UIViewController ,UITableViewDataSource{
         return tableView.bounds.width / 2
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath);
+        
+        
+        return cell
+    }
+    
+    
  
     
 }
+
