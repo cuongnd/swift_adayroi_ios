@@ -14,7 +14,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
-    var products = [Product]();
+    var products = Product.mockProducts();
     fileprivate let photos = [
         "Dakota Johnson",
         "Dakota Johnson",
@@ -60,7 +60,6 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                             self.products.append(product);
                             
                         }
-                        print("products")
                         print(self.products)
                         self.topSlideshowCollectionView?.reloadData()
                     } catch {
@@ -89,7 +88,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         super.viewDidLoad()
         tableView.dataSource=self
         topSlideshowCollectionView.dataSource=self
-        slideShowCollectionView.dataSource=self
+        //slideShowCollectionView.dataSource=self
         
         pageView.numberOfPages = imgArr.count
         pageView.currentPage = 0
@@ -168,9 +167,8 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_collection", for: indexPath);
-        
-        
+        let cell = topSlideshowCollectionView.dequeueReusableCell(withReuseIdentifier:"ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
+        cell.configureCell(product: products[indexPath.row])
         return cell
     }
     
