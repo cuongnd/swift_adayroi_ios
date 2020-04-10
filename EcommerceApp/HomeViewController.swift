@@ -14,7 +14,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
-
+    var products = [Product]();
     fileprivate let photos = [
         "Dakota Johnson",
         "Dakota Johnson",
@@ -37,6 +37,54 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     var timer = Timer()
     var counter = 0
     @IBOutlet weak var pageView: UIPageControl!
+    
+    
+    
+    func DATA() {
+        let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        
+                        for current_product in my_json as! [[String: AnyObject]] {
+                            var product: Product
+                            print((current_product["default_photo"]!["img_path"])!);
+                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.products.append(product);
+                            
+                        }
+                        print("products")
+                        print(self.products)
+                        self.topSlideshowCollectionView?.reloadData()
+                    } catch {
+                        
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource=self
@@ -48,7 +96,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
-        
+         self.DATA()
         
         // Do any additional setup after loading the view.
     }
