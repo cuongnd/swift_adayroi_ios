@@ -636,14 +636,21 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="anh abc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b9-jP-Xqr">
-                                                            <rect key="frame" x="11" y="98" width="94" height="21"/>
+                                                            <rect key="frame" x="5" y="96" width="71" height="14"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAH-pa-Zqs">
-                                                            <rect key="frame" x="212" y="86" width="42" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KH-oA-lCo">
+                                                            <rect key="frame" x="6" y="113" width="42" height="12"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAH-pa-Zqs">
+                                                            <rect key="frame" x="217" y="100" width="81" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -652,8 +659,10 @@
                                                     </subviews>
                                                 </view>
                                                 <connections>
-                                                    <outlet property="productCategoryLabel" destination="OAH-pa-Zqs" id="vBr-LJ-MwE"/>
-                                                    <outlet property="productPriceLabel" destination="9b9-jP-Xqr" id="6DY-fI-iaU"/>
+                                                    <outlet property="productCategoryLabel" destination="OAH-pa-Zqs" id="40U-iC-Nfg"/>
+                                                    <outlet property="productImageView" destination="zne-yq-uTj" id="sOt-km-fX8"/>
+                                                    <outlet property="productPriceLabel" destination="2KH-oA-lCo" id="A69-rQ-6Te"/>
+                                                    <outlet property="productTitleLabel" destination="9b9-jP-Xqr" id="xJx-D2-aLd"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

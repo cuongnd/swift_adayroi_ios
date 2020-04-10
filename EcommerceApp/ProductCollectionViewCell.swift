@@ -17,14 +17,16 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productCategoryLabel: UILabel!
 
     func configureCell(product: Product) {
-        print("hello2332");
-       
+        productTitleLabel.text = product.productName
+        productCategoryLabel.text = product.productCategory
+        productPriceLabel.text=String(format:"%.1f", product.productPrice!)
     }
+  
     func configureCell1(product: Product) {
         if let url = product.productImageURL, let productImageView = productImageView {
             productImageView.kf.setImage(with: URL(string: url))
         }
-        productPriceLabel.text = String(format:"%.1f", product.productPrice!);
+        productPriceLabel.text = String(format:"%.1f", product.productPrice!)
         productTitleLabel.text = product.productName;
         productCategoryLabel.text = product.productCategory
     }
