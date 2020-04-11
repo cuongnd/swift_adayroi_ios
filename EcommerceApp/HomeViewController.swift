@@ -15,6 +15,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
     var products = Product.mockProducts()
+    var productsDiscount = Product.mockProducts()
     var categories = Category.mockCategories()
     fileprivate let photos = [
         "Dakota Johnson",
@@ -24,6 +25,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         "Dakota Johnson"
     ]
     
+    @IBOutlet weak var UICollectionViewProductDiscount: UICollectionView!
     @IBOutlet weak var UICollectionViewCategories: UICollectionView!
     var imgArr = [  UIImage(named:"Alexandra Daddario"),
                     UIImage(named:"Angelina Jolie") ,
@@ -152,13 +154,29 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        if(collectionView.tag==0)
+        {
+            return categories.count
+        }else if(collectionView.tag==1){
+            return productsDiscount.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCategories.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
-        cell.configureCell(category: categories[indexPath.row])
-        return cell
+        var cell_0:CategoryCollectionViewCell!
+        if(collectionView.tag==0)
+        {
+            cell_0 = UICollectionViewCategories.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
+            cell_0.configureCell(category: categories[indexPath.row])
+            return cell_0
+        }else if(collectionView.tag==1){
+            let cell_1 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
+            cell_1.configureCell(category: categories[indexPath.row])
+            return cell_1
+        }
+       
+        return cell_0
     }
     
     
