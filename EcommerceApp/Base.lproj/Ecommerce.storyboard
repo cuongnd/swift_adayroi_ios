@@ -636,8 +636,8 @@
                                                         <color key="textColor" red="1" green="0.46039691085323964" blue="0.28617917947961291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-4Z-MXy">
-                                                        <rect key="frame" x="0.0" y="138" width="375" height="170"/>
+                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-4Z-MXy">
+                                                        <rect key="frame" x="0.0" y="166" width="375" height="142"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-1B-xhe">
                                                                 <rect key="frame" x="0.0" y="-100" width="375" height="262"/>
