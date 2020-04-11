@@ -91,7 +91,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         UICollectionViewCategories.dataSource=self
-        
+        UICollectionViewProductDiscount.dataSource=self
         
         // Do any additional setup after loading the view.
     }
@@ -171,8 +171,8 @@ extension HomeViewController: UICollectionViewDataSource {
             cell_0.configureCell(category: categories[indexPath.row])
             return cell_0
         }else if(collectionView.tag==1){
-            let cell_1 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
-            cell_1.configureCell(category: categories[indexPath.row])
+            let cell_1 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! ProductCollectionViewCell
+            cell_1.configureCell(product: productsDiscount[indexPath.row])
             return cell_1
         }
        

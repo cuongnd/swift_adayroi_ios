@@ -748,7 +748,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="akJ-BS-YAd" customClass="ProductCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="akJ-BS-YAd" customClass="ProductCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="4" width="175" height="276"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -796,6 +796,10 @@
                                                                             <constraint firstItem="w2m-5I-oEL" firstAttribute="leading" secondItem="akJ-BS-YAd" secondAttribute="leading" id="bQK-qG-nSv"/>
                                                                             <constraint firstAttribute="trailing" secondItem="w2m-5I-oEL" secondAttribute="trailing" id="gE0-RD-4ud"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <outlet property="productImageView" destination="hyY-wv-05F" id="FIP-Kw-CLu"/>
+                                                                            <outlet property="productTitleLabel" destination="hcO-HM-nvX" id="Jpb-d9-dTT"/>
+                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
