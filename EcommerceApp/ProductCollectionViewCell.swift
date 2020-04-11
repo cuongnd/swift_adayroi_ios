@@ -21,6 +21,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productCategoryLabel.text = product.productCategory
         productPriceLabel.text=String(format:"%.1f", product.productPrice!)
     }
+    func show_discount_config_cell(product: Product) {
+        productTitleLabel.text = product.productName
+        if let url = product.productImageURL, let productImageView = productImageView {
+            productImageView.kf.setImage(with: URL(string: url))
+        }
+          productPriceLabel.text = String(format:"%.1f", product.productPrice!)
+    }
   
     func configureCell1(product: Product) {
         if let url = product.productImageURL, let productImageView = productImageView {

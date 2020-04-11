@@ -172,7 +172,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell_0
         }else if(collectionView.tag==1){
             let cell_1 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! ProductCollectionViewCell
-            cell_1.configureCell(product: productsDiscount[indexPath.row])
+            cell_1.show_discount_config_cell(product: productsDiscount[indexPath.row])
             return cell_1
         }
        
