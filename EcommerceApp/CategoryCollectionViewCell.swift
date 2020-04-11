@@ -11,11 +11,15 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var productImageView: UIImageView!
+    @IBOutlet var categoryImageView: UIImageView!
     @IBOutlet var categoryLabel: UILabel!
     
     func configureCell(category: Category) {
         categoryLabel.text = category.name
+        if let urlString = category.imageURL {
+            let imageURL = URL(string: urlString)
+            categoryImageView.kf.setImage(with: imageURL)
+        }
     }
     
    

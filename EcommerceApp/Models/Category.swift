@@ -23,7 +23,21 @@ class Category {
             Category(id: "1", name: "DRESSES", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-dresses-shopping-category.png"),
             Category(id: "2", name: "SUITS", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-suits-shopping-category.png"),
             Category(id: "3", name: "T-SHIRTS", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-t-shirts-shopping-category.png"),
-            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png")
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            Category(id: "4", name: "WINTER", imageUrl: "http://iosapptemplates.com/wp-content/uploads/2017/02/ios-ecommerce-app-winter-clothes-shopping-category.png"),
+            
+            
         ]
     }
 }

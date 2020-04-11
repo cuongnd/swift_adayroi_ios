@@ -625,75 +625,81 @@
                                                 <rect key="frame" x="0.0" y="228" width="375" height="308"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh mục sản phẩm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncV-a8-CFA">
-                                                        <rect key="frame" x="8" y="8" width="183" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="183" id="GoC-PS-9Xg"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="8" y="8" width="178" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xem tất cả" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m28-35-azn">
-                                                        <rect key="frame" x="272.66666666666669" y="8" width="92.333333333333314" height="24"/>
+                                                        <rect key="frame" x="273" y="8" width="92" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.46039691085323964" blue="0.28617917947961291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-1B-xhe">
-                                                        <rect key="frame" x="0.0" y="52" width="375" height="256"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-4Z-MXy">
+                                                        <rect key="frame" x="0.0" y="138" width="375" height="170"/>
+                                                        <subviews>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-1B-xhe">
+                                                                <rect key="frame" x="0.0" y="-100" width="375" height="262"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fOb-XU-BXY">
+                                                                    <size key="itemSize" width="111" height="100"/>
+                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                </collectionViewFlowLayout>
+                                                                <cells>
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="3F2-ne-GEt" customClass="CategoryCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="100"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="111" height="100"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <subviews>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Anne Hathaway" translatesAutoresizingMaskIntoConstraints="NO" id="ket-DM-auO">
+                                                                                    <rect key="frame" x="21" y="4" width="75" height="67"/>
+                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                            <real key="value" value="20"/>
+                                                                                        </userDefinedRuntimeAttribute>
+                                                                                    </userDefinedRuntimeAttributes>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExS-iM-2ka">
+                                                                                    <rect key="frame" x="41" y="79" width="35.333333333333329" height="17"/>
+                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </view>
+                                                                        <connections>
+                                                                            <outlet property="categoryImageView" destination="ket-DM-auO" id="qQv-Wd-wal"/>
+                                                                            <outlet property="categoryLabel" destination="ExS-iM-2ka" id="aSv-tO-K9i"/>
+                                                                        </connections>
+                                                                    </collectionViewCell>
+                                                                </cells>
+                                                            </collectionView>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="256" id="RQV-CY-sdU"/>
+                                                            <constraint firstAttribute="height" constant="170" id="7kG-Fr-vsA"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fOb-XU-BXY">
-                                                            <size key="itemSize" width="90" height="70"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="3F2-ne-GEt" customClass="CategoryCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Anne Hathaway" translatesAutoresizingMaskIntoConstraints="NO" id="ket-DM-auO">
-                                                                            <rect key="frame" x="17" y="1" width="57" height="49"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                    <real key="value" value="20"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExS-iM-2ka">
-                                                                            <rect key="frame" x="24" y="49" width="42" height="21"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </view>
-                                                                <connections>
-                                                                    <outlet property="categoryLabel" destination="ExS-iM-2ka" id="aSv-tO-K9i"/>
-                                                                    <outlet property="productImageView" destination="ket-DM-auO" id="pSc-8z-ROC"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
-                                                    </collectionView>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="yd5-1B-xhe" firstAttribute="leading" secondItem="BjI-wM-KXO" secondAttribute="leading" id="2al-QI-Dey"/>
+                                                    <constraint firstAttribute="trailing" secondItem="UUb-4Z-MXy" secondAttribute="trailing" id="82E-V5-McJ"/>
                                                     <constraint firstAttribute="height" constant="308" id="HQ1-xR-2o6"/>
+                                                    <constraint firstItem="m28-35-azn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BjI-wM-KXO" secondAttribute="leading" constant="20" symbolic="YES" id="HXQ-bt-dMo"/>
                                                     <constraint firstItem="ncV-a8-CFA" firstAttribute="top" secondItem="BjI-wM-KXO" secondAttribute="top" constant="8" id="I80-0U-7mE"/>
-                                                    <constraint firstItem="yd5-1B-xhe" firstAttribute="top" secondItem="ncV-a8-CFA" secondAttribute="bottom" constant="20" id="JrT-DW-LQO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="yd5-1B-xhe" secondAttribute="trailing" id="dwA-7Y-daZ"/>
                                                     <constraint firstItem="m28-35-azn" firstAttribute="top" secondItem="BjI-wM-KXO" secondAttribute="top" constant="8" id="jj1-Vm-ece"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ncV-a8-CFA" secondAttribute="trailing" constant="20" symbolic="YES" id="keJ-Sl-Lor"/>
                                                     <constraint firstAttribute="trailing" secondItem="m28-35-azn" secondAttribute="trailing" constant="10" id="maE-oH-AiX"/>
+                                                    <constraint firstItem="UUb-4Z-MXy" firstAttribute="leading" secondItem="BjI-wM-KXO" secondAttribute="leading" id="oVs-yk-CyY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UUb-4Z-MXy" secondAttribute="bottom" id="oqU-FY-BlJ"/>
                                                     <constraint firstItem="ncV-a8-CFA" firstAttribute="leading" secondItem="BjI-wM-KXO" secondAttribute="leading" constant="8" id="zFU-vx-fAb"/>
                                                 </constraints>
                                             </view>
