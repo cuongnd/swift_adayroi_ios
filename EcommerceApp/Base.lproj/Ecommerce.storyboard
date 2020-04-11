@@ -712,7 +712,7 @@
                                                     <constraint firstItem="ncV-a8-CFA" firstAttribute="leading" secondItem="BjI-wM-KXO" secondAttribute="leading" constant="8" id="zFU-vx-fAb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7U-Cx-z3X">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7U-Cx-z3X" userLabel="Product discount">
                                                 <rect key="frame" x="0.0" y="567" width="375" height="243"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtv-ly-iFz">
@@ -741,7 +741,7 @@
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dci-Zt-2Bt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="367" height="197"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T9F-Bx-VjU">
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T9F-Bx-VjU">
                                                                     <size key="itemSize" width="175" height="195"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -749,14 +749,14 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="akJ-BS-YAd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="195"/>
+                                                                        <rect key="frame" x="0.0" y="1" width="175" height="195"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="195"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w2m-5I-oEL">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="202"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="195"/>
                                                                                     <subviews>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyY-wv-05F">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="165"/>
