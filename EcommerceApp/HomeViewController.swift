@@ -14,7 +14,8 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
-    var products = Product.mockProducts();
+    var products = Product.mockProducts()
+    var categories = Category.mockCategories()
     fileprivate let photos = [
         "Dakota Johnson",
         "Dakota Johnson",
@@ -23,6 +24,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         "Dakota Johnson"
     ]
     
+    @IBOutlet weak var UICollectionViewCategories: UICollectionView!
     var imgArr = [  UIImage(named:"Alexandra Daddario"),
                     UIImage(named:"Angelina Jolie") ,
                     UIImage(named:"Anne Hathaway") ,
@@ -86,6 +88,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UICollectionViewCategories.dataSource=self
         
         
         // Do any additional setup after loading the view.
@@ -149,17 +152,12 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(collectionView.tag==0){
-            return imgArr.count;
-        }else if(collectionView.tag==1){
-            return photos.count;
-        }
-        return photos.count;
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = topSlideshowCollectionView.dequeueReusableCell(withReuseIdentifier:"ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
-        cell.configureCell(product: products[indexPath.row])
+        let cell = UICollectionViewCategories.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
+        cell.configureCell(category: categories[indexPath.row])
         return cell
     }
     
