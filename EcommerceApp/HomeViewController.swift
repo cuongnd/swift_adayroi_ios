@@ -86,16 +86,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource=self
-        topSlideshowCollectionView.dataSource=self
-        //slideShowCollectionView.dataSource=self
         
-        pageView.numberOfPages = imgArr.count
-        pageView.currentPage = 0
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-        }
-         self.DATA()
         
         // Do any additional setup after loading the view.
     }
