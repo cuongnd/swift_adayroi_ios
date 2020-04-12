@@ -63,6 +63,10 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         startTimer()
         self.get_slideshow_image()
         self.get_product_categories()
+        self.rest_api_get_products_discount()
+        self.rest_api_get_products_hot()
+        self.get_hot_product_categories()
+        self.rest_api_get_new_products()
         // Do any additional setup after loading the view.
     }
     func get_slideshow_image() {
@@ -106,6 +110,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         
         
     }
+    
     func get_product_categories() {
         let url = AppConfiguration.root_url+"api/categories/?start=0&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -147,7 +152,170 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         
         
     }
-    
+    func get_hot_product_categories() {
+        let url = AppConfiguration.root_url+"api/categories/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        print("now start load categories data")
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        self.hotProductCategories=[Category]()
+                        for current_category in my_json as! [[String: AnyObject]] {
+                            var category: Category
+                            category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
+                            self.hotProductCategories.append(category);
+                            
+                        }
+                        print("response categories")
+                        print(self.categories)
+                        self.UICollectionViewHotProductCategories.reloadData()
+                    } catch {
+                        print("load error slideshow")
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
+    func rest_api_get_products_discount() {
+        let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        print("now start load slideshow data")
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        self.productsDiscount=[Product]()
+                        for current_product in my_json as! [[String: AnyObject]] {
+                            var product: Product
+                            print((current_product["default_photo"]!["img_path"])!);
+                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.productsDiscount.append(product);
+                            
+                        }
+                        print("hello load data")
+                        self.UICollectionViewProductDiscount.reloadData()
+                    } catch {
+                        print("load error slideshow")
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
+    func rest_api_get_products_hot() {
+        let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        print("now start load slideshow data")
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        self.hotProducts=[Product]()
+                        for current_product in my_json as! [[String: AnyObject]] {
+                            var product: Product
+                            print((current_product["default_photo"]!["img_path"])!);
+                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.hotProducts.append(product);
+                            
+                        }
+                        print("hello load data")
+                        self.UICollectionViewHotProducts.reloadData()
+                    } catch {
+                        print("load error slideshow")
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
+    func rest_api_get_new_products() {
+        let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        print("now start load slideshow data")
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        self.newProducts=[Product]()
+                        for current_product in my_json as! [[String: AnyObject]] {
+                            var product: Product
+                            print((current_product["default_photo"]!["img_path"])!);
+                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.newProducts.append(product);
+                            
+                        }
+                        print("hello load data")
+                        self.UICollectionViewNewProducts.reloadData()
+                    } catch {
+                        print("load error slideshow")
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
     func DATA() {
         let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
