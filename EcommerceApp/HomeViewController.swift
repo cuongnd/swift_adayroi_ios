@@ -190,7 +190,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell_2
         }else if(collectionView.tag==3){
             let cell_3 = UICollectionViewHotProductCategories.dequeueReusableCell(withReuseIdentifier:"cell_hot_category", for: indexPath) as! CategoryCollectionViewCell
-            //cell_3.configureCell(category: hotProductCategories[indexPath.row])
+            cell_3.configureCell(category: hotProductCategories[indexPath.row])
             return cell_3
         }
        

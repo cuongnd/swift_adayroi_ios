@@ -1066,6 +1066,10 @@
                                                                             <constraint firstAttribute="trailing" secondItem="WZB-6C-RLG" secondAttribute="trailing" id="cDY-QG-fFc"/>
                                                                             <constraint firstAttribute="bottom" secondItem="WZB-6C-RLG" secondAttribute="bottom" id="lJ1-op-j45"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <outlet property="categoryImageView" destination="3cR-Pr-xRh" id="hJF-MA-3zi"/>
+                                                                            <outlet property="categoryLabel" destination="S47-RQ-RVY" id="hth-9e-lZu"/>
+                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
