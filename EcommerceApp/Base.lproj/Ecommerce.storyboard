@@ -1143,7 +1143,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" reuseIdentifier="cell" id="XZO-sP-7iG" customClass="ProductCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="center" reuseIdentifier="cell_new_products" id="XZO-sP-7iG" customClass="ProductCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.66666666666666663" width="175" height="276"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1303,6 +1303,7 @@
                         <outlet property="UICollectionViewCategories" destination="yd5-1B-xhe" id="735-Cp-CSg"/>
                         <outlet property="UICollectionViewHotProductCategories" destination="VFF-mz-2bU" id="9oL-JG-rZ7"/>
                         <outlet property="UICollectionViewHotProducts" destination="WFi-1u-QyG" id="2hG-da-aLg"/>
+                        <outlet property="UICollectionViewNewProducts" destination="4DE-7O-Qnd" id="Ng0-aS-bJh"/>
                         <outlet property="UICollectionViewProductDiscount" destination="dci-Zt-2Bt" id="FzF-Yv-w9a"/>
                     </connections>
                 </viewController>
