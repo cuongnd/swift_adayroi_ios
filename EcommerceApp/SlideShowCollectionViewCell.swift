@@ -11,19 +11,19 @@ import UIKit
 
 class SlideShowCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var categoryImageView: UIImageView!
-    @IBOutlet var slideshowLabel: UILabel!
+    @IBOutlet var productPriceLabel: UILabel!
+    @IBOutlet var productTitleLabel: UILabel!
+    @IBOutlet var productImageView: UIImageView!
     
-    func configureCell(category: Category) {
-        slideshowLabel.text = category.name
-        if let urlString = category.imageURL {
-            let imageURL = URL(string: urlString)
-            categoryImageView.kf.setImage(with: imageURL)
+    
+    func configureCell(product: Product) {
+        productTitleLabel.text = product.productName
+        productPriceLabel.text=String(format:"%.1f", product.productPrice!)
+        if let url = product.productImageURL, let productImageView = productImageView {
+            productImageView.kf.setImage(with: URL(string: url))
         }
     }
-    func configureCell1(category: Category) {
-        
-    }
+   
     
     
 }

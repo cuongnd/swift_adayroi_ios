@@ -15,6 +15,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
     var products = Product.mockProducts()
+    var slideshowProducts = Product.mockProducts()
     var productsDiscount = Product.mockProducts()
     var newProducts = Product.mockProducts()
     var hotProducts = Product.mockProducts()
@@ -168,9 +169,10 @@ extension HomeViewController: UICollectionViewDataSource {
             return hotProducts.count
         }else if(collectionView.tag==3){
             return hotProductCategories.count
-        }
-        else if(collectionView.tag==4){
+        }else if(collectionView.tag==4){
             return newProducts.count
+        }else if(collectionView.tag==5){
+            return slideshowProducts.count
         }
         return 0
     }
@@ -194,14 +196,14 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell_3 = UICollectionViewHotProductCategories.dequeueReusableCell(withReuseIdentifier:"cell_hot_category", for: indexPath) as! CategoryCollectionViewCell
             cell_3.configureCell(category: hotProductCategories[indexPath.row])
             return cell_3
-        }else if(collectionView.tag==3){
-            let cell_3 = UICollectionViewNewProducts.dequeueReusableCell(withReuseIdentifier:"cell_new_products", for: indexPath) as! ProductCollectionViewCell
-            cell_3.configureCell(product: newProducts[indexPath.row])
-            return cell_3
+        }else if(collectionView.tag==4){
+            let cell_4 = UICollectionViewNewProducts.dequeueReusableCell(withReuseIdentifier:"cell_new_products", for: indexPath) as! ProductCollectionViewCell
+            cell_4.configureCell(product: newProducts[indexPath.row])
+            return cell_4
         }else if(collectionView.tag==5){
-            let cell_3 = UICollectionViewNewProducts.dequeueReusableCell(withReuseIdentifier:"cell_new_products", for: indexPath) as! ProductCollectionViewCell
-            cell_3.configureCell(product: newProducts[indexPath.row])
-            return cell_3
+            let cell_5 = UICollectionViewNewProducts.dequeueReusableCell(withReuseIdentifier:"cell_slideshow", for: indexPath) as! SlideShowCollectionViewCell
+            cell_5.configureCell(product: slideshowProducts[indexPath.row])
+            return cell_5
         }
         
        
