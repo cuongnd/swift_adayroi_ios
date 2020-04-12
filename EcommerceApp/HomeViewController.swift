@@ -63,6 +63,46 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         startTimer()
         // Do any additional setup after loading the view.
     }
+    func get_slideshow_image() {
+        let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        self.slideshowProducts=[Product]()
+                        for current_product in my_json as! [[String: AnyObject]] {
+                            var product: Product
+                            print((current_product["default_photo"]!["img_path"])!);
+                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.slideshowProducts.append(product);
+                            
+                        }
+                        self.UICollectionViewSlideShow.reloadData()
+                    } catch {
+                        
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
     func DATA() {
         let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
