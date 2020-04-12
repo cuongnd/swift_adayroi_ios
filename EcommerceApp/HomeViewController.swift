@@ -46,8 +46,8 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                     UIImage(named:"Jessica Alba") ,
                     UIImage(named:"Scarlett Johansson") ]
     
-    var timer = Timer()
-    var counter = 0
+    var currentIndex = 0
+    var timer : Timer?
     @IBOutlet weak var pageView: UIPageControl!
   
     
@@ -59,7 +59,8 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         UICollectionViewHotProductCategories.dataSource=self
         UICollectionViewNewProducts.dataSource=self
         UICollectionViewSlideShow.dataSource=self
-       
+        pageView.numberOfPages = slideshowProducts.count
+        startTimer()
         // Do any additional setup after loading the view.
     }
     func DATA() {
@@ -104,29 +105,17 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         
     }
     
-    
-    
-    
-    @objc func changeImage() {
+    func startTimer(){
         
-        if counter < imgArr.count {
-            let index = IndexPath.init(item: counter, section: 0)
-            self.topSlideshowCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-            pageView.currentPage = counter
-            counter += 1
-        } else {
-            counter = 0
-            let index = IndexPath.init(item: counter, section: 0)
-            self.topSlideshowCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-            pageView.currentPage = counter
-            counter = 1
-        }
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    @objc func timerAction(){
         
+        let desiredScrollPosition = (currentIndex < slideshowProducts.count - 1) ? currentIndex + 1 : 0
+        UICollectionViewSlideShow.scrollToItem(at: IndexPath(item: desiredScrollPosition, section: 0), at: .centeredHorizontally, animated: true)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
     
 
 
@@ -231,6 +220,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        currentIndex = Int(scrollView.contentOffset.x / UICollectionViewSlideShow.frame.size.width)
+        pageView.currentPage = currentIndex
     }
 }
 

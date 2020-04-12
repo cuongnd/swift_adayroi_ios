@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EcommerceApp/HomeViewController.swift"
-            timestampString = "608380987.8215131"
+            timestampString = "608382075.996425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "HomeViewController"
             landmarkType = "3">
          </BreakpointContent>
