@@ -619,7 +619,22 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwS-r6-awp" userLabel="Sildeshow">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="229"/>
+                                                <subviews>
+                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-aE-yUY">
+                                                        <rect key="frame" x="0.0" y="40" width="375" height="189"/>
+                                                    </scrollView>
+                                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="HC8-fF-MQW">
+                                                        <rect key="frame" x="168" y="96" width="39" height="37"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </pageControl>
+                                                </subviews>
                                                 <color key="backgroundColor" red="1" green="0.76292492000829282" blue="0.3760311102128211" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="pnw-aE-yUY" firstAttribute="top" secondItem="SwS-r6-awp" secondAttribute="top" constant="40" id="3uS-bH-KvB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pnw-aE-yUY" secondAttribute="bottom" id="Ad0-xZ-gsD"/>
+                                                    <constraint firstItem="pnw-aE-yUY" firstAttribute="leading" secondItem="SwS-r6-awp" secondAttribute="leading" id="I52-M2-i7x"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pnw-aE-yUY" secondAttribute="trailing" id="faZ-TH-4YB"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-wM-KXO" userLabel="Categories">
                                                 <rect key="frame" x="0.0" y="228" width="375" height="308"/>
@@ -1305,6 +1320,8 @@
                         <outlet property="UICollectionViewHotProducts" destination="WFi-1u-QyG" id="2hG-da-aLg"/>
                         <outlet property="UICollectionViewNewProducts" destination="4DE-7O-Qnd" id="Ng0-aS-bJh"/>
                         <outlet property="UICollectionViewProductDiscount" destination="dci-Zt-2Bt" id="FzF-Yv-w9a"/>
+                        <outlet property="pageControl" destination="HC8-fF-MQW" id="xjk-DL-o9B"/>
+                        <outlet property="scrollView" destination="pnw-aE-yUY" id="NPU-6a-w0g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-Tr-lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
