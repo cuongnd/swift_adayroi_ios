@@ -15,8 +15,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet var categoryLabel: UILabel!
     
     func configureCell(category: Category) {
+        var urlString = category.imageURL!
         categoryLabel.text = category.name
-        if let urlString = category.imageURL {
+        if (!urlString.isEmpty) {
+            urlString="http://shopper1.softway.vn/uploads/"+urlString
             let imageURL = URL(string: urlString)
             categoryImageView.kf.setImage(with: imageURL)
         }
