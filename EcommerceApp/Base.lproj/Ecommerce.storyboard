@@ -608,14 +608,14 @@
                         <viewControllerLayoutGuide type="bottom" id="egS-da-Q3b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kOB-1r-iNf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="4000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D66-KG-Ece">
-                                <rect key="frame" x="0.0" y="44" width="375" height="3922"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="1422"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSa-SU-E9Z">
-                                        <rect key="frame" x="0.0" y="-44" width="375" height="4000"/>
+                                        <rect key="frame" x="0.0" y="-44" width="375" height="2041"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwS-r6-awp" userLabel="Sildeshow">
                                                 <rect key="frame" x="0.0" y="46" width="375" height="220"/>
@@ -725,12 +725,12 @@
                                                         </cells>
                                                     </collectionView>
                                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="o7E-LS-qpf">
-                                                        <rect key="frame" x="168" y="7591" width="39" height="37"/>
+                                                        <rect key="frame" x="168" y="1500" width="39" height="37"/>
                                                     </pageControl>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.76292492000829282" blue="0.3760311102128211" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="o7E-LS-qpf" firstAttribute="top" secondItem="SwS-r6-awp" secondAttribute="top" constant="7591" id="Hgl-te-Bxg"/>
+                                                    <constraint firstItem="o7E-LS-qpf" firstAttribute="top" secondItem="SwS-r6-awp" secondAttribute="top" constant="1500" id="Hgl-te-Bxg"/>
                                                     <constraint firstAttribute="trailing" secondItem="DzB-dq-a2n" secondAttribute="trailing" id="J7a-rs-X0L"/>
                                                     <constraint firstItem="DzB-dq-a2n" firstAttribute="top" secondItem="SwS-r6-awp" secondAttribute="top" constant="34" id="JBZ-ni-wdO"/>
                                                     <constraint firstAttribute="trailing" secondItem="52o-6v-afg" secondAttribute="trailing" id="YPM-T3-jSJ"/>
@@ -1375,15 +1375,15 @@
                                             <constraint firstAttribute="trailing" secondItem="BjI-wM-KXO" secondAttribute="trailing" id="IQp-bR-a5L"/>
                                             <constraint firstItem="c7U-Cx-z3X" firstAttribute="leading" secondItem="jSa-SU-E9Z" secondAttribute="leading" id="NwI-BN-jOU"/>
                                             <constraint firstItem="BjI-wM-KXO" firstAttribute="top" secondItem="jSa-SU-E9Z" secondAttribute="top" constant="263" id="V9Y-po-OiU"/>
-                                            <constraint firstAttribute="height" constant="4000" id="WKc-lS-wex"/>
+                                            <constraint firstAttribute="height" constant="2041" id="WKc-lS-wex"/>
                                             <constraint firstItem="f5p-Fv-lhE" firstAttribute="top" secondItem="uOp-3d-Eye" secondAttribute="bottom" constant="10" id="X0t-Xt-Upe"/>
                                             <constraint firstItem="f5p-Fv-lhE" firstAttribute="top" secondItem="uOp-3d-Eye" secondAttribute="bottom" constant="10" id="XFm-M5-QeN"/>
                                             <constraint firstItem="SwS-r6-awp" firstAttribute="top" secondItem="jSa-SU-E9Z" secondAttribute="top" constant="46" id="XJ5-ug-0yw"/>
                                             <constraint firstItem="SwS-r6-awp" firstAttribute="leading" secondItem="c7U-Cx-z3X" secondAttribute="leading" id="Y26-ic-msc"/>
-                                            <constraint firstAttribute="bottom" secondItem="uOp-3d-Eye" secondAttribute="bottom" constant="2756" id="YUH-1i-KRB"/>
+                                            <constraint firstAttribute="bottom" secondItem="uOp-3d-Eye" secondAttribute="bottom" constant="797" id="YUH-1i-KRB"/>
                                             <constraint firstItem="adN-np-dfa" firstAttribute="leading" secondItem="jSa-SU-E9Z" secondAttribute="leading" id="buz-1e-gud"/>
                                             <constraint firstItem="BjI-wM-KXO" firstAttribute="leading" secondItem="jSa-SU-E9Z" secondAttribute="leading" id="byg-dc-MOW"/>
-                                            <constraint firstAttribute="bottom" secondItem="c7U-Cx-z3X" secondAttribute="bottom" constant="3081" id="hSR-WT-zky"/>
+                                            <constraint firstAttribute="bottom" secondItem="c7U-Cx-z3X" secondAttribute="bottom" constant="1122" id="hSR-WT-zky"/>
                                             <constraint firstItem="SwS-r6-awp" firstAttribute="trailing" secondItem="uOp-3d-Eye" secondAttribute="trailing" id="lW9-CI-TLg"/>
                                             <constraint firstItem="c7U-Cx-z3X" firstAttribute="top" secondItem="BjI-wM-KXO" secondAttribute="bottom" constant="31" id="rfi-kd-XMf"/>
                                             <constraint firstItem="uOp-3d-Eye" firstAttribute="leading" secondItem="jSa-SU-E9Z" secondAttribute="leading" id="wSV-pi-alf"/>
@@ -1397,7 +1397,7 @@
                                 <constraints>
                                     <constraint firstItem="jSa-SU-E9Z" firstAttribute="top" secondItem="D66-KG-Ece" secondAttribute="top" constant="-44" id="Iqj-wQ-qGs"/>
                                     <constraint firstAttribute="trailing" secondItem="jSa-SU-E9Z" secondAttribute="trailing" id="cFa-KG-jbn"/>
-                                    <constraint firstAttribute="bottom" secondItem="jSa-SU-E9Z" secondAttribute="bottom" constant="-34" id="mCL-4i-wPN"/>
+                                    <constraint firstAttribute="bottom" secondItem="jSa-SU-E9Z" secondAttribute="bottom" id="mCL-4i-wPN"/>
                                     <constraint firstItem="jSa-SU-E9Z" firstAttribute="centerX" secondItem="D66-KG-Ece" secondAttribute="centerX" id="rP1-Iq-Ye4"/>
                                     <constraint firstItem="jSa-SU-E9Z" firstAttribute="leading" secondItem="D66-KG-Ece" secondAttribute="leading" id="s2V-Wa-Dar"/>
                                 </constraints>
@@ -1411,7 +1411,7 @@
                             <constraint firstAttribute="trailing" secondItem="D66-KG-Ece" secondAttribute="trailing" id="yrY-Wk-tIh"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="4000"/>
+                    <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="UICollectionViewCategories" destination="yd5-1B-xhe" id="735-Cp-CSg"/>
                         <outlet property="UICollectionViewHotProductCategories" destination="VFF-mz-2bU" id="9oL-JG-rZ7"/>
@@ -1424,7 +1424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-Tr-lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4812" y="1217.7339901477833"/>
+            <point key="canvasLocation" x="4786" y="290"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="c4x-re-CR7">
