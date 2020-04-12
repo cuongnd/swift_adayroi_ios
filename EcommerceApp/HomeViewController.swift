@@ -16,6 +16,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
     var products = Product.mockProducts()
     var productsDiscount = Product.mockProducts()
+    var hotProducts = Product.mockProducts()
     var categories = Category.mockCategories()
     fileprivate let photos = [
         "Dakota Johnson",
@@ -27,6 +28,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     @IBOutlet weak var UICollectionViewProductDiscount: UICollectionView!
     @IBOutlet weak var UICollectionViewCategories: UICollectionView!
+    @IBOutlet weak var UICollectionViewHotProducts: UICollectionView!
     var imgArr = [  UIImage(named:"Alexandra Daddario"),
                     UIImage(named:"Angelina Jolie") ,
                     UIImage(named:"Anne Hathaway") ,
@@ -92,6 +94,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         super.viewDidLoad()
         UICollectionViewCategories.dataSource=self
         UICollectionViewProductDiscount.dataSource=self
+        UICollectionViewHotProducts.dataSource=self
         
         // Do any additional setup after loading the view.
     }
@@ -160,6 +163,9 @@ extension HomeViewController: UICollectionViewDataSource {
         }else if(collectionView.tag==1){
             return productsDiscount.count
         }
+        else if(collectionView.tag==2){
+            return hotProducts.count
+        }
         return 0
     }
     
@@ -174,6 +180,10 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell_1 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! ProductCollectionViewCell
             cell_1.show_discount_config_cell(product: productsDiscount[indexPath.row])
             return cell_1
+        }else if(collectionView.tag==2){
+            let cell_2 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! ProductCollectionViewCell
+            cell_2.show_discount_config_cell(product: productsDiscount[indexPath.row])
+            return cell_2
         }
        
         return cell_0
