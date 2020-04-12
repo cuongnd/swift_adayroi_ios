@@ -201,7 +201,8 @@ extension HomeViewController: UICollectionViewDataSource {
             cell_4.configureCell(product: newProducts[indexPath.row])
             return cell_4
         }else if(collectionView.tag==5){
-            let cell_5 = UICollectionViewNewProducts.dequeueReusableCell(withReuseIdentifier:"cell_slideshow", for: indexPath) as! SlideShowCollectionViewCell
+            print("hello view cell 5")
+            let cell_5 = UICollectionViewSlideShow.dequeueReusableCell(withReuseIdentifier:"cell_slideshow", for: indexPath) as! SlideShowCollectionViewCell
             cell_5.configureCell(product: slideshowProducts[indexPath.row])
             return cell_5
         }
