@@ -189,9 +189,9 @@ extension HomeViewController: UICollectionViewDataSource {
             cell_2.show_discount_config_cell(product: productsDiscount[indexPath.row])
             return cell_2
         }else if(collectionView.tag==3){
-            let cell_2 = UICollectionViewHotProductCategories.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
-            cell_2.configureCell1(category: hotProductCategories[indexPath.row])
-            return cell_2
+            let cell_3 = UICollectionViewHotProductCategories.dequeueReusableCell(withReuseIdentifier:"cell_hot_category", for: indexPath) as! CategoryCollectionViewCell
+            //cell_3.configureCell(category: hotProductCategories[indexPath.row])
+            return cell_3
         }
        
         return cell_0
