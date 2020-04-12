@@ -626,8 +626,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Xem tất cả" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m28-35-azn">
-                                                        <rect key="frame" x="241" y="8" width="124" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xem tất cả" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m28-35-azn">
+                                                        <rect key="frame" x="272.66666666666669" y="8" width="92.333333333333314" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.46039691085323964" blue="0.28617917947961291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1325,8 +1325,8 @@
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-pC-yEN">
-                                                                                    <rect key="frame" x="8" y="45.000000000000142" width="42" height="21"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-pC-yEN">
+                                                                                    <rect key="frame" x="8" y="45" width="42" height="21"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <nil key="highlightedColor"/>
@@ -1339,7 +1339,7 @@
                                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Yz-pC-yEN" secondAttribute="trailing" constant="20" symbolic="YES" id="Gu6-Gq-Epq"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="LMg-3U-BGx" secondAttribute="trailing" id="ORe-qj-bVQ"/>
                                                                                 <constraint firstItem="LMg-3U-BGx" firstAttribute="leading" secondItem="sYa-ta-Lvs" secondAttribute="leading" constant="8" id="YLH-Oe-ZAc"/>
-                                                                                <constraint firstItem="2Yz-pC-yEN" firstAttribute="top" secondItem="LMg-3U-BGx" secondAttribute="bottom" constant="24" id="gge-JI-20r"/>
+                                                                                <constraint firstItem="2Yz-pC-yEN" firstAttribute="top" secondItem="LMg-3U-BGx" secondAttribute="bottom" constant="1.0000000000001421" id="gge-JI-20r"/>
                                                                                 <constraint firstAttribute="height" constant="100" id="uVg-T6-w81"/>
                                                                             </constraints>
                                                                         </view>
