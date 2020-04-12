@@ -21,6 +21,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             categoryImageView.kf.setImage(with: imageURL)
         }
     }
+    func configureCell1(category: Category) {
+        
+    }
     
    
 }

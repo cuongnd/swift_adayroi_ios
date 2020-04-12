@@ -685,8 +685,8 @@
                                                                             <constraint firstAttribute="bottomMargin" secondItem="ExS-iM-2ka" secondAttribute="bottom" constant="-30" id="snF-4t-fPW"/>
                                                                         </constraints>
                                                                         <connections>
-                                                                            <outlet property="categoryImageView" destination="ket-DM-auO" id="qQv-Wd-wal"/>
-                                                                            <outlet property="categoryLabel" destination="ExS-iM-2ka" id="aSv-tO-K9i"/>
+                                                                            <outlet property="categoryImageView" destination="ket-DM-auO" id="hh6-zw-ZAS"/>
+                                                                            <outlet property="categoryLabel" destination="ExS-iM-2ka" id="NTM-lS-ONM"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -1019,7 +1019,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="A6R-00-DYl">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="center" reuseIdentifier="cell" id="A6R-00-DYl" customClass="CategoryCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1066,6 +1066,10 @@
                                                                             <constraint firstAttribute="trailing" secondItem="WZB-6C-RLG" secondAttribute="trailing" id="cDY-QG-fFc"/>
                                                                             <constraint firstAttribute="bottom" secondItem="WZB-6C-RLG" secondAttribute="bottom" id="lJ1-op-j45"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <outlet property="categoryImageView" destination="3cR-Pr-xRh" id="wXw-nv-VXn"/>
+                                                                            <outlet property="categoryLabel" destination="S47-RQ-RVY" id="kum-e3-0Ul"/>
+                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
@@ -1153,6 +1157,7 @@
                     <size key="freeformSize" width="375" height="4000"/>
                     <connections>
                         <outlet property="UICollectionViewCategories" destination="yd5-1B-xhe" id="735-Cp-CSg"/>
+                        <outlet property="UICollectionViewHotProductCategories" destination="VFF-mz-2bU" id="9oL-JG-rZ7"/>
                         <outlet property="UICollectionViewHotProducts" destination="WFi-1u-QyG" id="2hG-da-aLg"/>
                         <outlet property="UICollectionViewProductDiscount" destination="dci-Zt-2Bt" id="FzF-Yv-w9a"/>
                     </connections>
