@@ -984,7 +984,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5p-Fv-lhE" userLabel="Hot Product Categories">
-                                                <rect key="frame" x="0.0" y="1219" width="375" height="542"/>
+                                                <rect key="frame" x="0.0" y="1219" width="375" height="472"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVA-Rl-Ve7">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
@@ -1007,10 +1007,10 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s6-B7-tkG">
-                                                        <rect key="frame" x="0.0" y="38" width="375" height="504"/>
+                                                        <rect key="frame" x="0.0" y="38" width="375" height="427"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VFF-mz-2bU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VFF-mz-2bU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="435"/>
                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="REG-Cw-LaL">
                                                                     <size key="itemSize" width="175" height="203"/>
@@ -1035,15 +1035,19 @@
                                                                                         <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmZ-fV-LRw">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S47-RQ-RVY">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S47-RQ-RVY">
                                                                                                     <rect key="frame" x="22" y="91" width="130" height="21"/>
-                                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                             </subviews>
                                                                                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstItem="S47-RQ-RVY" firstAttribute="centerY" secondItem="SmZ-fV-LRw" secondAttribute="centerY" id="1WM-Qu-TJ5"/>
+                                                                                                <constraint firstItem="S47-RQ-RVY" firstAttribute="centerX" secondItem="SmZ-fV-LRw" secondAttribute="centerX" id="UQj-CH-xT8"/>
+                                                                                                <constraint firstItem="S47-RQ-RVY" firstAttribute="leading" secondItem="SmZ-fV-LRw" secondAttribute="leading" constant="22" id="yYv-dv-4jW"/>
+                                                                                            </constraints>
                                                                                         </view>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1079,7 +1083,7 @@
                                                             <constraint firstItem="VFF-mz-2bU" firstAttribute="top" secondItem="2s6-B7-tkG" secondAttribute="top" id="7bs-11-Dh1"/>
                                                             <constraint firstItem="VFF-mz-2bU" firstAttribute="leading" secondItem="2s6-B7-tkG" secondAttribute="leading" id="9e0-Nx-BaU"/>
                                                             <constraint firstAttribute="trailing" secondItem="VFF-mz-2bU" secondAttribute="trailing" id="HQi-Mw-Ddz"/>
-                                                            <constraint firstAttribute="bottom" secondItem="VFF-mz-2bU" secondAttribute="bottom" id="KD3-Yr-vQ4"/>
+                                                            <constraint firstAttribute="bottom" secondItem="VFF-mz-2bU" secondAttribute="bottom" constant="-77" id="KD3-Yr-vQ4"/>
                                                             <constraint firstItem="VFF-mz-2bU" firstAttribute="top" secondItem="2s6-B7-tkG" secondAttribute="top" id="MrV-8Y-JKE"/>
                                                             <constraint firstAttribute="trailing" secondItem="VFF-mz-2bU" secondAttribute="trailing" id="deG-zD-nN5"/>
                                                             <constraint firstItem="VFF-mz-2bU" firstAttribute="leading" secondItem="2s6-B7-tkG" secondAttribute="leading" id="hhX-vy-D0I"/>
@@ -1088,16 +1092,16 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="2s6-B7-tkG" secondAttribute="bottom" constant="7" id="Bd5-DS-TYH"/>
                                                     <constraint firstAttribute="trailing" secondItem="pVA-Rl-Ve7" secondAttribute="trailing" id="GNJ-tO-ceo"/>
                                                     <constraint firstItem="2s6-B7-tkG" firstAttribute="leading" secondItem="f5p-Fv-lhE" secondAttribute="leading" id="Hmw-ck-uZY"/>
                                                     <constraint firstAttribute="trailing" secondItem="2s6-B7-tkG" secondAttribute="trailing" id="XJZ-ju-dqF"/>
                                                     <constraint firstItem="2s6-B7-tkG" firstAttribute="top" secondItem="pVA-Rl-Ve7" secondAttribute="bottom" id="aDx-6Y-yu8"/>
                                                     <constraint firstItem="pVA-Rl-Ve7" firstAttribute="leading" secondItem="f5p-Fv-lhE" secondAttribute="leading" id="aoh-A3-7sH"/>
-                                                    <constraint firstAttribute="bottom" secondItem="2s6-B7-tkG" secondAttribute="bottom" id="cAT-Ck-him"/>
                                                     <constraint firstItem="2s6-B7-tkG" firstAttribute="leading" secondItem="f5p-Fv-lhE" secondAttribute="leading" id="d7n-c2-508"/>
                                                     <constraint firstAttribute="trailing" secondItem="2s6-B7-tkG" secondAttribute="trailing" id="dyR-vI-kMO"/>
                                                     <constraint firstAttribute="trailing" secondItem="2s6-B7-tkG" secondAttribute="trailing" id="gFv-rf-ioU"/>
-                                                    <constraint firstAttribute="height" constant="542" id="lpz-tv-vUI"/>
+                                                    <constraint firstAttribute="height" constant="472" id="lpz-tv-vUI"/>
                                                     <constraint firstItem="2s6-B7-tkG" firstAttribute="top" secondItem="pVA-Rl-Ve7" secondAttribute="bottom" id="uay-Pw-5jO"/>
                                                     <constraint firstItem="2s6-B7-tkG" firstAttribute="top" secondItem="f5p-Fv-lhE" secondAttribute="top" constant="38" id="yDQ-hA-gvD"/>
                                                     <constraint firstItem="pVA-Rl-Ve7" firstAttribute="top" secondItem="f5p-Fv-lhE" secondAttribute="top" id="yWi-nR-uPy"/>
