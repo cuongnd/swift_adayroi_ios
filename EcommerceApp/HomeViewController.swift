@@ -120,13 +120,14 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                         let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                         self.categories=[Category]()
                         for current_category in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            category = Category(id: current_product["id"] as! String,name: current_category["productTitle"] as! String, imageUrl: current_category["default_photo"]!["img_path"] as! String,price: current_category["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            var category: Category
+                            category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
                             self.categories.append(category);
                             
                         }
-                        print("hello load data")
-                        self.UICollectionViewSlideShow.reloadData()
+                        print("response categories")
+                        print(self.categories)
+                        self.UICollectionViewCategories.reloadData()
                     } catch {
                         print("load error slideshow")
                     }
