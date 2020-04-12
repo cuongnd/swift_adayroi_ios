@@ -15,7 +15,6 @@ class SlideShowCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productTitleLabel: UILabel!
     @IBOutlet var productImageView: UIImageView!
     
-    
     func configureCell(product: Product) {
         productTitleLabel.text = product.productName
         productPriceLabel.text=String(format:"%.1f", product.productPrice!)
@@ -23,9 +22,6 @@ class SlideShowCollectionViewCell: UICollectionViewCell {
             productImageView.kf.setImage(with: URL(string: url))
         }
     }
-   
-    
     
 }
-
 
