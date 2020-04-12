@@ -61,12 +61,14 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         UICollectionViewSlideShow.dataSource=self
         pageView.numberOfPages = slideshowProducts.count
         startTimer()
+        self.get_slideshow_image()
+        self.get_product_categories()
         // Do any additional setup after loading the view.
     }
     func get_slideshow_image() {
         let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
-        
+        print("now start load slideshow data")
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             if (error != nil) {
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
@@ -83,9 +85,10 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                             self.slideshowProducts.append(product);
                             
                         }
+                        print("hello load data")
                         self.UICollectionViewSlideShow.reloadData()
                     } catch {
-                        
+                        print("load error slideshow")
                     }
                 }
             }
@@ -103,6 +106,47 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         
         
     }
+    func get_product_categories() {
+        let url = AppConfiguration.root_url+"api/categories/?start=0&limit=20"
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        print("now start load categories data")
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        self.categories=[Category]()
+                        for current_category in my_json as! [[String: AnyObject]] {
+                            var product: Product
+                            category = Category(id: current_product["id"] as! String,name: current_category["productTitle"] as! String, imageUrl: current_category["default_photo"]!["img_path"] as! String,price: current_category["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.categories.append(category);
+                            
+                        }
+                        print("hello load data")
+                        self.UICollectionViewSlideShow.reloadData()
+                    } catch {
+                        print("load error slideshow")
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
+    
     func DATA() {
         let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
