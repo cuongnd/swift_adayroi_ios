@@ -655,9 +655,8 @@
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-pC-yEN">
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-pC-yEN">
                                                                                             <rect key="frame" x="8" y="68" width="42" height="21"/>
-                                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                             <nil key="highlightedColor"/>
@@ -666,8 +665,11 @@
                                                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                     <constraints>
                                                                                         <constraint firstItem="LMg-3U-BGx" firstAttribute="top" secondItem="sYa-ta-Lvs" secondAttribute="top" constant="5" id="Ceg-eg-p6n"/>
+                                                                                        <constraint firstItem="2Yz-pC-yEN" firstAttribute="leading" secondItem="LMg-3U-BGx" secondAttribute="leading" id="DZe-v0-TId"/>
+                                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Yz-pC-yEN" secondAttribute="trailing" constant="20" symbolic="YES" id="Gu6-Gq-Epq"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="LMg-3U-BGx" secondAttribute="trailing" id="ORe-qj-bVQ"/>
                                                                                         <constraint firstItem="LMg-3U-BGx" firstAttribute="leading" secondItem="sYa-ta-Lvs" secondAttribute="leading" constant="8" id="YLH-Oe-ZAc"/>
+                                                                                        <constraint firstItem="2Yz-pC-yEN" firstAttribute="top" secondItem="LMg-3U-BGx" secondAttribute="bottom" constant="24" id="gge-JI-20r"/>
                                                                                         <constraint firstAttribute="height" constant="107" id="uVg-T6-w81"/>
                                                                                     </constraints>
                                                                                 </view>
@@ -699,13 +701,18 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
+                                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="o7E-LS-qpf">
+                                                        <rect key="frame" x="168" y="182" width="39" height="37"/>
+                                                    </pageControl>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.76292492000829282" blue="0.3760311102128211" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="o7E-LS-qpf" secondAttribute="bottom" constant="10" id="9Tn-R5-Hca"/>
                                                     <constraint firstItem="DzB-dq-a2n" firstAttribute="top" secondItem="SwS-r6-awp" secondAttribute="top" id="AYU-pA-5c2"/>
                                                     <constraint firstAttribute="trailing" secondItem="DzB-dq-a2n" secondAttribute="trailing" id="J7a-rs-X0L"/>
                                                     <constraint firstAttribute="bottom" secondItem="DzB-dq-a2n" secondAttribute="bottom" id="aQH-Xj-PYw"/>
                                                     <constraint firstItem="DzB-dq-a2n" firstAttribute="leading" secondItem="SwS-r6-awp" secondAttribute="leading" id="fIv-lh-cGV"/>
+                                                    <constraint firstItem="o7E-LS-qpf" firstAttribute="centerX" secondItem="DzB-dq-a2n" secondAttribute="centerX" id="z5c-5N-Xxt"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-wM-KXO" userLabel="Categories">
