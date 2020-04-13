@@ -10,7 +10,7 @@ import Material
 import UIKit
 private let reuseIdentifier = "SubCategoriesViewCell"
 
-class SubCategoriesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SubCategoriesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var products = [Product]();
     var data1 = [[String: AnyObject]]()
