@@ -17,8 +17,8 @@ class StoryboardEntityProvider {
         vc.products = Product.mockProducts()
         return vc
     }
-    func ecommerceSubCategoriesVC() -> SubCategoriesCollectionViewController {
-        let vc = ecommerceStoryboard.instantiateViewController(withIdentifier: "SubCategoriesCollectionViewController") as! SubCategoriesCollectionViewController
+    func ecommerceSubCategoriesVC() -> SubCategoriesViewController {
+        let vc = ecommerceStoryboard.instantiateViewController(withIdentifier: "SubCategoriesViewController") as! SubCategoriesViewController
         return vc
     }
 

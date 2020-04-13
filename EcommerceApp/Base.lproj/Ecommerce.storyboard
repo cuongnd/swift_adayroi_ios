@@ -1443,97 +1443,63 @@
             </objects>
             <point key="canvasLocation" x="105" y="-51"/>
         </scene>
-        <!--Sub Categories Collection View Controller-->
-        <scene sceneID="KEJ-40-Ols">
+        <!--Sub Categories View Controller-->
+        <scene sceneID="L93-Eh-Epb">
             <objects>
-                <collectionViewController storyboardIdentifier="SubCategoriesCollectionViewController" id="BAz-1Q-IhQ" customClass="SubCategoriesCollectionViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="VrE-gv-tgc">
+                <viewController storyboardIdentifier="SubCategoriesViewController" id="EQW-H7-G91" customClass="SubCategoriesViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4dx-7R-YXI"/>
+                        <viewControllerLayoutGuide type="bottom" id="OwJ-db-yBo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Xg-bP-keQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="WCL-fe-Ncl">
-                            <size key="itemSize" width="142" height="216"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SubcategoriesViewCell" id="aja-EI-RzJ" customClass="ProductCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
-                                <rect key="frame" x="10" y="5" width="142" height="216"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H1Q-o9-cdj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="142" height="216"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o3M-6N-lGc">
-                                            <rect key="frame" x="0.0" y="44" width="142" height="151"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Skull with snake" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-VD-Cki">
-                                            <rect key="frame" x="10" y="177" width="124" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="19.5" id="7J7-zi-kRM"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="$45" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtM-RD-0oS">
-                                            <rect key="frame" x="83" y="226" width="38" height="15"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
-                                            <color key="textColor" red="0.074509803920000006" green="0.32156862749999998" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-Shirt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIJ-L1-Bbj">
-                                            <rect key="frame" x="23" y="226" width="36" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="wTw-ej-eYf"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
-                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </view>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="o3M-6N-lGc" firstAttribute="top" secondItem="aja-EI-RzJ" secondAttribute="topMargin" id="2vZ-AE-Wjw"/>
-                                    <constraint firstItem="o3M-6N-lGc" firstAttribute="height" secondItem="aja-EI-RzJ" secondAttribute="height" multiplier="0.7" id="992-Vj-cYH"/>
-                                    <constraint firstItem="WWh-VD-Cki" firstAttribute="leading" secondItem="aja-EI-RzJ" secondAttribute="leadingMargin" constant="7" id="EaZ-2E-Zk7"/>
-                                    <constraint firstItem="IIJ-L1-Bbj" firstAttribute="leading" secondItem="aja-EI-RzJ" secondAttribute="leadingMargin" constant="7" id="Qhn-G9-cZ8"/>
-                                    <constraint firstItem="XtM-RD-0oS" firstAttribute="top" secondItem="WWh-VD-Cki" secondAttribute="bottom" constant="5" id="Uxc-h0-lTu"/>
-                                    <constraint firstItem="o3M-6N-lGc" firstAttribute="width" secondItem="aja-EI-RzJ" secondAttribute="width" id="Vuh-DV-Ch1"/>
-                                    <constraint firstItem="XtM-RD-0oS" firstAttribute="leading" secondItem="IIJ-L1-Bbj" secondAttribute="trailing" constant="24.5" id="gd2-kf-3rE"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="WWh-VD-Cki" secondAttribute="trailing" constant="-8" id="hdW-qB-d6X"/>
-                                    <constraint firstItem="o3M-6N-lGc" firstAttribute="centerX" secondItem="aja-EI-RzJ" secondAttribute="centerX" id="mhh-SQ-Qax"/>
-                                    <constraint firstItem="WWh-VD-Cki" firstAttribute="top" secondItem="o3M-6N-lGc" secondAttribute="bottom" constant="6" id="t0e-Wy-pZG"/>
-                                    <constraint firstItem="IIJ-L1-Bbj" firstAttribute="top" secondItem="WWh-VD-Cki" secondAttribute="bottom" constant="5" id="wuk-IM-tPh"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="XtM-RD-0oS" secondAttribute="trailing" constant="5" id="zBb-UN-IEs"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="productCategoryLabel" destination="IIJ-L1-Bbj" id="PPU-7L-Nf4"/>
-                                    <outlet property="productImageView" destination="o3M-6N-lGc" id="1tF-OB-Pov"/>
-                                    <outlet property="productPriceLabel" destination="XtM-RD-0oS" id="jpx-cA-J9a"/>
-                                    <outlet property="productTitleLabel" destination="WWh-VD-Cki" id="Io6-bL-2Qd"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="BAz-1Q-IhQ" id="nf1-X7-fqR"/>
-                            <outlet property="delegate" destination="BAz-1Q-IhQ" id="N4d-5U-jLX"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="41l-0c-6cd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="row_sub_category" textLabel="ru4-or-Zej" detailTextLabel="BL9-eN-I7g" style="IBUITableViewCellStyleValue1" id="GiF-y8-EyQ" customClass="SubCategoryTableViewCell" customModule="EcommerceApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiF-y8-EyQ" id="SPg-D3-l3q">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ru4-or-Zej">
+                                                    <rect key="frame" x="15" y="11.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BL9-eN-I7g">
+                                                    <rect key="frame" x="316" y="11.999999999999998" width="44" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="subCategoryLabel" destination="ru4-or-Zej" id="a4h-2s-Lex"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="UITableViewSubCategory" destination="H1Q-o9-cdj" id="MdT-Rb-dXR"/>
+                        <outletCollection property="UITableViewSubCategory" destination="H1Q-o9-cdj" collectionClass="NSMutableArray" id="y1D-R3-Djl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3PC-Oi-D2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5484" y="41"/>
+            <point key="canvasLocation" x="5525.6000000000004" y="40.64039408866995"/>
         </scene>
     </scenes>
     <resources>

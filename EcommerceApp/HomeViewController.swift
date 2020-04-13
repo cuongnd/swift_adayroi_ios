@@ -476,7 +476,7 @@ extension HomeViewController: UICollectionViewDelegate {
         {
              print("hello subCategoriesVC")
             var subCategoriesVC = StoryboardEntityProvider().ecommerceSubCategoriesVC()
-            subCategoriesVC.category_id = categories[indexPath.row].id
+            subCategoriesVC.category = categories[indexPath.row]
            
             self.navigationController?.pushViewController(subCategoriesVC, animated: true)
         }else if(collectionView.tag==1){
