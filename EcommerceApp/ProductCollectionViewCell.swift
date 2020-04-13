@@ -15,7 +15,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productTitleLabel: UILabel!
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var productCategoryLabel: UILabel!
-
+   
     func configureCell(product: Product) {
         productTitleLabel.text = product.productName
         productPriceLabel.text=String(format:"%.1f", product.productPrice!)

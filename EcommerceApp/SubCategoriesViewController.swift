@@ -16,6 +16,7 @@ class SubCategoriesViewController: UIViewController {
    override func viewDidLoad() {
         super.viewDidLoad()
     UITableViewSubCategory.dataSource=self
+    UITableViewSubCategory.delegate=self
     self.rest_api_get_sub_category()
     }
     
@@ -83,10 +84,17 @@ extension SubCategoriesViewController: UITableViewDataSource {
     
     
     
+    
    
     
     
 }
-
+extension SubCategoriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var productsVC = StoryboardEntityProvider().ecommerceProductCollectionVC()
+        productsVC.sub_category = sub_category[indexPath.row]
+        self.navigationController?.pushViewController(productsVC, animated: true)
+    }
+}
 
 

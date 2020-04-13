@@ -13,6 +13,7 @@ private let reuseIdentifier = "ProductCollectionViewCell"
 class ProductCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var products = [Product]();
+     var sub_category:Subcategory?
     var data1 = [[String: AnyObject]]()
     var page: Int = 0
     var isPageRefreshing:Bool = false
