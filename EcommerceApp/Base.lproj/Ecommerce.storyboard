@@ -794,32 +794,32 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExS-iM-2ka">
-                                                                                    <rect key="frame" x="52" y="102" width="35" height="17"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="17" id="dTB-dB-GKT"/>
-                                                                                    </constraints>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Anne Hathaway" translatesAutoresizingMaskIntoConstraints="NO" id="ket-DM-auO">
-                                                                                    <rect key="frame" x="22" y="24" width="89" height="70"/>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Anne Hathaway" translatesAutoresizingMaskIntoConstraints="NO" id="ket-DM-auO">
+                                                                                    <rect key="frame" x="22" y="1" width="89" height="70"/>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <real key="value" value="20"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExS-iM-2ka">
+                                                                                    <rect key="frame" x="25" y="86" width="83" height="24"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="24" id="dTB-dB-GKT"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
                                                                             </subviews>
                                                                         </view>
                                                                         <constraints>
-                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="top" secondItem="3F2-ne-GEt" secondAttribute="topMargin" constant="-20" id="Ih9-BB-y0B"/>
-                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="centerX" secondItem="ExS-iM-2ka" secondAttribute="centerX" constant="-2.6666666666666572" id="MYx-DT-ucF"/>
-                                                                            <constraint firstItem="ExS-iM-2ka" firstAttribute="top" secondItem="ket-DM-auO" secondAttribute="bottom" constant="8" symbolic="YES" id="T84-co-umf"/>
-                                                                            <constraint firstAttribute="trailingMargin" secondItem="ket-DM-auO" secondAttribute="trailing" constant="5" id="enV-m6-Xwb"/>
-                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="leading" secondItem="3F2-ne-GEt" secondAttribute="leadingMargin" constant="6" id="k7d-oB-XQi"/>
-                                                                            <constraint firstAttribute="bottomMargin" secondItem="ExS-iM-2ka" secondAttribute="bottom" constant="-30" id="snF-4t-fPW"/>
+                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="top" secondItem="3F2-ne-GEt" secondAttribute="topMargin" constant="-7" id="Ih9-BB-y0B"/>
+                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="centerX" secondItem="ExS-iM-2ka" secondAttribute="centerX" id="MYx-DT-ucF"/>
+                                                                            <constraint firstItem="ExS-iM-2ka" firstAttribute="top" secondItem="ket-DM-auO" secondAttribute="bottom" constant="15" id="T84-co-umf"/>
+                                                                            <constraint firstAttribute="trailingMargin" secondItem="ket-DM-auO" secondAttribute="trailing" constant="13" id="enV-m6-Xwb"/>
+                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="leading" secondItem="3F2-ne-GEt" secondAttribute="leadingMargin" constant="14" id="k7d-oB-XQi"/>
+                                                                            <constraint firstAttribute="bottomMargin" secondItem="ExS-iM-2ka" secondAttribute="bottom" constant="5" id="snF-4t-fPW"/>
                                                                         </constraints>
                                                                         <connections>
                                                                             <outlet property="categoryImageView" destination="ket-DM-auO" id="hh6-zw-ZAS"/>
