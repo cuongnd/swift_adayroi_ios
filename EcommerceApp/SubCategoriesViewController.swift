@@ -77,17 +77,7 @@ extension SubCategoriesViewController: UITableViewDataSource {
         cell.configureCell(sub_category: sub_category[indexPath.row])
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.width / 2
-    }
-    
-    
-    
-    
-   
-    
-    
+  
 }
 extension SubCategoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
