@@ -101,9 +101,11 @@
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="ePv-J6-Lxg" id="gKI-0X-PWq"/>
-                            <outlet property="delegate" destination="ePv-J6-Lxg" id="UwV-AC-whP"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="UICollectionViewProducts" destination="Ebi-PV-n9W" id="ovS-8l-mIK"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACK-qD-EDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

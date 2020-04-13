@@ -12,6 +12,7 @@ private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet var UICollectionViewProducts: UICollectionView!
     var products = [Product]();
      var sub_category:Subcategory?
     var data1 = [[String: AnyObject]]()
@@ -20,13 +21,15 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        UICollectionViewProducts.delegate=self
         self.DATA(page1: 0)
     }
-
+    
     func DATA(page1: Int) {
         let mypage = String(page1*20)
-        let url = AppConfiguration.root_url+"api/products/?start="+mypage+"&limit=20"
+        let url = AppConfiguration.root_url+"api/products/?start="+mypage+"&limit=20&filter_sub_cat_id="+(sub_category?.id)!
+        print("url")
+        print(url)
         let request = NSMutableURLRequest(url: URL(string: url)!)
 
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
@@ -40,7 +43,6 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
 
                         for current_product in my_json as! [[String: AnyObject]] {
                             var product: Product
-                            print((current_product["default_photo"]!["img_path"])!);
                             product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                             self.products.append(product);
 
@@ -108,10 +110,17 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
             if !isPageRefreshing {
                 isPageRefreshing = true
                 print(page)
-                page = page + 1
                 DATA(page1: page)
+                page = page + 1
             }
         }
     }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailProductVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+        detailProductVC.product = self.products[indexPath.row]
+        self.navigationController?.pushViewController(detailProductVC, animated: true)
+    }
 
 }
+
+
