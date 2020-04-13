@@ -18,7 +18,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     func configureCell(product: Product) {
         productTitleLabel.text = product.productName
-        productCategoryLabel.text = product.productCategory
+        productCategoryLabel.text = product.productCategory!
         productPriceLabel.text=String(format:"%.1f", product.productPrice!)
     }
     func show_discount_config_cell(product: Product) {
