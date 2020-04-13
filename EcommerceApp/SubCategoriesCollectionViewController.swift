@@ -8,7 +8,7 @@
 
 import Material
 import UIKit
-private let reuseIdentifier = "SubCategoriesViewCell"
+private let reuseIdentifier = "SubcategoriesViewCell"
 
 class SubCategoriesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -26,7 +26,7 @@ class SubCategoriesCollectionViewController: UICollectionViewController, UIColle
 
     func DATA(page1: Int) {
         let mypage = String(page1*20)
-        let url = AppConfiguration.root_url+"api/subcategories/?start="+mypage+"&limit=20"
+        let url = AppConfiguration.root_url+"api/products/?start="+mypage+"&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
 
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
