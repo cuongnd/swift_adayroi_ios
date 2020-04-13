@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EcommerceApp/ProductCollectionViewController.swift"
-            timestampString = "608173580.158571"
+            timestampString = "608440968.786657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EcommerceApp/HomeViewController.swift"
-            timestampString = "608414140.4341919"
+            timestampString = "608440968.786768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
-            landmarkName = "HomeViewController"
-            landmarkType = "3">
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "tableView(_:heightForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

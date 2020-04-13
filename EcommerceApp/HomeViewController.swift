@@ -59,6 +59,16 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         UICollectionViewHotProductCategories.dataSource=self
         UICollectionViewNewProducts.dataSource=self
         UICollectionViewSlideShow.dataSource=self
+        
+        
+        UICollectionViewCategories.delegate=self
+        UICollectionViewProductDiscount.delegate=self
+        UICollectionViewHotProducts.delegate=self
+        UICollectionViewHotProductCategories.delegate=self
+        UICollectionViewNewProducts.delegate=self
+        UICollectionViewSlideShow.delegate=self
+        
+        
         pageView.numberOfPages = slideshowProducts.count
         startTimer()
         self.get_slideshow_image()
@@ -457,28 +467,14 @@ extension HomeViewController: UICollectionViewDataSource {
     
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+
+extension HomeViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = topSlideshowCollectionView.frame.size
-        return CGSize(width: size.width, height: size.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        currentIndex = Int(scrollView.contentOffset.x / UICollectionViewSlideShow.frame.size.width)
-        pageView.currentPage = currentIndex
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+        detailsVC.product = products[indexPath.row]
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
+
 
