@@ -11,6 +11,7 @@ import UIKit
 
 private let reuseIdentifier = "ImageCollectionViewCell"
 
+
 class ProductDetailsViewController: UIViewController {
     var product: Product? {
         didSet {
@@ -18,32 +19,34 @@ class ProductDetailsViewController: UIViewController {
             self.view.setNeedsLayout()
         }
     }
+    @IBOutlet weak var UILabelProductName: UILabel!
     var images=[Image]();
+    var product_id:String=""
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var detailsTextView: UITextView!
     @IBOutlet var addToCartButton: RaisedButton!
     @IBOutlet var contentView: UIView!
     
+    @IBOutlet weak var UIWebViewDescription: UIWebView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if let images = product?.productImages {
             pageControl.numberOfPages = images.count
         }
-
+        self.rest_api_get_detail_product()
         addToCartButton.pulseColor = .white
         addToCartButton.backgroundColor = Color.green.base
         addToCartButton.titleColor = .white
         addToCartButton.layer.cornerRadius = 20
         addToCartButton.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
 
-        updateContentViewHeight()
+        //updateContentViewHeight()
     }
     func rest_api_get_detail_product() {
-        let url = AppConfiguration.root_url+"api/product/"+(product?.id)!
+        let url = AppConfiguration.root_url+"api/products/"+product_id
         print("url")
         print(url)
         let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -56,10 +59,15 @@ class ProductDetailsViewController: UIViewController {
                     do {
                         //array
                         let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
-                        self.product = Product(id: json_product["id"] as! String,name: json_product["productTitle"] as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                        for current_image in json_product["image"] as! [[String: AnyObject]] {
+                        print("json_product")
+                        print(json_product["productTitle"]!)
+                        self.product = Product(id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                        let description:String=json_product["productDescription"]! as! String;
+                        self.UILabelProductName.text=json_product["productTitle"]! as? String
+                        self.UIWebViewDescription.loadHTMLString(description, baseURL: nil)
+                        for current_image in json_product["images"] as! [[String: AnyObject]] {
                             var image: Image
-                            image = Image(id: current_image["id"] as! String,name: current_image["name"] as! String, imageUrl: current_image["img_path"] as! String)
+                            image = Image(id: current_image["img_id"] as! String,name: current_image["img_desc"] as! String, imageUrl: current_image["img_path"] as! String)
                             self.images.append(image);
                             
                         }
@@ -86,14 +94,10 @@ class ProductDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         print(product?.id ?? "nothing")
-        self.detailsTextView.text = product?.productDescription
+        //self.detailsTextView.text = product?.productDescription
 
-        let contentSize = self.detailsTextView.sizeThatFits(self.detailsTextView.bounds.size)
-        var frame = self.detailsTextView.frame
-        frame.size.height = contentSize.height
-        self.detailsTextView.frame = frame
-        
-        updateContentViewHeight()
+       
+        //updateContentViewHeight()
     }
 
     fileprivate func updateContentViewHeight() {

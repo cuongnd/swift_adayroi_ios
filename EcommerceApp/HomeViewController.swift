@@ -482,7 +482,7 @@ extension HomeViewController: UICollectionViewDelegate {
         case "EcommerceApp.SlideShowCollectionViewCell",
              "EcommerceApp.ProductCollectionViewCell":
             let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-            detailsVC.product = products[indexPath.row]
+            detailsVC.product_id = cell.id
             self.navigationController?.pushViewController(detailsVC, animated: true)
             break
         default: break

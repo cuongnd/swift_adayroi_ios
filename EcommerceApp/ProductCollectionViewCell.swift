@@ -23,6 +23,7 @@ class ProductCollectionViewCell: ECCollectionViewCell {
     }
     func show_discount_config_cell(product: Product) {
         productTitleLabel.text = product.productName
+         id=product.id
         if let url = product.productImageURL, let productImageView = productImageView {
             productImageView.kf.setImage(with: URL(string: url))
         }
@@ -30,6 +31,7 @@ class ProductCollectionViewCell: ECCollectionViewCell {
     }
   
     func configureCell1(product: Product) {
+         id=product.id
         if let url = product.productImageURL, let productImageView = productImageView {
             productImageView.kf.setImage(with: URL(string: url))
         }
