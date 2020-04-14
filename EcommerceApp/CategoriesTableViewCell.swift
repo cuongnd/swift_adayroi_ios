@@ -9,7 +9,7 @@
 import Kingfisher
 import UIKit
 
-class CategoriesTableViewCell: UITableViewCell {
+class CategoriesTableViewCell: ECTableViewCell {
 
     @IBOutlet var categoryImageView: UIImageView!
     @IBOutlet var categoryNameLabel: UILabel!

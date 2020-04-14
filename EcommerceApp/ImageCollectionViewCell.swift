@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCollectionViewCell: UICollectionViewCell {
+class ImageCollectionViewCell: ECCollectionViewCell {
     @IBOutlet var productImageView: UIImageView!
 
     func configureCell(imageUrl: String?) {

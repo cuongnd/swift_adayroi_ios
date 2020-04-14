@@ -9,7 +9,7 @@
 import Kingfisher
 import UIKit
 
-class ProductCollectionViewCell: UICollectionViewCell {
+class ProductCollectionViewCell: ECCollectionViewCell {
 
     @IBOutlet var productPriceLabel: UILabel!
     @IBOutlet var productTitleLabel: UILabel!

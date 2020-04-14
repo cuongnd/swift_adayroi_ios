@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartTotalTableViewCell: UITableViewCell {
+class CartTotalTableViewCell: ECTableViewCell {
 
     @IBOutlet var totalPriceLabel: UILabel!
 

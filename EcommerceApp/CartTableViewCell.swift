@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
+class CartTableViewCell: ECTableViewCell {
 
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var productPriceLabel: UILabel!

@@ -18,7 +18,7 @@ class ProductDetailsViewController: UIViewController {
             self.view.setNeedsLayout()
         }
     }
-
+    var images=[Image]();
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var detailsTextView: UITextView!
@@ -42,17 +42,57 @@ class ProductDetailsViewController: UIViewController {
 
         updateContentViewHeight()
     }
-
+    func rest_api_get_detail_product() {
+        let url = AppConfiguration.root_url+"api/product/"+(product?.id)!
+        print("url")
+        print(url)
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    do {
+                        //array
+                        let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+                        self.product = Product(id: json_product["id"] as! String,name: json_product["productTitle"] as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                        for current_image in json_product["image"] as! [[String: AnyObject]] {
+                            var image: Image
+                            image = Image(id: current_image["id"] as! String,name: current_image["name"] as! String, imageUrl: current_image["img_path"] as! String)
+                            self.images.append(image);
+                            
+                        }
+                        self.collectionView?.reloadData()
+                    } catch {
+                        
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        print(product?.id ?? "nothing")
         self.detailsTextView.text = product?.productDescription
 
         let contentSize = self.detailsTextView.sizeThatFits(self.detailsTextView.bounds.size)
         var frame = self.detailsTextView.frame
         frame.size.height = contentSize.height
         self.detailsTextView.frame = frame
-
+        
         updateContentViewHeight()
     }
 

@@ -435,6 +435,7 @@ extension HomeViewController: UICollectionViewDataSource {
         {
             cell_0 = UICollectionViewCategories.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! CategoryCollectionViewCell
             cell_0.configureCell(category: categories[indexPath.row])
+            
             return cell_0
         }else if(collectionView.tag==1){
             let cell_1 = UICollectionViewProductDiscount.dequeueReusableCell(withReuseIdentifier:"cell", for: indexPath) as! ProductCollectionViewCell
@@ -471,32 +472,32 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ECCollectionViewCell
         
-        if(collectionView.tag==0)
+        if(collectionView==UICollectionViewHotProductCategories)
         {
              print("hello subCategoriesVC")
-            var subCategoriesVC = StoryboardEntityProvider().ecommerceSubCategoriesVC()
+            let subCategoriesVC = StoryboardEntityProvider().ecommerceSubCategoriesVC()
             subCategoriesVC.category = categories[indexPath.row]
-           
             self.navigationController?.pushViewController(subCategoriesVC, animated: true)
         }else if(collectionView.tag==1){
-            var detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
             detailsVC.product = products[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }else if(collectionView.tag==2){
-            var detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
             detailsVC.product = products[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }else if(collectionView.tag==3){
-            var detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
             detailsVC.product = products[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }else if(collectionView.tag==4){
-            var detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
             detailsVC.product = products[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }else if(collectionView.tag==5){
-            var detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
+            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
             detailsVC.product = products[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }

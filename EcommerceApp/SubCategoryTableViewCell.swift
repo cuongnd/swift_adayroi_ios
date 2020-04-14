@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubCategoryTableViewCell: UITableViewCell {
+class SubCategoryTableViewCell: ECTableViewCell {
 
     @IBOutlet var subCategoryLabel: UILabel!
     
