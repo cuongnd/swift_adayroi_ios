@@ -17,6 +17,7 @@ class SlideShowCollectionViewCell: ECCollectionViewCell {
     
     func configureCell(product: Product) {
         productTitleLabel.text = product.productName
+        id=product.id
         productPriceLabel.text=String(format:"%.1f", product.productPrice!)
         if let url = product.productImageURL, let productImageView = productImageView {
             productImageView.kf.setImage(with: URL(string: url))

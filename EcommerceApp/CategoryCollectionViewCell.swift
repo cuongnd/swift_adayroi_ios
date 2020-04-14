@@ -17,6 +17,7 @@ class CategoryCollectionViewCell: ECCollectionViewCell {
     func configureCell(category: Category) {
         var urlString = category.imageURL!
         categoryLabel.text = category.name
+        id=category.id
         if (!urlString.isEmpty) {
             urlString="http://shopper1.softway.vn/uploads/"+urlString
             let imageURL = URL(string: urlString)

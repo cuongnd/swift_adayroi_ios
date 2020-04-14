@@ -473,38 +473,21 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ECCollectionViewCell
-        
-        if(collectionView==UICollectionViewHotProductCategories)
-        {
-             print("hello subCategoriesVC")
+        let className = NSStringFromClass(cell.classForCoder)
+        switch className {
+        case "EcommerceApp.CategoryCollectionViewCell":
             let subCategoriesVC = StoryboardEntityProvider().ecommerceSubCategoriesVC()
             subCategoriesVC.category = categories[indexPath.row]
             self.navigationController?.pushViewController(subCategoriesVC, animated: true)
-        }else if(collectionView.tag==1){
+        case "EcommerceApp.SlideShowCollectionViewCell",
+             "EcommerceApp.ProductCollectionViewCell":
             let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
             detailsVC.product = products[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
-        }else if(collectionView.tag==2){
-            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-            detailsVC.product = products[indexPath.row]
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        }else if(collectionView.tag==3){
-            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-            detailsVC.product = products[indexPath.row]
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        }else if(collectionView.tag==4){
-            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-            detailsVC.product = products[indexPath.row]
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        }else if(collectionView.tag==5){
-            let detailsVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-            detailsVC.product = products[indexPath.row]
-            self.navigationController?.pushViewController(detailsVC, animated: true)
+            break
+        default: break
+            
         }
-        
-        
-        
-        
     }
 }
 

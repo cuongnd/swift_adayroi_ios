@@ -10,6 +10,6 @@ import Kingfisher
 import UIKit
 
 class ECCollectionViewCell: UICollectionViewCell {
-
     
+    var id:String = ""
 }

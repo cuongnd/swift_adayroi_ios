@@ -15,9 +15,10 @@ class ProductCollectionViewCell: ECCollectionViewCell {
     @IBOutlet var productTitleLabel: UILabel!
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var productCategoryLabel: UILabel!
-   
+    
     func configureCell(product: Product) {
         productTitleLabel.text = product.productName
+        id=product.id
         productPriceLabel.text=String(format:"%.1f", product.productPrice!)
     }
     func show_discount_config_cell(product: Product) {
