@@ -150,9 +150,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h30-ZT-rMM" userLabel="body">
                                                 <rect key="frame" x="0.0" y="80" width="375" height="592"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jj-ZkN" userLabel="Carousel Container View">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jj-ZkN" userLabel="Carousel Container View">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9OM-uO-t2D">
                                                                 <rect key="frame" x="0.0" y="-9" width="375" height="207"/>
@@ -207,10 +206,12 @@
                                                             </pageControl>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="189" id="bNj-d6-HvY"/>
+                                                        </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJ7-On-pGx" userLabel="description">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJ7-On-pGx" userLabel="description">
                                                         <rect key="frame" x="0.0" y="189" width="375" height="383"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cu3-pP-OEI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
@@ -219,9 +220,20 @@
                                                             </webView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="383" id="Cdl-rc-OBL"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="NJ7-On-pGx" firstAttribute="leading" secondItem="h30-ZT-rMM" secondAttribute="leading" id="0yZ-R1-g8S"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NJ7-On-pGx" secondAttribute="trailing" id="LVD-Ye-fr4"/>
+                                                    <constraint firstItem="gl3-jj-ZkN" firstAttribute="leading" secondItem="h30-ZT-rMM" secondAttribute="leading" id="VI6-xJ-k3f"/>
+                                                    <constraint firstItem="NJ7-On-pGx" firstAttribute="top" secondItem="gl3-jj-ZkN" secondAttribute="bottom" id="VJU-c8-DEk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gl3-jj-ZkN" secondAttribute="trailing" id="irj-IM-KDX"/>
+                                                    <constraint firstItem="gl3-jj-ZkN" firstAttribute="top" secondItem="h30-ZT-rMM" secondAttribute="top" id="sWu-O6-AC1"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIP-a1-jgs" userLabel="footer">
                                                 <rect key="frame" x="0.0" y="691" width="375" height="121"/>

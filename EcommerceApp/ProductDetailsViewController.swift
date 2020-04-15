@@ -46,7 +46,7 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         addToCartButton.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
 
         //updateContentViewHeight()
-        //self.UIWebViewDescription.delegate=self
+        self.UIWebViewDescription.delegate=self
     }
     func rest_api_get_detail_product() {
         let url = AppConfiguration.root_url+"api/products/"+product_id
@@ -124,14 +124,9 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         self.UIWebViewDescription.frame=rect
         
         print("WebView height : \(self.UIWebViewDescription.frame.size.height)")
-        self.UIWebViewDescription.translatesAutoresizingMaskIntoConstraints = false
-        self.UIWebViewDescription.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.UIWebViewDescription.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        self.UIWebViewDescription.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.UIWebViewDescription.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
-        self.heightConstraint = self.UIWebViewDescription.heightAnchor.constraint(equalToConstant: self.bodyContentHeight)
-        self.heightConstraint.isActive = true
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
