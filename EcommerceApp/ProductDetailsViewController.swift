@@ -12,13 +12,15 @@ import UIKit
 private let reuseIdentifier = "ImageCollectionViewCell"
 
 
-class ProductDetailsViewController: UIViewController {
+class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
     var product: Product? {
         didSet {
             self.title = product?.productName
             self.view.setNeedsLayout()
         }
     }
+     var bodyContentHeight:CGFloat = 0.0
+    var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var UILabelProductName: UILabel!
     var images=[Image]();
     var product_id:String=""
@@ -44,6 +46,7 @@ class ProductDetailsViewController: UIViewController {
         addToCartButton.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
 
         //updateContentViewHeight()
+        self.UIWebViewDescription.delegate=self
     }
     func rest_api_get_detail_product() {
         let url = AppConfiguration.root_url+"api/products/"+product_id
@@ -64,15 +67,16 @@ class ProductDetailsViewController: UIViewController {
                         self.product = Product(id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                         let description:String=json_product["productDescription"]! as! String;
                         self.UILabelProductName.text=json_product["productTitle"]! as? String
-                        self.UIWebViewDescription.loadHTMLString(description, baseURL: nil)
-                        //self.updateContentViewHeight()
+                        self.UIWebViewDescription.loadHTMLString(description, baseURL: Bundle.main.bundleURL)
                         for current_image in json_product["images"] as! [[String: AnyObject]] {
                             var image: Image
                             image = Image(id: current_image["img_id"] as! String,name: current_image["img_desc"] as! String, imageUrl: current_image["img_path"] as! String)
                             self.images.append(image);
                             
                         }
-                        self.collectionView?.reloadData()
+                        print("hello aaaaa")
+                        print(self.images)
+                        self.collectionView!.reloadData()
                     } catch {
                         
                     }
@@ -92,6 +96,48 @@ class ProductDetailsViewController: UIViewController {
         
         
     }
+    func webViewDidFinishLoad(_ webView: UIWebView)
+    {
+        UserDefaults.standard.setValue(0, forKey: "WebKitCacheModelPreferenceKey")
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateForBodyHeight), userInfo: nil, repeats: false)
+    }
+    
+    
+    
+    func updateForBodyHeight()
+    {
+        self.bodyContentHeight = UIWebViewDescription.scrollView.contentSize.height
+        print("Body height : \(self.bodyContentHeight)")
+        self.adjustWebViewHeight()
+    }
+    
+    
+    func loadBodyInWebView()
+    {
+        
+    }
+    
+    func adjustWebViewHeight()
+    {
+        var rect:CGRect=self.UIWebViewDescription.frame
+        rect.size.height=self.bodyContentHeight
+        self.UIWebViewDescription.frame=rect
+        
+        print("WebView height : \(self.UIWebViewDescription.frame.size.height)")
+        self.UIWebViewDescription.translatesAutoresizingMaskIntoConstraints = false
+        self.UIWebViewDescription.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.UIWebViewDescription.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        self.UIWebViewDescription.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        self.UIWebViewDescription.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        self.heightConstraint = self.UIWebViewDescription.heightAnchor.constraint(equalToConstant: self.bodyContentHeight)
+        self.heightConstraint.isActive = true
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         print(product?.id ?? "nothing")
@@ -102,8 +148,8 @@ class ProductDetailsViewController: UIViewController {
     }
     
     fileprivate func updateContentViewHeight() {
-        let orientation = UIDevice.current.orientation
-        let constant: CGFloat = self.UIWebViewDescription.frame.size.height + ((orientation == .portrait) ? 550 : 450)
+        _ = UIDevice.current.orientation
+        let constant: CGFloat = self.UIWebViewDescription.frame.size.height 
         if contentViewHeightConstraint.constant != constant {
             contentViewHeightConstraint.constant = constant
             self.contentView.setNeedsLayout()
@@ -123,15 +169,14 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let images = product?.productImages else {
-            return 0
-        }
         return images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCollectionViewCell
-        cell.configureCell(imageUrl: product?.productImages?[indexPath.row])
+        print("image123")
+        print(self.images[indexPath.row].imageURL!)
+        cell.configureCell(imageUrl: self.images[indexPath.row].imageURL!)
         return cell
     }
 
