@@ -122,7 +122,7 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         var rect:CGRect=self.UIWebViewDescription.frame
         rect.size.height=self.bodyContentHeight
         self.UIWebViewDescription.frame=rect
-        
+        self.contentView.setNeedsLayout()
         print("WebView height : \(self.UIWebViewDescription.frame.size.height)")
         
         
