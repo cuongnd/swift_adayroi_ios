@@ -65,6 +65,7 @@ class ProductDetailsViewController: UIViewController {
                         let description:String=json_product["productDescription"]! as! String;
                         self.UILabelProductName.text=json_product["productTitle"]! as? String
                         self.UIWebViewDescription.loadHTMLString(description, baseURL: nil)
+                        //self.updateContentViewHeight()
                         for current_image in json_product["images"] as! [[String: AnyObject]] {
                             var image: Image
                             image = Image(id: current_image["img_id"] as! String,name: current_image["img_desc"] as! String, imageUrl: current_image["img_path"] as! String)
@@ -99,10 +100,10 @@ class ProductDetailsViewController: UIViewController {
        
         //updateContentViewHeight()
     }
-
+    
     fileprivate func updateContentViewHeight() {
         let orientation = UIDevice.current.orientation
-        let constant: CGFloat = self.detailsTextView.frame.size.height + ((orientation == .portrait) ? 550 : 450)
+        let constant: CGFloat = self.UIWebViewDescription.frame.size.height + ((orientation == .portrait) ? 550 : 450)
         if contentViewHeightConstraint.constant != constant {
             contentViewHeightConstraint.constant = constant
             self.contentView.setNeedsLayout()
@@ -139,3 +140,4 @@ extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionVi
         pageControl.currentPage = Int(self.collectionView.contentOffset.x / pageWidth)
     }
 }
+
