@@ -17,7 +17,8 @@ class ProductDetailsViewController: UIViewController {
         didSet {
             
             self.title = product?.productName
-           
+            
+            
             self.view.setNeedsLayout()
         }
     }
@@ -37,11 +38,9 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var bodyDescriptionContentView: UIView!
     @IBOutlet weak var UIWebViewDescription: UIWebView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBAction func show_pull_description(_ sender: Any) {
-        let detailsFullDescriptionVC = StoryboardEntityProvider().ecommerceProductDetailsFullDescriptionVC()
-        detailsFullDescriptionVC.full_description = self.full_description
-        self.navigationController?.pushViewController(detailsFullDescriptionVC, animated: true)
-    }
+    @IBOutlet var UIButtonShowFullDescription: RaisedButton!
+    
+    
     @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +49,7 @@ class ProductDetailsViewController: UIViewController {
         }
         self.UIWebViewDescription.scrollView.isScrollEnabled = false;
         self.UIWebViewDescription.scrollView.bounces = false;
+       
         self.rest_api_get_detail_product()
    
         //updateContentViewHeight()
@@ -102,7 +102,12 @@ class ProductDetailsViewController: UIViewController {
         
     }
     
-   
+    @IBAction func show_full_description_product(_ sender: UIButton) {
+        let detailsFullDescriptionVC = StoryboardEntityProvider().ecommerceProductDetailsFullDescriptionVC()
+        detailsFullDescriptionVC.full_description = self.full_description
+        self.navigationController?.pushViewController(detailsFullDescriptionVC, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -128,7 +133,10 @@ class ProductDetailsViewController: UIViewController {
         }
        
     }
-
+    @objc
+    fileprivate func didTapShowFullDescriptionButton() {
+        
+    }
     @objc
     fileprivate func didTapAddToCartButton() {
         NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": product ?? nil])
