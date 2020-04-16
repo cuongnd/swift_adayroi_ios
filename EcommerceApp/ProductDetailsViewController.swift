@@ -42,12 +42,7 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
             pageControl.numberOfPages = images.count
         }
         self.rest_api_get_detail_product()
-        addToCartButton.pulseColor = .white
-        addToCartButton.backgroundColor = Color.green.base
-        addToCartButton.titleColor = .white
-        addToCartButton.layer.cornerRadius = 20
-        addToCartButton.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
-
+   
         //updateContentViewHeight()
         self.UIWebViewDescription.delegate=self
     }
@@ -125,7 +120,7 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         var rect:CGRect=self.UIWebViewDescription.frame
         rect.size.height=self.bodyContentHeight
         //self.UIWebViewDescription.frame=rect
-        //self.UIWebViewDescription.scrollView.isScrollEnabled = false;
+        self.UIWebViewDescription.scrollView.isScrollEnabled = false;
         //self.contentView.setNeedsLayout()
         print("hello111111111111")
         //self.bodyContentView.frame=rect
