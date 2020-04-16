@@ -12,13 +12,15 @@ import UIKit
 private let reuseIdentifier = "ImageCollectionViewCell"
 
 
-class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
+class ProductDetailsViewController: UIViewController {
     var product: Product? {
         didSet {
+            
             self.title = product?.productName
             self.view.setNeedsLayout()
         }
     }
+    @IBOutlet weak var UIScrollViewDetailProduct: UIScrollView!
      var bodyContentHeight:CGFloat = 0.0
     var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var UILabelProductName: UILabel!
@@ -41,10 +43,11 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         if let images = product?.productImages {
             pageControl.numberOfPages = images.count
         }
+        self.UIWebViewDescription.scrollView.isScrollEnabled = false;
+        self.UIWebViewDescription.scrollView.bounces = false;
         self.rest_api_get_detail_product()
    
         //updateContentViewHeight()
-        self.UIWebViewDescription.delegate=self
     }
     func rest_api_get_detail_product() {
         let url = AppConfiguration.root_url+"api/products/"+product_id
@@ -72,8 +75,6 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
                             self.images.append(image);
                             
                         }
-                        print("hello aaaaa")
-                        print(self.images)
                         self.collectionView!.reloadData()
                     } catch {
                         
@@ -94,46 +95,8 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         
         
     }
-    func webViewDidFinishLoad(_ webView: UIWebView)
-    {
-        UserDefaults.standard.setValue(0, forKey: "WebKitCacheModelPreferenceKey")
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateForBodyHeight), userInfo: nil, repeats: false)
-    }
     
-    
-    
-    func updateForBodyHeight()
-    {
-        self.bodyContentHeight = UIWebViewDescription.scrollView.contentSize.height
-        print("Body height : \(self.bodyContentHeight)")
-        self.adjustWebViewHeight()
-    }
-    
-    
-    func loadBodyInWebView()
-    {
-        
-    }
-    
-    func adjustWebViewHeight()
-    {
-        var rect:CGRect=self.UIWebViewDescription.frame
-        rect.size.height=self.bodyContentHeight
-        //self.UIWebViewDescription.frame=rect
-        self.UIWebViewDescription.scrollView.isScrollEnabled = false;
-        //self.contentView.setNeedsLayout()
-        print("hello111111111111")
-        //self.bodyContentView.frame=rect
-        //self.bodyDescriptionContentView.setNeedsLayout()
-        //self.bodyContentView.frame=rect
-        //self.footerView.setNeedsLayout()
-        //self.contentView.frame=rect
-        //self.contentView.setNeedsLayout()
-        print("WebView height : \(self.UIWebViewDescription.frame.size.height)")
-        
-        
-        
-    }
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

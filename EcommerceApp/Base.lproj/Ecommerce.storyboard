@@ -120,14 +120,14 @@
                         <viewControllerLayoutGuide type="bottom" id="6Wi-Gu-z7I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZHT-00-TQ5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIi-SS-dqW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1900"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dcb-Og-h1D" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1533"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-YD-hED" userLabel="header">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -156,7 +156,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jj-ZkN" userLabel="Carousel Container View">
-                                                <rect key="frame" x="0.0" y="80" width="375" height="189"/>
+                                                <rect key="frame" x="0.0" y="38" width="375" height="189"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9OM-uO-t2D">
                                                         <rect key="frame" x="0.0" y="-9" width="375" height="207"/>
@@ -216,39 +216,36 @@
                                                 </constraints>
                                             </view>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu3-pP-OEI">
-                                                <rect key="frame" x="0.0" y="237" width="375" height="488"/>
+                                                <rect key="frame" x="0.0" y="226" width="375" height="264"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="488" id="a9z-kD-IJ8"/>
+                                                    <constraint firstAttribute="height" constant="264" id="a9z-kD-IJ8"/>
                                                 </constraints>
                                             </webView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaX-B2-dp3">
-                                                <rect key="frame" x="0.0" y="1027" width="375" height="271"/>
-                                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMK-AH-Zhr">
+                                                <rect key="frame" x="131" y="460" width="113" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Xem Tất Cả"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.30738114010000001" blue="0.20628872240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1533" id="27X-GH-2Xr"/>
-                                            <constraint firstItem="cu3-pP-OEI" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="207" id="50i-ZN-tZ9"/>
+                                            <constraint firstAttribute="height" constant="770" id="27X-GH-2Xr"/>
+                                            <constraint firstItem="cu3-pP-OEI" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="196" id="50i-ZN-tZ9"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="trailing" secondItem="YOM-YD-hED" secondAttribute="trailing" id="9v0-D9-p8Y"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="leading" secondItem="gl3-jj-ZkN" secondAttribute="leading" id="LXp-hr-yW4"/>
-                                            <constraint firstAttribute="bottom" secondItem="kaX-B2-dp3" secondAttribute="bottom" constant="235" id="ReI-eM-qN3"/>
-                                            <constraint firstItem="kaX-B2-dp3" firstAttribute="top" secondItem="Dcb-Og-h1D" secondAttribute="top" constant="1027" id="Y1d-if-jDf"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="leading" secondItem="YOM-YD-hED" secondAttribute="leading" id="YLK-VH-3Yy"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="trailing" secondItem="gl3-jj-ZkN" secondAttribute="trailing" id="Ysa-VI-5W8"/>
-                                            <constraint firstItem="gl3-jj-ZkN" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="50" id="csE-vS-6DL"/>
+                                            <constraint firstItem="gl3-jj-ZkN" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="8" id="csE-vS-6DL"/>
                                             <constraint firstAttribute="trailing" secondItem="gl3-jj-ZkN" secondAttribute="trailing" id="i0s-9r-XA7"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="leading" secondItem="Dcb-Og-h1D" secondAttribute="leading" id="jWg-Xm-fgt"/>
-                                            <constraint firstItem="gl3-jj-ZkN" firstAttribute="top" secondItem="Dcb-Og-h1D" secondAttribute="top" constant="80" id="l5E-RG-PGV"/>
-                                            <constraint firstItem="cu3-pP-OEI" firstAttribute="trailing" secondItem="kaX-B2-dp3" secondAttribute="trailing" id="vcq-MZ-pXq"/>
-                                            <constraint firstItem="cu3-pP-OEI" firstAttribute="leading" secondItem="kaX-B2-dp3" secondAttribute="leading" id="y5g-hL-fa0"/>
+                                            <constraint firstItem="gl3-jj-ZkN" firstAttribute="top" secondItem="Dcb-Og-h1D" secondAttribute="top" constant="38" id="l5E-RG-PGV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Dcb-Og-h1D" secondAttribute="bottom" constant="367" id="Exe-G8-Fwu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dcb-Og-h1D" secondAttribute="bottom" id="Exe-G8-Fwu"/>
                                     <constraint firstItem="Dcb-Og-h1D" firstAttribute="leading" secondItem="KIi-SS-dqW" secondAttribute="leading" id="RCO-8k-Kpq"/>
                                     <constraint firstItem="Dcb-Og-h1D" firstAttribute="centerX" secondItem="KIi-SS-dqW" secondAttribute="centerX" id="Rk9-ed-8Y9"/>
                                     <constraint firstAttribute="trailing" secondItem="Dcb-Og-h1D" secondAttribute="trailing" id="p89-hM-1Ir"/>
@@ -258,14 +255,14 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KIi-SS-dqW" secondAttribute="trailing" id="9KN-jL-C1W"/>
-                            <constraint firstAttribute="bottom" secondItem="KIi-SS-dqW" secondAttribute="bottom" id="Eu4-cJ-mU5"/>
+                            <constraint firstAttribute="bottom" secondItem="KIi-SS-dqW" secondAttribute="bottom" constant="42" id="Eu4-cJ-mU5"/>
                             <constraint firstItem="KIi-SS-dqW" firstAttribute="leading" secondItem="ZHT-00-TQ5" secondAttribute="leading" id="FCD-we-Zfd"/>
                             <constraint firstItem="KIi-SS-dqW" firstAttribute="top" secondItem="ZHT-00-TQ5" secondAttribute="top" id="a6Q-KU-ypf"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="1900"/>
                     <connections>
                         <outlet property="UILabelProductName" destination="MgP-g5-dTy" id="M9g-Jc-LM3"/>
+                        <outlet property="UIScrollViewDetailProduct" destination="KIi-SS-dqW" id="VH2-ra-CR8"/>
                         <outlet property="UIWebViewDescription" destination="cu3-pP-OEI" id="XxJ-Da-Qz0"/>
                         <outlet property="collectionView" destination="9OM-uO-t2D" id="tCM-re-cnc"/>
                         <outlet property="contentView" destination="Dcb-Og-h1D" id="8nd-vn-nFH"/>
@@ -274,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSq-nO-3iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623.2" y="349.50738916256159"/>
+            <point key="canvasLocation" x="1637.5999999999999" y="40.64039408866995"/>
         </scene>
         <!--Cart Table View Controller-->
         <scene sceneID="yRc-5F-NIL">
