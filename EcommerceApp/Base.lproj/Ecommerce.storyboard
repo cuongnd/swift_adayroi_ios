@@ -120,14 +120,14 @@
                         <viewControllerLayoutGuide type="bottom" id="6Wi-Gu-z7I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZHT-00-TQ5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIi-SS-dqW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dcb-Og-h1D" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-YD-hED" userLabel="header">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -155,8 +155,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="nMf-YG-OlA" secondAttribute="bottom" id="m7G-LU-EJJ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jj-ZkN" userLabel="Carousel Container View">
-                                                <rect key="frame" x="0.0" y="38" width="375" height="198"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jj-ZkN" userLabel="Carousel Container View">
+                                                <rect key="frame" x="0.0" y="40" width="375" height="189"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9OM-uO-t2D">
                                                         <rect key="frame" x="0.0" y="-9" width="375" height="207"/>
@@ -216,11 +216,11 @@
                                                 </constraints>
                                             </view>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu3-pP-OEI">
-                                                <rect key="frame" x="0.0" y="237" width="375" height="1849"/>
+                                                <rect key="frame" x="0.0" y="237" width="375" height="961"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </webView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIP-a1-jgs" userLabel="footer">
-                                                <rect key="frame" x="0.0" y="2150" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="1262" width="375" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMa-CI-YAO" customClass="RaisedButton" customModule="Material">
                                                         <rect key="frame" x="249" y="0.0" width="99" height="30"/>
@@ -272,7 +272,7 @@
                             <constraint firstItem="KIi-SS-dqW" firstAttribute="top" secondItem="ZHT-00-TQ5" secondAttribute="top" id="a6Q-KU-ypf"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="1700"/>
+                    <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="UILabelProductName" destination="MgP-g5-dTy" id="M9g-Jc-LM3"/>
                         <outlet property="UIWebViewDescription" destination="cu3-pP-OEI" id="XxJ-Da-Qz0"/>
