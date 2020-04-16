@@ -29,10 +29,13 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
     @IBOutlet var detailsTextView: UITextView!
     @IBOutlet var addToCartButton: RaisedButton!
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var bodyContentView: UIView!
     
+    @IBOutlet weak var bodyDescriptionContentView: UIView!
     @IBOutlet weak var UIWebViewDescription: UIWebView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         if let images = product?.productImages {
@@ -147,7 +150,11 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         let constant: CGFloat = self.UIWebViewDescription.frame.size.height 
         if contentViewHeightConstraint.constant != constant {
             contentViewHeightConstraint.constant = constant
+            self.bodyDescriptionContentView.setNeedsLayout()
+            self.bodyContentView.setNeedsLayout()
+             self.footerView.setNeedsLayout()
             self.contentView.setNeedsLayout()
+            
         }
     }
 
