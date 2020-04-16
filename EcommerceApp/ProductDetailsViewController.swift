@@ -17,6 +17,7 @@ class ProductDetailsViewController: UIViewController {
         didSet {
             
             self.title = product?.productName
+           
             self.view.setNeedsLayout()
         }
     }
@@ -32,11 +33,15 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet var addToCartButton: RaisedButton!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var bodyContentView: UIView!
-    
+    var full_description:String=""
     @IBOutlet weak var bodyDescriptionContentView: UIView!
     @IBOutlet weak var UIWebViewDescription: UIWebView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
-
+    @IBAction func show_pull_description(_ sender: Any) {
+        let detailsFullDescriptionVC = StoryboardEntityProvider().ecommerceProductDetailsFullDescriptionVC()
+        detailsFullDescriptionVC.full_description = self.full_description
+        self.navigationController?.pushViewController(detailsFullDescriptionVC, animated: true)
+    }
     @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +73,7 @@ class ProductDetailsViewController: UIViewController {
                         self.product = Product(id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                         let description:String=json_product["productDescription"]! as! String;
                         self.UILabelProductName.text=json_product["productTitle"]! as? String
+                        self.full_description=description
                         self.UIWebViewDescription.loadHTMLString(description, baseURL: Bundle.main.bundleURL)
                         for current_image in json_product["images"] as! [[String: AnyObject]] {
                             var image: Image

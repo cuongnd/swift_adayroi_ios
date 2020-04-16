@@ -109,7 +109,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACK-qD-EDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752.79999999999995" y="-42.728635682158924"/>
+            <point key="canvasLocation" x="-678" y="-44"/>
         </scene>
         <!--Product Details View Controller-->
         <scene sceneID="c8O-zr-qPX">
@@ -226,6 +226,10 @@
                                                 <rect key="frame" x="131" y="460" width="113" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Xem Tất Cả"/>
+                                                <connections>
+                                                    <action selector="show_full_description:" destination="IaY-2Z-Q6T" eventType="touchUpInside" id="4jm-KA-3nv"/>
+                                                    <action selector="show_pull_description:" destination="IaY-2Z-Q6T" eventType="touchUpInside" id="pgO-SC-gUO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.30738114010000001" blue="0.20628872240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -271,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSq-nO-3iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637.5999999999999" y="40.64039408866995"/>
+            <point key="canvasLocation" x="209" y="-44"/>
         </scene>
         <!--Cart Table View Controller-->
         <scene sceneID="yRc-5F-NIL">
@@ -1471,7 +1475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qgf-bR-l4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="-51"/>
+            <point key="canvasLocation" x="-1586" y="-43"/>
         </scene>
         <!--Sub Categories View Controller-->
         <scene sceneID="L93-Eh-Epb">
@@ -1523,6 +1527,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PC-Oi-D2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5525.6000000000004" y="40.64039408866995"/>
+        </scene>
+        <!--Product Details Full Description View Controller-->
+        <scene sceneID="9lK-IF-S2d">
+            <objects>
+                <viewController storyboardIdentifier="ProductDetailsFullDescriptionViewController" id="pj2-Ke-4YB" customClass="ProductDetailsFullDescriptionViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mAH-JM-dmF"/>
+                        <viewControllerLayoutGuide type="bottom" id="rrI-th-xlN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OAj-Rv-YIy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7W-Y5-6Qn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKh-Fr-I2x" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
+                                        <subviews>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STL-7D-vf2">
+                                                <rect key="frame" x="0.0" y="80" width="375" height="690"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="690" id="rIv-kg-I2N"/>
+                                                </constraints>
+                                            </webView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2R-92-mKK" userLabel="header">
+                                                <rect key="frame" x="0.0" y="52" width="375" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mô tả chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siA-Kv-K2F">
+                                                        <rect key="frame" x="5" y="0.0" width="139" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Re-fd-SF9" customClass="RaisedButton" customModule="Material">
+                                                        <rect key="frame" x="276" y="0.0" width="99" height="30"/>
+                                                        <state key="normal" title="ADD TO CART"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="1Re-fd-SF9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o2R-92-mKK" secondAttribute="leading" constant="20" symbolic="YES" id="14x-mY-go3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1Re-fd-SF9" secondAttribute="bottom" id="5Dd-Gf-gHN"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="siA-Kv-K2F" secondAttribute="trailing" constant="20" symbolic="YES" id="Va0-xt-yYB"/>
+                                                    <constraint firstItem="1Re-fd-SF9" firstAttribute="bottom" secondItem="siA-Kv-K2F" secondAttribute="bottom" id="aBj-9e-GIu"/>
+                                                    <constraint firstItem="siA-Kv-K2F" firstAttribute="leading" secondItem="o2R-92-mKK" secondAttribute="leading" constant="5" id="aPm-Tm-cig"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1Re-fd-SF9" secondAttribute="trailing" id="aeG-vh-mxx"/>
+                                                    <constraint firstItem="1Re-fd-SF9" firstAttribute="height" secondItem="o2R-92-mKK" secondAttribute="height" id="gwd-zD-VkZ"/>
+                                                    <constraint firstItem="siA-Kv-K2F" firstAttribute="height" secondItem="o2R-92-mKK" secondAttribute="height" id="lvY-Wu-oNe"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.30738114010000001" blue="0.20628872240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="770" id="1jt-xt-41A"/>
+                                            <constraint firstItem="STL-7D-vf2" firstAttribute="leading" secondItem="o2R-92-mKK" secondAttribute="leading" id="8WN-AF-KFU"/>
+                                            <constraint firstAttribute="bottom" secondItem="STL-7D-vf2" secondAttribute="bottom" id="99n-wl-emS"/>
+                                            <constraint firstItem="STL-7D-vf2" firstAttribute="trailing" secondItem="o2R-92-mKK" secondAttribute="trailing" id="ELL-cI-0c8"/>
+                                            <constraint firstItem="STL-7D-vf2" firstAttribute="leading" secondItem="iKh-Fr-I2x" secondAttribute="leading" id="Isz-gU-0wS"/>
+                                            <constraint firstItem="STL-7D-vf2" firstAttribute="top" secondItem="o2R-92-mKK" secondAttribute="bottom" constant="-2" id="SF3-Uu-lUm"/>
+                                            <constraint firstAttribute="trailing" secondItem="STL-7D-vf2" secondAttribute="trailing" id="kCM-Ni-SwZ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="iKh-Fr-I2x" firstAttribute="centerX" secondItem="b7W-Y5-6Qn" secondAttribute="centerX" id="3NR-fO-upZ"/>
+                                    <constraint firstItem="iKh-Fr-I2x" firstAttribute="top" secondItem="b7W-Y5-6Qn" secondAttribute="top" id="GVG-h2-jXh"/>
+                                    <constraint firstItem="iKh-Fr-I2x" firstAttribute="leading" secondItem="b7W-Y5-6Qn" secondAttribute="leading" id="RGj-IO-kOG"/>
+                                    <constraint firstAttribute="bottom" secondItem="iKh-Fr-I2x" secondAttribute="bottom" id="W0F-Yv-Nr1"/>
+                                    <constraint firstAttribute="trailing" secondItem="iKh-Fr-I2x" secondAttribute="trailing" id="WyE-sA-1uG"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="b7W-Y5-6Qn" secondAttribute="bottom" constant="42" id="2kk-t3-RyB"/>
+                            <constraint firstAttribute="trailing" secondItem="b7W-Y5-6Qn" secondAttribute="trailing" id="IrZ-x0-xvh"/>
+                            <constraint firstItem="b7W-Y5-6Qn" firstAttribute="leading" secondItem="OAj-Rv-YIy" secondAttribute="leading" id="NSx-sB-6rs"/>
+                            <constraint firstItem="b7W-Y5-6Qn" firstAttribute="top" secondItem="OAj-Rv-YIy" secondAttribute="top" id="gBe-Kt-7P4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="UIScrollViewDetailProduct" destination="b7W-Y5-6Qn" id="4Rl-Wx-fbL"/>
+                        <outlet property="UIWebViewDescription" destination="STL-7D-vf2" id="tF9-Gv-yaj"/>
+                        <outlet property="contentView" destination="iKh-Fr-I2x" id="Ojl-xg-dSv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AaR-ms-2PO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="-44.334975369458128"/>
         </scene>
     </scenes>
     <resources>
