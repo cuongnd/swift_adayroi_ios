@@ -103,9 +103,9 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @IBAction func show_full_description_product(_ sender: UIButton) {
-        let detailsFullDescriptionVC = StoryboardEntityProvider().ecommerceProductDetailsFullDescriptionVC()
-        detailsFullDescriptionVC.full_description = self.full_description
-        self.navigationController?.pushViewController(detailsFullDescriptionVC, animated: true)
+        let Product_Details_Full_Description_View_VC = StoryboardEntityProvider().Product_Details_Full_Description_View_VC()
+        Product_Details_Full_Description_View_VC.full_description_product=self.full_description
+        self.navigationController?.pushViewController(Product_Details_Full_Description_View_VC, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

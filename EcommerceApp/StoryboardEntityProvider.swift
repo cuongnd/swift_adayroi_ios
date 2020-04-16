@@ -25,9 +25,7 @@ class StoryboardEntityProvider {
     func ecommerceProductDetailsVC() -> ProductDetailsViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
     }
-    func ecommerceProductDetailsFullDescriptionVC() -> ProductDetailsFullDescriptionViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsFullDescriptionViewController") as! ProductDetailsFullDescriptionViewController
-    }
+   
 
     func ecommerceCartVC() -> CartTableViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "CartTableViewController") as! CartTableViewController
@@ -42,5 +40,8 @@ class StoryboardEntityProvider {
     }
     func homeVC() -> HomeViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+    }
+    func Product_Details_Full_Description_View_VC() -> ProductDetailsFullDescriptionViewController {
+        return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsFullDescriptionViewController") as! ProductDetailsFullDescriptionViewController
     }
 }
