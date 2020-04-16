@@ -125,6 +125,14 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         var rect:CGRect=self.UIWebViewDescription.frame
         rect.size.height=self.bodyContentHeight
         self.UIWebViewDescription.frame=rect
+        self.UIWebViewDescription.scrollView.isScrollEnabled = false;
+        //self.contentView.setNeedsLayout()
+        print("hello111111111111")
+        //self.bodyContentView.frame=rect
+        //self.bodyDescriptionContentView.setNeedsLayout()
+        //self.bodyContentView.frame=rect
+        //self.footerView.setNeedsLayout()
+        //self.contentView.frame=rect
         self.contentView.setNeedsLayout()
         print("WebView height : \(self.UIWebViewDescription.frame.size.height)")
         
@@ -149,13 +157,12 @@ class ProductDetailsViewController: UIViewController,UIWebViewDelegate {
         _ = UIDevice.current.orientation
         let constant: CGFloat = self.UIWebViewDescription.frame.size.height 
         if contentViewHeightConstraint.constant != constant {
+            
             contentViewHeightConstraint.constant = constant
-            self.bodyDescriptionContentView.setNeedsLayout()
-            self.bodyContentView.setNeedsLayout()
-             self.footerView.setNeedsLayout()
-            self.contentView.setNeedsLayout()
+            
             
         }
+       
     }
 
     @objc
