@@ -222,9 +222,9 @@
                                                     <constraint firstAttribute="height" constant="264" id="a9z-kD-IJ8"/>
                                                 </constraints>
                                             </webView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-Dj-TlV">
-                                                <rect key="frame" x="126" y="449" width="122" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-Dj-TlV">
+                                                <rect key="frame" x="0.0" y="449" width="375" height="30"/>
+                                                <size key="titleShadowOffset" width="3" height="0.0"/>
                                                 <state key="normal" title="Xem Tất Cả"/>
                                                 <connections>
                                                     <action selector="show_full_description_product:" destination="IaY-2Z-Q6T" eventType="touchUpInside" id="ogH-qu-hyQ"/>
@@ -236,6 +236,8 @@
                                             <constraint firstAttribute="height" constant="770" id="27X-GH-2Xr"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="196" id="50i-ZN-tZ9"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="trailing" secondItem="YOM-YD-hED" secondAttribute="trailing" id="9v0-D9-p8Y"/>
+                                            <constraint firstItem="OgR-Dj-TlV" firstAttribute="leading" secondItem="Dcb-Og-h1D" secondAttribute="leading" id="BSR-QD-zyo"/>
+                                            <constraint firstAttribute="bottom" secondItem="OgR-Dj-TlV" secondAttribute="bottom" constant="291" id="C7r-qJ-tgr"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="leading" secondItem="gl3-jj-ZkN" secondAttribute="leading" id="LXp-hr-yW4"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="leading" secondItem="YOM-YD-hED" secondAttribute="leading" id="YLK-VH-3Yy"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="trailing" secondItem="gl3-jj-ZkN" secondAttribute="trailing" id="Ysa-VI-5W8"/>
@@ -243,6 +245,7 @@
                                             <constraint firstAttribute="trailing" secondItem="gl3-jj-ZkN" secondAttribute="trailing" id="i0s-9r-XA7"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="leading" secondItem="Dcb-Og-h1D" secondAttribute="leading" id="jWg-Xm-fgt"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="top" secondItem="Dcb-Og-h1D" secondAttribute="top" constant="38" id="l5E-RG-PGV"/>
+                                            <constraint firstAttribute="trailing" secondItem="OgR-Dj-TlV" secondAttribute="trailing" id="vG3-hE-6ww"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -274,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSq-nO-3iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="208.80000000000001" y="-44.334975369458128"/>
+            <point key="canvasLocation" x="409" y="41"/>
         </scene>
         <!--Cart Table View Controller-->
         <scene sceneID="yRc-5F-NIL">
