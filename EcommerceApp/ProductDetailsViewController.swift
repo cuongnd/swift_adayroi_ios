@@ -65,25 +65,27 @@ class ProductDetailsViewController: UIViewController {
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
-                        print("json_product")
-                        print(json_product["productTitle"]!)
-                        self.product = Product(id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                        let description:String=json_product["productDescription"]! as! String;
-                        self.UILabelProductName.text=json_product["productTitle"]! as? String
-                        self.full_description=description
-                        self.UIWebViewDescription.loadHTMLString(description, baseURL: Bundle.main.bundleURL)
-                        for current_image in json_product["images"] as! [[String: AnyObject]] {
-                            var image: Image
-                            image = Image(id: current_image["img_id"] as! String,name: current_image["img_desc"] as! String, imageUrl: current_image["img_path"] as! String)
-                            self.images.append(image);
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+                            print("json_product")
+                            print(json_product["productTitle"]!)
+                            self.product = Product(id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            let description:String=json_product["productDescription"]! as! String;
+                            self.UILabelProductName.text=json_product["productTitle"]! as? String
+                            self.full_description=description
+                            self.UIWebViewDescription.loadHTMLString(description, baseURL: Bundle.main.bundleURL)
+                            for current_image in json_product["images"] as! [[String: AnyObject]] {
+                                var image: Image
+                                image = Image(id: current_image["img_id"] as! String,name: current_image["img_desc"] as! String, imageUrl: current_image["img_path"] as! String)
+                                self.images.append(image);
+                                
+                            }
+                            self.collectionView!.reloadData()
+                        } catch {
                             
                         }
-                        self.collectionView!.reloadData()
-                    } catch {
-                        
                     }
                 }
             }

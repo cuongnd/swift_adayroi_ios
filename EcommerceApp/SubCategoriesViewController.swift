@@ -29,21 +29,23 @@ class SubCategoriesViewController: UIViewController {
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.sub_category=[Subcategory]()
-                        for current_category in my_json as! [[String: AnyObject]] {
-                            var sub_category: Subcategory
-                            sub_category = Subcategory(id: current_category["id"] as! String,name: current_category["name"] as! String)
-                            self.sub_category.append(sub_category);
-                            
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.sub_category=[Subcategory]()
+                            for current_category in my_json as! [[String: AnyObject]] {
+                                var sub_category: Subcategory
+                                sub_category = Subcategory(id: current_category["id"] as! String,name: current_category["name"] as! String)
+                                self.sub_category.append(sub_category);
+                                
+                            }
+                            print("response categories")
+                            print(self.sub_category)
+                            self.UITableViewSubCategory.reloadData()
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("response categories")
-                        print(self.sub_category)
-                        self.UITableViewSubCategory.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
                 }
             }

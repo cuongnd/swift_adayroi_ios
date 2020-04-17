@@ -37,20 +37,23 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                    DispatchQueue.main.async {
+                        do {
+                            
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
 
-                        for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                            self.products.append(product);
+                            for current_product in my_json as! [[String: AnyObject]] {
+                                var product: Product
+                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                self.products.append(product);
+
+                            }
+                            self.isPageRefreshing=false
+                            self.collectionView?.reloadData()
+                        } catch {
 
                         }
-                        self.isPageRefreshing=false
-                        self.collectionView?.reloadData()
-                    } catch {
-
                     }
                 }
             }

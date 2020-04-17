@@ -71,6 +71,9 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         
         pageView.numberOfPages = slideshowProducts.count
         startTimer()
+        DispatchQueue.main.async {
+            // add UI related changes here
+        }
         self.get_slideshow_image()
         self.get_product_categories()
         self.rest_api_get_products_discount()
@@ -88,23 +91,29 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.slideshowProducts=[Product]()
-                        for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            print((current_product["default_photo"]!["img_path"])!);
-                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                            self.slideshowProducts.append(product);
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.slideshowProducts=[Product]()
+                            for current_product in my_json as! [[String: AnyObject]] {
+                                var product: Product
+                                print((current_product["default_photo"]!["img_path"])!);
+                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                self.slideshowProducts.append(product);
+                                
+                            }
+                            print("hello load data")
+                            self.UICollectionViewSlideShow.reloadData()
                             
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("hello load data")
-                        self.UICollectionViewSlideShow.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
+                    
                 }
+                
+                
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
@@ -130,21 +139,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.categories=[Category]()
-                        for current_category in my_json as! [[String: AnyObject]] {
-                            var category: Category
-                            category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
-                            self.categories.append(category);
-                            
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.categories=[Category]()
+                            for current_category in my_json as! [[String: AnyObject]] {
+                                var category: Category
+                                category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
+                                self.categories.append(category);
+                                
+                            }
+                            print("response categories")
+                            print(self.categories)
+                            self.UICollectionViewCategories.reloadData()
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("response categories")
-                        print(self.categories)
-                        self.UICollectionViewCategories.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
                 }
             }
@@ -171,21 +182,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.hotProductCategories=[Category]()
-                        for current_category in my_json as! [[String: AnyObject]] {
-                            var category: Category
-                            category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
-                            self.hotProductCategories.append(category);
-                            
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.hotProductCategories=[Category]()
+                            for current_category in my_json as! [[String: AnyObject]] {
+                                var category: Category
+                                category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
+                                self.hotProductCategories.append(category);
+                                
+                            }
+                            print("response categories")
+                            print(self.categories)
+                            self.UICollectionViewHotProductCategories.reloadData()
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("response categories")
-                        print(self.categories)
-                        self.UICollectionViewHotProductCategories.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
                 }
             }
@@ -212,21 +225,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.productsDiscount=[Product]()
-                        for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            print((current_product["default_photo"]!["img_path"])!);
-                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                            self.productsDiscount.append(product);
-                            
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.productsDiscount=[Product]()
+                            for current_product in my_json as! [[String: AnyObject]] {
+                                var product: Product
+                                print((current_product["default_photo"]!["img_path"])!);
+                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                self.productsDiscount.append(product);
+                                
+                            }
+                            print("hello load data")
+                            self.UICollectionViewProductDiscount.reloadData()
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("hello load data")
-                        self.UICollectionViewProductDiscount.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
                 }
             }
@@ -253,21 +268,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.hotProducts=[Product]()
-                        for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            print((current_product["default_photo"]!["img_path"])!);
-                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                            self.hotProducts.append(product);
-                            
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.hotProducts=[Product]()
+                            for current_product in my_json as! [[String: AnyObject]] {
+                                var product: Product
+                                print((current_product["default_photo"]!["img_path"])!);
+                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                self.hotProducts.append(product);
+                                
+                            }
+                            print("hello load data")
+                            self.UICollectionViewHotProducts.reloadData()
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("hello load data")
-                        self.UICollectionViewHotProducts.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
                 }
             }
@@ -294,21 +311,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        self.newProducts=[Product]()
-                        for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            print((current_product["default_photo"]!["img_path"])!);
-                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                            self.newProducts.append(product);
-                            
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.newProducts=[Product]()
+                            for current_product in my_json as! [[String: AnyObject]] {
+                                var product: Product
+                                print((current_product["default_photo"]!["img_path"])!);
+                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                self.newProducts.append(product);
+                                
+                            }
+                            print("hello load data")
+                            self.UICollectionViewNewProducts.reloadData()
+                        } catch {
+                            print("load error slideshow")
                         }
-                        print("hello load data")
-                        self.UICollectionViewNewProducts.reloadData()
-                    } catch {
-                        print("load error slideshow")
                     }
                 }
             }
@@ -335,21 +354,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
             } else {
                 if let content = data {
-                    do {
-                        //array
-                        let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        
-                        for current_product in my_json as! [[String: AnyObject]] {
-                            var product: Product
-                            print((current_product["default_photo"]!["img_path"])!);
-                            product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
-                            self.products.append(product);
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            
+                            for current_product in my_json as! [[String: AnyObject]] {
+                                var product: Product
+                                print((current_product["default_photo"]!["img_path"])!);
+                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                self.products.append(product);
+                                
+                            }
+                            print(self.products)
+                            self.topSlideshowCollectionView?.reloadData()
+                        } catch {
                             
                         }
-                        print(self.products)
-                        self.topSlideshowCollectionView?.reloadData()
-                    } catch {
-                        
                     }
                 }
             }
