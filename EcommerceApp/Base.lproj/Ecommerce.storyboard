@@ -156,28 +156,28 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jj-ZkN" userLabel="Carousel Container View">
-                                                <rect key="frame" x="0.0" y="38" width="375" height="189"/>
+                                                <rect key="frame" x="0.0" y="38" width="375" height="198"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9OM-uO-t2D">
                                                         <rect key="frame" x="0.0" y="-9" width="375" height="207"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="g5d-6C-JiK">
-                                                            <size key="itemSize" width="379" height="188"/>
+                                                            <size key="itemSize" width="379" height="206"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="A8p-cD-9QQ" customClass="ImageCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="9.6666666666666661" width="379" height="188"/>
+                                                                <rect key="frame" x="0.0" y="0.66666666666666663" width="379" height="206"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="379" height="188"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="379" height="206"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z1U-xD-y7T">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="379" height="188"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="379" height="205"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -188,7 +188,7 @@
                                                                     </subviews>
                                                                 </view>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="z1U-xD-y7T" secondAttribute="bottom" id="Dds-kG-sx8"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="z1U-xD-y7T" secondAttribute="bottom" constant="1" id="Dds-kG-sx8"/>
                                                                     <constraint firstItem="z1U-xD-y7T" firstAttribute="top" secondItem="A8p-cD-9QQ" secondAttribute="top" id="UTW-Uo-zzm"/>
                                                                     <constraint firstItem="z1U-xD-y7T" firstAttribute="leading" secondItem="A8p-cD-9QQ" secondAttribute="leading" id="fPk-tc-4JN"/>
                                                                     <constraint firstAttribute="trailing" secondItem="z1U-xD-y7T" secondAttribute="trailing" id="wvh-v2-Evf"/>
@@ -212,32 +212,41 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="189" id="bNj-d6-HvY"/>
+                                                    <constraint firstAttribute="height" constant="198" id="bNj-d6-HvY"/>
                                                 </constraints>
                                             </view>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu3-pP-OEI">
-                                                <rect key="frame" x="0.0" y="226" width="375" height="264"/>
+                                                <rect key="frame" x="0.0" y="292" width="375" height="198"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="264" id="a9z-kD-IJ8"/>
+                                                    <constraint firstAttribute="height" constant="198" id="a9z-kD-IJ8"/>
                                                 </constraints>
                                             </webView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-Dj-TlV">
-                                                <rect key="frame" x="0.0" y="449" width="375" height="30"/>
+                                                <rect key="frame" x="0.0" y="490" width="375" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <size key="titleShadowOffset" width="3" height="0.0"/>
                                                 <state key="normal" title="Xem Tất Cả"/>
                                                 <connections>
                                                     <action selector="show_full_description_product:" destination="IaY-2Z-Q6T" eventType="touchUpInside" id="ogH-qu-hyQ"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mô tả sản phẩm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqV-4d-BH8">
+                                                <rect key="frame" x="8" y="255" width="133" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.30738114010000001" blue="0.20628872240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="770" id="27X-GH-2Xr"/>
-                                            <constraint firstItem="cu3-pP-OEI" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="196" id="50i-ZN-tZ9"/>
+                                            <constraint firstItem="cu3-pP-OEI" firstAttribute="top" secondItem="YOM-YD-hED" secondAttribute="bottom" constant="262" id="50i-ZN-tZ9"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="trailing" secondItem="YOM-YD-hED" secondAttribute="trailing" id="9v0-D9-p8Y"/>
                                             <constraint firstItem="OgR-Dj-TlV" firstAttribute="leading" secondItem="Dcb-Og-h1D" secondAttribute="leading" id="BSR-QD-zyo"/>
-                                            <constraint firstAttribute="bottom" secondItem="OgR-Dj-TlV" secondAttribute="bottom" constant="291" id="C7r-qJ-tgr"/>
+                                            <constraint firstAttribute="bottom" secondItem="OgR-Dj-TlV" secondAttribute="bottom" constant="250" id="C7r-qJ-tgr"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="leading" secondItem="gl3-jj-ZkN" secondAttribute="leading" id="LXp-hr-yW4"/>
                                             <constraint firstItem="gl3-jj-ZkN" firstAttribute="leading" secondItem="YOM-YD-hED" secondAttribute="leading" id="YLK-VH-3Yy"/>
                                             <constraint firstItem="cu3-pP-OEI" firstAttribute="trailing" secondItem="gl3-jj-ZkN" secondAttribute="trailing" id="Ysa-VI-5W8"/>
@@ -277,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSq-nO-3iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="41"/>
+            <point key="canvasLocation" x="408.80000000000001" y="40.64039408866995"/>
         </scene>
         <!--Cart Table View Controller-->
         <scene sceneID="yRc-5F-NIL">
