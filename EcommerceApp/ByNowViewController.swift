@@ -12,7 +12,7 @@ import UIKit
 private let reuseIdentifier = "ImageCollectionViewCell"
 
 
-class ProductDetailsViewController: UIViewController {
+class ByNowViewController: UIViewController {
     var product: Product? {
         didSet {
             
@@ -49,17 +49,10 @@ class ProductDetailsViewController: UIViewController {
         }
         self.UIWebViewDescription.scrollView.isScrollEnabled = false;
         self.UIWebViewDescription.scrollView.bounces = false;
+       
         self.rest_api_get_detail_product()
    
         //updateContentViewHeight()
-    }
-    @IBAction func buy_now(_ sender: Any) {
-        let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
-        NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": self.product ?? nil])
-        let cartManager = ShoppingCartManager()
-        ecommerceCartVC.cartManager = cartManager
-        ecommerceCartVC.title = StringConstants.kShoppingCartString
-       self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
     }
     func rest_api_get_detail_product() {
         let url = AppConfiguration.root_url+"api/products/"+product_id
@@ -153,7 +146,7 @@ class ProductDetailsViewController: UIViewController {
     }
 }
 
-extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ByNowViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

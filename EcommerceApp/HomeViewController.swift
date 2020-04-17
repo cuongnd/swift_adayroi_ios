@@ -53,6 +53,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         UICollectionViewCategories.dataSource=self
         UICollectionViewProductDiscount.dataSource=self
         UICollectionViewHotProducts.dataSource=self

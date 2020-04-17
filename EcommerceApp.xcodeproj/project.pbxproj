@@ -77,6 +77,8 @@
 		FA26092F243EDE900096AED9 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA26092E243EDE900096AED9 /* Slide.xib */; };
 		FA2EA85224423CE000C0C96F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */; };
 		FA3DE2122448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */; };
+		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
+		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
 		FABDBB56244466A200CEA175 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */; };
 		FABDBB582444B52300CEA175 /* Product copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB572444B52300CEA175 /* Product copy.swift */; };
@@ -165,6 +167,8 @@
 		FA26092E243EDE900096AED9 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsFullDescriptionViewController.swift; sourceTree = "<group>"; };
+		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
+		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
 		FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		FABDBB572444B52300CEA175 /* Product copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product copy.swift"; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				1767F75A1E344E3100E8AD1F /* ProductCollectionViewController.swift */,
 				17825D8D1E356BF200A03FC5 /* ProductDetailsViewController.swift */,
 				17825D9C1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift */,
+				FA738FA6244A0317008BE704 /* ByNowViewController.swift */,
 				173DCFB11E58F598001092C7 /* CategoriesTableViewController.swift */,
 				FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */,
 				FA05767B2444569E0003908D /* SubCategoriesViewController.swift */,
@@ -342,6 +347,7 @@
 			children = (
 				1782C8891E669B5800963945 /* ATCFirebaseLoginManager.swift */,
 				1782C88A1E669B5800963945 /* ATCViewControllerFactory.swift */,
+				FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 				1782C8B91E669B5900963945 /* ATCFacebookPost.swift in Sources */,
 				1782C8D81E669B5900963945 /* UIView.swift in Sources */,
 				17825D901E356ED200A03FC5 /* ImageCollectionViewCell.swift in Sources */,
+				FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */,
 				17825DA11E3D30BC00A03FC5 /* CartTotalTableViewCell.swift in Sources */,
 				1782C8C11E669B5900963945 /* ATCStripeCheckoutRowView.swift in Sources */,
 				17825D9F1E3AD50F00A03FC5 /* CartTableViewCell.swift in Sources */,
@@ -686,6 +693,7 @@
 				177867461E33F86000BF7080 /* AppDelegate.swift in Sources */,
 				17825D9D1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift in Sources */,
 				17825D931E3852C700A03FC5 /* ShoppingCartManager.swift in Sources */,
+				FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */,
 				FA05767C2444569E0003908D /* SubCategoriesViewController.swift in Sources */,
 				1782C8D61E669B5900963945 /* ATCSettingsToggleTableViewCell.swift in Sources */,
 				17825D971E3ABD1300A03FC5 /* ShoppingCart.swift in Sources */,

@@ -17,11 +17,21 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
      var sub_category:Subcategory?
     var data1 = [[String: AnyObject]]()
     var page: Int = 0
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     var isPageRefreshing:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         // Do any additional setup after loading the view, typically from a nib.
         UICollectionViewProducts.delegate=self
+        
+        
         self.DATA(page1: 0)
     }
     
@@ -51,6 +61,8 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
                             }
                             self.isPageRefreshing=false
                             self.collectionView?.reloadData()
+                            self.activityIndicator.stopAnimating()
+                            UIApplication.shared.endIgnoringInteractionEvents()
                         } catch {
 
                         }
@@ -59,7 +71,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
-                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+                print("réponse = \(String(describing: response))") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
             }
 
 
@@ -120,7 +132,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailProductVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-        detailProductVC.product = self.products[indexPath.row]
+        detailProductVC.product_id = self.products[indexPath.row].id
         self.navigationController?.pushViewController(detailProductVC, animated: true)
     }
 

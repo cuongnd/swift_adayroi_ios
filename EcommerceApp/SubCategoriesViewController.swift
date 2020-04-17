@@ -13,11 +13,21 @@ class SubCategoriesViewController: UIViewController {
     var reuseIdentifier:String=""
     var sub_category=[Subcategory]()
     @IBOutlet var UITableViewSubCategory: UITableView!
+     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
    override func viewDidLoad() {
         super.viewDidLoad()
-    UITableViewSubCategory.dataSource=self
-    UITableViewSubCategory.delegate=self
-    self.rest_api_get_sub_category()
+    
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+    
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    
+        UITableViewSubCategory.dataSource=self
+        UITableViewSubCategory.delegate=self
+        self.rest_api_get_sub_category()
     }
     
     func rest_api_get_sub_category() {
@@ -43,6 +53,8 @@ class SubCategoriesViewController: UIViewController {
                             print("response categories")
                             print(self.sub_category)
                             self.UITableViewSubCategory.reloadData()
+                            self.activityIndicator.stopAnimating()
+                            UIApplication.shared.endIgnoringInteractionEvents()
                         } catch {
                             print("load error slideshow")
                         }

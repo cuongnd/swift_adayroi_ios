@@ -28,5 +28,4 @@ target 'EcommerceApp' do
 
   pod 'Material', '~> 2.0'
   pod 'Kingfisher'
-
 end
