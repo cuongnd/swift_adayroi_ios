@@ -35,6 +35,34 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var bodyContentView: UIView!
     var full_description:String=""
+    @IBAction func add_to_cart(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": product ?? nil])
+        
+        let alert = UIAlertController(title: "Thông báo", message: "Sản phẩm đã được thêm vào giỏ hàng", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Vào giỏ hàng", style: .default, handler: go_to_cart))
+        alert.addAction(UIAlertAction(title: "Tiếp tục mua hàng", style: .cancel, handler: go_to_list_product))
+        
+        self.present(alert, animated: true)
+        
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    func go_to_list_product(alert: UIAlertAction!) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    func go_to_cart(alert: UIAlertAction!) {
+        let cartManager = ShoppingCartManager()
+        let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
+        ecommerceCartVC.cartManager = cartManager
+        ecommerceCartVC.title = StringConstants.kShoppingCartString
+        self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+    }
+
+    
+    
     @IBOutlet weak var bodyDescriptionContentView: UIView!
     @IBOutlet weak var UIWebViewDescription: UIWebView!
     @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
@@ -54,12 +82,8 @@ class ProductDetailsViewController: UIViewController {
         //updateContentViewHeight()
     }
     @IBAction func buy_now(_ sender: Any) {
-        let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
         NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": self.product ?? nil])
-        let cartManager = ShoppingCartManager()
-        ecommerceCartVC.cartManager = cartManager
-        ecommerceCartVC.title = StringConstants.kShoppingCartString
-       self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+       self.navigationController?.popViewController(animated: true)
     }
     func rest_api_get_detail_product() {
         let url = AppConfiguration.root_url+"api/products/"+product_id

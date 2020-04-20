@@ -41,6 +41,8 @@ class ByNowViewController: UIViewController {
     @IBOutlet var UIButtonShowFullDescription: RaisedButton!
     
     
+    @IBAction func add_to_cart(_ sender: Any) {
+    }
     @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()

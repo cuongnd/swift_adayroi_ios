@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
-    
+    let preferentces=UserDefaults.standard
     @IBOutlet weak var topSlideshowCollectionView: UICollectionView!
     @IBOutlet fileprivate weak var slideShowCollectionView: UICollectionView!
     var products = Product.mockProducts()

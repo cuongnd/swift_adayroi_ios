@@ -289,6 +289,7 @@
                                                 <size key="titleShadowOffset" width="3" height="0.0"/>
                                                 <state key="normal" title="Thêm vào giỏ hàng"/>
                                                 <connections>
+                                                    <action selector="add_to_cart:" destination="IaY-2Z-Q6T" eventType="touchUpInside" id="kRH-8K-TKh"/>
                                                     <action selector="show_full_description_product:" destination="IaY-2Z-Q6T" eventType="touchUpInside" id="hYd-ns-2WP"/>
                                                 </connections>
                                             </button>
@@ -1841,7 +1842,7 @@
                                                 <size key="titleShadowOffset" width="3" height="0.0"/>
                                                 <state key="normal" title="Thêm vào giỏ hàng"/>
                                                 <connections>
-                                                    <action selector="show_full_description_product:" destination="dUu-WT-urr" eventType="touchUpInside" id="3Bo-Rr-Le5"/>
+                                                    <action selector="add_to_cart:" destination="dUu-WT-urr" eventType="touchUpInside" id="LeA-Bz-rVo"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mô tả sản phẩm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3x-iU-zJc">

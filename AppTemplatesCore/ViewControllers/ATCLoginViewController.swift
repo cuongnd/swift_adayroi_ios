@@ -16,7 +16,7 @@ import UIKit
 let kLoginButtonBackgroundColor = UIColor(colorLiteralRed: 31/255, green: 75/255, blue: 164/255, alpha: 1)
 let kLoginButtonTintColor = UIColor.white
 let kLoginButtonCornerRadius: CGFloat = 13.0
-
+var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
 let kTwitterLoginButtonBackgroundColor = UIColor(colorLiteralRed: 85/255, green: 172/255, blue: 239/255, alpha: 1)
 let kTwitterLoginButtonTintColor = UIColor.white
@@ -105,7 +105,7 @@ class ATCLoginViewController: UIViewController {
         if (firebaseEnabled) {
             ATCFirebaseLoginManager.signIn(email: email, pass: pass, completionBlock: self.didCompleteLogin)
         } else {
-            didLogin(firstName: email, email: email)
+            didLogin(user_name: email, password: pass)
         }
     }
 
@@ -125,7 +125,7 @@ class ATCLoginViewController: UIViewController {
                     let credential = FIRTwitterAuthProvider.credential(withToken: session.authToken, secret: session.authTokenSecret)
                     ATCFirebaseLoginManager.login(credential: credential, completionBlock: self.didCompleteLogin)
                 } else {
-                    self.didLogin(firstName: "@" + session.userName)
+                    //self.didLogin(firstName: "@" + session.userName)
                 }
             } else {
                 print("error: \(error?.localizedDescription)");
@@ -154,18 +154,80 @@ class ATCLoginViewController: UIViewController {
                         let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
                         ATCFirebaseLoginManager.login(credential: credential, completionBlock: self.didCompleteLogin)
                     } else {
-                        self.didLogin(firstName: firstName, lastName: lastName, email: email, avatarURL: facebookUser?.profilePicture ?? "")
+                        self.didLogin()
                     }
                 }
             })
         }
     }
 
-    fileprivate func didLogin(firstName: String = "", lastName: String = "", email: String = "", avatarURL: String = "") {
-        let user = ATCUser(firstName: firstName, lastName: lastName, avatarURL: avatarURL)
-        self.didCompleteLogin(user: user)
+    fileprivate func didLogin(user_name: String = "", password: String = "") {
+        
+        //let user = ATCUser(firstName: firstName, lastName: lastName, avatarURL: avatarURL)
+        //self.didCompleteLogin(user: user)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let url = AppConfiguration.root_url+"api_task?task=user.login&username="+user_name+"&password="+password
+        print(url)
+        let request = NSMutableURLRequest(url: URL(string: url)!)
+        let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+            } else {
+                if let content = data {
+                    DispatchQueue.main.async {
+                        do {
+                            //array
+                            let json_user = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+                            
+                            
+                            
+                            activityIndicator.stopAnimating()
+                            UIApplication.shared.endIgnoringInteractionEvents()
+                            
+                            
+                            let preferentces=UserDefaults.standard
+                            preferentces.set(self.json(from:json_user as Any), forKey: "user")
+                            
+                            
+                            
+                            
+                           
+                            
+                        } catch {
+                            
+                        }
+                    }
+                }
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+            }
+            
+            
+            if error == nil {
+                // Ce que vous voulez faire.
+            }
+        }
+        requestAPI.resume()
+        
+        
+        
     }
-
+    func json(from object:Any) -> String? {
+        guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
+            return nil
+        }
+        return String(data: data, encoding: String.Encoding.utf8)
+    }
     fileprivate func didCompleteLogin(user: ATCUser?) {
         guard let loggedInViewController = loggedInViewController else { return }
         loggedInViewController.user = user

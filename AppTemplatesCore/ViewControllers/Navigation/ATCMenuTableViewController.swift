@@ -76,11 +76,22 @@ open class ATCMenuTableViewController: UITableViewController {
                 closeNavigationDrawer()
                 lastSelectedIndexPath = indexPath
             } else if (item.type == .logout) {
-                if let hostVC = dController?.parent {
-                    hostVC.dismiss(animated: true, completion: nil)
-                }
+                let alert = UIAlertController(title: "Thông báo", message: "Bạn có chắc chắn muốn thoát ?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Đồng ý", style: .default, handler: logout))
+                alert.addAction(UIAlertAction(title: "Thoát", style: .cancel, handler: cancel))
+                self.present(alert, animated: true)
             }
         }
+    }
+    func cancel(alert: UIAlertAction!) {
+        closeNavigationDrawer()
+    }
+    func logout(alert: UIAlertAction!) {
+        let cartManager = ShoppingCartManager()
+        let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
+        ecommerceCartVC.cartManager = cartManager
+        ecommerceCartVC.title = StringConstants.kShoppingCartString
+        self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
     }
 
     override open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

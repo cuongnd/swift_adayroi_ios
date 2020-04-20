@@ -56,7 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func configureHostViewControllers() {
-
+        let user:User=Factory.getUser()
+        
+        
         // Home view controller - the categories screen
 
         let homeVC = StoryboardEntityProvider().homeVC()
@@ -107,9 +109,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         hostViewController = ATCHostViewController(style: .sideBar, items: menuItems, topNavigationRightViews: topRightNavigationViews)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        if (AppConfiguration.isLoginScreenEnabled) {
+        if (AppConfiguration.isLoginScreenEnabled && user.id.isEmpty) {
+            print("123")
             let loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: hostViewController!)
             window!.rootViewController = loginVC
+        }else if (AppConfiguration.isLoginScreenEnabled && !user.id.isEmpty) {
+            // Configure the some mock current user data
+            print("456")
+            let avatarURL = "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12801222_1293104680705553_7502147733893902564_n.jpg?oh=b151770a598fea1b2d6b8f3382d9e7c9&oe=593E48A9"
+            let user = ATCUser(firstName: "John", lastName: "Smith", avatarURL: avatarURL)
+            hostViewController?.user = user
+            window!.rootViewController = hostViewController
         } else {
             // Configure the some mock current user data
             let avatarURL = "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12801222_1293104680705553_7502147733893902564_n.jpg?oh=b151770a598fea1b2d6b8f3382d9e7c9&oe=593E48A9"

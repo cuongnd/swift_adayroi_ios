@@ -66,7 +66,7 @@ class ViewControllerUtils {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
-    
+  
 }
 
 //// In order to show the activity indicator, call the function from your view controller
