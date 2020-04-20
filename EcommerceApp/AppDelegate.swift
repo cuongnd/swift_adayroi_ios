@@ -110,7 +110,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         if (AppConfiguration.isLoginScreenEnabled && user.id.isEmpty) {
-            print("123")
             let loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: hostViewController!)
             window!.rootViewController = loginVC
         }else if (AppConfiguration.isLoginScreenEnabled && !user.id.isEmpty) {

@@ -186,22 +186,13 @@ class ATCLoginViewController: UIViewController {
                         do {
                             //array
                             let json_user = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
-                            
-                            
-                            
-                            activityIndicator.stopAnimating()
+                           activityIndicator.stopAnimating()
                             UIApplication.shared.endIgnoringInteractionEvents()
-                            
-                            
                             let preferentces=UserDefaults.standard
                             preferentces.set(self.json(from:json_user as Any), forKey: "user")
-                            
-                            
-                            
-                            
-                           
-                            
-                        } catch {
+                            let homeVC = StoryboardEntityProvider().homeVC()
+                            self.navigationController?.pushViewController(homeVC, animated: true)
+                      } catch {
                             
                         }
                     }

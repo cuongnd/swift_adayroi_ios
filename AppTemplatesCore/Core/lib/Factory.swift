@@ -14,27 +14,29 @@ class Factory {
         var user: User
         user = User(id:"")
         let preferentces=UserDefaults.standard
-        let  str_user:String=preferentces.value(forKey: "user")! as! String
-        if !str_user.isEmpty {
-            var dictonary:NSDictionary?
-            
-            if let data = str_user.data(using: String.Encoding.utf8) {
+        if(preferentces.object(forKey: "user") != nil){
+            let  str_user:String=preferentces.value(forKey: "user")! as! String
+            if !str_user.isEmpty {
+                var dictonary:NSDictionary?
                 
-                do {
-                    dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] as! NSDictionary
+                if let data = str_user.data(using: String.Encoding.utf8) {
                     
-                    if let myDictionary = dictonary
-                    {
-                        user = User(id:myDictionary["_id"] as! String)
+                    do {
+                        dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] as! NSDictionary
+                        
+                        if let myDictionary = dictonary
+                        {
+                            user = User(id:myDictionary["_id"] as! String)
+                        }
+                    } catch let error as NSError {
+                        print(error)
                     }
-                } catch let error as NSError {
-                    print(error)
                 }
-            }
 
-            
-            
-          
+                
+                
+              
+            }
         }
         return user
     }

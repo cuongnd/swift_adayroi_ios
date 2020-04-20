@@ -11,7 +11,7 @@ import UIKit
 
 open class ATCMenuTableViewController: UITableViewController {
     fileprivate static let kCellReuseIdentifier = "ATCMenuTableViewCell"
-
+    fileprivate var hostViewController: ATCHostViewController?
     fileprivate var lastSelectedIndexPath: IndexPath?
 
     var items: [ATCNavigationItem]
@@ -87,11 +87,14 @@ open class ATCMenuTableViewController: UITableViewController {
         closeNavigationDrawer()
     }
     func logout(alert: UIAlertAction!) {
-        let cartManager = ShoppingCartManager()
-        let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
-        ecommerceCartVC.cartManager = cartManager
-        ecommerceCartVC.title = StringConstants.kShoppingCartString
-        self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+        let preferentces=UserDefaults.standard
+        preferentces.removeObject(forKey: "user")
+        let dController = drawerController()
+        if let hostVC = dController?.parent {
+            hostVC.dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
 
     override open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
