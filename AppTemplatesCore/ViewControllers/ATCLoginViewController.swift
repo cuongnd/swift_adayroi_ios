@@ -29,13 +29,13 @@ let kFacebookLoginButtonCornerRadius: CGFloat = 13.0
 class ATCLoginViewController: UIViewController {
 
     fileprivate var firebaseEnabled = false
-    fileprivate var loggedInViewController: ATCHostViewController? = nil
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
 
     @IBOutlet var facebookLoginButton: UIButton!
     @IBOutlet var twitterLoginButton: UIButton!
+    fileprivate var loggedInViewController: ATCHostViewController? = nil
     // Facebook login permissions
     // Add extra permissions you need
     // Remove permissions you don't need
@@ -103,7 +103,7 @@ class ATCLoginViewController: UIViewController {
             return
         }
         if (firebaseEnabled) {
-            ATCFirebaseLoginManager.signIn(email: email, pass: pass, completionBlock: self.didCompleteLogin)
+            //ATCFirebaseLoginManager.signIn(email: email, pass: pass, completionBlock: self.didCompleteLogin)
         } else {
             didLogin(user_name: email, password: pass)
         }
@@ -123,7 +123,7 @@ class ATCLoginViewController: UIViewController {
                 // Successful log in with Twitter
                 if (self.firebaseEnabled) {
                     let credential = FIRTwitterAuthProvider.credential(withToken: session.authToken, secret: session.authTokenSecret)
-                    ATCFirebaseLoginManager.login(credential: credential, completionBlock: self.didCompleteLogin)
+                    //ATCFirebaseLoginManager.login(credential: credential, completionBlock: self.didCompleteLogin)
                 } else {
                     //self.didLogin(firstName: "@" + session.userName)
                 }
@@ -152,7 +152,7 @@ class ATCLoginViewController: UIViewController {
                     let email = facebookUser?.email {
                     if (self.firebaseEnabled) {
                         let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
-                        ATCFirebaseLoginManager.login(credential: credential, completionBlock: self.didCompleteLogin)
+                        //ATCFirebaseLoginManager.login(credential: credential, completionBlock: self.didCompleteLogin)
                     } else {
                         self.didLogin()
                     }
@@ -185,15 +185,34 @@ class ATCLoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         do {
                             //array
-                            let json_user = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
-                           activityIndicator.stopAnimating()
+                            let response = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+                            activityIndicator.stopAnimating()
                             UIApplication.shared.endIgnoringInteractionEvents()
-                            let preferentces=UserDefaults.standard
-                            preferentces.set(self.json(from:json_user as Any), forKey: "user")
-                            let homeVC = StoryboardEntityProvider().homeVC()
-                            self.navigationController?.pushViewController(homeVC, animated: true)
-                      } catch {
+                            let result:String=response["result"] as! String
+                            if(result.elementsEqual("success")==true){
+                                let data_user:[String:AnyObject]=response["data"] as! [String:AnyObject]
+                                let id:String=data_user["_id"] as! String
+                                if(!id.isEmpty)
+                                {
+                                    let preferentces=UserDefaults.standard
+                                    preferentces.set(self.json(from:data_user as Any), forKey: "user")
+                                    self.didCompleteLogin()
+                                }else{
+                                    let alert = UIAlertController(title: "Thông báo", message: "Đăng nhập không thành công", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                    self.present(alert, animated: true)
+                                    
+                                }
+                            }else{
+                                let alert = UIAlertController(title: "Thông báo", message: "Đăng nhập không thành công", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                self.present(alert, animated: true)
+                            }
                             
+                      } catch {
+                        let alert = UIAlertController(title: "Thông báo", message: "Đăng nhập không thành công", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true)
                         }
                     }
                 }
@@ -219,9 +238,8 @@ class ATCLoginViewController: UIViewController {
         }
         return String(data: data, encoding: String.Encoding.utf8)
     }
-    fileprivate func didCompleteLogin(user: ATCUser?) {
+    fileprivate func didCompleteLogin() {
         guard let loggedInViewController = loggedInViewController else { return }
-        loggedInViewController.user = user
         self.present(loggedInViewController, animated: true, completion: nil)
     }
 }

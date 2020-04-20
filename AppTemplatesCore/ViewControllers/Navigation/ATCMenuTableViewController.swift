@@ -90,9 +90,11 @@ open class ATCMenuTableViewController: UITableViewController {
         let preferentces=UserDefaults.standard
         preferentces.removeObject(forKey: "user")
         let dController = drawerController()
+        
         if let hostVC = dController?.parent {
             hostVC.dismiss(animated: true, completion: nil)
         }
+        closeNavigationDrawer()
         
         
     }
