@@ -24,24 +24,41 @@ class ShoppingCartManager {
         let preferentces=UserDefaults.standard
         if(preferentces.object(forKey: "cart_list_product_id") != nil){
             var  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
-            let jsonObject: [String:String]  =
-                [
-                    "id": product.id,
-                    "quantity": String(quantity),
-                    ]
-            
-            cart_list_product_id[product.id]=jsonObject
+            if(cart_list_product_id[product.id] != nil){
+                var currentProduct: [String:String]=cart_list_product_id[product.id]!;
+                var quantity1:Int = Int(currentProduct["quantity"]!)!
+                quantity1=quantity1+quantity
+                currentProduct["quantity"]=String(quantity1)
+                cart_list_product_id[product.id]=currentProduct
+            }else{
+                let jsonProduct: [String:String]  =
+                    [
+                        "id": product.id,
+                        "quantity": String(quantity),
+                        "name":product.productName!,
+                        "imageUrl":product.productImageURL!,
+                        "price":String(product.productPrice!),
+                        "description":product.productDescription!,
+                        "category":product.productCategory!,
+                        ]
+                cart_list_product_id[product.id]=jsonProduct
+            }
             preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
         }else{
             var cart_list_product_id:[String:[String:String]] = [String:[String:String]]()
             for product_item in cart.itemDictionary {
-                let jsonObject: [String:String]  =
+                let jsonProduct: [String:String]  =
                     [
                         "id": product_item.key,
                         "quantity": String(quantity),
+                        "name":product.productName!,
+                        "imageUrl":product.productImageURL!,
+                        "price":String(product.productPrice!),
+                        "description":product.productDescription!,
+                        "category":product.productCategory!,
                     ]
                 
-                cart_list_product_id[product_item.key]=jsonObject
+                cart_list_product_id[product_item.key]=jsonProduct
             }
             //let str_data=convertIntoJSONString(arrayObject: list_key_product)
             print("cart_list_product_id")
@@ -62,8 +79,13 @@ class ShoppingCartManager {
             clearProducts();
             for product_item in cart_list_product_id {
                 let product_id=product_item.key;
+                let name=product_item.value["name"]!
                 let quantity:Int = Int(product_item.value["quantity"]!)!
-                let product:Product=Product(id: product_id, name: "name product", imageUrl: "product_image", price:20, description: "description product", category: "category name", images: ["image_path1"])
+                let price:Double = Double(product_item.value["price"]!)!
+                let description=product_item.value["description"]!
+                let category=product_item.value["category"]!
+                let imageUrl=product_item.value["imageUrl"]!
+                let product:Product=Product(id: product_id, name: name, imageUrl: imageUrl, price:price, description: description, category: category, images: [])
                 cart.itemDictionary[product.id] = ShoppingCartItem(product: product, quantity: quantity)
             }
             
