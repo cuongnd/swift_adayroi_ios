@@ -37,7 +37,6 @@ class ProductDetailsViewController: UIViewController {
     var full_description:String=""
     @IBAction func add_to_cart(_ sender: Any) {
         
-        NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": product ?? nil])
         
         let alert = UIAlertController(title: "Thông báo", message: "Sản phẩm đã được thêm vào giỏ hàng", preferredStyle: .alert)
         
@@ -54,6 +53,8 @@ class ProductDetailsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     func go_to_cart(alert: UIAlertAction!) {
+        NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": product ?? nil])
+
         let cartManager = ShoppingCartManager()
         let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
         ecommerceCartVC.cartManager = cartManager

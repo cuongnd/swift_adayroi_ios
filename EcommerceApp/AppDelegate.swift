@@ -147,9 +147,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     @objc
     fileprivate func didSendAddToCartNotification(notification: Notification) {
+        print("1111")
         guard let product = notification.userInfo?["product"] as? Product else {
             return
         }
+        print("22222")
         self.addProduct(product: product)
     }
 
