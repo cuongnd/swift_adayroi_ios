@@ -9,19 +9,16 @@
 import UIKit
 
 class CartTableViewController: UITableViewController {
-    
     var cartManager: ShoppingCartManager? {
         didSet {
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(didUpdateCart), name: kNotificationDidAddProductToCart, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(didUpdateCart), name: kNotificationDidAClearCart, object: nil)
-            
             self.tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         print("aaaaa")
+        print(cartManager?.distinctProductCount())
         tableView.tableFooterView = UIView()
          self.tableView.reloadData()
     }
@@ -76,7 +73,8 @@ class CartTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("helllo 1")
+        print("couter")
+        print(cartManager?.distinctProductCount())
         guard let cartManager = cartManager else {
             print("helllo 2")
             return UITableViewCell()

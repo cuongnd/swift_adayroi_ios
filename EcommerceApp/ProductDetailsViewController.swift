@@ -58,6 +58,7 @@ class ProductDetailsViewController: UIViewController {
         let cartManager = ShoppingCartManager()
         let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
         ecommerceCartVC.cartManager = cartManager
+        ecommerceCartVC.addProduct(product: product!)
         ecommerceCartVC.title = StringConstants.kShoppingCartString
         self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
     }

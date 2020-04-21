@@ -8,4 +8,8 @@
 
 class ShoppingCart {
     var itemDictionary = [String: ShoppingCartItem]()
+    init () {
+        
+        //itemDictionary
+    }
 }

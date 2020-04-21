@@ -21,8 +21,47 @@ class ShoppingCartManager {
             return
         }
         cart.itemDictionary[product.id] = ShoppingCartItem(product: product, quantity: quantity)
+        let preferentces=UserDefaults.standard
+        if(preferentces.object(forKey: "cart_list_product_id") != nil){
+            var  cart_list_product_id:[String:[Any]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[Any]]
+            let jsonObject: [Any]  = [
+                [
+                    "id": product.id,
+                    "quantity": quantity,
+                    ]
+            ]
+            cart_list_product_id[product.id]=jsonObject
+            preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
+        }else{
+            var cart_list_product_id:[String:[Any]] = [String:[Any]]()
+            for product_item in cart.itemDictionary {
+                let jsonObject: [Any]  = [
+                    [
+                        "id": product_item.key,
+                        "quantity": quantity,
+                    ]
+                ]
+                cart_list_product_id[product_item.key]=jsonObject
+            }
+            //let str_data=convertIntoJSONString(arrayObject: list_key_product)
+            print("cart_list_product_id")
+            print(cart_list_product_id)
+            preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
+            //print("str_data")
+            //print(str_data)
+        }
+       
     }
-
+   
+    init () {
+        let preferentces=UserDefaults.standard
+        if(preferentces.object(forKey: "cart_list_product_id") != nil){
+            let  cart_list_product_id:[String:[Any]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[Any]]
+            print("cart_list_product_id")
+            print(cart_list_product_id)
+            
+        }
+    }
     func productCount() -> Int {
         return cart.itemDictionary.reduce(0) { (x, entry: (key: String, value: ShoppingCartItem)) -> Int in
             return x + entry.value.quantity
