@@ -23,24 +23,24 @@ class ShoppingCartManager {
         cart.itemDictionary[product.id] = ShoppingCartItem(product: product, quantity: quantity)
         let preferentces=UserDefaults.standard
         if(preferentces.object(forKey: "cart_list_product_id") != nil){
-            var  cart_list_product_id:[String:[Any]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[Any]]
-            let jsonObject: [Any]  = [
+            var  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
+            let jsonObject: [String:String]  =
                 [
                     "id": product.id,
-                    "quantity": quantity,
+                    "quantity": String(quantity),
                     ]
-            ]
+            
             cart_list_product_id[product.id]=jsonObject
             preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
         }else{
-            var cart_list_product_id:[String:[Any]] = [String:[Any]]()
+            var cart_list_product_id:[String:[String:String]] = [String:[String:String]]()
             for product_item in cart.itemDictionary {
-                let jsonObject: [Any]  = [
+                let jsonObject: [String:String]  =
                     [
                         "id": product_item.key,
-                        "quantity": quantity,
+                        "quantity": String(quantity),
                     ]
-                ]
+                
                 cart_list_product_id[product_item.key]=jsonObject
             }
             //let str_data=convertIntoJSONString(arrayObject: list_key_product)
@@ -56,9 +56,17 @@ class ShoppingCartManager {
     init () {
         let preferentces=UserDefaults.standard
         if(preferentces.object(forKey: "cart_list_product_id") != nil){
-            let  cart_list_product_id:[String:[Any]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[Any]]
+            let  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
             print("cart_list_product_id")
             print(cart_list_product_id)
+            clearProducts();
+            for product_item in cart_list_product_id {
+                let product_id=product_item.key;
+                let quantity:Int = Int(product_item.value["quantity"]!)!
+                let product:Product=Product(id: product_id, name: "name product", imageUrl: "product_image", price:20, description: "description product", category: "category name", images: ["image_path1"])
+                cart.itemDictionary[product.id] = ShoppingCartItem(product: product, quantity: quantity)
+            }
+            
             
         }
     }
