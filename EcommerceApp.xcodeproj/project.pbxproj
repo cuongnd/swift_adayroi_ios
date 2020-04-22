@@ -79,6 +79,8 @@
 		FA3DE2122448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */; };
 		FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF15244C727E007AF8C6 /* Factory.swift */; };
 		FA6CBF18244C7325007AF8C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF17244C7325007AF8C6 /* User.swift */; };
+		FA6CBF1A24504CDB007AF8C6 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */; };
+		FA6CBF1C24504D55007AF8C6 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1B24504D55007AF8C6 /* PaymentTableViewCell.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -171,6 +173,8 @@
 		FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsFullDescriptionViewController.swift; sourceTree = "<group>"; };
 		FA6CBF15244C727E007AF8C6 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		FA6CBF17244C7325007AF8C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
+		FA6CBF1B24504D55007AF8C6 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -271,8 +275,9 @@
 				17825D8F1E356ED200A03FC5 /* ImageCollectionViewCell.swift */,
 				FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */,
 				17825D9E1E3AD50F00A03FC5 /* CartTableViewCell.swift */,
-				17825DA01E3D30BC00A03FC5 /* CartTotalTableViewCell.swift */,
 				FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */,
+				17825DA01E3D30BC00A03FC5 /* CartTotalTableViewCell.swift */,
+				FA6CBF1B24504D55007AF8C6 /* PaymentTableViewCell.swift */,
 				FABDBB5B24455F7B00CEA175 /* ECTableViewCell.swift */,
 				17825DA21E3D37A500A03FC5 /* CartPlaceOrderTableViewCell.swift */,
 				173DCFB31E58F5E4001092C7 /* CategoriesTableViewCell.swift */,
@@ -292,6 +297,7 @@
 				173DCFB11E58F598001092C7 /* CategoriesTableViewController.swift */,
 				FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */,
 				FA05767B2444569E0003908D /* SubCategoriesViewController.swift */,
+				FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */,
 				FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
@@ -669,6 +675,7 @@
 				FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */,
 				17825D991E3ABD3800A03FC5 /* ShoppingCartItem.swift in Sources */,
 				FAF45D92243F923600BFB8AD /* PhotoCollectionViewCell.swift in Sources */,
+				FA6CBF1C24504D55007AF8C6 /* PaymentTableViewCell.swift in Sources */,
 				1782C8B81E669B5900963945 /* ATCBaseModel.swift in Sources */,
 				1782C8B91E669B5900963945 /* ATCFacebookPost.swift in Sources */,
 				1782C8D81E669B5900963945 /* UIView.swift in Sources */,
@@ -683,6 +690,7 @@
 				1782C8CF1E669B5900963945 /* ATCNavigationController.swift in Sources */,
 				1782C8BA1E669B5900963945 /* ATCFacebookUser.swift in Sources */,
 				FA6CBF18244C7325007AF8C6 /* User.swift in Sources */,
+				FA6CBF1A24504CDB007AF8C6 /* PaymentsViewController.swift in Sources */,
 				1782C8C31E669B5900963945 /* ATCStripeMyAPIClient.swift in Sources */,
 				1782C8B31E669B5800963945 /* ATCAPIManager.swift in Sources */,
 				17825DA31E3D37A500A03FC5 /* CartPlaceOrderTableViewCell.swift in Sources */,

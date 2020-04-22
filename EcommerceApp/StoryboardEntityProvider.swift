@@ -26,7 +26,10 @@ class StoryboardEntityProvider {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
     }
    
-
+    func paymentVC() -> PaymentsViewController {
+        return ecommerceStoryboard.instantiateViewController(withIdentifier: "PaymentsViewController") as! PaymentsViewController
+    }
+    
     func ecommerceCartVC() -> CartTableViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "CartTableViewController") as! CartTableViewController
     }
