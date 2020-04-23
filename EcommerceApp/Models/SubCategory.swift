@@ -6,7 +6,7 @@
 //  Copyright © 2017 iOS App Templates. All rights reserved.
 //
 
-class Subcategory {
+class SubCategory {
 
     var id: String
     var name: String?

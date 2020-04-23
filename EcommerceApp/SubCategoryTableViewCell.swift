@@ -12,7 +12,7 @@ class SubCategoryTableViewCell: ECTableViewCell {
 
     @IBOutlet var subCategoryLabel: UILabel!
     
-    func configureCell(sub_category: Subcategory) {
+    func configureCell(sub_category: SubCategory) {
         subCategoryLabel.text = sub_category.name
     }
     

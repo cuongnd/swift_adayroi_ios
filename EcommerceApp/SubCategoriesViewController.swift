@@ -11,7 +11,7 @@ import UIKit
 class SubCategoriesViewController: UIViewController {
     var category:Category?
     var reuseIdentifier:String=""
-    var sub_category=[Subcategory]()
+    var sub_category=[SubCategory]()
     @IBOutlet var UITableViewSubCategory: UITableView!
      var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
    override func viewDidLoad() {
@@ -43,10 +43,10 @@ class SubCategoriesViewController: UIViewController {
                         do {
                             //array
                             let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                            self.sub_category=[Subcategory]()
+                            self.sub_category=[SubCategory]()
                             for current_category in my_json as! [[String: AnyObject]] {
-                                var sub_category: Subcategory
-                                sub_category = Subcategory(id: current_category["id"] as! String,name: current_category["name"] as! String)
+                                var sub_category: SubCategory
+                                sub_category = SubCategory(id: current_category["id"] as! String,name: current_category["name"] as! String)
                                 self.sub_category.append(sub_category);
                                 
                             }

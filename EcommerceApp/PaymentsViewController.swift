@@ -8,11 +8,10 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController {
-    var category:Category?
+class PaymentsViewController: UIViewController {
     var reuseIdentifier:String=""
-    var sub_category=[Subcategory]()
-    @IBOutlet var UITableViewSubCategory: UITableView!
+    var list_payment=[Payment]()
+    @IBOutlet var UITableViewPayment: UITableView!
      var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
    override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +24,13 @@ class PaymentViewController: UIViewController {
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     
-        UITableViewSubCategory.dataSource=self
-        UITableViewSubCategory.delegate=self
+        UITableViewPayment.dataSource=self
+        UITableViewPayment.delegate=self
         self.rest_api_get_sub_category()
     }
     
     func rest_api_get_sub_category() {
-        let url = AppConfiguration.root_url+"api/subcategories/?start=0&limit=20&filter_cat_id="+category!.id
+        let url = AppConfiguration.root_url+"api/payments/"
         let request = NSMutableURLRequest(url: URL(string: url)!)
         print("now start load categories data")
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
@@ -42,17 +41,17 @@ class PaymentViewController: UIViewController {
                     DispatchQueue.main.async {
                         do {
                             //array
-                            let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                            self.sub_category=[Subcategory]()
-                            for current_category in my_json as! [[String: AnyObject]] {
-                                var sub_category: Subcategory
-                                sub_category = Subcategory(id: current_category["id"] as! String,name: current_category["name"] as! String)
-                                self.sub_category.append(sub_category);
+                            let payment_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            self.list_payment=[Payment]()
+                            for current_payment in payment_json as! [[String: AnyObject]] {
+                                var payment_item: Payment
+                                payment_item = Payment(id: current_payment["_id"] as! String,name: current_payment["name"] as! String, imageUrl: current_payment["default_photo"]!["img_path"] as! String)
+                                self.list_payment.append(payment_item);
                                 
                             }
-                            print("response categories")
-                            print(self.sub_category)
-                            self.UITableViewSubCategory.reloadData()
+                            print("response payment")
+                            print(self.list_payment)
+                            self.UITableViewPayment.reloadData()
                             self.activityIndicator.stopAnimating()
                             UIApplication.shared.endIgnoringInteractionEvents()
                         } catch {
@@ -77,30 +76,25 @@ class PaymentViewController: UIViewController {
     }
     
 }
-extension PaymentViewController: UITableViewDataSource {
+extension PaymentsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sub_category.count
+        return list_payment.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "row_sub_category", for: indexPath) as! SubCategoryTableViewCell
-        cell.configureCell(sub_category: sub_category[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "row_payment", for: indexPath) as! PaymentTableViewCell
+        cell.configureCell(current_payment: list_payment[indexPath.row])
         return cell
     }
   
 }
-extension PaymentViewController: UITableViewDelegate {
+extension PaymentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var productsVC = StoryboardEntityProvider().ecommerceProductCollectionVC()
-        productsVC.sub_category = sub_category[indexPath.row]
-        productsVC.page=0
-        productsVC.products=[Product]()
-        productsVC.isPageRefreshing=true
-        self.navigationController?.pushViewController(productsVC, animated: true)
+        
     }
 }
 

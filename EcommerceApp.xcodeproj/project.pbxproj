@@ -80,7 +80,8 @@
 		FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF15244C727E007AF8C6 /* Factory.swift */; };
 		FA6CBF18244C7325007AF8C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF17244C7325007AF8C6 /* User.swift */; };
 		FA6CBF1A24504CDB007AF8C6 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */; };
-		FA6CBF1C24504D55007AF8C6 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1B24504D55007AF8C6 /* PaymentTableViewCell.swift */; };
+		FA6CBF1F2451DEC9007AF8C6 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */; };
+		FA6CBF232451E33C007AF8C6 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -174,7 +175,8 @@
 		FA6CBF15244C727E007AF8C6 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		FA6CBF17244C7325007AF8C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
-		FA6CBF1B24504D55007AF8C6 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				1767F7581E344B7100E8AD1F /* Product.swift */,
 				17825D961E3ABD1300A03FC5 /* ShoppingCart.swift */,
 				FABDBB572444B52300CEA175 /* Image.swift */,
+				FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */,
 				17825D981E3ABD3800A03FC5 /* ShoppingCartItem.swift */,
 				FA0576772444346C0003908D /* SubCategory.swift */,
 				173DCFB51E58F8E2001092C7 /* Category.swift */,
@@ -276,8 +279,8 @@
 				FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */,
 				17825D9E1E3AD50F00A03FC5 /* CartTableViewCell.swift */,
 				FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */,
+				FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */,
 				17825DA01E3D30BC00A03FC5 /* CartTotalTableViewCell.swift */,
-				FA6CBF1B24504D55007AF8C6 /* PaymentTableViewCell.swift */,
 				FABDBB5B24455F7B00CEA175 /* ECTableViewCell.swift */,
 				17825DA21E3D37A500A03FC5 /* CartPlaceOrderTableViewCell.swift */,
 				173DCFB31E58F5E4001092C7 /* CategoriesTableViewCell.swift */,
@@ -290,6 +293,7 @@
 		1782C8691E62719300963945 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA6CBF1D2451DE00007AF8C6 /* payments */,
 				1767F75A1E344E3100E8AD1F /* ProductCollectionViewController.swift */,
 				17825D8D1E356BF200A03FC5 /* ProductDetailsViewController.swift */,
 				17825D9C1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift */,
@@ -499,6 +503,13 @@
 			path = application;
 			sourceTree = "<group>";
 		};
+		FA6CBF1D2451DE00007AF8C6 /* payments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = payments;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -675,7 +686,6 @@
 				FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */,
 				17825D991E3ABD3800A03FC5 /* ShoppingCartItem.swift in Sources */,
 				FAF45D92243F923600BFB8AD /* PhotoCollectionViewCell.swift in Sources */,
-				FA6CBF1C24504D55007AF8C6 /* PaymentTableViewCell.swift in Sources */,
 				1782C8B81E669B5900963945 /* ATCBaseModel.swift in Sources */,
 				1782C8B91E669B5900963945 /* ATCFacebookPost.swift in Sources */,
 				1782C8D81E669B5900963945 /* UIView.swift in Sources */,
@@ -707,6 +717,7 @@
 				173DCFB41E58F5E4001092C7 /* CategoriesTableViewCell.swift in Sources */,
 				FABDBB582444B52300CEA175 /* Image.swift in Sources */,
 				1782C8C21E669B5900963945 /* ATCStripeCheckoutViewController.swift in Sources */,
+				FA6CBF232451E33C007AF8C6 /* PaymentTableViewCell.swift in Sources */,
 				1782C8C71E669B5900963945 /* ATCTableViewController.swift in Sources */,
 				1782C86C1E6285D200963945 /* StringConstants.swift in Sources */,
 				FA26092B243EDC7A0096AED9 /* Slide.swift in Sources */,
@@ -737,6 +748,7 @@
 				FA05767C2444569E0003908D /* SubCategoriesViewController.swift in Sources */,
 				1782C8D61E669B5900963945 /* ATCSettingsToggleTableViewCell.swift in Sources */,
 				17825D971E3ABD1300A03FC5 /* ShoppingCart.swift in Sources */,
+				FA6CBF1F2451DEC9007AF8C6 /* Payment.swift in Sources */,
 				1782C8C51E669B5900963945 /* ATCLoginViewController.swift in Sources */,
 				FA0576782444346C0003908D /* SubCategory.swift in Sources */,
 			);

@@ -10,10 +10,10 @@ import UIKit
 
 class PaymentTableViewCell: ECTableViewCell {
 
-    @IBOutlet var subCategoryLabel: UILabel!
+    @IBOutlet var PaymentLabel: UILabel!
     
-    func configureCell(sub_category: Subcategory) {
-        subCategoryLabel.text = sub_category.name
+    func configureCell(current_payment: Payment) {
+        PaymentLabel.text = current_payment.name
     }
     
 }

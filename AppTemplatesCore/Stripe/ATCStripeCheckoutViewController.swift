@@ -142,11 +142,8 @@ class ATCStripeCheckoutViewController: UIViewController, STPPaymentContextDelega
         self.buyButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
         self.totalRow.detail = self.numberFormatter.string(from: NSNumber(value: Float(self.paymentContext.paymentAmount)/100))!
         self.paymentRow.onTap = {
-            let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
-            ecommerceCartVC.cartManager = cartManager
-            ecommerceCartVC.addProduct(product: product!)
-            ecommerceCartVC.title = StringConstants.kShoppingCartString
-            self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+            let paymentVC = StoryboardEntityProvider().paymentVC()
+            self.navigationController?.pushViewController(paymentVC, animated: true)
         }
         self.shippingRow.onTap = { [weak self] _ in
             self?.paymentContext.pushShippingViewController()

@@ -1918,10 +1918,10 @@
             </objects>
             <point key="canvasLocation" x="799" y="24"/>
         </scene>
-        <!--Payment View Controller-->
+        <!--Payments View Controller-->
         <scene sceneID="tN8-Ha-mrV">
             <objects>
-                <viewController storyboardIdentifier="PaymentViewController" id="46L-8i-n9c" customClass="PaymentViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentsViewController" id="46L-8i-n9c" customClass="PaymentsViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="roD-pR-DT7"/>
                         <viewControllerLayoutGuide type="bottom" id="56T-Ob-ue4"/>
@@ -1930,12 +1930,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8pf-j8-4ZW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8pf-j8-4ZW" userLabel="UITable View Payment">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="row_sub_category" textLabel="dMe-13-cRZ" style="IBUITableViewCellStyleDefault" id="UbT-If-4f7" customClass="SubCategoryTableViewCell" customModule="EcommerceApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="row_payment" textLabel="dMe-13-cRZ" style="IBUITableViewCellStyleDefault" id="UbT-If-4f7" customClass="PaymentTableViewCell" customModule="EcommerceApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UbT-If-4f7" id="5NU-rS-b9V">
@@ -1952,7 +1952,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="subCategoryLabel" destination="dMe-13-cRZ" id="FcX-5t-GCa"/>
+                                            <outlet property="PaymentLabel" destination="dMe-13-cRZ" id="zeE-IM-xxn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1961,8 +1961,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="UITableViewSubCategory" destination="8pf-j8-4ZW" id="1eJ-Gi-kFU"/>
-                        <outletCollection property="UITableViewSubCategory" destination="8pf-j8-4ZW" collectionClass="NSMutableArray" id="W75-OC-hUu"/>
+                        <outlet property="UITableViewPayment" destination="8pf-j8-4ZW" id="4eY-yT-D84"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XfU-h9-Jhn" userLabel="First Responder" sceneMemberID="firstResponder"/>

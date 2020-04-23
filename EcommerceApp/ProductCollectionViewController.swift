@@ -14,7 +14,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
 
     @IBOutlet var UICollectionViewProducts: UICollectionView!
     var products = [Product]();
-     var sub_category:Subcategory?
+     var sub_category:SubCategory?
     var data1 = [[String: AnyObject]]()
     var page: Int = 0
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
