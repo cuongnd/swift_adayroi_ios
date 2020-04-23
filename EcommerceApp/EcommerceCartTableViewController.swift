@@ -50,7 +50,7 @@ class CartTableViewController: UITableViewController {
             let stripeVC = ATCStripeCheckoutViewController(price: Int(price * 100), settings: stripeSettingsVC.settings)
             stripeVC.title = "Checkout"
             self.navigationController?.pushViewController(stripeVC, animated: true)
-            cartManager?.clearProducts()
+            
             self.tableView.reloadData()
         }
     }

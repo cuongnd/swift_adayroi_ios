@@ -82,6 +82,7 @@
 		FA6CBF1A24504CDB007AF8C6 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */; };
 		FA6CBF1F2451DEC9007AF8C6 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */; };
 		FA6CBF232451E33C007AF8C6 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */; };
+		FA6CBF2824525191007AF8C6 /* AddressCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF2724525191007AF8C6 /* AddressCheckoutViewController.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -177,6 +178,7 @@
 		FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
 		FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		FA6CBF2724525191007AF8C6 /* AddressCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCheckoutViewController.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		177867441E33F86000BF7080 /* EcommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA6CBF242451FD80007AF8C6 /* Library */,
 				FA260929243EDC400096AED9 /* Slideshow */,
 				1782C8731E6289AD00963945 /* Supporting Files */,
 				1782C86A1E6285A600963945 /* Configuration */,
@@ -298,6 +301,7 @@
 				17825D8D1E356BF200A03FC5 /* ProductDetailsViewController.swift */,
 				17825D9C1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift */,
 				FA738FA6244A0317008BE704 /* ByNowViewController.swift */,
+				FA6CBF2724525191007AF8C6 /* AddressCheckoutViewController.swift */,
 				173DCFB11E58F598001092C7 /* CategoriesTableViewController.swift */,
 				FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */,
 				FA05767B2444569E0003908D /* SubCategoriesViewController.swift */,
@@ -510,6 +514,29 @@
 			name = payments;
 			sourceTree = "<group>";
 		};
+		FA6CBF242451FD80007AF8C6 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF252451FDB0007AF8C6 /* Form */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		FA6CBF252451FDB0007AF8C6 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF262451FDC4007AF8C6 /* Fields */,
+			);
+			name = Form;
+			sourceTree = "<group>";
+		};
+		FA6CBF262451FDC4007AF8C6 /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fields;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -685,6 +712,7 @@
 			files = (
 				FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */,
 				17825D991E3ABD3800A03FC5 /* ShoppingCartItem.swift in Sources */,
+				FA6CBF2824525191007AF8C6 /* AddressCheckoutViewController.swift in Sources */,
 				FAF45D92243F923600BFB8AD /* PhotoCollectionViewCell.swift in Sources */,
 				1782C8B81E669B5900963945 /* ATCBaseModel.swift in Sources */,
 				1782C8B91E669B5900963945 /* ATCFacebookPost.swift in Sources */,

@@ -47,4 +47,7 @@ class StoryboardEntityProvider {
     func Product_Details_Full_Description_View_VC() -> ProductDetailsFullDescriptionViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsFullDescriptionViewController") as! ProductDetailsFullDescriptionViewController
     }
+    func AddressCheckoutViewControllerVC() -> AddressCheckoutViewController {
+        return ecommerceStoryboard.instantiateViewController(withIdentifier: "AddressCheckoutViewController") as! AddressCheckoutViewController
+    }
 }

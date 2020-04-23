@@ -54,13 +54,8 @@ class ProductDetailsViewController: UIViewController {
     }
     func go_to_cart(alert: UIAlertAction!) {
         NotificationCenter.default.post(name: kNotificationDidAddProductToCart, object: nil, userInfo: ["product": product ?? nil])
-
-        let cartManager = ShoppingCartManager()
-        let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
-        ecommerceCartVC.cartManager = cartManager
-        ecommerceCartVC.addProduct(product: product!)
-        ecommerceCartVC.title = StringConstants.kShoppingCartString
-        self.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+        let addressCheckoutViewControllerVC = StoryboardEntityProvider().AddressCheckoutViewControllerVC()
+        self.navigationController?.pushViewController(addressCheckoutViewControllerVC, animated: true)
     }
 
     
