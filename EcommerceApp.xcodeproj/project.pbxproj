@@ -83,9 +83,11 @@
 		FA6CBF1F2451DEC9007AF8C6 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */; };
 		FA6CBF232451E33C007AF8C6 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */; };
 		FA6CBF2824525191007AF8C6 /* AddressCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF2724525191007AF8C6 /* AddressCheckoutViewController.swift */; };
-		FA6CBF4F2452CF65007AF8C6 /* FrontendModelProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF4E2452CF65007AF8C6 /* FrontendModelProduct.swift */; };
+		FA6CBF4F2452CF65007AF8C6 /* FrontendModelsProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF4E2452CF65007AF8C6 /* FrontendModelsProduct.swift */; };
 		FA6CBF582452D0B6007AF8C6 /* FrontendViewsProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF572452D0B6007AF8C6 /* FrontendViewsProducts.swift */; };
 		FA6CBF5C2452D111007AF8C6 /* FrontendViewsCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF5B2452D111007AF8C6 /* FrontendViewsCheckout.swift */; };
+		FA6CBF5F2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF5E2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard */; };
+		FA6CBF632452E75F007AF8C6 /* LibraryUtilitiesUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF622452E75F007AF8C6 /* LibraryUtilitiesUtility.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -182,9 +184,11 @@
 		FA6CBF1E2451DEC9007AF8C6 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FA6CBF222451E33C007AF8C6 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		FA6CBF2724525191007AF8C6 /* AddressCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCheckoutViewController.swift; sourceTree = "<group>"; };
-		FA6CBF4E2452CF65007AF8C6 /* FrontendModelProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendModelProduct.swift; sourceTree = "<group>"; };
+		FA6CBF4E2452CF65007AF8C6 /* FrontendModelsProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendModelsProduct.swift; sourceTree = "<group>"; };
 		FA6CBF572452D0B6007AF8C6 /* FrontendViewsProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendViewsProducts.swift; sourceTree = "<group>"; };
 		FA6CBF5B2452D111007AF8C6 /* FrontendViewsCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendViewsCheckout.swift; sourceTree = "<group>"; };
+		FA6CBF5E2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FrontendViewsProductsTmplList.storyboard; sourceTree = "<group>"; };
+		FA6CBF622452E75F007AF8C6 /* LibraryUtilitiesUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryUtilitiesUtility.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -525,6 +529,7 @@
 		FA6CBF242451FD80007AF8C6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				FA6CBF602452E717007AF8C6 /* Utilities */,
 				FA6CBF252451FDB0007AF8C6 /* Form */,
 			);
 			name = Library;
@@ -624,7 +629,7 @@
 		FA6CBF432452CEB8007AF8C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA6CBF4E2452CF65007AF8C6 /* FrontendModelProduct.swift */,
+				FA6CBF4E2452CF65007AF8C6 /* FrontendModelsProduct.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 		FA6CBF592452D0BB007AF8C6 /* Tmpl */ = {
 			isa = PBXGroup;
 			children = (
+				FA6CBF5E2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard */,
 			);
 			path = Tmpl;
 			sourceTree = "<group>";
@@ -713,6 +719,14 @@
 			children = (
 			);
 			name = Tmpl;
+			sourceTree = "<group>";
+		};
+		FA6CBF602452E717007AF8C6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF622452E75F007AF8C6 /* LibraryUtilitiesUtility.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -788,6 +802,7 @@
 				1778674D1E33F86000BF7080 /* Assets.xcassets in Resources */,
 				1782C8D21E669B5900963945 /* ATCSettingsMoreTableViewCell.xib in Resources */,
 				1782C8791E63E15600963945 /* Localizable.strings in Resources */,
+				FA6CBF5F2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard in Resources */,
 				1782C86D1E6287A500963945 /* Ecommerce.storyboard in Resources */,
 				1782C8D71E669B5900963945 /* ATCSettingsToggleTableViewCell.xib in Resources */,
 				1782C8C61E669B5900963945 /* ATCLoginViewController.xib in Resources */,
@@ -915,7 +930,7 @@
 				1782C8D11E669B5900963945 /* ATCSettingsMoreTableViewCell.swift in Sources */,
 				1782C8BE1E669B5900963945 /* ATCWordpressPost.swift in Sources */,
 				FAF45D90243F6FBC00BFB8AD /* HomeViewController.swift in Sources */,
-				FA6CBF4F2452CF65007AF8C6 /* FrontendModelProduct.swift in Sources */,
+				FA6CBF4F2452CF65007AF8C6 /* FrontendModelsProduct.swift in Sources */,
 				FA2EA85224423CE000C0C96F /* CategoryCollectionViewCell.swift in Sources */,
 				FABDBB56244466A200CEA175 /* SubCategoryTableViewCell.swift in Sources */,
 				FA1855CD2443331000650DBE /* SlideShowCollectionViewCell.swift in Sources */,
@@ -942,6 +957,7 @@
 				1782C8B61E669B5900963945 /* ATCFirebaseLoginManager.swift in Sources */,
 				1782C8B41E669B5900963945 /* ATCFacebookAPIManager.swift in Sources */,
 				1782C8CD1E669B5900963945 /* ATCMenuTableViewController.swift in Sources */,
+				FA6CBF632452E75F007AF8C6 /* LibraryUtilitiesUtility.swift in Sources */,
 				177867641E34147900BF7080 /* StoryboardEntityProvider.swift in Sources */,
 				1782C8BD1E669B5900963945 /* ATCUser.swift in Sources */,
 				1782C8BB1E669B5900963945 /* ATCRSSFeed.swift in Sources */,

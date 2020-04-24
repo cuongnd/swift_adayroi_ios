@@ -147,7 +147,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                             self.categories=[Category]()
                             for current_category in my_json as! [[String: AnyObject]] {
                                 var category: Category
-                                category = Category(id: current_category["_id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
+                                category = Category(id: current_category["id"] as! String,name: current_category["name"] as! String,imageUrl: current_category["default_photo"]!["img_path"] as! String)
                                 self.categories.append(category);
                                 
                             }

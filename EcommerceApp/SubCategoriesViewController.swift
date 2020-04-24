@@ -95,7 +95,7 @@ extension SubCategoriesViewController: UITableViewDataSource {
 }
 extension SubCategoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var productsVC = StoryboardEntityProvider().ecommerceProductCollectionVC()
+        let productsVC = StoryboardEntityProvider().ecommerceProductCollectionVC()
         productsVC.sub_category = sub_category[indexPath.row]
         productsVC.page=0
         productsVC.products=[Product]()
