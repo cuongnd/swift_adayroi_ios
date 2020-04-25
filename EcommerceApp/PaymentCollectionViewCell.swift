@@ -16,10 +16,9 @@ class PaymentCollectionViewCell: ECCollectionViewCell {
     @IBOutlet weak var UILabelPayment: UILabel!
     @IBOutlet weak var UIImageViewPayment: UIImageView!
     func configureCell(payment: Payment) {
-        var urlString = payment.imageURL!
+        let urlString = payment.imageURL!
         UILabelPayment.text = payment.name
         if (!urlString.isEmpty) {
-            urlString="http://shopper1.softway.vn/uploads/"+urlString
             let imageURL = URL(string: urlString)
             UIImageViewPayment.kf.setImage(with: imageURL)
         }

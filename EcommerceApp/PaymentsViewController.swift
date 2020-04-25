@@ -46,7 +46,7 @@ class PaymentsViewController: UIViewController {
                             self.list_payment=[Payment]()
                             for current_payment in payment_json as! [[String: AnyObject]] {
                                 var payment_item: Payment
-                                payment_item = Payment(id: current_payment["_id"] as! String,name: current_payment["name"] as! String, imageUrl: current_payment["default_photo"]!["img_path"] as! String)
+                                payment_item = Payment(id: current_payment["_id"] as! String,name: current_payment["name"] as! String, imageUrl: current_payment["full_image_path"] as! String)
                                 self.list_payment.append(payment_item);
                                 
                             }
@@ -85,7 +85,7 @@ extension PaymentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = UICollectionViewPayments.dequeueReusableCell(withReuseIdentifier:"cell_payment", for: indexPath) as! PaymentCollectionViewCell
         
-        //cell.configureCell(payment: list_payment[indexPath.row])
+        cell.configureCell(payment: list_payment[indexPath.row])
         return cell
     }
     
