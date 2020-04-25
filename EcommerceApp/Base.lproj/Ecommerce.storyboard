@@ -2374,11 +2374,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7g-z9-TO2">
                                 <rect key="frame" x="0.0" y="1464" width="375" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ard-8w-aN5">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ard-8w-aN5">
                                         <rect key="frame" x="251" y="3" width="116" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Bước tiếp theo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="go_to_sumary_checkout:" destination="xxZ-rq-xN9" eventType="touchUpInside" id="GOX-zf-Mhe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXD-IV-9ft">
+                                        <rect key="frame" x="8" y="3" width="89" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Quay lại">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -2412,16 +2422,16 @@
             </objects>
             <point key="canvasLocation" x="7205.6000000000004" y="34.182908545727138"/>
         </scene>
-        <!--Address Checkout View Controller-->
+        <!--Sumary Checkout View Controller-->
         <scene sceneID="MwJ-qy-rPC">
             <objects>
-                <viewController storyboardIdentifier="AddressCheckoutViewController" id="9Ru-f5-Pso" customClass="AddressCheckoutViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SumaryCheckoutViewController" id="9Ru-f5-Pso" customClass="SumaryCheckoutViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UTC-7K-K2z"/>
                         <viewControllerLayoutGuide type="bottom" id="lKf-cz-hY6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="K1Y-i5-i0J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAJ-dn-3bE">
@@ -2559,7 +2569,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGb-ot-Nnu">
-                                <rect key="frame" x="0.0" y="133" width="375" height="471"/>
+                                <rect key="frame" x="0.0" y="133" width="375" height="491"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efI-nu-Bxv" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="471"/>
@@ -2777,20 +2787,30 @@
                                 <constraints>
                                     <constraint firstItem="efI-nu-Bxv" firstAttribute="leading" secondItem="tGb-ot-Nnu" secondAttribute="leading" id="83H-PZ-Rhj"/>
                                     <constraint firstAttribute="trailing" secondItem="efI-nu-Bxv" secondAttribute="trailing" id="Irc-Fx-gCy"/>
-                                    <constraint firstAttribute="bottom" secondItem="efI-nu-Bxv" secondAttribute="bottom" id="Mhf-rb-rvB"/>
+                                    <constraint firstAttribute="bottom" secondItem="efI-nu-Bxv" secondAttribute="bottom" constant="20" id="Mhf-rb-rvB"/>
                                     <constraint firstItem="efI-nu-Bxv" firstAttribute="centerX" secondItem="tGb-ot-Nnu" secondAttribute="centerX" id="q4s-ka-9GT"/>
                                     <constraint firstItem="efI-nu-Bxv" firstAttribute="top" secondItem="tGb-ot-Nnu" secondAttribute="top" id="spJ-aR-TWd"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vm5-Eq-6S3">
-                                <rect key="frame" x="0.0" y="664" width="375" height="36"/>
+                                <rect key="frame" x="0.0" y="614" width="375" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pV2-VB-BZn">
-                                        <rect key="frame" x="251" y="3" width="116" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pV2-VB-BZn">
+                                        <rect key="frame" x="261" y="3" width="106" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Bước tiếp theo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-Vb-vWi">
+                                        <rect key="frame" x="8" y="3" width="69" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Quay lại">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="go_to_back_address:" destination="9Ru-f5-Pso" eventType="touchUpInside" id="2xv-GI-hsE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2810,10 +2830,10 @@
                             <constraint firstAttribute="trailing" secondItem="Vm5-Eq-6S3" secondAttribute="trailing" id="LX0-Gh-H6f"/>
                             <constraint firstItem="tGb-ot-Nnu" firstAttribute="leading" secondItem="K1Y-i5-i0J" secondAttribute="leading" id="Yfd-J4-P3d"/>
                             <constraint firstItem="LAJ-dn-3bE" firstAttribute="top" secondItem="K1Y-i5-i0J" secondAttribute="top" id="y6B-wk-YuG"/>
-                            <constraint firstAttribute="bottom" secondItem="tGb-ot-Nnu" secondAttribute="bottom" constant="96" id="yjU-GE-uTw"/>
+                            <constraint firstAttribute="bottom" secondItem="tGb-ot-Nnu" secondAttribute="bottom" constant="26" id="yjU-GE-uTw"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="700"/>
+                    <size key="freeformSize" width="375" height="650"/>
                     <connections>
                         <outlet property="UIScrollViewDetailProduct" destination="tGb-ot-Nnu" id="xhJ-WE-eDw"/>
                         <outlet property="contentView" destination="efI-nu-Bxv" id="5qw-Va-Fsj"/>

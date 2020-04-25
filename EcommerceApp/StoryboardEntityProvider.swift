@@ -50,4 +50,7 @@ class StoryboardEntityProvider {
     func AddressCheckoutViewControllerVC() -> AddressCheckoutViewController {
         return ecommerceStoryboard.instantiateViewController(withIdentifier: "AddressCheckoutViewController") as! AddressCheckoutViewController
     }
+    func SumaryCheckoutViewControllerVC() -> SumaryCheckoutViewController {
+        return ecommerceStoryboard.instantiateViewController(withIdentifier: "SumaryCheckoutViewController") as! SumaryCheckoutViewController
+    }
 }

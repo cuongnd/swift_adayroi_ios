@@ -104,6 +104,7 @@
 		FA6CBF8F2454328D007AF8C6 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF802454328D007AF8C6 /* fa-solid-900.ttf */; };
 		FA6CBF902454328D007AF8C6 /* fa-solid-900.woff in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */; };
 		FA6CBF912454328D007AF8C6 /* fa-solid-900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */; };
+		FA6CBF93245496C5007AF8C6 /* SumaryCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -221,6 +222,7 @@
 		FA6CBF802454328D007AF8C6 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff"; sourceTree = "<group>"; };
 		FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff2"; sourceTree = "<group>"; };
+		FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumaryCheckoutViewController.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				17825D9C1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift */,
 				FA738FA6244A0317008BE704 /* ByNowViewController.swift */,
 				FA6CBF2724525191007AF8C6 /* AddressCheckoutViewController.swift */,
+				FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */,
 				173DCFB11E58F598001092C7 /* CategoriesTableViewController.swift */,
 				FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */,
 				FA05767B2444569E0003908D /* SubCategoriesViewController.swift */,
@@ -1022,6 +1025,7 @@
 				1782C8B31E669B5800963945 /* ATCAPIManager.swift in Sources */,
 				17825DA31E3D37A500A03FC5 /* CartPlaceOrderTableViewCell.swift in Sources */,
 				1767F7591E344B7100E8AD1F /* Product.swift in Sources */,
+				FA6CBF93245496C5007AF8C6 /* SumaryCheckoutViewController.swift in Sources */,
 				17825D8E1E356BF200A03FC5 /* ProductDetailsViewController.swift in Sources */,
 				1782C8D11E669B5900963945 /* ATCSettingsMoreTableViewCell.swift in Sources */,
 				1782C8BE1E669B5900963945 /* ATCWordpressPost.swift in Sources */,
