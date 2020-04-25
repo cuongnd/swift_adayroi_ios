@@ -22,20 +22,16 @@ class SumaryCheckoutViewController: UIViewController {
             self.view.setNeedsLayout()
         }
     }
-    @IBOutlet weak var UIScrollViewDetailProduct: UIScrollView!
      var bodyContentHeight:CGFloat = 0.0
     var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var UILabelProductName: UILabel!
     var images=[Image]();
     var product_id:String=""
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var detailsTextView: UITextView!
-    @IBOutlet var addToCartButton: RaisedButton!
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var bodyContentView: UIView!
     var full_description:String=""
     
+    @IBAction func go_to_payment(_ sender: UIButton) {
+        let paymentVC = StoryboardEntityProvider().paymentVC()
+        self.navigationController?.pushViewController(paymentVC, animated: true)
+    }
     @IBAction func go_to_back_address(_ sender: UIButton) {
          self.navigationController?.popViewController(animated: true)
     }
@@ -45,15 +41,6 @@ class SumaryCheckoutViewController: UIViewController {
     @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let images = product?.productImages {
-            pageControl.numberOfPages = images.count
-        }
-      
-       
-        
-        
-       
-   
         //updateContentViewHeight()
     }
    
@@ -107,9 +94,6 @@ extension SumaryCheckoutViewController: UICollectionViewDelegate, UICollectionVi
         return cell
     }
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageWidth = self.collectionView.frame.size.width
-        pageControl.currentPage = Int(self.collectionView.contentOffset.x / pageWidth)
-    }
+    
 }
 

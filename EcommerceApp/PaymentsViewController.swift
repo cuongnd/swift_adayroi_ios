@@ -11,11 +11,13 @@ import UIKit
 class PaymentsViewController: UIViewController {
     var reuseIdentifier:String=""
     var list_payment=[Payment]()
-    @IBOutlet var UITableViewPayment: UITableView!
-     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    @IBOutlet weak var UICollectionViewPayments: UICollectionView!
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
    override func viewDidLoad() {
         super.viewDidLoad()
-    
+        UICollectionViewPayments.delegate=self
+        UICollectionViewPayments.dataSource=self
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
@@ -24,12 +26,11 @@ class PaymentsViewController: UIViewController {
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     
-        UITableViewPayment.dataSource=self
-        UITableViewPayment.delegate=self
-        self.rest_api_get_sub_category()
+    
+        self.rest_api_get_payment()
     }
     
-    func rest_api_get_sub_category() {
+    func rest_api_get_payment() {
         let url = AppConfiguration.root_url+"api/payments/"
         let request = NSMutableURLRequest(url: URL(string: url)!)
         print("now start load categories data")
@@ -51,7 +52,7 @@ class PaymentsViewController: UIViewController {
                             }
                             print("response payment")
                             print(self.list_payment)
-                            self.UITableViewPayment.reloadData()
+                            self.UICollectionViewPayments.reloadData()
                             self.activityIndicator.stopAnimating()
                             UIApplication.shared.endIgnoringInteractionEvents()
                         } catch {
@@ -76,23 +77,22 @@ class PaymentsViewController: UIViewController {
     }
     
 }
-extension PaymentsViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension PaymentsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return list_payment.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "row_payment", for: indexPath) as! PaymentTableViewCell
-        cell.configureCell(current_payment: list_payment[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewPayments.dequeueReusableCell(withReuseIdentifier:"cell_payment", for: indexPath) as! PaymentCollectionViewCell
+        
+        //cell.configureCell(payment: list_payment[indexPath.row])
         return cell
     }
+    
+    
   
 }
-extension PaymentsViewController: UITableViewDelegate {
+extension PaymentsViewController: UICollectionViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }

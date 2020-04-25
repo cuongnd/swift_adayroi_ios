@@ -30,20 +30,12 @@ class ByNowViewController: UIViewController {
     var product_id:String=""
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var detailsTextView: UITextView!
-    @IBOutlet var addToCartButton: RaisedButton!
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var bodyContentView: UIView!
     var full_description:String=""
-    @IBOutlet weak var bodyDescriptionContentView: UIView!
     @IBOutlet weak var UIWebViewDescription: UIWebView!
-    @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var UIButtonShowFullDescription: RaisedButton!
     
     
     @IBAction func add_to_cart(_ sender: Any) {
     }
-    @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         if let images = product?.productImages {
@@ -126,17 +118,7 @@ class ByNowViewController: UIViewController {
         //updateContentViewHeight()
     }
     
-    fileprivate func updateContentViewHeight() {
-        _ = UIDevice.current.orientation
-        let constant: CGFloat = self.UIWebViewDescription.frame.size.height 
-        if contentViewHeightConstraint.constant != constant {
-            
-            contentViewHeightConstraint.constant = constant
-            
-            
-        }
-       
-    }
+    
     @objc
     fileprivate func didTapShowFullDescriptionButton() {
         

@@ -105,6 +105,7 @@
 		FA6CBF902454328D007AF8C6 /* fa-solid-900.woff in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */; };
 		FA6CBF912454328D007AF8C6 /* fa-solid-900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */; };
 		FA6CBF93245496C5007AF8C6 /* SumaryCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */; };
+		FA6CBF952454A2D4007AF8C6 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF942454A2D4007AF8C6 /* PaymentCollectionViewCell.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -223,6 +224,7 @@
 		FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff"; sourceTree = "<group>"; };
 		FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff2"; sourceTree = "<group>"; };
 		FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumaryCheckoutViewController.swift; sourceTree = "<group>"; };
+		FA6CBF942454A2D4007AF8C6 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				17825DA21E3D37A500A03FC5 /* CartPlaceOrderTableViewCell.swift */,
 				173DCFB31E58F5E4001092C7 /* CategoriesTableViewCell.swift */,
 				FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */,
+				FA6CBF942454A2D4007AF8C6 /* PaymentCollectionViewCell.swift */,
 				FA1855CC2443331000650DBE /* SlideShowCollectionViewCell.swift */,
 			);
 			name = Cells;
@@ -1014,6 +1017,7 @@
 				17825DA11E3D30BC00A03FC5 /* CartTotalTableViewCell.swift in Sources */,
 				1782C8C11E669B5900963945 /* ATCStripeCheckoutRowView.swift in Sources */,
 				17825D9F1E3AD50F00A03FC5 /* CartTableViewCell.swift in Sources */,
+				FA6CBF952454A2D4007AF8C6 /* PaymentCollectionViewCell.swift in Sources */,
 				173DCFB61E58F8E2001092C7 /* Category.swift in Sources */,
 				173DCFB21E58F599001092C7 /* CategoriesTableViewController.swift in Sources */,
 				1767F75D1E344E7800E8AD1F /* ProductCollectionViewCell.swift in Sources */,

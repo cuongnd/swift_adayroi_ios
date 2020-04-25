@@ -22,36 +22,23 @@ class AddressCheckoutViewController: UIViewController {
             self.view.setNeedsLayout()
         }
     }
-    @IBOutlet weak var UIScrollViewDetailProduct: UIScrollView!
      var bodyContentHeight:CGFloat = 0.0
     var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var UILabelProductName: UILabel!
     var images=[Image]();
     var product_id:String=""
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var detailsTextView: UITextView!
-    @IBOutlet var addToCartButton: RaisedButton!
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var bodyContentView: UIView!
     var full_description:String=""
     
     
+    @IBAction func go_to_sumary_checkout(_ sender: UIButton) {
+        let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
+        self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)
+    }
     @IBAction func add_to_cart(_ sender: Any) {
     }
     @IBOutlet weak var footerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let images = product?.productImages {
-            pageControl.numberOfPages = images.count
-        }
-      
-       
-        
-        
-       
-   
-        //updateContentViewHeight()
+       //updateContentViewHeight()
     }
    
   
@@ -104,9 +91,6 @@ extension AddressCheckoutViewController: UICollectionViewDelegate, UICollectionV
         return cell
     }
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageWidth = self.collectionView.frame.size.width
-        pageControl.currentPage = Int(self.collectionView.contentOffset.x / pageWidth)
-    }
+   
 }
 
