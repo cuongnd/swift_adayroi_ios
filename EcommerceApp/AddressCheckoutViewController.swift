@@ -35,10 +35,6 @@ class AddressCheckoutViewController: UIViewController {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var bodyContentView: UIView!
     var full_description:String=""
-    @IBOutlet weak var bodyDescriptionContentView: UIView!
-    @IBOutlet weak var UIWebViewDescription: UIWebView!
-    @IBOutlet var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var UIButtonShowFullDescription: RaisedButton!
     
     
     @IBAction func add_to_cart(_ sender: Any) {
@@ -50,10 +46,9 @@ class AddressCheckoutViewController: UIViewController {
             pageControl.numberOfPages = images.count
         }
       
-        UILabelProductName.text = product?.productName
+       
         
-        self.UIWebViewDescription.scrollView.isScrollEnabled = false;
-        self.UIWebViewDescription.scrollView.bounces = false;
+        
        
    
         //updateContentViewHeight()
@@ -80,17 +75,7 @@ class AddressCheckoutViewController: UIViewController {
         //updateContentViewHeight()
     }
     
-    fileprivate func updateContentViewHeight() {
-        _ = UIDevice.current.orientation
-        let constant: CGFloat = self.UIWebViewDescription.frame.size.height 
-        if contentViewHeightConstraint.constant != constant {
-            
-            contentViewHeightConstraint.constant = constant
-            
-            
-        }
-       
-    }
+    
     @objc
     fileprivate func didTapShowFullDescriptionButton() {
         
