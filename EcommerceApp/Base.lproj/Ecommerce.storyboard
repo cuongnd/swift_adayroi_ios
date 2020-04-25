@@ -15,12 +15,17 @@
             <string>AppleSDGothicNeo-Regular</string>
             <string>AppleSDGothicNeo-UltraLight</string>
         </array>
+        <array key="FontAwesome.ttf">
+            <string>FontAwesome</string>
+        </array>
+        <array key="fa-regular-400.ttf">
+            <string>FontAwesome5Free-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Product Collection View Controller-->
         <scene sceneID="bGO-bK-n9u">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ACK-qD-EDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController storyboardIdentifier="ProductCollectionViewController" id="ePv-J6-Lxg" customClass="ProductCollectionViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="Ebi-PV-n9W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -108,6 +113,7 @@
                         <outlet property="UICollectionViewProducts" destination="Ebi-PV-n9W" id="ovS-8l-mIK"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACK-qD-EDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-671" y="35"/>
         </scene>
@@ -1987,8 +1993,30 @@
                                         <rect key="frame" x="8" y="42" width="359" height="67"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWE-Jk-nRu">
-                                                <rect key="frame" x="0.0" y="15" width="106" height="32"/>
+                                                <rect key="frame" x="0.0" y="15" width="106" height="52"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjR-dW-APM">
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="LLr-Fu-LCb"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="FontAwesome5Free-Regular" family="Font Awesome 5 Free" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Địa chỉ thanh toán" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U51-5c-cJ3">
+                                                        <rect key="frame" x="0.0" y="30" width="106" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="OjR-dW-APM" firstAttribute="top" secondItem="oWE-Jk-nRu" secondAttribute="top" id="EJl-cV-VQA"/>
+                                                    <constraint firstItem="OjR-dW-APM" firstAttribute="centerX" secondItem="oWE-Jk-nRu" secondAttribute="centerX" id="fG4-cu-T0K"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGK-pI-bbd">
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
@@ -2001,7 +2029,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="DC6-zM-3sa" firstAttribute="bottom" secondItem="oWE-Jk-nRu" secondAttribute="bottom" id="3p8-tN-ep1"/>
+                                            <constraint firstItem="DC6-zM-3sa" firstAttribute="bottom" secondItem="oWE-Jk-nRu" secondAttribute="bottom" constant="-20" id="3p8-tN-ep1"/>
                                             <constraint firstItem="oWE-Jk-nRu" firstAttribute="leading" secondItem="DC6-zM-3sa" secondAttribute="leading" constant="-276" id="Ory-Cs-IiV"/>
                                             <constraint firstItem="DC6-zM-3sa" firstAttribute="top" secondItem="LGK-pI-bbd" secondAttribute="top" id="Rcd-HR-AOu"/>
                                             <constraint firstAttribute="trailing" secondItem="DC6-zM-3sa" secondAttribute="trailing" id="V1e-bM-z4U"/>
@@ -2142,9 +2170,9 @@
                                                     <action selector="show_full_description_product:" destination="xxZ-rq-xN9" eventType="touchUpInside" id="Ebz-6S-pv5"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxJ-f9-cXm">
-                                                <rect key="frame" x="8" y="244" width="133" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxJ-f9-cXm">
+                                                <rect key="frame" x="8" y="244" width="206" height="21"/>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500.000 đ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY2-1V-Eal">
@@ -2276,7 +2304,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="UILabelProductName" destination="2Ia-rQ-N3A" id="48H-DR-JfP"/>
+                        <outlet property="UILabelProductName" destination="bxJ-f9-cXm" id="QY3-YN-Dps"/>
                         <outlet property="UIScrollViewDetailProduct" destination="7NX-ff-PcG" id="Anr-2x-Php"/>
                         <outlet property="UIWebViewDescription" destination="g8w-Fj-rQC" id="Whd-FC-GoR"/>
                         <outlet property="collectionView" destination="Av9-yu-XxH" id="nzd-qB-P2k"/>

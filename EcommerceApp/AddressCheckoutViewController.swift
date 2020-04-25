@@ -49,6 +49,9 @@ class AddressCheckoutViewController: UIViewController {
         if let images = product?.productImages {
             pageControl.numberOfPages = images.count
         }
+      
+        UILabelProductName.text = product?.productName
+        
         self.UIWebViewDescription.scrollView.isScrollEnabled = false;
         self.UIWebViewDescription.scrollView.bounces = false;
        

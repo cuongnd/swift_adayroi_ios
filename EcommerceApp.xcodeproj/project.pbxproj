@@ -88,7 +88,22 @@
 		FA6CBF5C2452D111007AF8C6 /* FrontendViewsCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF5B2452D111007AF8C6 /* FrontendViewsCheckout.swift */; };
 		FA6CBF5F2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF5E2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard */; };
 		FA6CBF632452E75F007AF8C6 /* LibraryUtilitiesUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF622452E75F007AF8C6 /* LibraryUtilitiesUtility.swift */; };
-		FA6CBF6924542EB9007AF8C6 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF6824542EB9007AF8C6 /* FontAwesome.ttf */; };
+		FA6CBF6F24543068007AF8C6 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF6E24543068007AF8C6 /* FontAwesome.ttf */; };
+		FA6CBF832454328D007AF8C6 /* fa-brands-400.eot in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF742454328D007AF8C6 /* fa-brands-400.eot */; };
+		FA6CBF842454328D007AF8C6 /* fa-brands-400.svg in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF752454328D007AF8C6 /* fa-brands-400.svg */; };
+		FA6CBF852454328D007AF8C6 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF762454328D007AF8C6 /* fa-brands-400.ttf */; };
+		FA6CBF862454328D007AF8C6 /* fa-brands-400.woff in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF772454328D007AF8C6 /* fa-brands-400.woff */; };
+		FA6CBF872454328D007AF8C6 /* fa-brands-400.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF782454328D007AF8C6 /* fa-brands-400.woff2 */; };
+		FA6CBF882454328D007AF8C6 /* fa-regular-400.eot in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF792454328D007AF8C6 /* fa-regular-400.eot */; };
+		FA6CBF892454328D007AF8C6 /* fa-regular-400.svg in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF7A2454328D007AF8C6 /* fa-regular-400.svg */; };
+		FA6CBF8A2454328D007AF8C6 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF7B2454328D007AF8C6 /* fa-regular-400.ttf */; };
+		FA6CBF8B2454328D007AF8C6 /* fa-regular-400.woff in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF7C2454328D007AF8C6 /* fa-regular-400.woff */; };
+		FA6CBF8C2454328D007AF8C6 /* fa-regular-400.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF7D2454328D007AF8C6 /* fa-regular-400.woff2 */; };
+		FA6CBF8D2454328D007AF8C6 /* fa-solid-900.eot in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF7E2454328D007AF8C6 /* fa-solid-900.eot */; };
+		FA6CBF8E2454328D007AF8C6 /* fa-solid-900.svg in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF7F2454328D007AF8C6 /* fa-solid-900.svg */; };
+		FA6CBF8F2454328D007AF8C6 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF802454328D007AF8C6 /* fa-solid-900.ttf */; };
+		FA6CBF902454328D007AF8C6 /* fa-solid-900.woff in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */; };
+		FA6CBF912454328D007AF8C6 /* fa-solid-900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -190,7 +205,22 @@
 		FA6CBF5B2452D111007AF8C6 /* FrontendViewsCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendViewsCheckout.swift; sourceTree = "<group>"; };
 		FA6CBF5E2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FrontendViewsProductsTmplList.storyboard; sourceTree = "<group>"; };
 		FA6CBF622452E75F007AF8C6 /* LibraryUtilitiesUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryUtilitiesUtility.swift; sourceTree = "<group>"; };
-		FA6CBF6824542EB9007AF8C6 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "Pods/Font-Awesome-Swift/Source/FontAwesome.ttf"; sourceTree = "<group>"; };
+		FA6CBF6E24543068007AF8C6 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		FA6CBF742454328D007AF8C6 /* fa-brands-400.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.eot"; sourceTree = "<group>"; };
+		FA6CBF752454328D007AF8C6 /* fa-brands-400.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "fa-brands-400.svg"; sourceTree = "<group>"; };
+		FA6CBF762454328D007AF8C6 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
+		FA6CBF772454328D007AF8C6 /* fa-brands-400.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.woff"; sourceTree = "<group>"; };
+		FA6CBF782454328D007AF8C6 /* fa-brands-400.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.woff2"; sourceTree = "<group>"; };
+		FA6CBF792454328D007AF8C6 /* fa-regular-400.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.eot"; sourceTree = "<group>"; };
+		FA6CBF7A2454328D007AF8C6 /* fa-regular-400.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "fa-regular-400.svg"; sourceTree = "<group>"; };
+		FA6CBF7B2454328D007AF8C6 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
+		FA6CBF7C2454328D007AF8C6 /* fa-regular-400.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.woff"; sourceTree = "<group>"; };
+		FA6CBF7D2454328D007AF8C6 /* fa-regular-400.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.woff2"; sourceTree = "<group>"; };
+		FA6CBF7E2454328D007AF8C6 /* fa-solid-900.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.eot"; sourceTree = "<group>"; };
+		FA6CBF7F2454328D007AF8C6 /* fa-solid-900.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "fa-solid-900.svg"; sourceTree = "<group>"; };
+		FA6CBF802454328D007AF8C6 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
+		FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff"; sourceTree = "<group>"; };
+		FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff2"; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -231,7 +261,7 @@
 		177867391E33F86000BF7080 = {
 			isa = PBXGroup;
 			children = (
-				FA6CBF6824542EB9007AF8C6 /* FontAwesome.ttf */,
+				FA6CBF6E24543068007AF8C6 /* FontAwesome.ttf */,
 				FA7EB2292439D01D0034092B /* note.txt */,
 				1782C8811E669B5800963945 /* AppTemplatesCore */,
 				177867441E33F86000BF7080 /* EcommerceApp */,
@@ -252,6 +282,7 @@
 		177867441E33F86000BF7080 /* EcommerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA6CBF7024543191007AF8C6 /* Frontend */,
 				FA6CBF402452CE96007AF8C6 /* App */,
 				FA6CBF392452CDFF007AF8C6 /* Admin */,
 				FA6CBF242451FD80007AF8C6 /* Library */,
@@ -732,6 +763,52 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		FA6CBF7024543191007AF8C6 /* Frontend */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF712454319B007AF8C6 /* App */,
+			);
+			path = Frontend;
+			sourceTree = "<group>";
+		};
+		FA6CBF712454319B007AF8C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF722454321D007AF8C6 /* Resource */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		FA6CBF722454321D007AF8C6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF732454328D007AF8C6 /* fontawesome-free-5.13.0 */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FA6CBF732454328D007AF8C6 /* fontawesome-free-5.13.0 */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CBF742454328D007AF8C6 /* fa-brands-400.eot */,
+				FA6CBF752454328D007AF8C6 /* fa-brands-400.svg */,
+				FA6CBF762454328D007AF8C6 /* fa-brands-400.ttf */,
+				FA6CBF772454328D007AF8C6 /* fa-brands-400.woff */,
+				FA6CBF782454328D007AF8C6 /* fa-brands-400.woff2 */,
+				FA6CBF792454328D007AF8C6 /* fa-regular-400.eot */,
+				FA6CBF7A2454328D007AF8C6 /* fa-regular-400.svg */,
+				FA6CBF7B2454328D007AF8C6 /* fa-regular-400.ttf */,
+				FA6CBF7C2454328D007AF8C6 /* fa-regular-400.woff */,
+				FA6CBF7D2454328D007AF8C6 /* fa-regular-400.woff2 */,
+				FA6CBF7E2454328D007AF8C6 /* fa-solid-900.eot */,
+				FA6CBF7F2454328D007AF8C6 /* fa-solid-900.svg */,
+				FA6CBF802454328D007AF8C6 /* fa-solid-900.ttf */,
+				FA6CBF812454328D007AF8C6 /* fa-solid-900.woff */,
+				FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */,
+			);
+			path = "fontawesome-free-5.13.0";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -796,22 +873,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				1782C8D51E669B5900963945 /* ATCSettingsTextTableViewCell.xib in Resources */,
+				FA6CBF8E2454328D007AF8C6 /* fa-solid-900.svg in Resources */,
 				1782C8CA1E669B5900963945 /* ATCMenuHeaderTableViewCell.xib in Resources */,
 				FA7EB22A2439D01D0034092B /* note.txt in Resources */,
+				FA6CBF8D2454328D007AF8C6 /* fa-solid-900.eot in Resources */,
 				177867501E33F86000BF7080 /* LaunchScreen.storyboard in Resources */,
+				FA6CBF852454328D007AF8C6 /* fa-brands-400.ttf in Resources */,
 				1782C8CC1E669B5900963945 /* ATCMenuTableViewCell.xib in Resources */,
+				FA6CBF8A2454328D007AF8C6 /* fa-regular-400.ttf in Resources */,
+				FA6CBF882454328D007AF8C6 /* fa-regular-400.eot in Resources */,
 				FA26092F243EDE900096AED9 /* Slide.xib in Resources */,
 				173DCFB01E56B187001092C7 /* GoogleService-Info.plist in Resources */,
 				1778674D1E33F86000BF7080 /* Assets.xcassets in Resources */,
+				FA6CBF862454328D007AF8C6 /* fa-brands-400.woff in Resources */,
+				FA6CBF8B2454328D007AF8C6 /* fa-regular-400.woff in Resources */,
 				1782C8D21E669B5900963945 /* ATCSettingsMoreTableViewCell.xib in Resources */,
 				1782C8791E63E15600963945 /* Localizable.strings in Resources */,
+				FA6CBF902454328D007AF8C6 /* fa-solid-900.woff in Resources */,
+				FA6CBF872454328D007AF8C6 /* fa-brands-400.woff2 in Resources */,
+				FA6CBF832454328D007AF8C6 /* fa-brands-400.eot in Resources */,
 				FA6CBF5F2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard in Resources */,
 				1782C86D1E6287A500963945 /* Ecommerce.storyboard in Resources */,
+				FA6CBF8F2454328D007AF8C6 /* fa-solid-900.ttf in Resources */,
 				1782C8D71E669B5900963945 /* ATCSettingsToggleTableViewCell.xib in Resources */,
 				1782C8C61E669B5900963945 /* ATCLoginViewController.xib in Resources */,
+				FA6CBF912454328D007AF8C6 /* fa-solid-900.woff2 in Resources */,
 				1782C8B51E669B5900963945 /* Misc.xcassets in Resources */,
 				1782C8CE1E669B5900963945 /* ATCMenuTableViewController.xib in Resources */,
-				FA6CBF6924542EB9007AF8C6 /* FontAwesome.ttf in Resources */,
+				FA6CBF842454328D007AF8C6 /* fa-brands-400.svg in Resources */,
+				FA6CBF6F24543068007AF8C6 /* FontAwesome.ttf in Resources */,
+				FA6CBF8C2454328D007AF8C6 /* fa-regular-400.woff2 in Resources */,
+				FA6CBF892454328D007AF8C6 /* fa-regular-400.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
