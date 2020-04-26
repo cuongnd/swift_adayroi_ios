@@ -42,17 +42,9 @@ class CartTableViewController: UITableViewController {
         print("hello didClearCartNotification 123")
     }
     func didPlaceOrder() {
-        // This is where you need to handle the placing of an order, based on the shopping cart configuration, accessible from cartMananger local var
-        // The current implementation opens the Stripe View Controller and clears the products
-        if cartManager?.distinctProductCount() ?? 0 > 0 {
-            guard let price = cartManager?.totalPrice() else { return }
-            let stripeSettingsVC = ATCStripeSettingsViewController()
-            let stripeVC = ATCStripeCheckoutViewController(price: Int(price * 100), settings: stripeSettingsVC.settings)
-            stripeVC.title = "Checkout"
-            self.navigationController?.pushViewController(stripeVC, animated: true)
-            
-            self.tableView.reloadData()
-        }
+        let addressCheckoutViewControllerVC = StoryboardEntityProvider().AddressCheckoutViewControllerVC()
+        self.navigationController?.pushViewController(addressCheckoutViewControllerVC, animated: true)
+        
     }
     
     // MARK: - Table view data source

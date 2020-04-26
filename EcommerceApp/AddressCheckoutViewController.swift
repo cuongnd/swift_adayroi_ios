@@ -29,6 +29,9 @@ class AddressCheckoutViewController: UIViewController {
     var full_description:String=""
     
     
+    @IBAction func go_to_back_product_detail(_ sender: UIButton) {
+         self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func go_to_sumary_checkout(_ sender: UIButton) {
         let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
         self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)

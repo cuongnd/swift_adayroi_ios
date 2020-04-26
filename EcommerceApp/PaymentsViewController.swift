@@ -11,7 +11,7 @@ import UIKit
 class PaymentsViewController: UIViewController {
     var reuseIdentifier:String=""
     var list_payment=[Payment]()
-    
+    var payment_seleted:Payment? = nil
     @IBOutlet weak var UICollectionViewPayments: UICollectionView!
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
    override func viewDidLoad() {
@@ -30,6 +30,20 @@ class PaymentsViewController: UIViewController {
         self.rest_api_get_payment()
     }
     
+    @IBAction func go_to_back_summary(_ sender: UIButton) {
+         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func completed_order(_ sender: UIButton) {
+        if(self.payment_seleted==nil){
+            let alert = UIAlertController(title: "Thông báo", message: "Bạn vui lòng chọn phương thức thanh toán", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+        }else{
+            
+        }
+        
+    }
     func rest_api_get_payment() {
         let url = AppConfiguration.root_url+"api/payments/"
         let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -46,7 +60,7 @@ class PaymentsViewController: UIViewController {
                             self.list_payment=[Payment]()
                             for current_payment in payment_json as! [[String: AnyObject]] {
                                 var payment_item: Payment
-                                payment_item = Payment(id: current_payment["_id"] as! String,name: current_payment["name"] as! String, imageUrl: current_payment["full_image_path"] as! String)
+                                payment_item = Payment(id: current_payment["_id"] as! String,name: current_payment["name"] as! String, imageUrl: current_payment["full_image_path"] as! String,payment_type:current_payment["payment_type"] as! String)
                                 self.list_payment.append(payment_item);
                                 
                             }
@@ -93,8 +107,22 @@ extension PaymentsViewController: UICollectionViewDataSource {
   
 }
 extension PaymentsViewController: UICollectionViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.payment_seleted=self.list_payment[indexPath.row];
+        let cell = UICollectionViewPayments.cellForItem(at: indexPath) as! PaymentCollectionViewCell
+        if(cell.isSelected)
+        {
+            print("isSelected")
+            cell.backgroundColor = UIColor.cyan
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? PaymentCollectionViewCell {
+            if(!cell.isSelected)
+            {
+                cell.backgroundColor = nil
+            }
+        }
     }
 }
 
