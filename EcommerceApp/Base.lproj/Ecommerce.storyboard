@@ -2099,6 +2099,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="UITextFieldFullName:" destination="xxZ-rq-xN9" eventType="editingChanged" id="qJa-zD-Zm9"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufh-XC-gu7">
                                                 <rect key="frame" x="8" y="104" width="42" height="21"/>
@@ -2113,6 +2116,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="UITextFieldShippingEmailEditingChanged:" destination="xxZ-rq-xN9" eventType="editingChanged" id="bJt-fg-Jvh"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-tP-tXm">
                                                 <rect key="frame" x="8" y="171" width="136" height="21"/>
@@ -2127,6 +2133,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="UITextFieldShippingPhoneNumberEditingChanged:" destination="xxZ-rq-xN9" eventType="editingChanged" id="X5N-Dh-qXd"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Địa chỉ 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-BB-2eW">
                                                 <rect key="frame" x="14" y="238" width="130" height="21"/>
@@ -2160,7 +2169,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rhu-Ie-Qvs">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rhu-Ie-Qvs">
                                                 <rect key="frame" x="8" y="394" width="359" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2202,6 +2211,9 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-Et-liV">
                                                 <rect key="frame" x="156" y="536" width="49" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="UISwitchValueChange:" destination="xxZ-rq-xN9" eventType="valueChanged" id="Nxa-aN-7bO"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Là địa chỉ giao hàng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0h-jJ-OCA">
                                                 <rect key="frame" x="211" y="541" width="156" height="21"/>
@@ -2372,6 +2384,19 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
+                    <connections>
+                        <outlet property="UISwitchIsShiping" destination="AfS-Et-liV" id="i1Y-h3-Xki"/>
+                        <outlet property="UITextFieldBidingFullName" destination="w1v-cF-O6t" id="4RI-j6-k42"/>
+                        <outlet property="UITextFieldBindingEmail" destination="ARq-02-7bo" id="e63-QJ-gMJ"/>
+                        <outlet property="UITextFieldBindingPhoneNumber" destination="Lm2-bw-oxC" id="f6Q-ah-726"/>
+                        <outlet property="UITextFieldPhoneNumber" destination="Lm2-bw-oxC" id="1Ra-G8-c9f"/>
+                        <outlet property="UITextFieldShippingEmail" destination="u5L-jD-dY8" id="qAD-5t-QL7"/>
+                        <outlet property="UITextFieldShippingPhoneNumber" destination="3KS-8H-s95" id="SwE-dx-FvB"/>
+                        <outlet property="UITextViewBindingAddrress1" destination="Nbw-sk-8BP" id="U7Y-tl-X3v"/>
+                        <outlet property="UITextViewBindingAddrress2" destination="POD-Wv-Nwg" id="1hI-Hr-89N"/>
+                        <outlet property="UITextViewShippingAddress1" destination="vGk-u4-fRk" id="Zoi-yi-pkz"/>
+                        <outlet property="UITextViewShippingAddress2" destination="rhu-Ie-Qvs" id="ene-M6-jO0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL0-83-6ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

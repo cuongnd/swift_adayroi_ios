@@ -12,7 +12,7 @@ import UIKit
 private let reuseIdentifier = "ImageCollectionViewCell"
 
 
-class AddressCheckoutViewController: UIViewController {
+class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
     var product: Product? {
         didSet {
             
@@ -28,9 +28,56 @@ class AddressCheckoutViewController: UIViewController {
     var product_id:String=""
     var full_description:String=""
     
+    @IBOutlet weak var UITextFieldBidingFullName: UITextField!
     
+    @IBAction func UITextFieldFullName(_ sender: UITextField) {
+        if(UISwitchIsShiping.isOn)
+        {
+            UITextFieldBidingFullName.text=sender.text
+        }
+    }
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        if(textView.tag==0 && UISwitchIsShiping.isOn){
+            UITextViewBindingAddrress1.text=textView.text
+        }
+        if(textView.tag==1 && UISwitchIsShiping.isOn){
+            UITextViewBindingAddrress2.text=textView.text
+        }
+    }
+    
+    @IBOutlet weak var UITextViewShippingAddress2: UITextView!
+    @IBOutlet weak var UITextViewShippingAddress1: UITextView!
+    @IBOutlet weak var UITextFieldShippingPhoneNumber: UITextField!
+    @IBOutlet weak var UITextViewBindingAddrress2: UITextView!
+    @IBOutlet weak var UITextViewBindingAddrress1: UITextView!
+    @IBOutlet weak var UITextFieldPhoneNumber: UITextField!
+    @IBOutlet weak var UITextFieldBindingEmail: UITextField!
+    @IBOutlet weak var UISwitchIsShiping: UISwitch!
     @IBAction func go_to_back_product_detail(_ sender: UIButton) {
          self.navigationController?.popViewController(animated: true)
+    }
+    @IBOutlet weak var UITextViewShippingAdress1: UITextView!
+    @IBAction func UISwitchValueChange(_ sender: UISwitch) {
+        UITextFieldBidingFullName.isEnabled = !sender.isOn
+        UITextFieldBindingEmail.isEnabled = !sender.isOn
+        UITextFieldPhoneNumber.isEnabled = !sender.isOn
+        UITextViewBindingAddrress1.isEditable = !sender.isOn
+        UITextViewBindingAddrress2.isEditable = !sender.isOn
+        
+    }
+    @IBOutlet weak var UITextFieldBindingPhoneNumber: UITextField!
+    @IBAction func UITextFieldShippingPhoneNumberEditingChanged(_ sender: UITextField) {
+        if(UISwitchIsShiping.isOn)
+        {
+            UITextFieldBindingPhoneNumber.text=sender.text
+        }
+    }
+    @IBOutlet weak var UITextFieldShippingEmail: UITextField!
+    @IBAction func UITextFieldShippingEmailEditingChanged(_ sender: UITextField) {
+        if(UISwitchIsShiping.isOn)
+        {
+            UITextFieldBindingEmail.text=sender.text
+        }
     }
     @IBAction func go_to_sumary_checkout(_ sender: UIButton) {
         let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
@@ -42,6 +89,8 @@ class AddressCheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        //updateContentViewHeight()
+        UITextViewShippingAddress1.delegate = self
+        UITextViewShippingAddress2.delegate = self
     }
    
   
