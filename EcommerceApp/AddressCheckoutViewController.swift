@@ -181,11 +181,7 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
                 return
             }
         }
-        UITextFieldBidingFullName.text=UITextFieldShippingFullName.text
-        UITextFieldBindingEmail.text=UITextFieldShippingEmail.text
-        UITextFieldBindingPhoneNumber.text=UITextFieldShippingPhoneNumber.text
-        UITextViewBindingAddrress1.text=UITextViewShippingAddress1.text
-        UITextViewBindingAddrress2.text=UITextViewShippingAddress2.text
+      
         
         
         let jsonAddressShippingAndBinding: [String:String]  =
@@ -196,7 +192,7 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
                 "ShippingAddress1": UITextViewShippingAddress1.text!,
                 "ShippingAddress2": UITextViewShippingAddress2.text!,
                 
-                "ShippingFullName": UITextFieldShippingFullName.text!,
+                "BidingFullName": UITextFieldBidingFullName.text!,
                 "BindingEmail": UITextFieldBindingEmail.text!,
                 "BindingPhoneNumber": UITextFieldBindingPhoneNumber.text!,
                 "BindingAddrress1": UITextViewBindingAddrress1.text!,
@@ -206,6 +202,7 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
         
         
         let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
+        sumaryCheckoutViewControllerVC.jsonAddressShippingAndBinding=jsonAddressShippingAndBinding
         self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)
     }
     @IBAction func add_to_cart(_ sender: Any) {

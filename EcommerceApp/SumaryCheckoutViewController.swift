@@ -22,6 +22,7 @@ class SumaryCheckoutViewController: UIViewController {
             self.view.setNeedsLayout()
         }
     }
+    var jsonAddressShippingAndBinding: [String:String] = [:]
      var bodyContentHeight:CGFloat = 0.0
     var heightConstraint: NSLayoutConstraint!
     var images=[Image]();
