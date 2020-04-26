@@ -29,7 +29,7 @@ class SumaryCheckoutViewController: UIViewController {
     @IBOutlet weak var UILabelTotalCostAffterCouponCode1: UILabel!
     @IBOutlet weak var UILabelTotalCostAfterCouponCode: UILabel!
     @IBOutlet weak var UILabelCouponCost: UILabel!
-    var cartManager: ShoppingCartManager?;
+    var cartManager = ShoppingCartManager();
      var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
    
@@ -127,8 +127,16 @@ class SumaryCheckoutViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
-        UILabelTotalProduct.text=String(describing: cartManager?.distinctProductItems())
-        UILabelTotalCostBeforeTax.text=String(describing:cartManager?.totalPrice())+" VNĐ"
+        UILabelTotalProduct.text=String(describing: cartManager.distinctProductCount())
+        UILabelTotalCostBeforeTax.text=String(describing:cartManager.totalPrice())+" VNĐ"
+        UILabelCouponCost.text="chưa áp dụng"
+        UILabelTotalCostAfterCouponCode.text=String(describing:cartManager.totalPrice())+" VNĐ"
+        UILabelTotalCostAffterCouponCode1.text=String(describing:cartManager.totalPrice())+" VNĐ"
+        UILabelShipingCost.text="Chưa xác định"
+        UILabelTaxShipingCost.text="Chưa xác định"
+        UILabelTaxCost.text="Chưa xác định"
+        UILabelTotalCostPayout.text=String(describing:cartManager.totalPrice())+" VNĐ"
+        
         
     }
    

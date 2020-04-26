@@ -14,6 +14,25 @@ class PaymentsViewController: UIViewController {
     var payment_seleted:Payment? = nil
     @IBOutlet weak var UICollectionViewPayments: UICollectionView!
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    @IBOutlet weak var UILabelTotalCostPayout: UILabel!
+    @IBOutlet weak var UILabelTaxShipingCost: UILabel!
+    @IBOutlet weak var UILabelShipingCost: UILabel!
+    @IBOutlet weak var UILabelTaxCost: UILabel!
+    @IBOutlet weak var UILabelTotalCostAffterCouponCode1: UILabel!
+    @IBOutlet weak var UILabelTotalCostAfterCouponCode: UILabel!
+    @IBOutlet weak var UILabelCouponCost: UILabel!
+    var cartManager = ShoppingCartManager();
+   
+    
+    
+    @IBOutlet weak var UILabelTotalProduct: UILabel!
+    
+    
+    @IBOutlet weak var UILabelTotalCostBeforeTax: UILabel!
+    
+    
+    
    override func viewDidLoad() {
         super.viewDidLoad()
         UICollectionViewPayments.delegate=self
@@ -25,6 +44,17 @@ class PaymentsViewController: UIViewController {
     
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
+    
+    UILabelTotalProduct.text=String(describing: cartManager.distinctProductCount())
+    UILabelTotalCostBeforeTax.text=String(describing:cartManager.totalPrice())+" VNĐ"
+    UILabelCouponCost.text="chưa áp dụng"
+    UILabelTotalCostAfterCouponCode.text=String(describing:cartManager.totalPrice())+" VNĐ"
+    UILabelTotalCostAffterCouponCode1.text=String(describing:cartManager.totalPrice())+" VNĐ"
+    UILabelShipingCost.text="Chưa xác định"
+    UILabelTaxShipingCost.text="Chưa xác định"
+    UILabelTaxCost.text="Chưa xác định"
+    UILabelTotalCostPayout.text=String(describing:cartManager.totalPrice())+" VNĐ"
+    
     
     
         self.rest_api_get_payment()
