@@ -106,6 +106,7 @@
 		FA6CBF912454328D007AF8C6 /* fa-solid-900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */; };
 		FA6CBF93245496C5007AF8C6 /* SumaryCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */; };
 		FA6CBF952454A2D4007AF8C6 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF942454A2D4007AF8C6 /* PaymentCollectionViewCell.swift */; };
+		FA6CBF9724558DD2007AF8C6 /* ThankyouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF9624558DD2007AF8C6 /* ThankyouViewController.swift */; };
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
@@ -225,6 +226,7 @@
 		FA6CBF822454328D007AF8C6 /* fa-solid-900.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.woff2"; sourceTree = "<group>"; };
 		FA6CBF92245496C5007AF8C6 /* SumaryCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumaryCheckoutViewController.swift; sourceTree = "<group>"; };
 		FA6CBF942454A2D4007AF8C6 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA6CBF9624558DD2007AF8C6 /* ThankyouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThankyouViewController.swift; sourceTree = "<group>"; };
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */,
 				FA05767B2444569E0003908D /* SubCategoriesViewController.swift */,
 				FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */,
+				FA6CBF9624558DD2007AF8C6 /* ThankyouViewController.swift */,
 				FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
@@ -1058,6 +1061,7 @@
 				FABDBB5A24455EF300CEA175 /* ECCollectionViewCell.swift in Sources */,
 				1782C8C41E669B5900963945 /* ATCStripeSettingsViewController.swift in Sources */,
 				1782C8D31E669B5900963945 /* ATCSettingsTableViewController.swift in Sources */,
+				FA6CBF9724558DD2007AF8C6 /* ThankyouViewController.swift in Sources */,
 				1782C8B61E669B5900963945 /* ATCFirebaseLoginManager.swift in Sources */,
 				1782C8B41E669B5900963945 /* ATCFacebookAPIManager.swift in Sources */,
 				1782C8CD1E669B5900963945 /* ATCMenuTableViewController.swift in Sources */,

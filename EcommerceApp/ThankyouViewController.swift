@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaymentsViewController: UIViewController {
+class ThankyouViewController: UIViewController {
     var reuseIdentifier:String=""
     var list_payment=[Payment]()
     var payment_seleted:Payment? = nil
@@ -42,8 +42,8 @@ class PaymentsViewController: UIViewController {
         }else{
             let payment_type=payment_seleted?.payment_type
             if(payment_type=="code" || payment_type=="bank_transfer"){
-                let thankyouViewController = StoryboardEntityProvider().thankyouViewController()
-                self.navigationController?.setViewControllers([thankyouViewController], animated: true)
+               
+                //self.navigationController?.setViewControllers([productsVC], animated: true)
             }
         }
         
@@ -95,7 +95,7 @@ class PaymentsViewController: UIViewController {
     }
     
 }
-extension PaymentsViewController: UICollectionViewDataSource {
+extension ThankyouViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return list_payment.count
     }
@@ -110,7 +110,7 @@ extension PaymentsViewController: UICollectionViewDataSource {
     
   
 }
-extension PaymentsViewController: UICollectionViewDelegate {
+extension ThankyouViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.payment_seleted=self.list_payment[indexPath.row];
         let cell = UICollectionViewPayments.cellForItem(at: indexPath) as! PaymentCollectionViewCell
