@@ -2578,6 +2578,9 @@
                                                         <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="UIButtonCheckCoupon:" destination="9Ru-f5-Pso" eventType="touchUpInside" id="75D-yn-ifC"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập mã ở đây" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxn-Ih-Vlh">
                                                 <rect key="frame" x="8" y="46" width="282" height="30"/>
@@ -2618,7 +2621,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTB-qc-X6T">
-                                                <rect key="frame" x="304" y="181" width="63" height="21"/>
+                                                <rect key="frame" x="325" y="181" width="42" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -2817,6 +2820,18 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="650"/>
+                    <connections>
+                        <outlet property="UILabelCouponCost" destination="EQ5-2A-8zo" id="EgH-2N-gpZ"/>
+                        <outlet property="UILabelShipingCost" destination="Rqr-Th-3k1" id="wCK-YV-bXa"/>
+                        <outlet property="UILabelTaxCost" destination="g2G-Ub-gih" id="IyR-bg-gHf"/>
+                        <outlet property="UILabelTaxShipingCost" destination="WXJ-5T-JUy" id="EW9-aS-ODk"/>
+                        <outlet property="UILabelTotalCostAffterCouponCode1" destination="Y8w-sT-u33" id="1bz-vA-q2z"/>
+                        <outlet property="UILabelTotalCostAfterCouponCode" destination="HKz-Z4-bl3" id="CTW-oq-tYT"/>
+                        <outlet property="UILabelTotalCostBeforeTax" destination="c4c-bp-aeU" id="PKm-rO-Mb7"/>
+                        <outlet property="UILabelTotalCostPayout" destination="qLH-2q-POX" id="TZd-Zl-6De"/>
+                        <outlet property="UILabelTotalProduct" destination="oTB-qc-X6T" id="VXZ-vr-HnY"/>
+                        <outlet property="UITextFieldCouponCode" destination="kxn-Ih-Vlh" id="dle-He-QKM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXy-MV-1oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
