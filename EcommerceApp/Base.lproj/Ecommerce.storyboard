@@ -2082,7 +2082,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Địa chỉ giao hàng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YR-ef-5d5">
                                                 <rect key="frame" x="8" y="8" width="195" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2188,9 +2188,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Địa chỉ thanh toán" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7N7-aa-3vO">
-                                                <rect key="frame" x="8" y="541" width="164" height="21"/>
+                                                <rect key="frame" x="8" y="541" width="148" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2208,13 +2208,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-Et-liV">
-                                                <rect key="frame" x="156" y="536" width="49" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="UISwitchValueChange:" destination="xxZ-rq-xN9" eventType="valueChanged" id="Nxa-aN-7bO"/>
-                                                </connections>
-                                            </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Là địa chỉ giao hàng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0h-jJ-OCA">
                                                 <rect key="frame" x="211" y="541" width="156" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2303,7 +2296,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lưu ý" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nO4-QM-U9e">
                                                 <rect key="frame" x="8" y="1101" width="87" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2325,6 +2318,13 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-Et-liV">
+                                                <rect key="frame" x="156" y="536" width="49" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="UISwitchValueChange:" destination="xxZ-rq-xN9" eventType="valueChanged" id="Nxa-aN-7bO"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1278" id="RlY-eo-PDG"/>
@@ -2389,9 +2389,9 @@
                         <outlet property="UITextFieldBidingFullName" destination="w1v-cF-O6t" id="4RI-j6-k42"/>
                         <outlet property="UITextFieldBindingEmail" destination="ARq-02-7bo" id="e63-QJ-gMJ"/>
                         <outlet property="UITextFieldBindingPhoneNumber" destination="Lm2-bw-oxC" id="f6Q-ah-726"/>
-                        <outlet property="UITextFieldPhoneNumber" destination="Lm2-bw-oxC" id="1Ra-G8-c9f"/>
                         <outlet property="UITextFieldShippingEmail" destination="u5L-jD-dY8" id="qAD-5t-QL7"/>
-                        <outlet property="UITextFieldShippingPhoneNumber" destination="3KS-8H-s95" id="SwE-dx-FvB"/>
+                        <outlet property="UITextFieldShippingFullName" destination="7Ph-lB-Oki" id="kAZ-uM-E5I"/>
+                        <outlet property="UITextFieldShippingPhoneNumber" destination="3KS-8H-s95" id="emW-3p-XFX"/>
                         <outlet property="UITextViewBindingAddrress1" destination="Nbw-sk-8BP" id="U7Y-tl-X3v"/>
                         <outlet property="UITextViewBindingAddrress2" destination="POD-Wv-Nwg" id="1hI-Hr-89N"/>
                         <outlet property="UITextViewShippingAddress1" destination="vGk-u4-fRk" id="Zoi-yi-pkz"/>
