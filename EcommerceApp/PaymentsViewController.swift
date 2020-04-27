@@ -83,7 +83,7 @@ class PaymentsViewController: UIViewController {
                         DispatchQueue.main.async {
                             do {
                                 //array
-                                let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+                                let json_order = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
                                 //hiden loading
                                 self.activityIndicator.stopAnimating()
                                 
@@ -91,17 +91,7 @@ class PaymentsViewController: UIViewController {
                                 let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn đã được tạo", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
                                 self.present(alert, animated: true)
-                                
-                                
-                                
-                                
-                              
-                                
-                                
-                                
-                                
-                                
-                            } catch {
+                          } catch {
                                 
                             }
                         }

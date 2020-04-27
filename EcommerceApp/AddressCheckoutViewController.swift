@@ -186,17 +186,17 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
         
         let jsonAddressShippingAndBinding: [String:String]  =
             [
-                "ShippingFullName": UITextFieldShippingFullName.text!,
-                "ShippingEmail": UITextFieldShippingEmail.text!,
-                "ShippingPhoneNumber": UITextFieldShippingPhoneNumber.text!,
-                "ShippingAddress1": UITextViewShippingAddress1.text!,
-                "ShippingAddress2": UITextViewShippingAddress2.text!,
+                "shipping_fullname": UITextFieldShippingFullName.text!,
+                "shipping_email": UITextFieldShippingEmail.text!,
+                "shipping_phonenumber": UITextFieldShippingPhoneNumber.text!,
+                "shipping_address1": UITextViewShippingAddress1.text!,
+                "shipping_address2": UITextViewShippingAddress2.text!,
                 
-                "BidingFullName": UITextFieldBidingFullName.text!,
-                "BindingEmail": UITextFieldBindingEmail.text!,
-                "BindingPhoneNumber": UITextFieldBindingPhoneNumber.text!,
-                "BindingAddrress1": UITextViewBindingAddrress1.text!,
-                "BindingAddrress2": UITextViewBindingAddrress2.text!,
+                "biding_fullname": UITextFieldBidingFullName.text!,
+                "binding_email": UITextFieldBindingEmail.text!,
+                "binding_phonenumber": UITextFieldBindingPhoneNumber.text!,
+                "binding_addrress1": UITextViewBindingAddrress1.text!,
+                "binding_addrress2": UITextViewBindingAddrress2.text!,
                 
                 ]
         
