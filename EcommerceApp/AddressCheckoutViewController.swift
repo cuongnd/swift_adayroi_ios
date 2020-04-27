@@ -17,7 +17,7 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
         didSet {
             
             self.title = product?.productName
-            
+           
             
             self.view.setNeedsLayout()
         }
@@ -44,6 +44,9 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
             UITextViewBindingAddrress2.text=textView.text
         }
     }
+    @IBOutlet weak var UITextViewShippingAddrress1: UITextView!
+    
+    @IBOutlet weak var UITextViewShippingAddrress2: UITextView!
     
     @IBOutlet weak var UITextFieldShippingFullName: UITextField!
     @IBOutlet weak var UITextViewShippingAddress2: UITextView!
@@ -200,7 +203,8 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
                 
                 ]
         
-        
+         let preferentces=UserDefaults.standard
+        preferentces.set(jsonAddressShippingAndBinding, forKey: "json_address_shipping_and_binding")
         let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
         sumaryCheckoutViewControllerVC.jsonAddressShippingAndBinding=jsonAddressShippingAndBinding
         self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)
@@ -213,6 +217,22 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
        //updateContentViewHeight()
         UITextViewShippingAddress1.delegate = self
         UITextViewShippingAddress2.delegate = self
+        
+        let preferentces=UserDefaults.standard
+        if(preferentces.object(forKey: "json_address_shipping_and_binding") != nil){
+             var  json_address_shipping_and_binding:[String:String]=preferentces.value(forKey: "json_address_shipping_and_binding")! as! [String:String]
+            UITextFieldShippingFullName.text=json_address_shipping_and_binding["shipping_fullname"]
+            UITextFieldShippingEmail.text=json_address_shipping_and_binding["shipping_email"]
+            UITextFieldShippingPhoneNumber.text=json_address_shipping_and_binding["shipping_phonenumber"]
+            UITextViewShippingAddress1.text=json_address_shipping_and_binding["shipping_address1"]
+            UITextViewShippingAddress2.text=json_address_shipping_and_binding["shipping_address2"]
+            
+            UITextFieldBidingFullName.text=json_address_shipping_and_binding["binding_fullname"]
+            UITextFieldBindingEmail.text=json_address_shipping_and_binding["binding_email"]
+            UITextFieldBindingPhoneNumber.text=json_address_shipping_and_binding["binding_phonenumber"]
+            UITextViewBindingAddrress1.text=json_address_shipping_and_binding["binding_address1"]
+            UITextViewBindingAddrress2.text=json_address_shipping_and_binding["binding_address2"]
+        }
     }
    
   

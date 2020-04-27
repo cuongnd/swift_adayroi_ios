@@ -2396,6 +2396,8 @@
                         <outlet property="UITextViewBindingAddrress2" destination="POD-Wv-Nwg" id="1hI-Hr-89N"/>
                         <outlet property="UITextViewShippingAddress1" destination="vGk-u4-fRk" id="Zoi-yi-pkz"/>
                         <outlet property="UITextViewShippingAddress2" destination="rhu-Ie-Qvs" id="ene-M6-jO0"/>
+                        <outlet property="UITextViewShippingAddrress1" destination="Nbw-sk-8BP" id="Umu-cm-af6"/>
+                        <outlet property="UITextViewShippingAddrress2" destination="POD-Wv-Nwg" id="Mg8-fO-B47"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eL0-83-6ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
