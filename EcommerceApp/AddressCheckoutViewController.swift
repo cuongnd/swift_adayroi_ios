@@ -17,7 +17,8 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
         didSet {
             
             self.title = product?.productName
-           
+            
+            
             
             self.view.setNeedsLayout()
         }
@@ -27,7 +28,10 @@ class AddressCheckoutViewController: UIViewController, UITextViewDelegate {
     var images=[Image]();
     var product_id:String=""
     var full_description:String=""
-    
+    @IBAction func UIButtonTouchUpInsideSelectLocation(_ sender: Any) {
+        let mapPathViewController = StoryboardEntityProvider().mapPathViewController()
+        self.navigationController?.pushViewController(mapPathViewController, animated: true)
+    }
     @IBOutlet weak var UITextFieldBidingFullName: UITextField!
     
     @IBAction func UITextFieldFullName(_ sender: UITextField) {

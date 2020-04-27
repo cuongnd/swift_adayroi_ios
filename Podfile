@@ -29,6 +29,6 @@ target 'EcommerceApp' do
   pod 'Material', '~> 2.0'
   pod 'Kingfisher'
   pod 'SwiftyJSON', '3.1.4'
-
+  pod 'GoogleMaps', '2.4.0'
   
 end

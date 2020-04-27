@@ -1949,7 +1949,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="106" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjR-dW-APM">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="LLr-Fu-LCb"/>
                                                         </constraints>
@@ -1975,7 +1975,7 @@
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Am0-4w-sq3">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="DR9-3n-AcM"/>
                                                         </constraints>
@@ -2006,7 +2006,7 @@
                                                 <rect key="frame" x="276" y="15" width="83" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR7-R0-cON">
-                                                        <rect key="frame" x="26" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="26.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="9pH-Cb-1Y2"/>
                                                         </constraints>
@@ -2325,6 +2325,16 @@
                                                     <action selector="UISwitchValueChange:" destination="xxZ-rq-xN9" eventType="valueChanged" id="Nxa-aN-7bO"/>
                                                 </connections>
                                             </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8F-m3-NYl">
+                                                <rect key="frame" x="211" y="233" width="156" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Chọn vị trí trên bản đồ">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="UIButtonTouchUpInsideSelectLocation:" destination="xxZ-rq-xN9" eventType="touchUpInside" id="Ah5-yV-cf7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1278" id="RlY-eo-PDG"/>
@@ -2426,7 +2436,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="106" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nix-Ub-eCB">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="Eqc-mS-XEb"/>
                                                         </constraints>
@@ -2452,7 +2462,7 @@
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNf-zg-spQ">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="nuF-zj-brh"/>
                                                         </constraints>
@@ -2483,7 +2493,7 @@
                                                 <rect key="frame" x="276" y="15" width="83" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-xR-Vp8">
-                                                        <rect key="frame" x="26" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="26.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="ntG-HN-YcO"/>
                                                         </constraints>
@@ -2861,7 +2871,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="106" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWZ-Ht-3vw">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="iuE-gJ-whc"/>
                                                         </constraints>
@@ -2887,7 +2897,7 @@
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rek-hf-2uL">
-                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="1zc-i5-qDE"/>
                                                         </constraints>
@@ -2918,7 +2928,7 @@
                                                 <rect key="frame" x="276" y="15" width="83" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQc-gz-ACc">
-                                                        <rect key="frame" x="26" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="26.5" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="7PA-0O-Re4"/>
                                                         </constraints>
@@ -3848,6 +3858,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yih-Xe-J3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9804" y="-318.44077961019491"/>
+        </scene>
+        <!--Map Path View Controller-->
+        <scene sceneID="A2a-Od-tYv">
+            <objects>
+                <viewController storyboardIdentifier="MapPathViewController" id="dre-w9-MWc" customClass="MapPathViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tea-Qu-QCZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="tNe-sq-EnS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vow-MP-rrw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRs-tt-TXw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vui Lòng chọn một vị trí" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS7-wK-RLY">
+                                        <rect key="frame" x="8" y="0.0" width="233" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.55663022100000004" blue="0.42875217100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PRs-tt-TXw" firstAttribute="leading" secondItem="vow-MP-rrw" secondAttribute="leading" id="Q8R-kZ-x9P"/>
+                            <constraint firstItem="PRs-tt-TXw" firstAttribute="top" secondItem="vow-MP-rrw" secondAttribute="top" id="Sqf-B7-mWh"/>
+                            <constraint firstAttribute="trailing" secondItem="PRs-tt-TXw" secondAttribute="trailing" id="vaO-o5-sgC"/>
+                            <constraint firstAttribute="bottom" secondItem="PRs-tt-TXw" secondAttribute="bottom" id="zn9-7Y-Rtz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4u-lF-ODT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.8" y="-656.22188905547227"/>
         </scene>
     </scenes>
     <resources>

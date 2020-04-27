@@ -15,7 +15,7 @@ import Material
 import Stripe
 import TwitterKit
 import UIKit
-
+import GoogleMaps
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,8 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate var cartButton: IconButton!
 
     fileprivate var hostViewController: ATCHostViewController?
-
+    func googleMapSetup(){
+        //AIzaSyCNaQlvaBEHQHaCAwEjphOhJQ2g8fj3OOs
+        GMSServices.provideAPIKey("AIzaSyCNaQlvaBEHQHaCAwEjphOhJQ2g8fj3OOs")
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        googleMapSetup()
         self.configureHostViewControllers()
         if (AppConfiguration.isLoginScreenEnabled) {
             if (AppConfiguration.isTwitterLoginEnabled) {

@@ -114,6 +114,9 @@
 		FABDBB582444B52300CEA175 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB572444B52300CEA175 /* Image.swift */; };
 		FABDBB5A24455EF300CEA175 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */; };
 		FABDBB5C24455F7B00CEA175 /* ECTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB5B24455F7B00CEA175 /* ECTableViewCell.swift */; };
+		FADCEA7C24573FB4001B9421 /* MapPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCEA7B24573FB4001B9421 /* MapPathViewController.swift */; };
+		FADCEA7E24573FEB001B9421 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCEA7D24573FEB001B9421 /* MapPath.swift */; };
+		FADCEA8024574016001B9421 /* MapPathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCEA7F24574016001B9421 /* MapPathViewModel.swift */; };
 		FAF45D90243F6FBC00BFB8AD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */; };
 		FAF45D92243F923600BFB8AD /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF45D91243F923600BFB8AD /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -234,6 +237,9 @@
 		FABDBB572444B52300CEA175 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
 		FABDBB5B24455F7B00CEA175 /* ECTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECTableViewCell.swift; sourceTree = "<group>"; };
+		FADCEA7B24573FB4001B9421 /* MapPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPathViewController.swift; sourceTree = "<group>"; };
+		FADCEA7D24573FEB001B9421 /* MapPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
+		FADCEA7F24574016001B9421 /* MapPathViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPathViewModel.swift; sourceTree = "<group>"; };
 		FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FAF45D91243F923600BFB8AD /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +266,8 @@
 				17825D981E3ABD3800A03FC5 /* ShoppingCartItem.swift */,
 				FA0576772444346C0003908D /* SubCategory.swift */,
 				173DCFB51E58F8E2001092C7 /* Category.swift */,
+				FADCEA7D24573FEB001B9421 /* MapPath.swift */,
+				FADCEA7F24574016001B9421 /* MapPathViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 				FA6CBF1924504CDB007AF8C6 /* PaymentsViewController.swift */,
 				FA6CBF9624558DD2007AF8C6 /* ThankyouViewController.swift */,
 				FAF45D8F243F6FBC00BFB8AD /* HomeViewController.swift */,
+				FADCEA7B24573FB4001B9421 /* MapPathViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -944,10 +953,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EcommerceApp/Pods-EcommerceApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1025,6 +1036,7 @@
 				FA6CBF952454A2D4007AF8C6 /* PaymentCollectionViewCell.swift in Sources */,
 				173DCFB61E58F8E2001092C7 /* Category.swift in Sources */,
 				173DCFB21E58F599001092C7 /* CategoriesTableViewController.swift in Sources */,
+				FADCEA7C24573FB4001B9421 /* MapPathViewController.swift in Sources */,
 				1767F75D1E344E7800E8AD1F /* ProductCollectionViewCell.swift in Sources */,
 				1782C8CF1E669B5900963945 /* ATCNavigationController.swift in Sources */,
 				1782C8BA1E669B5900963945 /* ATCFacebookUser.swift in Sources */,
@@ -1045,6 +1057,7 @@
 				FA1855CD2443331000650DBE /* SlideShowCollectionViewCell.swift in Sources */,
 				FABDBB5C24455F7B00CEA175 /* ECTableViewCell.swift in Sources */,
 				FA6CBF5C2452D111007AF8C6 /* FrontendViewsCheckout.swift in Sources */,
+				FADCEA8024574016001B9421 /* MapPathViewModel.swift in Sources */,
 				1782C8C01E669B5900963945 /* ATCStripeButtons.swift in Sources */,
 				173DCFB41E58F5E4001092C7 /* CategoriesTableViewCell.swift in Sources */,
 				FABDBB582444B52300CEA175 /* Image.swift in Sources */,
@@ -1068,6 +1081,7 @@
 				1782C8B41E669B5900963945 /* ATCFacebookAPIManager.swift in Sources */,
 				1782C8CD1E669B5900963945 /* ATCMenuTableViewController.swift in Sources */,
 				FA6CBF632452E75F007AF8C6 /* LibraryUtilitiesUtility.swift in Sources */,
+				FADCEA7E24573FEB001B9421 /* MapPath.swift in Sources */,
 				177867641E34147900BF7080 /* StoryboardEntityProvider.swift in Sources */,
 				1782C8BD1E669B5900963945 /* ATCUser.swift in Sources */,
 				1782C8BB1E669B5900963945 /* ATCRSSFeed.swift in Sources */,
