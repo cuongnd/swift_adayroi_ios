@@ -111,6 +111,7 @@ class SumaryCheckoutViewController: UIViewController {
     
     @IBAction func go_to_payment(_ sender: UIButton) {
         let paymentVC = StoryboardEntityProvider().paymentVC()
+        paymentVC.jsonAddressShippingAndBinding = self.jsonAddressShippingAndBinding;
         self.navigationController?.pushViewController(paymentVC, animated: true)
     }
     @IBAction func go_to_back_address(_ sender: UIButton) {

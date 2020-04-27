@@ -23,7 +23,7 @@ class PaymentsViewController: UIViewController {
     @IBOutlet weak var UILabelTotalCostAfterCouponCode: UILabel!
     @IBOutlet weak var UILabelCouponCost: UILabel!
     var cartManager = ShoppingCartManager();
-   
+    var jsonAddressShippingAndBinding: [String:String] = [:]
     
     
     @IBOutlet weak var UILabelTotalProduct: UILabel!
@@ -70,13 +70,65 @@ class PaymentsViewController: UIViewController {
             self.present(alert, animated: true)
             
         }else{
-            let payment_type=payment_seleted?.payment_type
-            if(payment_type=="code" || payment_type=="bank_transfer"){
-                let thankyouViewController = StoryboardEntityProvider().thankyouViewController()
-                self.navigationController?.setViewControllers([thankyouViewController], animated: true)
+            let url = AppConfiguration.root_url+"api_task/?task=order.create"
+            print("url")
+            print(url)
+            let request = NSMutableURLRequest(url: URL(string: url)!)
+            
+            let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+                if (error != nil) {
+                    print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
+                } else {
+                    if let content = data {
+                        DispatchQueue.main.async {
+                            do {
+                                //array
+                                let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+                                //hiden loading
+                                self.activityIndicator.stopAnimating()
+                                
+                                //show alert
+                                let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn đã được tạo", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
+                                self.present(alert, animated: true)
+                                
+                                
+                                
+                                
+                              
+                                
+                                
+                                
+                                
+                                
+                            } catch {
+                                
+                            }
+                        }
+                    }
+                }
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("statusCode devrait être de 200, mais il est de \(httpStatus.statusCode)")
+                    print("réponse = \(response)") // On affiche dans la console si le serveur ne nous renvoit pas un code de 200 qui est le code normal
+                }
+                
+                
+                if error == nil {
+                    // Ce que vous voulez faire.
+                }
             }
+            requestAPI.resume()
+            
         }
         
+    }
+    func go_to_thank(alert: UIAlertAction!) {
+        let payment_type=self.payment_seleted?.payment_type
+        if(payment_type=="code" || payment_type=="bank_transfer"){
+            let thankyouViewController = StoryboardEntityProvider().thankyouViewController()
+            self.navigationController?.setViewControllers([thankyouViewController], animated: true)
+    }
+    
     }
     func rest_api_get_payment() {
         let url = AppConfiguration.root_url+"api/payments/"
