@@ -74,7 +74,17 @@ class PaymentsViewController: UIViewController {
             print("url")
             print(url)
             let request = NSMutableURLRequest(url: URL(string: url)!)
-            
+            request.httpMethod = "POST"
+            //create dictionary with your parameters
+            let params = self.jsonAddressShippingAndBinding as Dictionary<String, String>
+            do {
+                request.httpBody=try JSONSerialization.data(withJSONObject: params)
+                // do other stuff on success
+            } catch {
+                print("JSON serialization failed: ", error)
+            }
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
             let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
                 if (error != nil) {
                     print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête

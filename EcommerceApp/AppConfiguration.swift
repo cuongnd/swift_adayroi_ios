@@ -18,5 +18,8 @@ public final class AppConfiguration {
     public static let stripePublishableKey = "pk_test_mHeSRjRFtORVXYQeFZty7pZD"
     public static let isApplePaymentEnabled = false
     public static let applePayMerchantIdentifier = "Your Apple Merchant Identifier"
-    public static let root_url:String="http://192.168.1.15:1112/";
+    //home
+    //public static let root_url:String="http://192.168.1.15:1112/";
+    //company
+    public static let root_url:String="http://192.168.8.68:1112/";
 }
