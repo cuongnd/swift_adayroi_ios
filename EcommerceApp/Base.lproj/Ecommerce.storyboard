@@ -3881,6 +3881,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T0j-mg-7Oj" customClass="GMSMapView">
+                                        <rect key="frame" x="8" y="28" width="359" height="466"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-Fb-4NW">
+                                        <rect key="frame" x="164" y="502" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="buttonHandlerPlay:" destination="dre-w9-MWc" eventType="touchUpInside" id="CrT-qN-jP3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.55663022100000004" blue="0.42875217100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -3893,6 +3906,10 @@
                             <constraint firstAttribute="bottom" secondItem="PRs-tt-TXw" secondAttribute="bottom" id="zn9-7Y-Rtz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonPlay" destination="5hM-Fb-4NW" id="7KO-2B-7Lj"/>
+                        <outlet property="mapView" destination="T0j-mg-7Oj" id="Uaj-vk-1N9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4u-lF-ODT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

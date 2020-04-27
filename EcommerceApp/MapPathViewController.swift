@@ -13,7 +13,7 @@ class MapPathViewController: UIViewController,GMSMapViewDelegate , MapPathViewMo
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var buttonPlay: UIButton!
-    
+    var locationManager = CLLocationManager()
     var objMapModel = MapPathViewModel()
     var iTemp:Int = 0
     var marker = GMSMarker()
@@ -25,6 +25,10 @@ class MapPathViewController: UIViewController,GMSMapViewDelegate , MapPathViewMo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self as? CLLocationManagerDelegate
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
         pageSetUp()
     }
     
@@ -35,7 +39,7 @@ class MapPathViewController: UIViewController,GMSMapViewDelegate , MapPathViewMo
         //mapview delegate settings and inial location set
         mapView.delegate = self
         mapView.camera = camera
-        
+        mapView.isMyLocationEnabled = true
         objMapModel.jsonDataRead()
     }
     
