@@ -28,5 +28,7 @@ target 'EcommerceApp' do
 
   pod 'Material', '~> 2.0'
   pod 'Kingfisher'
+  pod 'SwiftyJSON', '3.1.4'
+
   
 end

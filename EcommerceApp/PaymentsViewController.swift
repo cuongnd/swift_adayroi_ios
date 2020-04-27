@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class PaymentsViewController: UIViewController {
     var reuseIdentifier:String=""
     var list_payment=[Payment]()
@@ -23,7 +23,7 @@ class PaymentsViewController: UIViewController {
     @IBOutlet weak var UILabelTotalCostAfterCouponCode: UILabel!
     @IBOutlet weak var UILabelCouponCost: UILabel!
     var cartManager = ShoppingCartManager();
-    var jsonAddressShippingAndBinding: [String:String] = [:]
+    var data_order: [String:String] = [:]
     
     
     @IBOutlet weak var UILabelTotalProduct: UILabel!
@@ -73,10 +73,16 @@ class PaymentsViewController: UIViewController {
             let url = AppConfiguration.root_url+"api_task/?task=order.create"
             print("url")
             print(url)
+            let preferentces=UserDefaults.standard
+            self.data_order["total"]=String(cartManager.totalPrice())
+            if(preferentces.object(forKey: "cart_list_product_id") != nil){
+                var  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
+                self.data_order["list_product"]=self.json(from: cart_list_product_id)
+            }
             let request = NSMutableURLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
             //create dictionary with your parameters
-            let params = self.jsonAddressShippingAndBinding as Dictionary<String, String>
+            let params = self.data_order as Dictionary<String, String>
             do {
                 request.httpBody=try JSONSerialization.data(withJSONObject: params)
                 // do other stuff on success
@@ -122,11 +128,18 @@ class PaymentsViewController: UIViewController {
         }
         
     }
+    func json(from object:Any) -> String? {
+        guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
+            return nil
+        }
+        return String(data: data, encoding: String.Encoding.utf8)
+    }
+    
     func go_to_thank(alert: UIAlertAction!) {
         let payment_type=self.payment_seleted?.payment_type
         if(payment_type=="code" || payment_type=="bank_transfer"){
             let thankyouViewController = StoryboardEntityProvider().thankyouViewController()
-            self.navigationController?.setViewControllers([thankyouViewController], animated: true)
+            //self.navigationController?.setViewControllers([thankyouViewController], animated: true)
     }
     
     }

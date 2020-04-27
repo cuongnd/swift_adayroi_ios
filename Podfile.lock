@@ -68,6 +68,7 @@ PODS:
   - Material/Core (2.4.10)
   - ObjectMapper (2.2.2)
   - Stripe (9.3.0)
+  - SwiftyJSON (3.1.4)
   - TwitterCore (2.7.0):
     - Fabric
   - TwitterKit (2.7.0):
@@ -86,6 +87,7 @@ DEPENDENCIES:
   - Material (~> 2.0)
   - ObjectMapper (~> 2.2)
   - Stripe
+  - SwiftyJSON (= 3.1.4)
   - TwitterCore
   - TwitterKit
 
@@ -114,6 +116,7 @@ SPEC REPOS:
     - Material
     - ObjectMapper
     - Stripe
+    - SwiftyJSON
     - TwitterCore
     - TwitterKit
 
@@ -141,9 +144,10 @@ SPEC CHECKSUMS:
   Material: ef1e6da2e242d582205c87847a5346138894a633
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   Stripe: 0f41a33a6fa3ac76ee668d7df3e2680c28b8ab1a
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: 389ac5d04e1551575336922934f67dee15150297
+PODFILE CHECKSUM: 4ead1e5a7adabec90c373f75965b4fc3e410abcc
 
 COCOAPODS: 1.6.1
