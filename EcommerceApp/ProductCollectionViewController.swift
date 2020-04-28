@@ -55,7 +55,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
 
                             for current_product in my_json as! [[String: AnyObject]] {
                                 var product: Product
-                                product = Product(id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                                product = Product(_id: current_product["_id"] as! String,id: current_product["id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                                 self.products.append(product);
 
                             }

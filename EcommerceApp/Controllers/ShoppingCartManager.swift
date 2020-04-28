@@ -85,7 +85,7 @@ class ShoppingCartManager {
                 let description=product_item.value["description"]!
                 let category=product_item.value["category"]!
                 let imageUrl=product_item.value["imageUrl"]!
-                let product:Product=Product(id: product_id, name: name, imageUrl: imageUrl, price:price, description: description, category: category, images: [])
+                let product:Product=Product(_id: product_id,id: product_id, name: name, imageUrl: imageUrl, price:price, description: description, category: category, images: [])
                 cart.itemDictionary[product.id] = ShoppingCartItem(product: product, quantity: quantity)
             }
             

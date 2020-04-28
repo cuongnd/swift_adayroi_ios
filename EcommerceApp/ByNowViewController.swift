@@ -65,7 +65,7 @@ class ByNowViewController: UIViewController {
                             let json_product = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
                             print("json_product")
                             print(json_product["productTitle"]!)
-                            self.product = Product(id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
+                            self.product = Product(_id: json_product["_id"]! as! String,id: json_product["id"]! as! String,name: json_product["productTitle"]! as! String, imageUrl: json_product["default_photo"]!["img_path"] as! String,price: json_product["productPrice"]! as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                             let description:String=json_product["productDescription"]! as! String;
                             self.UILabelProductName.text=json_product["productTitle"]! as? String
                             self.full_description=description+"<style type=\"text/css\">image{width: 100%;!important;}</style>"
