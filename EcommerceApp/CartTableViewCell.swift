@@ -39,7 +39,8 @@ class CartTableViewCell: ECTableViewCell {
     }
     @objc
     fileprivate func handleDeleteProductButton() {
-        print("helo2444")
-        delegate?.delete_product_in_cart(sender: UIButtonDeleteProductInCart,item:self.item!)
+     delegate?.delete_product_in_cart(sender: UIButtonDeleteProductInCart,item:self.item!)
     }
+    
+    
 }

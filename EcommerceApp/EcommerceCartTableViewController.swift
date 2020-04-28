@@ -14,6 +14,7 @@ class CartTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    var _id_need_delete:String=""
     @IBOutlet var UITableViewListProductOrder: UITableView!
     
     override func viewDidLoad() {
@@ -53,14 +54,13 @@ class CartTableViewController: UITableViewController {
         guard let cartManager = cartManager else {
             return 0
         }
+        print("cartManager.distinctProductCount()")
+        print(cartManager.distinctProductCount())
         return cartManager.distinctProductCount() + 2
     }
    
    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-    {
-        
-    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cartManager = cartManager else {
@@ -82,19 +82,16 @@ class CartTableViewController: UITableViewController {
         return cell
     }
     func delete_product_in_cart( sender: UIButton,item:ShoppingCartItem) {
-        let point = sender.convert(CGPoint.zero, to: UITableViewListProductOrder)
-        
-        guard let indexPath = UITableViewListProductOrder.indexPathForRow(at: point) else {
-            return
-        }
-        self.UITableViewListProductOrder.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        print("item.product._id")
-        print(item.product._id)
-        cartManager?.removeProduct(_id:item.product._id)
+        let alert = UIAlertController(title: "Thông báo", message: "Bạn có chắc chắn muốn xóa sản phẩm khỏi giỏ hàng", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Chắc chắn", style: .default, handler: self.handleDeleteProductNow))
+        alert.addAction(UIAlertAction(title: "huyr", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        _id_need_delete=item.product._id
+    }
+    func handleDeleteProductNow(alert: UIAlertAction!){
+        cartManager?.removeProduct(_id:_id_need_delete)
         cartManager=ShoppingCartManager()
-        self.UITableViewListProductOrder.reloadData()
-        
-        
+        self.tableView.reloadData()
     }
     @objc
      func didUpdateCart(notification: Notification) {

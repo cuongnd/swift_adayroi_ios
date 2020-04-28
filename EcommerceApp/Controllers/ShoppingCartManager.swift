@@ -16,13 +16,9 @@ class ShoppingCartManager {
     var cart = ShoppingCart()
 
     func addProduct(product: Product, quantity: Int = 1) {
-        if let item = cart.itemDictionary[product.id] {
-            item.quantity += quantity
-            return
-        }
-        cart.itemDictionary[product.id] = ShoppingCartItem(product: product, quantity: quantity)
         let preferentces=UserDefaults.standard
         if(preferentces.object(forKey: "cart_list_product_id") != nil){
+            print("has but empty")
             var  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
             if(cart_list_product_id[product.id] != nil){
                 var currentProduct: [String:String]=cart_list_product_id[product.id]!;
@@ -46,6 +42,7 @@ class ShoppingCartManager {
             }
             preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
         }else{
+            print("not exists")
             var cart_list_product_id:[String:[String:String]] = [String:[String:String]]()
             for product_item in cart.itemDictionary {
                 let jsonProduct: [String:String]  =
