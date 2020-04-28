@@ -18,7 +18,7 @@ class Product {
     var productImages: [String]?
 
     init(_id: String,id: String, name: String, imageUrl: String, price: Double, description: String, category: String, images: [String]) {
-        self._id = id
+        self._id = _id
         self.id = id
         productName = name
         productImageURL = imageUrl

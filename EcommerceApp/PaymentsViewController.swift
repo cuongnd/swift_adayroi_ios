@@ -137,10 +137,11 @@ class PaymentsViewController: UIViewController {
     
     func go_to_thank(alert: UIAlertAction!) {
         let payment_type=self.payment_seleted?.payment_type
+        cartManager.clearProducts()
         if(payment_type=="code" || payment_type=="bank_transfer"){
             let thankyouViewController = StoryboardEntityProvider().thankyouViewController()
-            //self.navigationController?.setViewControllers([thankyouViewController], animated: true)
-    }
+            self.navigationController?.setViewControllers([thankyouViewController], animated: true)
+        }
     
     }
     func rest_api_get_payment() {
