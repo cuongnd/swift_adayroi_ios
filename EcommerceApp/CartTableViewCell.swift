@@ -35,7 +35,19 @@ class CartTableViewCell: ECTableViewCell {
         }
         
         UIButtonDeleteProductInCart?.addTarget(self, action: #selector(handleDeleteProductButton), for: .touchUpInside)
+        
+        UIStepperUpDownTotalProduct.autorepeat = true
+        UIStepperUpDownTotalProduct.minimumValue = 1
+        UIStepperUpDownTotalProduct.maximumValue = 10
+        UIStepperUpDownTotalProduct.value=Double(item.quantity)
+        UIStepperUpDownTotalProduct.addTarget(self, action: #selector(stepperValueChanged(stepper:)), for: .valueChanged)
+
      
+    }
+    func stepperValueChanged(stepper: UIStepper) {
+        
+        print(stepper.value)
+        
     }
     @objc
     fileprivate func handleDeleteProductButton() {
