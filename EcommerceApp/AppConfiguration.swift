@@ -21,8 +21,10 @@ public final class AppConfiguration {
     //home
     //public static let root_url:String="http://192.168.1.15:1112/";
     //company
-    public static let root_url:String="http://192.168.8.68:1112/";
-    //cafe
+    //public static let root_url:String="http://192.168.8.68:1112/";
+    //cafe ngon
     //public static let root_url:String="http://192.168.100.12:1112/";
+    //giang cafe
+    public static let root_url:String="http://192.168.1.117:1112/";
     
 }

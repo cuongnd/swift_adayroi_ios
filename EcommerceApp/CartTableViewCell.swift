@@ -13,13 +13,15 @@ class CartTableViewCell: ECTableViewCell {
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var productPriceLabel: UILabel!
     @IBOutlet var productNameLabel: UILabel!
+    @IBOutlet var UIButtonDeleteProductInCart: UIButton!
     weak var delegate: CartTableViewController?
     @IBOutlet weak var UIStepperUpDownTotalProduct: UIStepper!
-    @IBOutlet weak var UIButtonDeleteProduct: UIButton!
+    var item: ShoppingCartItem?
     func configureCell(item: ShoppingCartItem?) {
         guard let item = item else {
             return
         }
+        self.item=item
         self.isUserInteractionEnabled = true
         if let url = item.product.productImageURL, let productImageView = productImageView {
             productImageView.kf.setImage(with: URL(string: url))
@@ -31,12 +33,13 @@ class CartTableViewCell: ECTableViewCell {
             let name = (item.quantity > 1) ? productName + " x \(item.quantity)" : productName
             productNameLabel.text = name
         }
-        print("hello setup")
-        UIButtonDeleteProduct.addTarget(self, action: #selector(handlePlaceOrderButton), for: .touchUpInside)
+        
+        UIButtonDeleteProductInCart?.addTarget(self, action: #selector(handleDeleteProductButton), for: .touchUpInside)
+     
     }
     @objc
-    fileprivate func handlePlaceOrderButton() {
-        print("hello delete")
-        delegate?.delete_product_in_cart(UIButtonDeleteProduct)
+    fileprivate func handleDeleteProductButton() {
+        print("helo2444")
+        delegate?.delete_product_in_cart(sender: UIButtonDeleteProductInCart,item:self.item!)
     }
 }

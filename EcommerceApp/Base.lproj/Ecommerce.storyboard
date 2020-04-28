@@ -449,7 +449,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="UIButtonDeleteProduct" destination="Bc3-KX-lZw" id="mmr-Tx-bPo"/>
+                                    <outlet property="UIButtonDeleteProductInCart" destination="Bc3-KX-lZw" id="JLo-DP-oeI"/>
                                     <outlet property="UIStepperUpDownTotalProduct" destination="A1G-G5-rot" id="shv-zG-Mxr"/>
                                     <outlet property="productImageView" destination="QNG-i3-4X8" id="790-AV-lYc"/>
                                     <outlet property="productNameLabel" destination="Li5-Rw-EUY" id="su9-S0-mFn"/>
@@ -2461,7 +2461,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="106" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nix-Ub-eCB">
-                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="Eqc-mS-XEb"/>
                                                         </constraints>
@@ -2487,7 +2487,7 @@
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNf-zg-spQ">
-                                                        <rect key="frame" x="38.5" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="nuF-zj-brh"/>
                                                         </constraints>
@@ -2518,7 +2518,7 @@
                                                 <rect key="frame" x="276" y="15" width="83" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-xR-Vp8">
-                                                        <rect key="frame" x="26.5" y="0.0" width="30" height="32"/>
+                                                        <rect key="frame" x="27" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="ntG-HN-YcO"/>
                                                         </constraints>
@@ -2527,7 +2527,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hoàn thành thanh toán" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xad-hq-wrX">
-                                                        <rect key="frame" x="-12" y="30" width="106" height="21"/>
+                                                        <rect key="frame" x="-12" y="30" width="108" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="X2S-24-rOa"/>
                                                         </constraints>

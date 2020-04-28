@@ -55,6 +55,12 @@ class CartTableViewController: UITableViewController {
         }
         return cartManager.distinctProductCount() + 2
     }
+   
+   
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cartManager = cartManager else {
@@ -63,6 +69,7 @@ class CartTableViewController: UITableViewController {
         if (indexPath.row < cartManager.distinctProductCount()) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
             cell.configureCell(item: cartManager.distinctProductItems()[indexPath.row])
+            cell.delegate = self
             return cell
         } else if (indexPath.row == cartManager.distinctProductCount()) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartTotalTableViewCell", for: indexPath) as! CartTotalTableViewCell
@@ -74,15 +81,23 @@ class CartTableViewController: UITableViewController {
         cell.delegate = self
         return cell
     }
-    @objc func delete_product_in_cart(_ sender: UIButton) {
+    func delete_product_in_cart( sender: UIButton,item:ShoppingCartItem) {
         let point = sender.convert(CGPoint.zero, to: UITableViewListProductOrder)
+        
         guard let indexPath = UITableViewListProductOrder.indexPathForRow(at: point) else {
             return
         }
-        UITableViewListProductOrder.deleteRows(at: [indexPath], with: .left)
+        self.UITableViewListProductOrder.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        print("item.product._id")
+        print(item.product._id)
+        cartManager?.removeProduct(_id:item.product._id)
+        cartManager=ShoppingCartManager()
+        self.UITableViewListProductOrder.reloadData()
+        
+        
     }
     @objc
-    fileprivate func didUpdateCart(notification: Notification) {
+     func didUpdateCart(notification: Notification) {
         UITableViewListProductOrder.reloadData()
     }
    

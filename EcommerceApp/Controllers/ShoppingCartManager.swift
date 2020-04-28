@@ -71,7 +71,20 @@ class ShoppingCartManager {
         }
        
     }
-   
+    func removeProduct(_id: String) {
+        let preferentces=UserDefaults.standard
+        
+         var  cart_list_product_id1:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
+        print("cart_list_product_id")
+        print(cart_list_product_id1)
+        if(preferentces.object(forKey: "cart_list_product_id") != nil){
+            var  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
+            if(cart_list_product_id[_id] != nil){
+                cart_list_product_id.removeValue(forKey: _id)
+            }
+            preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
+        }
+    }
     init () {
         let preferentces=UserDefaults.standard
         if(preferentces.object(forKey: "cart_list_product_id") != nil){
