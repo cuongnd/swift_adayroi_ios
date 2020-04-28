@@ -14,6 +14,7 @@ class CartTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    @IBOutlet var UITableViewListProductOrder: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,6 @@ class CartTableViewController: UITableViewController {
         if (indexPath.row < cartManager.distinctProductCount()) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
             cell.configureCell(item: cartManager.distinctProductItems()[indexPath.row])
-            
             return cell
         } else if (indexPath.row == cartManager.distinctProductCount()) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartTotalTableViewCell", for: indexPath) as! CartTotalTableViewCell
@@ -74,14 +74,18 @@ class CartTableViewController: UITableViewController {
         cell.delegate = self
         return cell
     }
-    
+    @objc func delete_product_in_cart(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: UITableViewListProductOrder)
+        guard let indexPath = UITableViewListProductOrder.indexPathForRow(at: point) else {
+            return
+        }
+        UITableViewListProductOrder.deleteRows(at: [indexPath], with: .left)
+    }
     @objc
     fileprivate func didUpdateCart(notification: Notification) {
-        tableView.reloadData()
+        UITableViewListProductOrder.reloadData()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.rowHeight=UITableViewAutomaticDimension
-    }
+   
 }
 
 
