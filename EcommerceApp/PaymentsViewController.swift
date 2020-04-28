@@ -102,11 +102,21 @@ class PaymentsViewController: UIViewController {
                                 let json_order = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
                                 //hiden loading
                                 self.activityIndicator.stopAnimating()
-                                
-                                //show alert
-                                let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn đã được tạo", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
-                                self.present(alert, animated: true)
+                                let result:String=json_order["result"] as! String
+                                if(result=="success"){
+                                    print("json_order")
+                                    print(json_order)
+                                   
+                                    
+                                    //show alert
+                                    let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn đã được tạo", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
+                                    self.present(alert, animated: true)
+                                }else{
+                                    let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn chưa được tạo, xin vui lòng thử lại", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
+                                    self.present(alert, animated: true)
+                                }
                           } catch {
                                 
                             }
