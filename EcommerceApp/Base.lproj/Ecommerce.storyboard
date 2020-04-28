@@ -12,6 +12,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Bold</string>
             <string>AppleSDGothicNeo-Regular</string>
             <string>AppleSDGothicNeo-UltraLight</string>
         </array>
@@ -404,26 +405,26 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$180" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-QP-xnY">
-                                            <rect key="frame" x="338" y="73" width="29" height="29"/>
+                                            <rect key="frame" x="331.5" y="73" width="35.5" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="29" id="4eb-vR-SP2"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bc3-KX-lZw">
-                                            <rect key="frame" x="236" y="73" width="50" height="29"/>
+                                            <rect key="frame" x="8" y="74" width="68" height="29"/>
                                             <fontDescription key="fontDescription" name="FontAwesome5Free-Regular" family="Font Awesome 5 Free" pointSize="17"/>
                                             <state key="normal" title=" Xóa">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="A1G-G5-rot">
-                                            <rect key="frame" x="134" y="74" width="94" height="29"/>
+                                            <rect key="frame" x="157" y="75" width="94" height="29"/>
                                         </stepper>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mS0-oJ-CYt">
-                                            <rect key="frame" x="68" y="73" width="50" height="30"/>
+                                            <rect key="frame" x="91" y="74" width="50" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -436,21 +437,23 @@
                                         <constraint firstItem="Li5-Rw-EUY" firstAttribute="trailing" secondItem="wUm-QP-xnY" secondAttribute="trailing" id="KWu-C4-ofK"/>
                                         <constraint firstItem="A1G-G5-rot" firstAttribute="top" secondItem="Bc3-KX-lZw" secondAttribute="top" constant="1" id="T2d-Lv-Pfc"/>
                                         <constraint firstItem="Li5-Rw-EUY" firstAttribute="leading" secondItem="QNG-i3-4X8" secondAttribute="trailing" constant="8" id="T8A-xf-xf1"/>
-                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="leading" secondItem="A1G-G5-rot" secondAttribute="trailing" constant="8" id="a2F-wi-rX4"/>
-                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="top" secondItem="wUm-QP-xnY" secondAttribute="bottom" constant="-29" id="fGI-eS-iww"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Bc3-KX-lZw" secondAttribute="bottom" constant="3.5" id="ndO-0P-pnB"/>
+                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="leading" secondItem="A1G-G5-rot" secondAttribute="trailing" constant="-243" id="a2F-wi-rX4"/>
+                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="top" secondItem="wUm-QP-xnY" secondAttribute="bottom" constant="-28" id="fGI-eS-iww"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Bc3-KX-lZw" secondAttribute="bottom" constant="2.5" id="ndO-0P-pnB"/>
                                         <constraint firstItem="QNG-i3-4X8" firstAttribute="leading" secondItem="GMh-Pz-abp" secondAttribute="leadingMargin" id="q2N-5b-AuF"/>
                                         <constraint firstItem="wUm-QP-xnY" firstAttribute="top" secondItem="GMh-Pz-abp" secondAttribute="topMargin" constant="65" id="uv6-RF-nLD"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="wUm-QP-xnY" secondAttribute="trailing" id="wRX-eC-B0t"/>
                                         <constraint firstItem="QNG-i3-4X8" firstAttribute="top" secondItem="GMh-Pz-abp" secondAttribute="topMargin" id="y0L-uu-amd"/>
-                                        <constraint firstItem="A1G-G5-rot" firstAttribute="top" secondItem="Li5-Rw-EUY" secondAttribute="bottom" constant="6" id="y2E-2h-eub"/>
+                                        <constraint firstItem="A1G-G5-rot" firstAttribute="top" secondItem="Li5-Rw-EUY" secondAttribute="bottom" constant="7" id="y2E-2h-eub"/>
                                         <constraint firstItem="wUm-QP-xnY" firstAttribute="centerY" secondItem="QNG-i3-4X8" secondAttribute="centerY" constant="49.5" id="z25-Uc-978"/>
-                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="trailing" secondItem="GMh-Pz-abp" secondAttribute="trailingMargin" constant="-81" id="zc0-cQ-nyQ"/>
+                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="trailing" secondItem="GMh-Pz-abp" secondAttribute="trailingMargin" constant="-291" id="zc0-cQ-nyQ"/>
+                                        <constraint firstItem="Bc3-KX-lZw" firstAttribute="leading" secondItem="QNG-i3-4X8" secondAttribute="leading" id="zge-ZY-2ME"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="UIButtonDeleteProductInCart" destination="Bc3-KX-lZw" id="JLo-DP-oeI"/>
                                     <outlet property="UIStepperUpDownTotalProduct" destination="A1G-G5-rot" id="shv-zG-Mxr"/>
+                                    <outlet property="UITextFieldQuanlity" destination="mS0-oJ-CYt" id="aHr-pi-esA"/>
                                     <outlet property="productImageView" destination="QNG-i3-4X8" id="790-AV-lYc"/>
                                     <outlet property="productNameLabel" destination="Li5-Rw-EUY" id="su9-S0-mFn"/>
                                     <outlet property="productPriceLabel" destination="wUm-QP-xnY" id="p4C-re-d00"/>
@@ -473,11 +476,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$180" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMH-E7-PJd">
-                                            <rect key="frame" x="338" y="12" width="29" height="21"/>
+                                            <rect key="frame" x="330.5" y="12" width="36.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="J1f-09-pWc"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>

@@ -13,6 +13,11 @@ class CartTotalTableViewCell: ECTableViewCell {
     @IBOutlet var totalPriceLabel: UILabel!
 
     func configureCell(total: Double) {
-        totalPriceLabel.text = String(format:"$%.2f", total)
+        let price_format = total as NSNumber
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "vi_VN") // This is the default
+        // In Swift 4, this ^ has been renamed to simply NSLocale.current
+        totalPriceLabel.text = formatter.string(from: price_format)
     }
 }

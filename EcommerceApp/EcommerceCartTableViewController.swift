@@ -84,12 +84,18 @@ class CartTableViewController: UITableViewController {
     func delete_product_in_cart( sender: UIButton,item:ShoppingCartItem) {
         let alert = UIAlertController(title: "Thông báo", message: "Bạn có chắc chắn muốn xóa sản phẩm khỏi giỏ hàng", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Chắc chắn", style: .default, handler: self.handleDeleteProductNow))
-        alert.addAction(UIAlertAction(title: "huyr", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Hủy", style: .cancel, handler: nil))
         self.present(alert, animated: true)
         _id_need_delete=item.product._id
     }
+    
     func handleDeleteProductNow(alert: UIAlertAction!){
         cartManager?.removeProduct(_id:_id_need_delete)
+        cartManager=ShoppingCartManager()
+        self.tableView.reloadData()
+    }
+    func update_quanlity_product_in_cart(product:Product,quanlity: Int!){
+        cartManager?.updateProduct(product:product,quantity:quanlity)
         cartManager=ShoppingCartManager()
         self.tableView.reloadData()
     }

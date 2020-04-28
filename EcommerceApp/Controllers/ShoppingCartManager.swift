@@ -68,6 +68,34 @@ class ShoppingCartManager {
         }
        
     }
+    func updateProduct(product: Product, quantity: Int = 1) {
+        let preferentces=UserDefaults.standard
+        if(preferentces.object(forKey: "cart_list_product_id") != nil){
+            var  cart_list_product_id:[String:[String:String]]=preferentces.value(forKey: "cart_list_product_id")! as! [String:[String:String]]
+            if(cart_list_product_id[product._id] != nil){
+                var currentProduct: [String:String]=cart_list_product_id[product.id]!;
+                var quantity1:Int = Int(currentProduct["quantity"]!)!
+                quantity1=quantity1+quantity
+                currentProduct["quantity"]=String(quantity1)
+                cart_list_product_id[product.id]=currentProduct
+            }else{
+                let jsonProduct: [String:String]  =
+                    [
+                        "_id": product._id,
+                        "id": product.id,
+                        "quantity": String(quantity),
+                        "name":product.productName!,
+                        "imageUrl":product.productImageURL!,
+                        "price":String(product.productPrice!),
+                        "description":product.productDescription!,
+                        "category":product.productCategory!,
+                        ]
+                cart_list_product_id[product.id]=jsonProduct
+            }
+            preferentces.set(cart_list_product_id, forKey: "cart_list_product_id")
+        }
+        
+    }
     func removeProduct(_id: String) {
         let preferentces=UserDefaults.standard
         
