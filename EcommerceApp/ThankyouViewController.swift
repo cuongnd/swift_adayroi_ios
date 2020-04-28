@@ -12,6 +12,7 @@ class ThankyouViewController: UIViewController {
     var reuseIdentifier:String=""
     var list_payment=[Payment]()
     var payment_seleted:Payment? = nil
+    var order_id:String="";
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
    override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,9 @@ class ThankyouViewController: UIViewController {
     @IBOutlet weak var UILabelOrderNumber: UILabel!
     @IBOutlet weak var UICollectionViewListOrderProducts: UICollectionView!
     func rest_api_get_order() {
-        let url = AppConfiguration.root_url+"api/payments/"
+        let url = AppConfiguration.root_url+"api/order/"+order_id
+        print("url get order")
+        print(url)
         let request = NSMutableURLRequest(url: URL(string: url)!)
         print("now start load categories data")
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
@@ -36,19 +39,12 @@ class ThankyouViewController: UIViewController {
                     DispatchQueue.main.async {
                         do {
                             //array
-                            let payment_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                            self.list_payment=[Payment]()
-                            for current_payment in payment_json as! [[String: AnyObject]] {
-                                var payment_item: Payment
-                                payment_item = Payment(id: current_payment["_id"] as! String,name: current_payment["name"] as! String, imageUrl: current_payment["full_image_path"] as! String,payment_type:current_payment["payment_type"] as! String)
-                                self.list_payment.append(payment_item);
-                                
-                            }
+                            let order_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            
                             print("response payment")
-                            print(self.list_payment)
-                            self.UICollectionViewListOrderProducts.reloadData()
+                            print(order_json)
+                            //self.UICollectionViewListOrderProducts.reloadData()
                             self.activityIndicator.stopAnimating()
-                            UIApplication.shared.endIgnoringInteractionEvents()
                         } catch {
                             print("load error slideshow")
                         }

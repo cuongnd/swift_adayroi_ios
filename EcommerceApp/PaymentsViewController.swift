@@ -14,7 +14,7 @@ class PaymentsViewController: UIViewController {
     var payment_seleted:Payment? = nil
     @IBOutlet weak var UICollectionViewPayments: UICollectionView!
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
+    var order_id:String="";
     @IBOutlet weak var UILabelTotalCostPayout: UILabel!
     @IBOutlet weak var UILabelTaxShipingCost: UILabel!
     @IBOutlet weak var UILabelShipingCost: UILabel!
@@ -102,19 +102,21 @@ class PaymentsViewController: UIViewController {
                                 let json_order = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
                                 //hiden loading
                                 self.activityIndicator.stopAnimating()
+                                print("json_order")
+                                print(json_order)
                                 let result:String=json_order["result"] as! String
+                                print("result")
+                                print(result)
                                 if(result=="success"){
-                                    print("json_order")
-                                    print(json_order)
-                                   
-                                    
+                                    let data_order=json_order["data"]
                                     //show alert
+                                    self.order_id=data_order!["_id"]! as! String;
                                     let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn đã được tạo", preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
                                     self.present(alert, animated: true)
                                 }else{
                                     let alert = UIAlertController(title: "Thông báo", message: "Đơn hàng của bạn chưa được tạo, xin vui lòng thử lại", preferredStyle: .alert)
-                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.go_to_thank))
+                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                                     self.present(alert, animated: true)
                                 }
                           } catch {
@@ -150,6 +152,7 @@ class PaymentsViewController: UIViewController {
         cartManager.clearProducts()
         if(payment_type=="code" || payment_type=="bank_transfer"){
             let thankyouViewController = StoryboardEntityProvider().thankyouViewController()
+            thankyouViewController.order_id=self.order_id
             self.navigationController?.setViewControllers([thankyouViewController], animated: true)
         }
     
