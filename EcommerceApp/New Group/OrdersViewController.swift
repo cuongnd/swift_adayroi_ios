@@ -34,10 +34,7 @@ class OrdersViewController: LibMvcViewController {
     @IBOutlet weak var UITableViewOrders: UITableView!
     func rest_api_get_orders() {
         let url = AppConfiguration.root_url+"api/orders/"
-        print("url get order")
-        print(url)
         let request = NSMutableURLRequest(url: URL(string: url)!)
-        print("now start load categories data")
         let requestAPI = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             if (error != nil) {
                 print(error!.localizedDescription) // On indique dans la console ou est le problème dans la requête
@@ -47,8 +44,6 @@ class OrdersViewController: LibMvcViewController {
                         do {
                             //array
                             let data_order_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                             print("response payment")
-                            print(data_order_json)
                             self.list_order=[Order]()
                             for current_order in data_order_json  as! [[String: AnyObject]]  {
                                 var order: Order
@@ -62,7 +57,7 @@ class OrdersViewController: LibMvcViewController {
                              UIApplication.shared.endIgnoringInteractionEvents()
                            
                         } catch {
-                            print("load error slideshow")
+                            print("load error my orders")
                         }
                     }
                 }
