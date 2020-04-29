@@ -106,6 +106,13 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="UIButtonViewDetail" destination="JY4-w6-Fhe" id="NaG-bF-9th"/>
+                                            <outlet property="UILabelOderNUmber" destination="3dg-My-sWh" id="wAD-dY-oUf"/>
+                                            <outlet property="UILabelOrderStatus" destination="pPz-dh-ol9" id="r5k-d0-Qzs"/>
+                                            <outlet property="UILabelTotal" destination="U0X-MP-9T3" id="fqi-c0-tMk"/>
+                                            <outlet property="UILabelVendorName" destination="ebD-Sy-MjS" id="cqc-OF-4bS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

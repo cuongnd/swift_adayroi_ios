@@ -15,6 +15,11 @@ class OrderTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet weak var UIButtonViewDetail: UIButton!
+    @IBOutlet weak var UILabelOrderStatus: UILabel!
+    @IBOutlet weak var UILabelTotal: UILabel!
+    @IBOutlet weak var UILabelVendorName: UILabel!
+    @IBOutlet weak var UILabelOderNUmber: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
