@@ -81,6 +81,19 @@ class OrdersViewController: LibMvcViewController {
         
         
     }
+    func view_order_detail( sender: UIButton,order:Order) {
+        print("order detail")
+        /*
+        let productsVC = StoryboardEntityProvider().ecommerceProductCollectionVC()
+        productsVC.sub_category = sub_category[indexPath.row]
+        productsVC.page=0
+        productsVC.products=[Product]()
+        productsVC.isPageRefreshing=true
+        self.navigationController?.pushViewController(productsVC, animated: true)
+         */
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -110,6 +123,7 @@ extension OrdersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "row_order", for: indexPath) as! OrderTableViewCell
         cell.configureCell(order: list_order[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
