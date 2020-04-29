@@ -35,11 +35,10 @@ class OrdersViewController: LibMvcViewController {
                         do {
                             //array
                             let data_order_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                            
+                             print("response payment")
+                            print(data_order_json)
                             self.list_order=[Order]()
                             for current_order in data_order_json  as! [[String: AnyObject]]  {
-                                print("current_order")
-                                print(current_order)
                                 var order: Order
                                 order = Order(_id:current_order["_id"] as! String,order_number:current_order["order_number"] as! String,total:current_order["total"] as! Double)
                                 self.list_order.append(order);
