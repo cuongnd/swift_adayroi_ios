@@ -11,7 +11,12 @@ import UIKit
 class StoryboardEntityProvider {
 
     let ecommerceStoryboard = UIStoryboard(name: "Ecommerce", bundle: nil)
-
+    
+    func get_view_and_layout(view:String,controller:String) -> LibMvcViewController {
+        let vc = UIStoryboard(name: view, bundle: nil).instantiateViewController(withIdentifier: controller+"ViewController") as! LibMvcViewController
+       
+        return vc
+    }
     func ecommerceProductCollectionVC() -> ProductCollectionViewController {
         let vc = ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
         vc.products = Product.mockProducts()

@@ -87,14 +87,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
              * viewController?.navigationController?.pushViewController(newViewController, animated: true)
              */
+            let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
+            viewController?.navigationController?.pushViewController(ecommerceCartVC, animated: true)
         }
-        let settingsItem1 = ATCSettingsItem(title: "Profile", style: .more, action: action)
-        let settingsItem2 = ATCSettingsItem(title: "Payment Info", style: .text, action: action)
-        let settingsItem3 = ATCSettingsItem(title: "Email Notifications", style: .toggle, action: action, toggleValue: false)
-        let settingsItem4 = ATCSettingsItem(title: "Push Notifications", style: .toggle, action: action, toggleValue: true)
-        let settingsItem5 = ATCSettingsItem(title: "Privacy Policy", style: .more, action: action)
-        let settingsItem6 = ATCSettingsItem(title: "Terms & Conditions", style: .more, action: action)
-        let settingsItems = [settingsItem1, settingsItem2, settingsItem3, settingsItem4, settingsItem5, settingsItem6]
+        let go_to_my_order = { (_ viewController: UIViewController?) -> (Void) in
+            let ecommerceCartVC = StoryboardEntityProvider().get_view_and_layout(view:"Orders",controller:"Orders")
+            viewController?.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+        }
+
+        let settingsItemProfile = ATCSettingsItem(title: "Profile", style: .more, action: action)
+        let settingsItemMyOrder = ATCSettingsItem(title: "My order", style: .more, action: go_to_my_order)
+        let settingsItemPayment = ATCSettingsItem(title: "Payment Info", style: .text, action: action)
+        let settingsItemEmail = ATCSettingsItem(title: "Email Notifications", style: .toggle, action: action, toggleValue: false)
+        let settingsItemPushNotifications = ATCSettingsItem(title: "Push Notifications", style: .toggle, action: action, toggleValue: true)
+        let settingsItemPrivacyPolicy = ATCSettingsItem(title: "Privacy Policy", style: .more, action: action)
+        let settingsItemTermsConditions = ATCSettingsItem(title: "Terms & Conditions", style: .more, action: action)
+        let settingsItems = [settingsItemProfile,settingsItemMyOrder, settingsItemPayment, settingsItemEmail, settingsItemPushNotifications, settingsItemPrivacyPolicy, settingsItemTermsConditions]
         let settingsVC = ATCSettingsTableViewController(settings: settingsItems, nibNameOrNil: nil, nibBundleOrNil: nil)
         settingsVC.title = StringConstants.kSettingsString
 

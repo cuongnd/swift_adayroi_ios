@@ -76,6 +76,13 @@
 		FA26092B243EDC7A0096AED9 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26092A243EDC7A0096AED9 /* Slide.swift */; };
 		FA26092F243EDE900096AED9 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA26092E243EDE900096AED9 /* Slide.xib */; };
 		FA2EA85224423CE000C0C96F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */; };
+		FA3AF6BB245958D3007AB53E /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AF6BA245958D3007AB53E /* Orders.storyboard */; };
+		FA3AF6BE24596718007AB53E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6BD24596718007AB53E /* UserViewController.swift */; };
+		FA3AF6C1245967BE007AB53E /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AF6C0245967BE007AB53E /* User.storyboard */; };
+		FA3AF6C324596B46007AB53E /* LibMvcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6C224596B46007AB53E /* LibMvcViewController.swift */; };
+		FA3AF6C524596C47007AB53E /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6C424596C47007AB53E /* OrdersViewController.swift */; };
+		FA3AF6CB24597BBD007AB53E /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6CA24597BBD007AB53E /* OrderTableViewCell.swift */; };
+		FA3AF6CE24597C5C007AB53E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6CD24597C5C007AB53E /* Order.swift */; };
 		FA3DE2122448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */; };
 		FA4417152457469300CA0BD3 /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = FA4417142457469300CA0BD3 /* LocationData.json */; };
 		FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF15244C727E007AF8C6 /* Factory.swift */; };
@@ -200,6 +207,14 @@
 		FA26092A243EDC7A0096AED9 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		FA26092E243EDE900096AED9 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA3AF6B624591D00007AB53E /* LibMvcViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibMvcViewController1.swift; sourceTree = "<group>"; };
+		FA3AF6BA245958D3007AB53E /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
+		FA3AF6BD24596718007AB53E /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		FA3AF6C0245967BE007AB53E /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		FA3AF6C224596B46007AB53E /* LibMvcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibMvcViewController.swift; sourceTree = "<group>"; };
+		FA3AF6C424596C47007AB53E /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		FA3AF6CA24597BBD007AB53E /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		FA3AF6CD24597C5C007AB53E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsFullDescriptionViewController.swift; sourceTree = "<group>"; };
 		FA4417142457469300CA0BD3 /* LocationData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LocationData.json; sourceTree = "<group>"; };
 		FA6CBF15244C727E007AF8C6 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
@@ -549,6 +564,65 @@
 			name = Slideshow;
 			sourceTree = "<group>";
 		};
+		FA3AF6B324591B25007AB53E /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF6C924597BA1007AB53E /* tmpl */,
+				FA3AF6BA245958D3007AB53E /* Orders.storyboard */,
+			);
+			name = Orders;
+			sourceTree = "<group>";
+		};
+		FA3AF6B424591CB2007AB53E /* Mvc */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF6B524591CC8007AB53E /* View */,
+			);
+			name = Mvc;
+			sourceTree = "<group>";
+		};
+		FA3AF6B524591CC8007AB53E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF6B624591D00007AB53E /* LibMvcViewController1.swift */,
+				FA3AF6C224596B46007AB53E /* LibMvcViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3AF6BF245967AC007AB53E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF6C624597B4E007AB53E /* tmpl */,
+				FA3AF6C0245967BE007AB53E /* User.storyboard */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		FA3AF6C624597B4E007AB53E /* tmpl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = tmpl;
+			sourceTree = "<group>";
+		};
+		FA3AF6C924597BA1007AB53E /* tmpl */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF6CA24597BBD007AB53E /* OrderTableViewCell.swift */,
+			);
+			name = tmpl;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		FA3AF6CC24597C48007AB53E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF6CD24597C5C007AB53E /* Order.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		FA6CBF12244C721F007AF8C6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +658,7 @@
 		FA6CBF242451FD80007AF8C6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				FA3AF6B424591CB2007AB53E /* Mvc */,
 				FA6CBF602452E717007AF8C6 /* Utilities */,
 				FA6CBF252451FDB0007AF8C6 /* Form */,
 			);
@@ -672,6 +747,7 @@
 		FA6CBF412452CEA4007AF8C6 /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				FA3AF6CC24597C48007AB53E /* models */,
 				FA6CBF552452D06F007AF8C6 /* Views */,
 				FA6CBF462452CED6007AF8C6 /* Forms */,
 				FA6CBF452452CECD007AF8C6 /* Shareds */,
@@ -692,6 +768,8 @@
 		FA6CBF442452CEC3007AF8C6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA3AF6BD24596718007AB53E /* UserViewController.swift */,
+				FA3AF6C424596C47007AB53E /* OrdersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -737,6 +815,8 @@
 		FA6CBF552452D06F007AF8C6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA3AF6BF245967AC007AB53E /* User */,
+				FA3AF6B324591B25007AB53E /* Orders */,
 				FA6CBF5A2452D0F9007AF8C6 /* Checkout */,
 				FA6CBF562452D09C007AF8C6 /* Products */,
 			);
@@ -900,6 +980,7 @@
 				FA6CBF8D2454328D007AF8C6 /* fa-solid-900.eot in Resources */,
 				177867501E33F86000BF7080 /* LaunchScreen.storyboard in Resources */,
 				FA6CBF852454328D007AF8C6 /* fa-brands-400.ttf in Resources */,
+				FA3AF6BB245958D3007AB53E /* Orders.storyboard in Resources */,
 				1782C8CC1E669B5900963945 /* ATCMenuTableViewCell.xib in Resources */,
 				FA6CBF8A2454328D007AF8C6 /* fa-regular-400.ttf in Resources */,
 				FA6CBF882454328D007AF8C6 /* fa-regular-400.eot in Resources */,
@@ -918,6 +999,7 @@
 				1782C86D1E6287A500963945 /* Ecommerce.storyboard in Resources */,
 				FA6CBF8F2454328D007AF8C6 /* fa-solid-900.ttf in Resources */,
 				1782C8D71E669B5900963945 /* ATCSettingsToggleTableViewCell.xib in Resources */,
+				FA3AF6C1245967BE007AB53E /* User.storyboard in Resources */,
 				1782C8C61E669B5900963945 /* ATCLoginViewController.xib in Resources */,
 				FA6CBF912454328D007AF8C6 /* fa-solid-900.woff2 in Resources */,
 				1782C8B51E669B5900963945 /* Misc.xcassets in Resources */,
@@ -1032,9 +1114,11 @@
 				1782C8B81E669B5900963945 /* ATCBaseModel.swift in Sources */,
 				1782C8B91E669B5900963945 /* ATCFacebookPost.swift in Sources */,
 				1782C8D81E669B5900963945 /* UIView.swift in Sources */,
+				FA3AF6C524596C47007AB53E /* OrdersViewController.swift in Sources */,
 				17825D901E356ED200A03FC5 /* ImageCollectionViewCell.swift in Sources */,
 				FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */,
 				17825DA11E3D30BC00A03FC5 /* CartTotalTableViewCell.swift in Sources */,
+				FA3AF6C324596B46007AB53E /* LibMvcViewController.swift in Sources */,
 				1782C8C11E669B5900963945 /* ATCStripeCheckoutRowView.swift in Sources */,
 				17825D9F1E3AD50F00A03FC5 /* CartTableViewCell.swift in Sources */,
 				FA6CBF952454A2D4007AF8C6 /* PaymentCollectionViewCell.swift in Sources */,
@@ -1053,6 +1137,7 @@
 				FA6CBF93245496C5007AF8C6 /* SumaryCheckoutViewController.swift in Sources */,
 				17825D8E1E356BF200A03FC5 /* ProductDetailsViewController.swift in Sources */,
 				1782C8D11E669B5900963945 /* ATCSettingsMoreTableViewCell.swift in Sources */,
+				FA3AF6CE24597C5C007AB53E /* Order.swift in Sources */,
 				1782C8BE1E669B5900963945 /* ATCWordpressPost.swift in Sources */,
 				FAF45D90243F6FBC00BFB8AD /* HomeViewController.swift in Sources */,
 				FA6CBF4F2452CF65007AF8C6 /* FrontendModelsProduct.swift in Sources */,
@@ -1080,12 +1165,14 @@
 				FABDBB5A24455EF300CEA175 /* ECCollectionViewCell.swift in Sources */,
 				1782C8C41E669B5900963945 /* ATCStripeSettingsViewController.swift in Sources */,
 				1782C8D31E669B5900963945 /* ATCSettingsTableViewController.swift in Sources */,
+				FA3AF6BE24596718007AB53E /* UserViewController.swift in Sources */,
 				FA6CBF9724558DD2007AF8C6 /* ThankyouViewController.swift in Sources */,
 				1782C8B61E669B5900963945 /* ATCFirebaseLoginManager.swift in Sources */,
 				1782C8B41E669B5900963945 /* ATCFacebookAPIManager.swift in Sources */,
 				1782C8CD1E669B5900963945 /* ATCMenuTableViewController.swift in Sources */,
 				FA6CBF632452E75F007AF8C6 /* LibraryUtilitiesUtility.swift in Sources */,
 				FADCEA7E24573FEB001B9421 /* MapPath.swift in Sources */,
+				FA3AF6CB24597BBD007AB53E /* OrderTableViewCell.swift in Sources */,
 				177867641E34147900BF7080 /* StoryboardEntityProvider.swift in Sources */,
 				1782C8BD1E669B5900963945 /* ATCUser.swift in Sources */,
 				1782C8BB1E669B5900963945 /* ATCRSSFeed.swift in Sources */,
