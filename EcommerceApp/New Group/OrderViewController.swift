@@ -16,11 +16,9 @@ class OrderViewController: LibMvcViewController {
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didSendOrderIdNotification), name: NSNotification.Name(rawValue: "handler_order_id"), object: nil)
+
         
-        
-        
-        
-        self.rest_api_get_order()
     }
     @IBOutlet weak var UILabelTotalProduct: UILabel!
     @IBOutlet weak var UILabelOrderNumber: UILabel!
@@ -64,6 +62,14 @@ class OrderViewController: LibMvcViewController {
         requestAPI.resume()
         
         
+    }
+    @objc
+    fileprivate func didSendOrderIdNotification(notification: Notification) {
+        print("hello didSendOrderIdNotification")
+        guard let order_id = notification.userInfo?["order_id"] as? String else {
+            return
+        }
+        print(order_id)
     }
     
     
