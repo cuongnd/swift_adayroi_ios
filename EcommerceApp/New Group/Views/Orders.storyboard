@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Orders View Controller-->
+        <!--Danh sách đơn hàng-->
         <scene sceneID="JWB-l3-X6h">
             <objects>
-                <viewController storyboardIdentifier="OrdersViewController" id="JnN-8u-bmb" customClass="OrdersViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersViewController" title="Danh sách đơn hàng" id="JnN-8u-bmb" customClass="OrdersViewController" customModule="EcommerceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="64n-kS-yVV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

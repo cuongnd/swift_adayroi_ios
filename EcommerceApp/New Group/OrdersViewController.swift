@@ -18,6 +18,17 @@ class OrdersViewController: LibMvcViewController {
         self.rest_api_get_orders()
         UITableViewOrders.dataSource=self
         UITableViewOrders.delegate=self
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        
+        
     }
     @IBOutlet weak var UITableViewOrders: UITableView!
     func rest_api_get_orders() {
@@ -47,6 +58,7 @@ class OrdersViewController: LibMvcViewController {
                            
                             self.UITableViewOrders.reloadData()
                             self.activityIndicator.stopAnimating()
+                             UIApplication.shared.endIgnoringInteractionEvents()
                            
                         } catch {
                             print("load error slideshow")
