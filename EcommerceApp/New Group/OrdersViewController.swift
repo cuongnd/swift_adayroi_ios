@@ -83,14 +83,11 @@ class OrdersViewController: LibMvcViewController {
     }
     func view_order_detail( sender: UIButton,order:Order) {
         print("order detail")
-        /*
-        let productsVC = StoryboardEntityProvider().ecommerceProductCollectionVC()
-        productsVC.sub_category = sub_category[indexPath.row]
-        productsVC.page=0
-        productsVC.products=[Product]()
-        productsVC.isPageRefreshing=true
-        self.navigationController?.pushViewController(productsVC, animated: true)
-         */
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "handler_order_id"), object: nil, userInfo: ["order_id": order._id ])
+        let order_detail = StoryboardEntityProvider().get_view_and_layout(view: "Order", controller: "Order")
+        
+        self.navigationController?.pushViewController(order_detail, animated: true)
+        
 
     }
     

@@ -83,6 +83,8 @@
 		FA3AF6C524596C47007AB53E /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6C424596C47007AB53E /* OrdersViewController.swift */; };
 		FA3AF6CB24597BBD007AB53E /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6CA24597BBD007AB53E /* OrderTableViewCell.swift */; };
 		FA3AF6CE24597C5C007AB53E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6CD24597C5C007AB53E /* Order.swift */; };
+		FA3AF6D02459D9E5007AB53E /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AF6CF2459D9E5007AB53E /* Order.storyboard */; };
+		FA3AF6D22459DA9D007AB53E /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6D12459DA9D007AB53E /* OrderViewController.swift */; };
 		FA3DE2122448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */; };
 		FA4417152457469300CA0BD3 /* LocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = FA4417142457469300CA0BD3 /* LocationData.json */; };
 		FA6CBF16244C727E007AF8C6 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CBF15244C727E007AF8C6 /* Factory.swift */; };
@@ -215,6 +217,8 @@
 		FA3AF6C424596C47007AB53E /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		FA3AF6CA24597BBD007AB53E /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		FA3AF6CD24597C5C007AB53E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		FA3AF6CF2459D9E5007AB53E /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
+		FA3AF6D12459DA9D007AB53E /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		FA3DE2112448C5C900B03EEE /* ProductDetailsFullDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsFullDescriptionViewController.swift; sourceTree = "<group>"; };
 		FA4417142457469300CA0BD3 /* LocationData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LocationData.json; sourceTree = "<group>"; };
 		FA6CBF15244C727E007AF8C6 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
@@ -569,6 +573,7 @@
 			children = (
 				FA3AF6C924597BA1007AB53E /* tmpl */,
 				FA3AF6BA245958D3007AB53E /* Orders.storyboard */,
+				FA3AF6CF2459D9E5007AB53E /* Order.storyboard */,
 			);
 			name = Orders;
 			sourceTree = "<group>";
@@ -770,6 +775,7 @@
 			children = (
 				FA3AF6BD24596718007AB53E /* UserViewController.swift */,
 				FA3AF6C424596C47007AB53E /* OrdersViewController.swift */,
+				FA3AF6D12459DA9D007AB53E /* OrderViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -996,6 +1002,7 @@
 				FA6CBF872454328D007AF8C6 /* fa-brands-400.woff2 in Resources */,
 				FA6CBF832454328D007AF8C6 /* fa-brands-400.eot in Resources */,
 				FA6CBF5F2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard in Resources */,
+				FA3AF6D02459D9E5007AB53E /* Order.storyboard in Resources */,
 				1782C86D1E6287A500963945 /* Ecommerce.storyboard in Resources */,
 				FA6CBF8F2454328D007AF8C6 /* fa-solid-900.ttf in Resources */,
 				1782C8D71E669B5900963945 /* ATCSettingsToggleTableViewCell.xib in Resources */,
@@ -1183,6 +1190,7 @@
 				1767F75B1E344E3100E8AD1F /* ProductCollectionViewController.swift in Sources */,
 				177867461E33F86000BF7080 /* AppDelegate.swift in Sources */,
 				17825D9D1E3AD4B400A03FC5 /* EcommerceCartTableViewController.swift in Sources */,
+				FA3AF6D22459DA9D007AB53E /* OrderViewController.swift in Sources */,
 				17825D931E3852C700A03FC5 /* ShoppingCartManager.swift in Sources */,
 				FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */,
 				FA05767C2444569E0003908D /* SubCategoriesViewController.swift in Sources */,
