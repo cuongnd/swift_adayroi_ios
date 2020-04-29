@@ -14,7 +14,7 @@ class StoryboardEntityProvider {
     
     func get_view_and_layout(view:String,controller:String) -> LibMvcViewController {
         let vc = UIStoryboard(name: view, bundle: nil).instantiateViewController(withIdentifier: controller+"ViewController") as! LibMvcViewController
-       
+       vc.title = "some title"
         return vc
     }
     func ecommerceProductCollectionVC() -> ProductCollectionViewController {

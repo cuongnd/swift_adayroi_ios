@@ -27,6 +27,14 @@ class OrderTableViewCell: UITableViewCell {
     }
      func configureCell(order: Order) {
         self.isUserInteractionEnabled = true
+        let total = order.total! as NSNumber
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "vi_VN") // This is the default
+        // In Swift 4, this ^ has been renamed to simply NSLocale.current
+        UILabelTotal.text = formatter.string(from: total)
+        UILabelOderNUmber.text=order.order_number
+        
     }
 
 }
