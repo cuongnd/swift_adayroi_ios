@@ -16,9 +16,16 @@ class OrderViewController: LibMvcViewController {
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(didSendOrderIdNotification), name: NSNotification.Name(rawValue: "handler_order_id"), object: nil)
-
-        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+    }
+    func test(order_id:String) {
+        self.order_id=order_id
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        self.rest_api_get_order();
     }
     @IBOutlet weak var UILabelTotalProduct: UILabel!
     @IBOutlet weak var UILabelOrderNumber: UILabel!
@@ -39,12 +46,13 @@ class OrderViewController: LibMvcViewController {
                             //array
                             let order_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                             
-                            print("response payment")
+                            print("response order")
                             print(order_json)
                             //self.UICollectionViewListOrderProducts.reloadData()
                             self.activityIndicator.stopAnimating()
+                            UIApplication.shared.endIgnoringInteractionEvents()
                         } catch {
-                            print("load error slideshow")
+                            print("load error order")
                         }
                     }
                 }
@@ -65,7 +73,7 @@ class OrderViewController: LibMvcViewController {
     }
     @objc
     fileprivate func didSendOrderIdNotification(notification: Notification) {
-        print("hello didSendOrderIdNotification")
+        print("hello didSendOrderIdNotification order")
         guard let order_id = notification.userInfo?["order_id"] as? String else {
             return
         }

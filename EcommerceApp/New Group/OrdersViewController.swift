@@ -80,11 +80,14 @@ class OrdersViewController: LibMvcViewController {
         print("order detail")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "handler_order_id"), object: nil, userInfo: ["order_id": order._id ])
         let order_detail = StoryboardEntityProvider().get_view_and_layout(view: "Order", controller: "Order")
-        
+        order_detail.perform(#selector(OrderViewController.test(order_id:)), with:(order._id) , afterDelay: 0.5)
+
         self.navigationController?.pushViewController(order_detail, animated: true)
         
 
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

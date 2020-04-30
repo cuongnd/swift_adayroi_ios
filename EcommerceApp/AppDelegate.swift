@@ -74,6 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(didSendAddToCartNotification), name: kNotificationDidAddProductToCart, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didClearCartNotification), name: kNotificationDidAClearCart, object: nil)
 
+        
+       
+        
+        
         let cartViewController = StoryboardEntityProvider().ecommerceCartVC()
         cartViewController.cartManager = cartManager
         cartViewController.title = StringConstants.kShoppingCartString
@@ -185,5 +189,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cartIndexPath = IndexPath(row: 1, section: 0)
         hostViewController?.menuViewController?.selectMenuItemAtIndexPath(indexPath: cartIndexPath)
     }
+    
+    
+   
 }
 
