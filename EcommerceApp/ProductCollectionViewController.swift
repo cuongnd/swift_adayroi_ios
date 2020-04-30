@@ -132,7 +132,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailProductVC = StoryboardEntityProvider().ecommerceProductDetailsVC()
-        detailProductVC.product_id = self.products[indexPath.row].id
+        detailProductVC.product_id = self.products[indexPath.row]._id
         self.navigationController?.pushViewController(detailProductVC, animated: true)
     }
 
