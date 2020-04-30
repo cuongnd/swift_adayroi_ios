@@ -1614,9 +1614,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H1Q-o9-cdj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H1Q-o9-cdj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="row_sub_category" textLabel="ru4-or-Zej" style="IBUITableViewCellStyleDefault" id="GiF-y8-EyQ" customClass="SubCategoryTableViewCell" customModule="EcommerceApp" customModuleProvider="target">
@@ -1643,6 +1642,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H1Q-o9-cdj" firstAttribute="leading" secondItem="3Xg-bP-keQ" secondAttribute="leading" id="6Qs-Ls-ICw"/>
+                            <constraint firstItem="H1Q-o9-cdj" firstAttribute="height" secondItem="3Xg-bP-keQ" secondAttribute="height" id="8Jf-R6-5TD"/>
+                            <constraint firstAttribute="trailing" secondItem="H1Q-o9-cdj" secondAttribute="trailing" id="BBg-R1-Kj6"/>
+                            <constraint firstItem="H1Q-o9-cdj" firstAttribute="top" secondItem="4dx-7R-YXI" secondAttribute="bottom" id="PUj-iD-xmD"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="UITableViewSubCategory" destination="H1Q-o9-cdj" id="MdT-Rb-dXR"/>
@@ -1651,7 +1656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PC-Oi-D2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5525.6000000000004" y="40.64039408866995"/>
+            <point key="canvasLocation" x="5525.6000000000004" y="40.029985007496258"/>
         </scene>
         <!--Product Details Full Description View Controller-->
         <scene sceneID="DV5-rp-o3P">
@@ -1676,7 +1681,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KF5-fd-K4d">
-                                        <rect key="frame" x="0.0" y="32" width="375" height="717"/>
+                                        <rect key="frame" x="0.0" y="32" width="375" height="635"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </webView>
@@ -1698,7 +1703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dka-gV-yGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632.8" y="40.64039408866995"/>
+            <point key="canvasLocation" x="1632.8" y="40.029985007496258"/>
         </scene>
         <!--By Now View Controller-->
         <scene sceneID="fvs-GG-mb6">
