@@ -133,7 +133,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wuF-XF-lF3">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell_product" id="wuF-XF-lF3" customClass="FrontEndViewOrdersTmplProductCollectionViewCell" customModule="EcommerceApp" customModuleProvider="target">
                                                         <rect key="frame" x="2" y="0.0" width="355" height="118"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -552,7 +552,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="1550"/>
                     <connections>
-                        <outlet property="UICollectionViewListOrderProducts" destination="rqm-QJ-OyL" id="HVb-r0-x5j"/>
+                        <outlet property="UICollectionViewOrderProducts" destination="rqm-QJ-OyL" id="3oa-Ew-jIM"/>
                         <outlet property="UILabelOrderNumber" destination="BjO-vg-RXU" id="2hl-RR-hnd"/>
                         <outlet property="UILabelTotalProduct" destination="vcC-Al-rn1" id="W4b-Ph-ryp"/>
                     </connections>
