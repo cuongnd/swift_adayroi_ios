@@ -30,11 +30,11 @@
                         <viewControllerLayoutGuide type="bottom" id="kfb-bO-a6z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ndl-X2-rHp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-2v-EkV">
-                                <rect key="frame" x="0.0" y="1514" width="375" height="36"/>
+                                <rect key="frame" x="0.0" y="1714" width="375" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkG-CU-qEl">
                                         <rect key="frame" x="118" y="0.0" width="139" height="30"/>
@@ -53,10 +53,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRN-L2-b72">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1516"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1716"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpC-j6-ucm" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1516"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1708"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NsZ-lN-twM">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
@@ -123,7 +123,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rqm-QJ-OyL">
-                                                <rect key="frame" x="8" y="1217" width="359" height="125"/>
+                                                <rect key="frame" x="8" y="1217" width="359" height="491"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CgR-8m-VXB">
@@ -205,6 +205,12 @@
                                                                 </view>
                                                             </subviews>
                                                         </view>
+                                                        <connections>
+                                                            <outlet property="UILabelProductName" destination="kfR-qb-lYD" id="0A9-9V-H38"/>
+                                                            <outlet property="UILabelProductPrice" destination="bzm-Wq-LGX" id="KNo-gI-M1A"/>
+                                                            <outlet property="UILabelTotalPrice" destination="9gg-jZ-wDJ" id="bkE-aU-zHa"/>
+                                                            <outlet property="UILabelTotalProduct" destination="0Ye-qr-5nq" id="9zU-us-UPU"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -525,13 +531,13 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1516" id="Xd8-tO-PZj"/>
+                                            <constraint firstAttribute="height" constant="1708" id="Xd8-tO-PZj"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qpC-j6-ucm" firstAttribute="leading" secondItem="KRN-L2-b72" secondAttribute="leading" id="QeE-c8-aSs"/>
-                                    <constraint firstAttribute="bottom" secondItem="qpC-j6-ucm" secondAttribute="bottom" id="chL-wq-vpe"/>
+                                    <constraint firstAttribute="bottom" secondItem="qpC-j6-ucm" secondAttribute="bottom" constant="8" id="chL-wq-vpe"/>
                                     <constraint firstItem="qpC-j6-ucm" firstAttribute="top" secondItem="KRN-L2-b72" secondAttribute="top" id="sbo-Kh-2AA"/>
                                     <constraint firstItem="qpC-j6-ucm" firstAttribute="centerX" secondItem="KRN-L2-b72" secondAttribute="centerX" id="vIO-tP-9kA"/>
                                     <constraint firstAttribute="trailing" secondItem="qpC-j6-ucm" secondAttribute="trailing" id="xL6-Pa-NBH"/>
@@ -550,7 +556,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bKK-j2-cJQ"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1550"/>
+                    <size key="freeformSize" width="375" height="1750"/>
                     <connections>
                         <outlet property="UICollectionViewOrderProducts" destination="rqm-QJ-OyL" id="3oa-Ew-jIM"/>
                         <outlet property="UILabelOrderNumber" destination="BjO-vg-RXU" id="2hl-RR-hnd"/>
@@ -559,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKC-cN-FKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18306" y="-1069"/>
+            <point key="canvasLocation" x="-18306.400000000001" y="-1069.5652173913045"/>
         </scene>
     </scenes>
 </document>

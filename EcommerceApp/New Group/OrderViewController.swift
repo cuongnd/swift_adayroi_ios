@@ -49,11 +49,11 @@ class OrderViewController: LibMvcViewController {
                             //array
                             let order_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                             
-                            
+                            print(order_json)
                            
                             self.list_product=[Product]()
                             for current_product in (order_json["list_product"] as? [[String : AnyObject]])!{
-                                print()
+                                
                                 var product: Product
                                 product = Product(_id: current_product["_id"]! as! String,id: current_product["_id"]! as! String, name: current_product["product_name"]! as! String, imageUrl: current_product["imageUrl"]! as! String, price: 0, description: "", category: "", images: [])
                                 self.list_product.append(product);
@@ -105,7 +105,7 @@ extension OrderViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = UICollectionViewOrderProducts.dequeueReusableCell(withReuseIdentifier:"cell_product", for: indexPath) as! FrontEndViewOrdersTmplProductCollectionViewCell
         
-        cell.configureCell(product: list_product[indexPath.row])
+        cell.configureCell(total:100.0,product: list_product[indexPath.row])
         return cell
     }
     
