@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "ProductCollectionViewCell"
 
 class ProductCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
+    var cache = NSCache<AnyObject, AnyObject>()
     @IBOutlet var UICollectionViewProducts: UICollectionView!
     var products = [Product]();
      var sub_category:SubCategory?

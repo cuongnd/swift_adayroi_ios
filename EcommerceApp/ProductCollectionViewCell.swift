@@ -31,7 +31,7 @@ class ProductCollectionViewCell: ECCollectionViewCell {
     }
   
     func configureCell1(product: Product) {
-         id=product.id
+         id=product.id  
         if let url = product.productImageURL, let productImageView = productImageView {
             productImageView.kf.setImage(with: URL(string: url))
         }

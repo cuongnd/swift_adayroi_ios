@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var cartManager = ShoppingCartManager()
     fileprivate var cartButton: IconButton!
 
-    fileprivate var hostViewController: ATCHostViewController?
+    var hostViewController: ATCHostViewController?
     func googleMapSetup(){
         //AIzaSyCNaQlvaBEHQHaCAwEjphOhJQ2g8fj3OOs
         GMSServices.provideAPIKey("AIzaSyCNaQlvaBEHQHaCAwEjphOhJQ2g8fj3OOs")
