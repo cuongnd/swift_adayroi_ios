@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ATCLoginViewController" customModule="EcommerceApp" customModuleProvider="target">
             <connections>
+                <outlet property="UIButtonSkip" destination="934-6S-h7h" id="iS8-h7-9PO"/>
                 <outlet property="facebookLoginButton" destination="nAb-D2-XOk" id="H2T-5X-AqN"/>
                 <outlet property="loginButton" destination="Vaz-Dh-cik" id="BN4-j2-pd5"/>
                 <outlet property="passwordTextField" destination="4RL-HD-1NV" id="Ybd-Yy-Z4m"/>
