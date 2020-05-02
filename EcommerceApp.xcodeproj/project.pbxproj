@@ -123,6 +123,8 @@
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
 		FAA920A8245C8B2F0019EDE1 /* checkout_steps.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA920A7245C8B2F0019EDE1 /* checkout_steps.xib */; };
 		FAA920AA245C8B4C0019EDE1 /* checkout_steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA920A9245C8B4C0019EDE1 /* checkout_steps.swift */; };
+		FAA920AC245D94790019EDE1 /* UserRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA920AB245D94790019EDE1 /* UserRegister.storyboard */; };
+		FAA920AE245D94CF0019EDE1 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA920AD245D94CF0019EDE1 /* UserRegisterViewController.swift */; };
 		FABDBB56244466A200CEA175 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */; };
 		FABDBB582444B52300CEA175 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB572444B52300CEA175 /* Image.swift */; };
 		FABDBB5A24455EF300CEA175 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */; };
@@ -260,6 +262,8 @@
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
 		FAA920A7245C8B2F0019EDE1 /* checkout_steps.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = checkout_steps.xib; sourceTree = "<group>"; };
 		FAA920A9245C8B4C0019EDE1 /* checkout_steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkout_steps.swift; sourceTree = "<group>"; };
+		FAA920AB245D94790019EDE1 /* UserRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserRegister.storyboard; sourceTree = "<group>"; };
+		FAA920AD245D94CF0019EDE1 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
 		FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		FABDBB572444B52300CEA175 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -606,6 +610,7 @@
 			children = (
 				FA3AF6C624597B4E007AB53E /* tmpl */,
 				FA3AF6C0245967BE007AB53E /* User.storyboard */,
+				FAA920AB245D94790019EDE1 /* UserRegister.storyboard */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -781,6 +786,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3AF6BD24596718007AB53E /* UserViewController.swift */,
+				FAA920AD245D94CF0019EDE1 /* UserRegisterViewController.swift */,
 				FA3AF6C424596C47007AB53E /* OrdersViewController.swift */,
 				FA3AF6D12459DA9D007AB53E /* OrderViewController.swift */,
 			);
@@ -1018,6 +1024,7 @@
 				1782C8791E63E15600963945 /* Localizable.strings in Resources */,
 				FA6CBF902454328D007AF8C6 /* fa-solid-900.woff in Resources */,
 				FA6CBF872454328D007AF8C6 /* fa-brands-400.woff2 in Resources */,
+				FAA920AC245D94790019EDE1 /* UserRegister.storyboard in Resources */,
 				FA6CBF832454328D007AF8C6 /* fa-brands-400.eot in Resources */,
 				FA6CBF5F2452D847007AF8C6 /* FrontendViewsProductsTmplList.storyboard in Resources */,
 				FA3AF6D02459D9E5007AB53E /* Order.storyboard in Resources */,
@@ -1200,6 +1207,7 @@
 				FA6CBF632452E75F007AF8C6 /* LibraryUtilitiesUtility.swift in Sources */,
 				FADCEA7E24573FEB001B9421 /* MapPath.swift in Sources */,
 				FA3AF6CB24597BBD007AB53E /* OrderTableViewCell.swift in Sources */,
+				FAA920AE245D94CF0019EDE1 /* UserRegisterViewController.swift in Sources */,
 				177867641E34147900BF7080 /* StoryboardEntityProvider.swift in Sources */,
 				1782C8BD1E669B5900963945 /* ATCUser.swift in Sources */,
 				1782C8BB1E669B5900963945 /* ATCRSSFeed.swift in Sources */,

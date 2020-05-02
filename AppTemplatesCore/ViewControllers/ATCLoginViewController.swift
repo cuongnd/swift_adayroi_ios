@@ -33,6 +33,7 @@ class ATCLoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
 
+    @IBOutlet weak var UIButtonRegister: UIButton!
     @IBOutlet weak var UIButtonSkip: UIButton!
     @IBOutlet var facebookLoginButton: UIButton!
     @IBOutlet var twitterLoginButton: UIButton!
@@ -73,6 +74,8 @@ class ATCLoginViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
         button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         UIButtonSkip.addTarget(self, action: #selector(didTapSKipButton), for: .touchUpInside)
+        UIButtonRegister.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+        
     }
 
     fileprivate func prepareTwitterButton(_ button: UIButton) {
@@ -113,7 +116,7 @@ class ATCLoginViewController: UIViewController {
     
     
     @objc
-    fileprivate func didTapSKipButton(_ sender: LoginButton) {
+    fileprivate func didTapRegisterButton(_ sender: LoginButton) {
         guard let loggedInViewController = loggedInViewController else { return }
         self.present(loggedInViewController, animated: true, completion: nil)
     }
