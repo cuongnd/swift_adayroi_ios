@@ -139,31 +139,34 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U8P-ND-rYX">
-                    <rect key="frame" x="164" y="239" width="48" height="30"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-Jk-2Fn">
+                    <rect key="frame" x="69" y="232" width="236" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="934-6S-h7h">
-                            <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="934-6S-h7h">
+                            <rect key="frame" x="151" y="-5" width="48" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Bỏ qua"/>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zr-zs-2Qc">
+                            <rect key="frame" x="14" y="-5" width="70" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Đăng ký"/>
+                        </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="48" id="koM-VD-dNe"/>
-                    </constraints>
-                </stackView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="new-eb-crI" firstAttribute="width" secondItem="6l3-I9-qn5" secondAttribute="width" id="3Lg-B1-nSH"/>
                 <constraint firstItem="new-eb-crI" firstAttribute="height" secondItem="6l3-I9-qn5" secondAttribute="height" id="4MN-Bw-DEb"/>
-                <constraint firstItem="U8P-ND-rYX" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" id="6BD-Am-mXg"/>
                 <constraint firstItem="dM5-nJ-Bcp" firstAttribute="top" secondItem="els-gY-b3z" secondAttribute="bottom" id="6cl-8K-3KQ"/>
                 <constraint firstItem="VOD-en-PhF" firstAttribute="leading" secondItem="6l3-I9-qn5" secondAttribute="leadingMargin" constant="20" id="7Es-sW-z8b"/>
                 <constraint firstItem="A06-On-sfw" firstAttribute="width" secondItem="6l3-I9-qn5" secondAttribute="width" id="8Vo-w9-kNM"/>
                 <constraint firstItem="els-gY-b3z" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" id="9eB-KP-Chi"/>
                 <constraint firstItem="els-gY-b3z" firstAttribute="top" secondItem="VOD-en-PhF" secondAttribute="bottom" multiplier="1.05" constant="43.949999999999989" id="Bdu-f1-KOT"/>
                 <constraint firstAttribute="trailingMargin" secondItem="VOD-en-PhF" secondAttribute="trailing" constant="19" id="ELC-jH-LUb"/>
-                <constraint firstItem="U8P-ND-rYX" firstAttribute="top" secondItem="VOD-en-PhF" secondAttribute="bottom" constant="9" id="GZ8-yT-u0X"/>
                 <constraint firstItem="new-eb-crI" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" id="Jaa-dd-rwK"/>
                 <constraint firstItem="A06-On-sfw" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" constant="1" id="gYB-n0-why"/>
                 <constraint firstItem="A06-On-sfw" firstAttribute="top" secondItem="6l3-I9-qn5" secondAttribute="top" constant="52" id="hd1-Ql-slu"/>
