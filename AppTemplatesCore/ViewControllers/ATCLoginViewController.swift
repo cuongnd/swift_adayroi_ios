@@ -80,7 +80,9 @@ class ATCLoginViewController: UIViewController {
     @objc
     fileprivate func didTapRegisterButton(_ sender: LoginButton) {
         let ecommerceRegisterVC = StoryboardEntityProvider().get_view_and_layout(view:"UserRegister",controller:"UserRegister")
-        self.navigationController?.pushViewController(ecommerceRegisterVC, animated: true)
+        self.present(ecommerceRegisterVC, animated: true, completion: nil)
+        
+        
     }
     
     
