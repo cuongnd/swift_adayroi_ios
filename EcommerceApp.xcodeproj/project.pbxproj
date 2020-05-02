@@ -121,6 +121,8 @@
 		FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */; };
 		FA738FA7244A0317008BE704 /* ByNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA738FA6244A0317008BE704 /* ByNowViewController.swift */; };
 		FA7EB22A2439D01D0034092B /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA7EB2292439D01D0034092B /* note.txt */; };
+		FAA920A8245C8B2F0019EDE1 /* checkout_steps.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA920A7245C8B2F0019EDE1 /* checkout_steps.xib */; };
+		FAA920AA245C8B4C0019EDE1 /* checkout_steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA920A9245C8B4C0019EDE1 /* checkout_steps.swift */; };
 		FABDBB56244466A200CEA175 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */; };
 		FABDBB582444B52300CEA175 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB572444B52300CEA175 /* Image.swift */; };
 		FABDBB5A24455EF300CEA175 /* ECCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */; };
@@ -256,6 +258,8 @@
 		FA738FA42449ECE2008BE704 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		FA738FA6244A0317008BE704 /* ByNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNowViewController.swift; sourceTree = "<group>"; };
 		FA7EB2292439D01D0034092B /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
+		FAA920A7245C8B2F0019EDE1 /* checkout_steps.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = checkout_steps.xib; sourceTree = "<group>"; };
+		FAA920A9245C8B4C0019EDE1 /* checkout_steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkout_steps.swift; sourceTree = "<group>"; };
 		FABDBB55244466A200CEA175 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		FABDBB572444B52300CEA175 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		FABDBB5924455EF300CEA175 /* ECCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -786,6 +790,7 @@
 		FA6CBF452452CECD007AF8C6 /* Shareds */ = {
 			isa = PBXGroup;
 			children = (
+				FAA920A6245C8AFD0019EDE1 /* checkout_steps */,
 			);
 			path = Shareds;
 			sourceTree = "<group>";
@@ -919,6 +924,15 @@
 			path = "fontawesome-free-5.13.0";
 			sourceTree = "<group>";
 		};
+		FAA920A6245C8AFD0019EDE1 /* checkout_steps */ = {
+			isa = PBXGroup;
+			children = (
+				FAA920A7245C8B2F0019EDE1 /* checkout_steps.xib */,
+				FAA920A9245C8B4C0019EDE1 /* checkout_steps.swift */,
+			);
+			name = checkout_steps;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -993,6 +1007,7 @@
 				1782C8CC1E669B5900963945 /* ATCMenuTableViewCell.xib in Resources */,
 				FA6CBF8A2454328D007AF8C6 /* fa-regular-400.ttf in Resources */,
 				FA6CBF882454328D007AF8C6 /* fa-regular-400.eot in Resources */,
+				FAA920A8245C8B2F0019EDE1 /* checkout_steps.xib in Resources */,
 				FA4417152457469300CA0BD3 /* LocationData.json in Resources */,
 				FA26092F243EDE900096AED9 /* Slide.xib in Resources */,
 				173DCFB01E56B187001092C7 /* GoogleService-Info.plist in Resources */,
@@ -1125,6 +1140,7 @@
 				1782C8B91E669B5900963945 /* ATCFacebookPost.swift in Sources */,
 				FA3AF6D6245B2170007AB53E /* FrontEndViewOrdersTmplProductCollectionViewCell.swift in Sources */,
 				1782C8D81E669B5900963945 /* UIView.swift in Sources */,
+				FAA920AA245C8B4C0019EDE1 /* checkout_steps.swift in Sources */,
 				FA3AF6C524596C47007AB53E /* OrdersViewController.swift in Sources */,
 				17825D901E356ED200A03FC5 /* ImageCollectionViewCell.swift in Sources */,
 				FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */,
