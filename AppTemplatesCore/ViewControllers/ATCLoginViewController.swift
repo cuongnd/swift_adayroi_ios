@@ -77,7 +77,13 @@ class ATCLoginViewController: UIViewController {
         UIButtonRegister.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         
     }
-
+    @objc
+    fileprivate func didTapRegisterButton(_ sender: LoginButton) {
+        let ecommerceRegisterVC = StoryboardEntityProvider().get_view_and_layout(view:"UserRegister",controller:"UserRegister")
+        self.navigationController?.pushViewController(ecommerceRegisterVC, animated: true)
+    }
+    
+    
     fileprivate func prepareTwitterButton(_ button: UIButton) {
         button.backgroundColor = kTwitterLoginButtonBackgroundColor
         button.layer.cornerRadius = kTwitterLoginButtonCornerRadius
@@ -116,7 +122,7 @@ class ATCLoginViewController: UIViewController {
     
     
     @objc
-    fileprivate func didTapRegisterButton(_ sender: LoginButton) {
+    fileprivate func didTapSKipButton(_ sender: LoginButton) {
         guard let loggedInViewController = loggedInViewController else { return }
         self.present(loggedInViewController, animated: true, completion: nil)
     }
