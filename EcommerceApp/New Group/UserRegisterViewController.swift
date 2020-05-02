@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserViewController: LibMvcViewController {
+class UserRegisterViewController: LibMvcViewController {
 
     override func viewDidLoad() {
         print("hello UserViewController")
