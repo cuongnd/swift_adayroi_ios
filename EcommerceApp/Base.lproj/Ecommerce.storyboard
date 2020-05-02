@@ -942,7 +942,7 @@
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Anne Hathaway" translatesAutoresizingMaskIntoConstraints="NO" id="ket-DM-auO">
-                                                                                    <rect key="frame" x="26" y="0.0" width="73" height="86"/>
+                                                                                    <rect key="frame" x="27" y="-11" width="79" height="87"/>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <real key="value" value="20"/>
@@ -950,7 +950,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExS-iM-2ka">
-                                                                                    <rect key="frame" x="49" y="86" width="35.333333333333343" height="24"/>
+                                                                                    <rect key="frame" x="49" y="85" width="35.5" height="24"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="24" id="dTB-dB-GKT"/>
                                                                                     </constraints>
@@ -961,12 +961,12 @@
                                                                             </subviews>
                                                                         </view>
                                                                         <constraints>
-                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="top" secondItem="3F2-ne-GEt" secondAttribute="topMargin" constant="-8" id="Ih9-BB-y0B"/>
-                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="centerX" secondItem="ExS-iM-2ka" secondAttribute="centerX" constant="-4.1666666666666714" id="MYx-DT-ucF"/>
-                                                                            <constraint firstItem="ExS-iM-2ka" firstAttribute="top" secondItem="ket-DM-auO" secondAttribute="bottom" id="T84-co-umf"/>
-                                                                            <constraint firstAttribute="trailingMargin" secondItem="ket-DM-auO" secondAttribute="trailing" constant="25" id="enV-m6-Xwb"/>
-                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="leading" secondItem="3F2-ne-GEt" secondAttribute="leadingMargin" constant="18" id="k7d-oB-XQi"/>
-                                                                            <constraint firstAttribute="bottomMargin" secondItem="ExS-iM-2ka" secondAttribute="bottom" constant="5" id="snF-4t-fPW"/>
+                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="top" secondItem="3F2-ne-GEt" secondAttribute="topMargin" constant="-19" id="Ih9-BB-y0B"/>
+                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="centerX" secondItem="ExS-iM-2ka" secondAttribute="centerX" constant="-0.25" id="MYx-DT-ucF"/>
+                                                                            <constraint firstItem="ExS-iM-2ka" firstAttribute="top" secondItem="ket-DM-auO" secondAttribute="bottom" constant="9" id="T84-co-umf"/>
+                                                                            <constraint firstAttribute="trailingMargin" secondItem="ket-DM-auO" secondAttribute="trailing" constant="18" id="enV-m6-Xwb"/>
+                                                                            <constraint firstItem="ket-DM-auO" firstAttribute="leading" secondItem="3F2-ne-GEt" secondAttribute="leadingMargin" constant="19" id="k7d-oB-XQi"/>
+                                                                            <constraint firstAttribute="bottomMargin" secondItem="ExS-iM-2ka" secondAttribute="bottom" constant="6" id="snF-4t-fPW"/>
                                                                         </constraints>
                                                                         <connections>
                                                                             <outlet property="categoryImageView" destination="ket-DM-auO" id="hh6-zw-ZAS"/>
@@ -1582,7 +1582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1M-Tr-lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4692" y="508.37438423645324"/>
+            <point key="canvasLocation" x="4692" y="508.24587706146929"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="c4x-re-CR7">
