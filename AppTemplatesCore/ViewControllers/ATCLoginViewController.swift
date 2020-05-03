@@ -26,7 +26,7 @@ let kFacebookLoginButtonBackgroundColor = UIColor(colorLiteralRed: 59/255, green
 let kFacebookLoginButtonTintColor = UIColor.white
 let kFacebookLoginButtonCornerRadius: CGFloat = 13.0
 
-class ATCLoginViewController: UIViewController {
+@IBDesignable class ATCLoginViewController: UIViewController {
 
     fileprivate var firebaseEnabled = false
     @IBOutlet var usernameTextField: UITextField!
@@ -260,5 +260,9 @@ class ATCLoginViewController: UIViewController {
     fileprivate func didCompleteLogin() {
         guard let loggedInViewController = loggedInViewController else { return }
         self.present(loggedInViewController, animated: true, completion: nil)
+        
+        
+        
+       
     }
 }

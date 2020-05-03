@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate var cartButton: IconButton!
 
     var hostViewController: ATCHostViewController?
+    var loginVC:ATCLoginViewController?
     func googleMapSetup(){
         //AIzaSyCNaQlvaBEHQHaCAwEjphOhJQ2g8fj3OOs
         GMSServices.provideAPIKey("AIzaSyCNaQlvaBEHQHaCAwEjphOhJQ2g8fj3OOs")
@@ -59,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    fileprivate func configureHostViewControllers() {
+    func configureHostViewControllers() {
         let user:User=Factory.getUser()
         
         
@@ -125,9 +126,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         hostViewController = ATCHostViewController(style: .sideBar, items: menuItems, topNavigationRightViews: topRightNavigationViews)
 
         window = UIWindow(frame: UIScreen.main.bounds)
+        self.loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: hostViewController!)
         if (AppConfiguration.isLoginScreenEnabled && user.id.isEmpty) {
-            let loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: hostViewController!)
-            window!.rootViewController = loginVC
+             print("123")
+            window!.rootViewController = self.loginVC
         }else if (AppConfiguration.isLoginScreenEnabled && !user.id.isEmpty) {
             // Configure the some mock current user data
             print("456")
@@ -136,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             hostViewController?.user = user
             window!.rootViewController = hostViewController
         } else {
+            print("789")
             // Configure the some mock current user data
             let avatarURL = "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12801222_1293104680705553_7502147733893902564_n.jpg?oh=b151770a598fea1b2d6b8f3382d9e7c9&oe=593E48A9"
             let user = ATCUser(firstName: "John", lastName: "Smith", avatarURL: avatarURL)
