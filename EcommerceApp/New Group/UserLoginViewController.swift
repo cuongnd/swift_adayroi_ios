@@ -12,47 +12,41 @@ import Firebase
 import FirebaseAuth
 import TwitterKit
 import UIKit
+import Material
 
-let kLoginButtonBackgroundColor = UIColor(colorLiteralRed: 31/255, green: 75/255, blue: 164/255, alpha: 1)
-let kLoginButtonTintColor = UIColor.white
-let kLoginButtonCornerRadius: CGFloat = 13.0
-var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
-let kTwitterLoginButtonBackgroundColor = UIColor(colorLiteralRed: 85/255, green: 172/255, blue: 239/255, alpha: 1)
-let kTwitterLoginButtonTintColor = UIColor.white
-let kTwitterLoginButtonCornerRadius: CGFloat = 13.0
-
-let kFacebookLoginButtonBackgroundColor = UIColor(colorLiteralRed: 59/255, green: 89/255, blue: 153/255, alpha: 1)
-let kFacebookLoginButtonTintColor = UIColor.white
-let kFacebookLoginButtonCornerRadius: CGFloat = 13.0
-
-class ATCLoginViewController: UIViewController {
-
+class UserLoginViewController: LibMvcViewController {
+    
+    let kLoginButtonBackgroundColor = UIColor(colorLiteralRed: 31/255, green: 75/255, blue: 164/255, alpha: 1)
+    let kLoginButtonTintColor = UIColor.white
+    let kLoginButtonCornerRadius: CGFloat = 13.0
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    let kTwitterLoginButtonBackgroundColor = UIColor(colorLiteralRed: 85/255, green: 172/255, blue: 239/255, alpha: 1)
+    let kTwitterLoginButtonTintColor = UIColor.white
+    let kTwitterLoginButtonCornerRadius: CGFloat = 13.0
+    
+    let kFacebookLoginButtonBackgroundColor = UIColor(colorLiteralRed: 59/255, green: 89/255, blue: 153/255, alpha: 1)
+    let kFacebookLoginButtonTintColor = UIColor.white
+    let kFacebookLoginButtonCornerRadius: CGFloat = 13.0
+    
     fileprivate var firebaseEnabled = false
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
-
+    
     @IBOutlet weak var UIButtonRegister: UIButton!
     @IBOutlet weak var UIButtonSkip: UIButton!
     @IBOutlet var facebookLoginButton: UIButton!
     @IBOutlet var twitterLoginButton: UIButton!
+    fileprivate var cartButton: IconButton!
     fileprivate var loggedInViewController: ATCHostViewController? = nil
     // Facebook login permissions
     // Add extra permissions you need
     // Remove permissions you don't need
     private let readPermissions: [ReadPermission] = [ .publicProfile, .email, .userFriends, .custom("user_posts") ]
-
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, firebaseEnabled: Bool, loggedInViewController: ATCHostViewController) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.firebaseEnabled = firebaseEnabled
-        self.loggedInViewController = loggedInViewController
-    }
+   
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareLoginButton(loginButton)
@@ -61,12 +55,12 @@ class ATCLoginViewController: UIViewController {
         prepareUITextField(usernameTextField)
         prepareUITextField(passwordTextField)
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
-
+    
     fileprivate func prepareLoginButton(_ button: UIButton) {
         button.backgroundColor = kLoginButtonBackgroundColor
         button.layer.cornerRadius = kLoginButtonCornerRadius
@@ -93,7 +87,7 @@ class ATCLoginViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
         button.addTarget(self, action: #selector(didTapTwitterLoginButton), for: .touchUpInside)
     }
-
+    
     fileprivate func prepareFacebookButton(_ button: UIButton) {
         button.backgroundColor = kFacebookLoginButtonBackgroundColor
         button.layer.cornerRadius = kFacebookLoginButtonCornerRadius
@@ -101,13 +95,13 @@ class ATCLoginViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
         button.addTarget(self, action: #selector(didTapFacebookLoginButton), for: .touchUpInside)
     }
-
+    
     fileprivate func prepareUITextField(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 0.5
         textField.layer.cornerRadius = 4.0
     }
-
+    
     @objc
     fileprivate func didTapLoginButton(_ sender: LoginButton) {
         // Regular login attempt. Add the code to handle the login by email and password.
@@ -133,7 +127,7 @@ class ATCLoginViewController: UIViewController {
         // Facebook login attempt
         LoginManager().logIn(readPermissions, viewController: self, completion: didReceiveFacebookLoginResult)
     }
-
+    
     @objc
     fileprivate func didTapTwitterLoginButton(_ sender: UIButton) {
         // Twitter login attempt
@@ -151,7 +145,7 @@ class ATCLoginViewController: UIViewController {
             }
         })
     }
-
+    
     fileprivate func didReceiveFacebookLoginResult(loginResult: LoginResult) {
         switch loginResult {
         case .success:
@@ -160,7 +154,7 @@ class ATCLoginViewController: UIViewController {
         default: break
         }
     }
-
+    
     fileprivate func didLoginWithFacebook() {
         // Successful log in with Facebook
         if let accessToken = AccessToken.current {
@@ -179,7 +173,7 @@ class ATCLoginViewController: UIViewController {
             })
         }
     }
-
+    
     fileprivate func didLogin(user_name: String = "", password: String = "") {
         
         //let user = ATCUser(firstName: firstName, lastName: lastName, avatarURL: avatarURL)
@@ -205,7 +199,7 @@ class ATCLoginViewController: UIViewController {
                         do {
                             //array
                             let response = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
-                            activityIndicator.stopAnimating()
+                            self.activityIndicator.stopAnimating()
                             UIApplication.shared.endIgnoringInteractionEvents()
                             let result:String=response["result"] as! String
                             if(result.elementsEqual("success")==true){
@@ -228,10 +222,10 @@ class ATCLoginViewController: UIViewController {
                                 self.present(alert, animated: true)
                             }
                             
-                      } catch {
-                        let alert = UIAlertController(title: "Thông báo", message: "Đăng nhập không thành công", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                        self.present(alert, animated: true)
+                        } catch {
+                            let alert = UIAlertController(title: "Thông báo", message: "Đăng nhập không thành công", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                            self.present(alert, animated: true)
                         }
                     }
                 }
@@ -258,11 +252,68 @@ class ATCLoginViewController: UIViewController {
         return String(data: data, encoding: String.Encoding.utf8)
     }
     fileprivate func didCompleteLogin() {
-        guard let loggedInViewController = loggedInViewController else { return }
-        self.present(loggedInViewController, animated: true, completion: nil)
+        let homeVC = StoryboardEntityProvider().homeVC()
+        homeVC.title = "iShop"
+        // Settings view controller - user settings screen
+        let action = { (_ viewController: UIViewController?) -> (Void) in
+            print("Settings button pressed from viewController")
+            /**
+             * Use this completion block to handle the actions taken by users on each settings item
+             * You can even present other view controllers using the line above:
+             
+             * viewController?.navigationController?.pushViewController(newViewController, animated: true)
+             */
+            let ecommerceCartVC = StoryboardEntityProvider().ecommerceCartVC()
+            viewController?.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+        }
+        let go_to_my_order = { (_ viewController: UIViewController?) -> (Void) in
+            let ecommerceCartVC = StoryboardEntityProvider().get_view_and_layout(view:"Orders",controller:"Orders")
+            viewController?.navigationController?.pushViewController(ecommerceCartVC, animated: true)
+        }
+        
+        let settingsItemProfile = ATCSettingsItem(title: "Profile", style: .more, action: action)
+        let settingsItemMyOrder = ATCSettingsItem(title: "My order", style: .more, action: go_to_my_order)
+        let settingsItemPayment = ATCSettingsItem(title: "Payment Info", style: .text, action: action)
+        let settingsItemEmail = ATCSettingsItem(title: "Email Notifications", style: .toggle, action: action, toggleValue: false)
+        let settingsItemPushNotifications = ATCSettingsItem(title: "Push Notifications", style: .toggle, action: action, toggleValue: true)
+        let settingsItemPrivacyPolicy = ATCSettingsItem(title: "Privacy Policy", style: .more, action: action)
+        let settingsItemTermsConditions = ATCSettingsItem(title: "Terms & Conditions", style: .more, action: action)
+        let settingsItems = [settingsItemProfile,settingsItemMyOrder, settingsItemPayment, settingsItemEmail, settingsItemPushNotifications, settingsItemPrivacyPolicy, settingsItemTermsConditions]
+        let settingsVC = ATCSettingsTableViewController(settings: settingsItems, nibNameOrNil: nil, nibBundleOrNil: nil)
+        settingsVC.title = StringConstants.kSettingsString
+        
+        // Navigation Item - Configuration for sidebar menu / TabBar
+        
+        let homeMenuItem = ATCNavigationItem(title: StringConstants.kHomeString, viewController: homeVC, image: UIImage(named: "shop-menu-icon"), type: .viewController)
+        
+        let settingsMenuItem = ATCNavigationItem(title: StringConstants.kSettingsString, viewController: settingsVC, image: UIImage(named: "settings-menu-item"), type: .viewController)
+        let logoutMenuItem = ATCNavigationItem(title: StringConstants.kLogoutString, viewController: UIViewController(), image: UIImage(named: "logout-menu-item"), type: .logout)
+        
+        let menuItems = [homeMenuItem, settingsMenuItem, logoutMenuItem]
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+         cartButton = IconButton(image: UIImage(named: "shopping-cart-menu-item"))
+        
+        cartButton.titleColor = .white
+        cartButton.layer.cornerRadius = 5
+        
+        
+        let topRightNavigationViews = [cartButton]
+        let hostViewController = ATCHostViewController(style: .sideBar, items: menuItems, topNavigationRightViews: topRightNavigationViews as! [UIView])
+        
+        
+        dismiss(animated: true, completion: nil)
+        present(hostViewController, animated:true, completion:nil)
         
         
         
-       
+        
+       // appDelegate.window?.rootViewController = navigationController
+        //appDelegate.window!.makeKeyAndVisible()
+        
+        
+        //self.present(homeVC, animated: true, completion: nil)
+    
     }
 }
+
