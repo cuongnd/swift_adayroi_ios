@@ -10,4 +10,5 @@ public final class ATCViewControllerFactory {
     static func createLoginViewController(firebaseEnabled: Bool, loggedInViewController: ATCHostViewController) -> ATCLoginViewController {
         return ATCLoginViewController(nibName: "ATCLoginViewController", bundle: nil, firebaseEnabled: firebaseEnabled, loggedInViewController: loggedInViewController)
     }
+    
 }

@@ -9,11 +9,16 @@
 import UIKit
 
 class UserRegisterViewController: LibMvcViewController {
-
+    fileprivate var firebaseEnabled = false
+    fileprivate var loggedInViewController: ATCHostViewController? = nil
+    @IBOutlet weak var UIButtonGoToLogin: UIButton!
+   
+    
+    
     override func viewDidLoad() {
         print("hello UserViewController")
         super.viewDidLoad()
-
+        UIButtonGoToLogin.addTarget(self, action: #selector(didTapGoToLoginButton), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +27,14 @@ class UserRegisterViewController: LibMvcViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @objc
+    fileprivate func didTapGoToLoginButton() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: appDelegate.hostViewController!)
+        
+        print("hello didTapGoToLoginButton 123")
+        self.present(loginVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

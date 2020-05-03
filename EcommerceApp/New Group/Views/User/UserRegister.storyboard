@@ -26,9 +26,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FI-Cd-eXG" userLabel="LoginFormContainerView">
-                                <rect key="frame" x="36" y="96" width="304" height="134"/>
+                                <rect key="frame" x="36" y="96" width="304" height="365"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên đăng nhập hoặc email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tmm-N6-3qG" userLabel="Username Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Họ và tên" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tmm-N6-3qG" userLabel="Username Text Field">
                                         <rect key="frame" x="20" y="20" width="264" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -41,10 +41,13 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thj-3c-cis" userLabel="Password Text Field">
-                                        <rect key="frame" x="20" y="57" width="264" height="30"/>
+                                        <rect key="frame" x="20" y="202" width="264" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ZoQ-0C-dAu"/>
@@ -58,30 +61,112 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên đăng nhập" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McQ-ce-2xZ" userLabel="Username Text Field">
+                                        <rect key="frame" x="20" y="58" width="264" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="QUP-JO-gsg"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập lại mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tb7-k1-xeT" userLabel="Password Text Field">
+                                        <rect key="frame" x="20" y="249" width="264" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="DeI-AN-hqk"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Địa chỉ email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VZk-nE-Z6C" userLabel="Username Text Field">
+                                        <rect key="frame" x="20" y="96" width="264" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="dTN-fX-HqF"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxV-ks-yYY" userLabel="Username Text Field">
+                                        <rect key="frame" x="20" y="146" width="264" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Juy-MC-wwt"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZg-x1-42b">
-                                        <rect key="frame" x="20" y="101" width="264" height="30"/>
+                                        <rect key="frame" x="120" y="287" width="65" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AVU-Mp-9Sm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="Đăng ký"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBb-cJ-jmc">
+                                        <rect key="frame" x="0.0" y="315" width="146" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Quay lại đăng nhập"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddB-rE-mVX">
+                                        <rect key="frame" x="196" y="315" width="61" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Bỏ qua"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="jZg-x1-42b" firstAttribute="top" secondItem="Thj-3c-cis" secondAttribute="bottom" constant="55" id="5sS-yZ-zbC"/>
                                     <constraint firstAttribute="trailing" secondItem="Tmm-N6-3qG" secondAttribute="trailing" constant="20" id="94K-j3-Uzw"/>
-                                    <constraint firstAttribute="height" constant="133.5" id="Luq-Kx-UVQ"/>
+                                    <constraint firstItem="tb7-k1-xeT" firstAttribute="top" secondItem="Thj-3c-cis" secondAttribute="bottom" constant="17" id="9j6-4m-aVn"/>
+                                    <constraint firstItem="wxV-ks-yYY" firstAttribute="leading" secondItem="VZk-nE-Z6C" secondAttribute="leading" id="ARD-Je-z1e"/>
+                                    <constraint firstItem="tb7-k1-xeT" firstAttribute="leading" secondItem="Thj-3c-cis" secondAttribute="leading" id="BUC-Yd-SbG"/>
+                                    <constraint firstItem="jZg-x1-42b" firstAttribute="width" secondItem="Thj-3c-cis" secondAttribute="width" constant="-199" id="FOZ-zb-jok"/>
+                                    <constraint firstItem="wxV-ks-yYY" firstAttribute="top" secondItem="VZk-nE-Z6C" secondAttribute="bottom" constant="20" id="Itk-LQ-eQw"/>
+                                    <constraint firstAttribute="height" constant="365" id="Luq-Kx-UVQ"/>
                                     <constraint firstItem="Tmm-N6-3qG" firstAttribute="leading" secondItem="6FI-Cd-eXG" secondAttribute="leading" constant="20" id="MbL-7s-IbV" userLabel="Username Text Field.leading = leading + 40"/>
+                                    <constraint firstItem="wxV-ks-yYY" firstAttribute="trailing" secondItem="VZk-nE-Z6C" secondAttribute="trailing" id="OEQ-An-tJW"/>
                                     <constraint firstItem="Thj-3c-cis" firstAttribute="leading" secondItem="6FI-Cd-eXG" secondAttribute="leading" constant="20" id="XnI-5g-Ydr"/>
-                                    <constraint firstItem="jZg-x1-42b" firstAttribute="width" secondItem="Thj-3c-cis" secondAttribute="width" id="aSb-n8-dNR"/>
-                                    <constraint firstItem="jZg-x1-42b" firstAttribute="top" secondItem="Thj-3c-cis" secondAttribute="bottom" constant="14" id="dnT-vH-Ywo"/>
-                                    <constraint firstItem="Thj-3c-cis" firstAttribute="top" secondItem="Tmm-N6-3qG" secondAttribute="bottom" constant="7" id="rqP-uG-hBi"/>
-                                    <constraint firstItem="jZg-x1-42b" firstAttribute="centerX" secondItem="6FI-Cd-eXG" secondAttribute="centerX" id="sEh-Ec-hyh"/>
+                                    <constraint firstItem="VZk-nE-Z6C" firstAttribute="top" secondItem="McQ-ce-2xZ" secondAttribute="bottom" constant="8" symbolic="YES" id="cEU-d5-eRk"/>
+                                    <constraint firstItem="McQ-ce-2xZ" firstAttribute="top" secondItem="Tmm-N6-3qG" secondAttribute="bottom" constant="8" symbolic="YES" id="clb-e1-BNK"/>
+                                    <constraint firstItem="jZg-x1-42b" firstAttribute="centerX" secondItem="6FI-Cd-eXG" secondAttribute="centerX" constant="0.5" id="n36-TH-fdL"/>
+                                    <constraint firstItem="Thj-3c-cis" firstAttribute="top" secondItem="Tmm-N6-3qG" secondAttribute="bottom" constant="152" id="rqP-uG-hBi"/>
                                     <constraint firstItem="Tmm-N6-3qG" firstAttribute="top" secondItem="6FI-Cd-eXG" secondAttribute="top" constant="20" id="ury-mw-De0"/>
                                     <constraint firstAttribute="trailing" secondItem="Thj-3c-cis" secondAttribute="trailing" constant="20" id="vWR-x5-WFX"/>
+                                    <constraint firstItem="tb7-k1-xeT" firstAttribute="trailing" secondItem="Thj-3c-cis" secondAttribute="trailing" id="w0B-q6-mrn"/>
+                                    <constraint firstItem="VZk-nE-Z6C" firstAttribute="trailing" secondItem="McQ-ce-2xZ" secondAttribute="trailing" id="wKM-Ev-qmw"/>
+                                    <constraint firstItem="McQ-ce-2xZ" firstAttribute="trailing" secondItem="Tmm-N6-3qG" secondAttribute="trailing" id="xLG-fB-5Xg"/>
+                                    <constraint firstItem="VZk-nE-Z6C" firstAttribute="leading" secondItem="McQ-ce-2xZ" secondAttribute="leading" id="y1I-w1-rgt"/>
+                                    <constraint firstItem="McQ-ce-2xZ" firstAttribute="leading" secondItem="Tmm-N6-3qG" secondAttribute="leading" id="y69-1K-AfO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuW-yy-gF5" userLabel="SocialButtonsContainerView">
-                                <rect key="frame" x="88" y="307" width="200" height="64"/>
+                                <rect key="frame" x="88" y="501.5" width="200" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z25-6y-dLF" userLabel="TwitterButton">
                                         <rect key="frame" x="105" y="17" width="95" height="30"/>
@@ -110,15 +195,6 @@
                                     <constraint firstAttribute="width" constant="200" id="pSI-nT-kjC" userLabel="width = 140"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoặc kết nối với" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW8-LN-fEG" userLabel="ConectWithLabel">
-                                <rect key="frame" x="0.0" y="286" width="375" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="XVR-05-kMk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng ký tài khoản" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbI-2T-x0t">
                                 <rect key="frame" x="1" y="52" width="375" height="42"/>
                                 <color key="tintColor" red="0.1215686275" green="0.29411764709999999" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,18 +205,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p0h-ld-qMy">
-                                <rect key="frame" x="69" y="232" width="236" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBb-cJ-jmc">
-                                        <rect key="frame" x="151" y="-5" width="48" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Bỏ qua"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoặc kết nối với" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW8-LN-fEG" userLabel="ConectWithLabel">
+                                <rect key="frame" x="0.0" y="493.5" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="XVR-05-kMk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -148,20 +221,23 @@
                             <constraint firstItem="6FI-Cd-eXG" firstAttribute="top" secondItem="IbI-2T-x0t" secondAttribute="bottom" multiplier="1.05" constant="-2.2250000000000085" id="CXD-sE-Kcm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6FI-Cd-eXG" secondAttribute="trailing" constant="19" id="LvG-ae-J0n"/>
                             <constraint firstItem="IbI-2T-x0t" firstAttribute="width" secondItem="Z8B-A0-E7j" secondAttribute="width" id="WOl-XD-Ob6"/>
-                            <constraint firstItem="cW8-LN-fEG" firstAttribute="top" secondItem="6FI-Cd-eXG" secondAttribute="bottom" multiplier="1.05" constant="43.949999999999989" id="Zf8-tZ-2g3"/>
+                            <constraint firstItem="cW8-LN-fEG" firstAttribute="top" secondItem="6FI-Cd-eXG" secondAttribute="bottom" multiplier="1.05" constant="9.4499999999999886" id="Zf8-tZ-2g3"/>
                             <constraint firstItem="HuW-yy-gF5" firstAttribute="centerX" secondItem="Z8B-A0-E7j" secondAttribute="centerX" id="a63-OS-6Xv"/>
                             <constraint firstItem="6FI-Cd-eXG" firstAttribute="leading" secondItem="Z8B-A0-E7j" secondAttribute="leadingMargin" constant="20" id="do7-Y3-rCC"/>
                             <constraint firstItem="IbI-2T-x0t" firstAttribute="top" secondItem="Z8B-A0-E7j" secondAttribute="top" constant="52" id="nCQ-LR-sU0"/>
-                            <constraint firstItem="HuW-yy-gF5" firstAttribute="top" secondItem="cW8-LN-fEG" secondAttribute="bottom" id="nzG-lL-Zgy"/>
+                            <constraint firstItem="HuW-yy-gF5" firstAttribute="top" secondItem="cW8-LN-fEG" secondAttribute="bottom" constant="-12.5" id="nzG-lL-Zgy"/>
                             <constraint firstItem="cW8-LN-fEG" firstAttribute="centerX" secondItem="Z8B-A0-E7j" secondAttribute="centerX" id="oBo-7M-Kbg"/>
                             <constraint firstItem="cW8-LN-fEG" firstAttribute="width" secondItem="Z8B-A0-E7j" secondAttribute="width" id="yb6-Kn-OKK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KY6-Wq-1nF"/>
                     </view>
+                    <connections>
+                        <outlet property="UIButtonGoToLogin" destination="OBb-cJ-jmc" id="KSw-9U-9Y9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fie-gT-Xdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="186"/>
+            <point key="canvasLocation" x="-60" y="185.75712143928038"/>
         </scene>
     </scenes>
     <resources>

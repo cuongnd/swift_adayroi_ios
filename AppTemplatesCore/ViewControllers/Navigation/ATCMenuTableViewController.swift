@@ -89,12 +89,13 @@ open class ATCMenuTableViewController: UITableViewController {
     func logout(alert: UIAlertAction!) {
         let preferentces=UserDefaults.standard
         preferentces.removeObject(forKey: "user")
-        let dController = drawerController()
         
-        if let hostVC = dController?.parent {
-            hostVC.dismiss(animated: true, completion: nil)
-        }
-        closeNavigationDrawer()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: appDelegate.hostViewController!)
+        
+        print("hello didTapGoToLoginButton 123")
+        self.present(loginVC, animated: true, completion: nil)
+        
         
         
     }

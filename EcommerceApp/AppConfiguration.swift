@@ -19,12 +19,12 @@ public final class AppConfiguration {
     public static let isApplePaymentEnabled = false
     public static let applePayMerchantIdentifier = "Your Apple Merchant Identifier"
     //home
-    //public static let root_url:String="http://192.168.1.15:1112/";
+    public static let root_url:String="http://192.168.1.15:1112/";
     //company
     //public static let root_url:String="http://192.168.8.68:1112/";
     //cafe ngon
     //public static let root_url:String="http://192.168.100.12:1112/";
     //giang cafe
-    public static let root_url:String="http://192.168.1.8:1112/";
+    //public static let root_url:String="http://192.168.1.8:1112/";
     
 }
