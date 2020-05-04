@@ -286,16 +286,16 @@ class UserLoginViewController: LibMvcViewController {
         
         let homeMenuItem = ATCNavigationItem(title: StringConstants.kHomeString, viewController: homeVC, image: UIImage(named: "shop-menu-icon"), type: .viewController)
         
+        let cartViewController = StoryboardEntityProvider().ecommerceCartVC()
+        let cardMenuItem = ATCNavigationItem(title: StringConstants.kShoppingCartString, viewController: cartViewController, image: UIImage(named: "shopping-cart-menu-item"), type: .viewController)
+        
         let settingsMenuItem = ATCNavigationItem(title: StringConstants.kSettingsString, viewController: settingsVC, image: UIImage(named: "settings-menu-item"), type: .viewController)
         let logoutMenuItem = ATCNavigationItem(title: StringConstants.kLogoutString, viewController: UIViewController(), image: UIImage(named: "logout-menu-item"), type: .logout)
         
-        let menuItems = [homeMenuItem, settingsMenuItem, logoutMenuItem]
+        let menuItems = [homeMenuItem,cardMenuItem, settingsMenuItem, logoutMenuItem]
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-         cartButton = IconButton(image: UIImage(named: "shopping-cart-menu-item"))
-        
-        cartButton.titleColor = .white
-        cartButton.layer.cornerRadius = 5
+        prepareCartButton()
         
         
         let topRightNavigationViews = [cartButton]
@@ -314,6 +314,13 @@ class UserLoginViewController: LibMvcViewController {
         
         //self.present(homeVC, animated: true, completion: nil)
     
+    }
+    fileprivate func prepareCartButton() {
+        cartButton = IconButton(image: UIImage(named: "shopping-cart-menu-item"))
+        cartButton.backgroundColor = Color.green.base
+        //cartButton.addTarget(self, action: #selector(handleCartButton), for: .touchUpInside)
+        cartButton.titleColor = .white
+        cartButton.layer.cornerRadius = 5
     }
 }
 
