@@ -15,6 +15,7 @@ import UIKit
 import Material
 
 
+@IBDesignable
 class UserLoginViewController: LibMvcViewController {
     
     let kLoginButtonBackgroundColor = UIColor(colorLiteralRed: 31/255, green: 75/255, blue: 164/255, alpha: 1)
@@ -31,7 +32,7 @@ class UserLoginViewController: LibMvcViewController {
     let kFacebookLoginButtonCornerRadius: CGFloat = 13.0
     
     fileprivate var firebaseEnabled = false
-    @IBOutlet var usernameTextField: UITextField!
+    @IBInspectable @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     

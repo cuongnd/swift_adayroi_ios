@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppTemplatesCore/ViewControllers/ATCLoginViewController.swift"
-            timestampString = "610220437.567288"
+            timestampString = "610366944.716019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "didLogin(user_name:password:)"
             landmarkType = "7">
          </BreakpointContent>

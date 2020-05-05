@@ -25,7 +25,7 @@ let kTwitterLoginButtonCornerRadius: CGFloat = 13.0
 let kFacebookLoginButtonBackgroundColor = UIColor(colorLiteralRed: 59/255, green: 89/255, blue: 153/255, alpha: 1)
 let kFacebookLoginButtonTintColor = UIColor.white
 let kFacebookLoginButtonCornerRadius: CGFloat = 13.0
-
+@IBDesignable
 class ATCLoginViewController: UIViewController {
 
     fileprivate var firebaseEnabled = false
@@ -103,9 +103,7 @@ class ATCLoginViewController: UIViewController {
     }
 
     fileprivate func prepareUITextField(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.gray.cgColor
-        textField.layer.borderWidth = 0.5
-        textField.layer.cornerRadius = 4.0
+        
     }
 
     @objc

@@ -12,7 +12,11 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Bold</string>
             <string>AppleSDGothicNeo-Regular</string>
+        </array>
+        <array key="fa-solid-900.ttf">
+            <string>FontAwesome5Free-Solid</string>
         </array>
     </customFonts>
     <objects>
@@ -37,7 +41,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOD-en-PhF" userLabel="LoginFormContainerView">
-                    <rect key="frame" x="36" y="96" width="304" height="134"/>
+                    <rect key="frame" x="36" y="96.5" width="304" height="134"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên đăng nhập hoặc email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kNx-B8-hqV" userLabel="Username Text Field">
                             <rect key="frame" x="20" y="20" width="264" height="30"/>
@@ -45,12 +49,21 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="6tr-7B-nUl"/>
                             </constraints>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.049231691081767295" green="0.030609262568760533" blue="0.39885390228426398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                    <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="value" red="0.28359916140037644" green="0.26487277360403205" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.60520336115365847" green="0.68148267076105029" blue="0.94360723350253806" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
@@ -60,12 +73,21 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="kWJ-Jc-YaC"/>
                             </constraints>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.049231691080000001" green="0.03060926257" blue="0.39885390230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                    <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="value" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.19536130909985827" green="0.46267547577665197" blue="0.94360723349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
@@ -92,7 +114,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dM5-nJ-Bcp" userLabel="SocialButtonsContainerView">
-                    <rect key="frame" x="88" y="307" width="200" height="64"/>
+                    <rect key="frame" x="88" y="307.5" width="200" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbM-OQ-0qg" userLabel="TwitterButton">
                             <rect key="frame" x="105" y="17" width="95" height="30"/>
@@ -122,22 +144,22 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoặc kết nối với" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="els-gY-b3z" userLabel="ConectWithLabel">
-                    <rect key="frame" x="0.0" y="286" width="375" height="21"/>
+                    <rect key="frame" x="0.0" y="286.5" width="375" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Hsp-Dz-R5I"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="0.35129156859999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adayroi.online" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A06-On-sfw">
-                    <rect key="frame" x="1" y="52" width="375" height="42"/>
+                    <rect key="frame" x="1" y="65" width="375" height="42"/>
                     <color key="tintColor" red="0.1215686275" green="0.29411764709999999" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="aCc-S7-VP2"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
+                    <color key="textColor" red="1" green="0.35129156861644562" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-Jk-2Fn">
@@ -157,6 +179,13 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8z-S2-639">
+                    <rect key="frame" x="155" y="7" width="66" height="68"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="FontAwesome5Free-Solid" family="Font Awesome 5 Free" pointSize="50"/>
+                    <color key="textColor" red="1" green="0.464522953489095" blue="0.013506514746794096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -170,10 +199,10 @@
                 <constraint firstAttribute="trailingMargin" secondItem="VOD-en-PhF" secondAttribute="trailing" constant="19" id="ELC-jH-LUb"/>
                 <constraint firstItem="new-eb-crI" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" id="Jaa-dd-rwK"/>
                 <constraint firstItem="A06-On-sfw" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" constant="1" id="gYB-n0-why"/>
-                <constraint firstItem="A06-On-sfw" firstAttribute="top" secondItem="6l3-I9-qn5" secondAttribute="top" constant="52" id="hd1-Ql-slu"/>
+                <constraint firstItem="A06-On-sfw" firstAttribute="top" secondItem="6l3-I9-qn5" secondAttribute="top" constant="65" id="hd1-Ql-slu"/>
                 <constraint firstItem="dM5-nJ-Bcp" firstAttribute="centerX" secondItem="6l3-I9-qn5" secondAttribute="centerX" id="kOh-nW-dSe"/>
                 <constraint firstItem="els-gY-b3z" firstAttribute="width" secondItem="6l3-I9-qn5" secondAttribute="width" id="n7C-cx-gwI"/>
-                <constraint firstItem="VOD-en-PhF" firstAttribute="top" secondItem="A06-On-sfw" secondAttribute="bottom" multiplier="1.05" constant="-2.2250000000000085" id="qTc-bz-jjz"/>
+                <constraint firstItem="VOD-en-PhF" firstAttribute="top" secondItem="A06-On-sfw" secondAttribute="bottom" multiplier="1.05" constant="-15.850000000000009" id="qTc-bz-jjz"/>
                 <constraint firstItem="new-eb-crI" firstAttribute="centerY" secondItem="6l3-I9-qn5" secondAttribute="centerY" id="vmr-pl-H6C"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="52.5"/>

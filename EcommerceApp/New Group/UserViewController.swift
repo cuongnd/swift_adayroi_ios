@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class UserViewController: LibMvcViewController {
 
     override func viewDidLoad() {
