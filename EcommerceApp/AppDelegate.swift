@@ -127,16 +127,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         self.loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: hostViewController!)
+        
+        let userLoginViewController = StoryboardEntityProvider().get_view_and_layout(view: "UserLogin", controller: "UserLogin")
+        
+        
         if (AppConfiguration.isLoginScreenEnabled && user.id.isEmpty) {
              print("123")
-            window!.rootViewController = self.loginVC
+            window!.rootViewController = userLoginViewController
         }else if (AppConfiguration.isLoginScreenEnabled && !user.id.isEmpty) {
             // Configure the some mock current user data
-            print("456")
-            let avatarURL = "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12801222_1293104680705553_7502147733893902564_n.jpg?oh=b151770a598fea1b2d6b8f3382d9e7c9&oe=593E48A9"
-            let user = ATCUser(firstName: "John", lastName: "Smith", avatarURL: avatarURL)
-            hostViewController?.user = user
-            window!.rootViewController = hostViewController
+            window!.rootViewController = userLoginViewController
         } else {
             print("789")
             // Configure the some mock current user data

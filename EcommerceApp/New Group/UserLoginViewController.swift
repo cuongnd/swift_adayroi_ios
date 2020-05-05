@@ -13,7 +13,7 @@ import FirebaseAuth
 import TwitterKit
 import UIKit
 import Material
-
+import MaterialComponents
 
 @IBDesignable
 class UserLoginViewController: LibMvcViewController {
@@ -34,7 +34,7 @@ class UserLoginViewController: LibMvcViewController {
     fileprivate var firebaseEnabled = false
     @IBInspectable @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var loginButton: UIButton!
+    @IBInspectable @IBOutlet var loginButton: UIButton!
     
     @IBOutlet weak var UIButtonRegister: UIButton!
     @IBOutlet weak var UIButtonSkip: UIButton!
@@ -50,11 +50,13 @@ class UserLoginViewController: LibMvcViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         prepareLoginButton(loginButton)
-        prepareTwitterButton(twitterLoginButton)
-        prepareFacebookButton(facebookLoginButton)
-        prepareUITextField(usernameTextField)
-        prepareUITextField(passwordTextField)
+        //prepareTwitterButton(twitterLoginButton)
+        //prepareFacebookButton(facebookLoginButton)
+        //prepareUITextField(usernameTextField)
+        //prepareUITextField(passwordTextField)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -63,10 +65,6 @@ class UserLoginViewController: LibMvcViewController {
     }
     
     fileprivate func prepareLoginButton(_ button: UIButton) {
-        button.backgroundColor = kLoginButtonBackgroundColor
-        button.layer.cornerRadius = kLoginButtonCornerRadius
-        button.tintColor = kLoginButtonTintColor
-        button.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
         button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         UIButtonSkip.addTarget(self, action: #selector(didTapSKipButton), for: .touchUpInside)
         UIButtonRegister.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)

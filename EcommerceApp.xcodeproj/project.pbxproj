@@ -77,6 +77,9 @@
 		FA26092F243EDE900096AED9 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA26092E243EDE900096AED9 /* Slide.xib */; };
 		FA2EA85224423CE000C0C96F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */; };
 		FA34480C245EB06900F09D20 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34480B245EB06900F09D20 /* UserLoginViewController.swift */; };
+		FA3448492461C94900F09D20 /* FrontEndCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3448482461C94900F09D20 /* FrontEndCustomButton.swift */; };
+		FA34484B2461D76F00F09D20 /* UITextFieldFrontendCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34484A2461D76F00F09D20 /* UITextFieldFrontendCustomTextField.swift */; };
+		FA34484D2461EBF200F09D20 /* FrontEndCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34484C2461EBF200F09D20 /* FrontEndCustomView.swift */; };
 		FA3AF6BB245958D3007AB53E /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AF6BA245958D3007AB53E /* Orders.storyboard */; };
 		FA3AF6BE24596718007AB53E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF6BD24596718007AB53E /* UserViewController.swift */; };
 		FA3AF6C1245967BE007AB53E /* UserLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AF6C0245967BE007AB53E /* UserLogin.storyboard */; };
@@ -216,6 +219,9 @@
 		FA26092E243EDE900096AED9 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		FA2EA85124423CE000C0C96F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA34480B245EB06900F09D20 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		FA3448482461C94900F09D20 /* FrontEndCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontEndCustomButton.swift; sourceTree = "<group>"; };
+		FA34484A2461D76F00F09D20 /* UITextFieldFrontendCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldFrontendCustomTextField.swift; sourceTree = "<group>"; };
+		FA34484C2461EBF200F09D20 /* FrontEndCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontEndCustomView.swift; sourceTree = "<group>"; };
 		FA3AF6B624591D00007AB53E /* LibMvcViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibMvcViewController1.swift; sourceTree = "<group>"; };
 		FA3AF6BA245958D3007AB53E /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		FA3AF6BD24596718007AB53E /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -580,6 +586,16 @@
 			name = Slideshow;
 			sourceTree = "<group>";
 		};
+		FA3448472461C8EB00F09D20 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				FA3448482461C94900F09D20 /* FrontEndCustomButton.swift */,
+				FA34484A2461D76F00F09D20 /* UITextFieldFrontendCustomTextField.swift */,
+				FA34484C2461EBF200F09D20 /* FrontEndCustomView.swift */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
 		FA3AF6B324591B25007AB53E /* Orders */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +782,7 @@
 		FA6CBF412452CEA4007AF8C6 /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				FA3448472461C8EB00F09D20 /* Custom */,
 				FA3AF6CC24597C48007AB53E /* models */,
 				FA6CBF552452D06F007AF8C6 /* Views */,
 				FA6CBF462452CED6007AF8C6 /* Forms */,
@@ -1106,7 +1123,9 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1125,7 +1144,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1152,6 +1173,7 @@
 				1782C8D81E669B5900963945 /* UIView.swift in Sources */,
 				FAA920AA245C8B4C0019EDE1 /* checkout_steps.swift in Sources */,
 				FA3AF6C524596C47007AB53E /* OrdersViewController.swift in Sources */,
+				FA34484B2461D76F00F09D20 /* UITextFieldFrontendCustomTextField.swift in Sources */,
 				17825D901E356ED200A03FC5 /* ImageCollectionViewCell.swift in Sources */,
 				FA738FA52449ECE2008BE704 /* ViewControllerUtils.swift in Sources */,
 				17825DA11E3D30BC00A03FC5 /* CartTotalTableViewCell.swift in Sources */,
@@ -1188,6 +1210,7 @@
 				173DCFB41E58F5E4001092C7 /* CategoriesTableViewCell.swift in Sources */,
 				FABDBB582444B52300CEA175 /* Image.swift in Sources */,
 				FA6CBF582452D0B6007AF8C6 /* FrontendViewsProducts.swift in Sources */,
+				FA3448492461C94900F09D20 /* FrontEndCustomButton.swift in Sources */,
 				1782C8C21E669B5900963945 /* ATCStripeCheckoutViewController.swift in Sources */,
 				FA6CBF232451E33C007AF8C6 /* PaymentTableViewCell.swift in Sources */,
 				1782C8C71E669B5900963945 /* ATCTableViewController.swift in Sources */,
@@ -1229,6 +1252,7 @@
 				1782C8D61E669B5900963945 /* ATCSettingsToggleTableViewCell.swift in Sources */,
 				17825D971E3ABD1300A03FC5 /* ShoppingCart.swift in Sources */,
 				FA6CBF1F2451DEC9007AF8C6 /* Payment.swift in Sources */,
+				FA34484D2461EBF200F09D20 /* FrontEndCustomView.swift in Sources */,
 				1782C8C51E669B5900963945 /* ATCLoginViewController.swift in Sources */,
 				FA0576782444346C0003908D /* SubCategory.swift in Sources */,
 			);

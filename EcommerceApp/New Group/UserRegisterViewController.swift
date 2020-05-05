@@ -30,10 +30,9 @@ class UserRegisterViewController: LibMvcViewController {
     @objc
     fileprivate func didTapGoToLoginButton() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let loginVC = ATCViewControllerFactory.createLoginViewController(firebaseEnabled: AppConfiguration.isFirebaseIntegrationEnabled, loggedInViewController: appDelegate.hostViewController!)
+        let userLoginViewController = StoryboardEntityProvider().get_view_and_layout(view: "UserLogin", controller: "UserLogin")
         
-        print("hello didTapGoToLoginButton 123")
-        self.present(loginVC, animated: true, completion: nil)
+        self.present(userLoginViewController, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
