@@ -300,15 +300,14 @@ class UserLoginViewController: LibMvcViewController {
         let topRightNavigationViews = [cartButton]
         let hostViewController = ATCHostViewController(style: .sideBar, items: menuItems, topNavigationRightViews: topRightNavigationViews as! [UIView])
         
-        
         dismiss(animated: true, completion: nil)
-        present(hostViewController, animated:true, completion:nil)
+        //present(hostViewController, animated:true, completion:nil)
+        hostViewController.navigationController?.pushViewController(homeVC, animated: true)
         
         
         
-        
-       // appDelegate.window?.rootViewController = navigationController
-        //appDelegate.window!.makeKeyAndVisible()
+       appDelegate.window?.rootViewController = hostViewController
+        appDelegate.window!.makeKeyAndVisible()
         
         
         //self.present(homeVC, animated: true, completion: nil)
