@@ -18,51 +18,51 @@ class StoryboardEntityProvider {
         return vc
     }
     func ecommerceProductCollectionVC() -> ProductCollectionViewController {
-        let vc = ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
+        let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
         vc.products = Product.mockProducts()
         return vc
     }
     func ecommerceSubCategoriesVC() -> SubCategoriesViewController {
-        let vc = ecommerceStoryboard.instantiateViewController(withIdentifier: "SubCategoriesViewController") as! SubCategoriesViewController
+        let vc = UIStoryboard(name: "SubCategories", bundle: nil).instantiateViewController(withIdentifier: "SubCategoriesViewController") as! SubCategoriesViewController
         return vc
     }
 
     func ecommerceProductDetailsVC() -> ProductDetailsViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        return  UIStoryboard(name: "ProductDetails", bundle: nil).instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
     }
    
     func paymentVC() -> PaymentsViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "PaymentsViewController") as! PaymentsViewController
+        return UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "PaymentsViewController") as! PaymentsViewController
     }
     
     func ecommerceCartVC() -> CartTableViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "CartTableViewController") as! CartTableViewController
+        return UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "CartTableViewController") as! CartTableViewController
     }
 
     func settingsVC() -> UITableViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "SettingsTableViewController") as! UITableViewController
+        return UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "SettingsTableViewController") as! UITableViewController
     }
 
     func categoriesVC() -> CategoriesTableViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
+        return UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController
     }
     func homeVC() -> HomeViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        return UIStoryboard(name: "HomePage", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
     }
     func Product_Details_Full_Description_View_VC() -> ProductDetailsFullDescriptionViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsFullDescriptionViewController") as! ProductDetailsFullDescriptionViewController
+        return UIStoryboard(name: "ProductDetails", bundle: nil).instantiateViewController(withIdentifier: "ProductDetailsFullDescriptionViewController") as! ProductDetailsFullDescriptionViewController
     }
     func AddressCheckoutViewControllerVC() -> AddressCheckoutViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "AddressCheckoutViewController") as! AddressCheckoutViewController
+        return UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "AddressCheckoutViewController") as! AddressCheckoutViewController
     }
     func SumaryCheckoutViewControllerVC() -> SumaryCheckoutViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "SumaryCheckoutViewController") as! SumaryCheckoutViewController
+        return UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "SumaryCheckoutViewController") as! SumaryCheckoutViewController
     }
     
     func thankyouViewController() -> ThankyouViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "ThankyouViewController") as! ThankyouViewController
+        return UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "ThankyouViewController") as! ThankyouViewController
     }
     func mapPathViewController() -> MapPathViewController {
-        return ecommerceStoryboard.instantiateViewController(withIdentifier: "MapPathViewController") as! MapPathViewController
+        return UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "MapPathViewController") as! MapPathViewController
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 class LibraryUtilitiesUtility {
     static func redirect(navigationController:UINavigationController, view:String,layout:String) -> Void {
-        let ecommerceStoryboard = UIStoryboard(name: "Ecommerce", bundle: nil)
+        let ecommerceStoryboard = UIStoryboard(name: "ProductDetails", bundle: nil)
         let view=ecommerceStoryboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
         navigationController.pushViewController(view, animated: true)
     }
