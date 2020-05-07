@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ImageSlideshow
 class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
@@ -29,7 +29,6 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         "Dakota Johnson"
     ]
     
-    @IBOutlet weak var UICollectionViewSlideShow: UICollectionView!
     @IBOutlet weak var UICollectionViewNewProducts: UICollectionView!
     @IBOutlet weak var UICollectionViewHotProductCategories: UICollectionView!
     @IBOutlet weak var UICollectionViewProductDiscount: UICollectionView!
@@ -48,8 +47,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
     
     var currentIndex = 0
     var timer : Timer?
-    @IBOutlet weak var pageView: UIPageControl!
-  
+    @IBOutlet var slideshow: ImageSlideshow!
+    var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +73,6 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         UICollectionViewHotProducts.dataSource=self
         UICollectionViewHotProductCategories.dataSource=self
         UICollectionViewNewProducts.dataSource=self
-        UICollectionViewSlideShow.dataSource=self
         
         
         UICollectionViewCategories.delegate=self
@@ -67,11 +80,9 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         UICollectionViewHotProducts.delegate=self
         UICollectionViewHotProductCategories.delegate=self
         UICollectionViewNewProducts.delegate=self
-        UICollectionViewSlideShow.delegate=self
         
         
-        pageView.numberOfPages = slideshowProducts.count
-        startTimer()
+       
         DispatchQueue.main.async {
             // add UI related changes here
         }
@@ -82,7 +93,29 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         self.get_hot_product_categories()
         self.rest_api_get_new_products()
         // Do any additional setup after loading the view.
+        
+        
+        
+        slideshow.backgroundColor = UIColor.white
+        slideshow.slideshowInterval = 5.0
+        slideshow.pageControlPosition = PageControlPosition.underScrollView
+        slideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGray;
+        slideshow.pageControl.pageIndicatorTintColor = UIColor.black;
+        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        
+        // try out other sources such as `afNetworkingSource`, `alamofireSource` or `sdWebImageSource` or `kingfisherSource`
+       
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.didTap))
+        slideshow.addGestureRecognizer(recognizer)
+        
+        
+        
     }
+    func didTap() {
+        slideshow.presentFullScreenController(from: self)
+    }
+    
     func get_slideshow_image() {
         let url = AppConfiguration.root_url+"api/products/?start=0&limit=20"
         let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -97,15 +130,23 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
                             //array
                             let my_json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                             self.slideshowProducts=[Product]()
+                            var afNetworkingSource:[AFURLSource]=[AFURLSource]()
+                           
+                            
+                            
+                            
                             for current_product in my_json as! [[String: AnyObject]] {
                                 var product: Product
                                 print((current_product["default_photo"]!["img_path"])!);
                                 product = Product(_id: current_product["_id"] as! String,id: current_product["_id"] as! String,name: current_product["productTitle"] as! String, imageUrl: current_product["default_photo"]!["img_path"] as! String,price: current_product["unit_price"] as! Double,description: "sdfds",category: "sdfds", images: ["https://cbu01.alicdn.com/img/ibank/2018/961/739/9144937169_1182200648.jpg"])
                                 self.slideshowProducts.append(product);
+                                afNetworkingSource.append(AFURLSource(urlString: current_product["default_photo"]!["img_path"] as! String)!)
+                                
+                                
                                 
                             }
-                            print("hello load data")
-                            self.UICollectionViewSlideShow.reloadData()
+                            
+                           self.slideshow.setImageInputs(afNetworkingSource)
                             
                         } catch {
                             print("load error slideshow")
@@ -390,15 +431,7 @@ class HomeViewController: UIViewController ,UITableViewDataSource,UIScrollViewDe
         
     }
     
-    func startTimer(){
-        
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-    }
-    @objc func timerAction(){
-        
-        let desiredScrollPosition = (currentIndex < slideshowProducts.count - 1) ? currentIndex + 1 : 0
-        UICollectionViewSlideShow.scrollToItem(at: IndexPath(item: desiredScrollPosition, section: 0), at: .centeredHorizontally, animated: true)
-    }
+    
     
     
     
@@ -475,13 +508,7 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell_4 = UICollectionViewNewProducts.dequeueReusableCell(withReuseIdentifier:"cell_new_products", for: indexPath) as! ProductCollectionViewCell
             cell_4.configureCell(product: newProducts[indexPath.row])
             return cell_4
-        }else if(collectionView.tag==5){
-            print("hello view cell 5")
-            let cell_5 = UICollectionViewSlideShow.dequeueReusableCell(withReuseIdentifier:"cell_slideshow", for: indexPath) as! SlideShowCollectionViewCell
-            cell_5.configureCell(product: slideshowProducts[indexPath.row])
-            return cell_5
         }
-        
        
         return cell_0
     }

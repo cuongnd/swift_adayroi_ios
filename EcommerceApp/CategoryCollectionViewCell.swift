@@ -23,6 +23,9 @@ class CategoryCollectionViewCell: ECCollectionViewCell {
             let imageURL = URL(string: urlString)
             categoryImageView.kf.setImage(with: imageURL)
         }
+        categoryImageView.layer.masksToBounds = true
+        categoryImageView.layer.cornerRadius = categoryImageView.bounds.width / 2
+        
     }
     func configureCell1(category: Category) {
         

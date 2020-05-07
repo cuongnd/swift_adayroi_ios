@@ -23,7 +23,12 @@ target 'EcommerceApp' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-
+  pod 'ImageSlideshow', '~> 1.0.0-beta.1'
+  pod "ImageSlideshow/Alamofire"
+  pod "ImageSlideshow/AFURL"
+  pod "ImageSlideshow/SDWebImage"
+  pod "ImageSlideshow/Kingfisher"
+  
   pod 'Stripe'
 
   pod 'Material', '~> 2.0'
@@ -32,4 +37,13 @@ target 'EcommerceApp' do
   pod 'Kingfisher'
   pod 'SwiftyJSON', '3.1.4'
   pod 'GoogleMaps', '2.4.0'
+end
+
+
+post_install do | installer |
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3'
+    end
+  end
 end
