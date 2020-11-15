@@ -300,7 +300,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             self.lastIndex = 0
             let data = self.categoryArray[indexPath.item]
             self.SelectedCategoryId = data["_id"].stringValue
-            let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=3&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+            let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
             let params: NSDictionary = [:]
             self.Webservice_getCategorywiseItems(url: urlString, params:params)
         }
@@ -313,7 +313,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
                     self.pageIndex = self.pageIndex + 1
                     if self.categoryArray.count != 0
                     {
-                        let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=3&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+                        let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
                         
                        let params: NSDictionary = [:]
                         self.Webservice_getCategorywiseItems(url: urlString, params:params)
@@ -401,7 +401,7 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource {
                 self.pageIndex = self.pageIndex + 1
                 if self.categoryArray.count != 0
                 {
-                    let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=3&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+                    let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
                                            
                                           let params: NSDictionary = [:]
                     

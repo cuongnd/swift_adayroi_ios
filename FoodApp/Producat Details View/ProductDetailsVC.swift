@@ -64,8 +64,8 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate {
         self.lbl_DetailsLabel.text = "Details".localiz()
         self.lbl_IngredientsLavel.text = "Ingredients".localiz()
         self.btn_Addtocart.setTitle(cartStr, for: .normal)
-        let urlString = API_URL + "itemdetails"
-        let params: NSDictionary = ["item_id":self.itemsId]
+        let urlString = API_URL + "/api/products/"+String(self.itemsId)
+        let params: NSDictionary = [:]
         self.Webservice_getitemsDetails(url: urlString, params:params)
         cornerRadius(viewName: self.btn_Cart, radius: 8.0)
         cornerRadius(viewName: self.btn_back, radius: 8.0)
@@ -80,7 +80,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate {
         self.lbl_count.text! = "1"
     }
     override func viewWillAppear(_ animated: Bool) {
-        let urlString = API_URL + "cartcount"
+        let urlString = API_URL1 + "cartcount"
         let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
         self.Webservice_cartcount(url: urlString, params:params)
     }
@@ -386,17 +386,17 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
 extension ProductDetailsVC
 {
     func Webservice_getitemsDetails(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     let itemsData = jsonResponse!["data"].dictionaryValue
-                    let productImages = itemsData["images"]!.arrayValue
+                    let productImages = itemsData["default_photo"]!.arrayValue
                     self.productImages.removeAll()
                     for image in productImages {
                         print(image["itemimage"].stringValue)
@@ -404,7 +404,8 @@ extension ProductDetailsVC
                         print(imageSource)
                         self.productImages.append(imageSource)
                     }
-                    let item_status = itemsData["item_status"]!.stringValue
+                    //let item_status = itemsData["item_status"]!.stringValue
+                    let item_status="2"
                     if item_status == "2"
                     {
                         self.item_UnavailableView.isHidden = false
@@ -415,17 +416,19 @@ extension ProductDetailsVC
                         
                     }
                     self.imageSliderData()
-                    let ItemPrice = formatter.string(for: itemsData["item_price"]!.stringValue.toDouble)
+                    let ItemPrice = formatter.string(for: itemsData["productPrice"]!.stringValue.toDouble)
                     self.lbl_itemsPrice.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
                     let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
-                    self.FinalTotal = Double(SetTotal)!
+                    //self.FinalTotal = Double(SetTotal)!
+                    self.FinalTotal=200;
                     let ItemPriceTotal = formatter.string(for: self.FinalTotal)
                     self.btn_Addtocart.setTitle("\(self.cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)", for: .normal)
-                    self.lbl_itemsDescripation.text = itemsData["item_description"]!.stringValue
-                    self.lbl_CategoriesName.text = itemsData["category_name"]!.stringValue
-                    self.lbl_itemsName.text = itemsData["item_name"]!.stringValue
-                    self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
-                    self.itesmingredientsData = itemsData["ingredients"]!.arrayValue
+                    self.lbl_itemsDescripation.text = itemsData["productDescription"]!.stringValue
+                    //self.lbl_CategoriesName.text = itemsData["category_name"]!.stringValue
+                    //self.lbl_itemsName.text = itemsData["item_name"]!.stringValue
+                    //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
+                    //self.itesmingredientsData = itemsData["ingredients"]!.arrayValue
+                    /*
                     let datas = itemsData["addons"]!.arrayValue
                     for data in datas
                     {
@@ -434,12 +437,13 @@ extension ProductDetailsVC
                         self.addonsArray.append(obj)
                     }
                     print(self.addonsArray)
+                    */
                     self.CollectionView_IngredientsList.delegate = self
                     self.CollectionView_IngredientsList.dataSource = self
                     self.CollectionView_IngredientsList.reloadData()
                     self.Addons_Height.constant = 80 * 1
-                    let urlString = API_URL + "cartcount"
-                    let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
+                    let urlString = API_URL1 + "cartcount"
+                    let params: NSDictionary = ["user_id":2]
                     self.Webservice_cartcount(url: urlString, params:params)
                 }
                 else {
