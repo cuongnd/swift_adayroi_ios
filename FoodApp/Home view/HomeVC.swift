@@ -252,7 +252,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.categoryArray[indexPath.item]
             cell.lbl_CategoriesName.text = data["name"].stringValue
-            cell.img_categories.sd_setImage(with: URL(string: data["image"].stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+            let productImage = data["default_photo"].dictionaryValue
+            cell.img_categories.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             if indexPath.item == selectedindex
             {
                 setBorder(viewName: cell.cell_view, borderwidth: 1, borderColor: ORENGE_COLOR.cgColor, cornerRadius: 8.0)
@@ -290,7 +291,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             
             let data = self.categoryWiseItemsArray[indexPath.row]
             let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
-            vc.itemsId = data["id"]!
+            vc.itemsId = data["_id"]!
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if collectionView == self.Collectioview_categoriesList {
@@ -298,10 +299,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             self.pageIndex = 1
             self.lastIndex = 0
             let data = self.categoryArray[indexPath.item]
-            self.SelectedCategoryId = data["id"].stringValue
-            let urlString = API_URL + "item?page=\(self.pageIndex)"
-            let params: NSDictionary = ["cat_id":SelectedCategoryId,
-                                        "user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
+            self.SelectedCategoryId = data["_id"].stringValue
+            let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=3&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+            let params: NSDictionary = [:]
             self.Webservice_getCategorywiseItems(url: urlString, params:params)
         }
     }
@@ -313,9 +313,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
                     self.pageIndex = self.pageIndex + 1
                     if self.categoryArray.count != 0
                     {
-                        let urlString = API_URL + "item?page=\(self.pageIndex)"
-                        let params: NSDictionary = ["cat_id":SelectedCategoryId,
-                                                    "user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
+                        let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=3&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+                        
+                       let params: NSDictionary = [:]
                         self.Webservice_getCategorywiseItems(url: urlString, params:params)
                     }
                 }
@@ -336,7 +336,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             if self.categoryWiseItemsArray[sender.tag]["isFavorite"]! == "0" {
                 let urlString = API_URL + "addfavorite"
                 let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId),
-                                            "item_id":self.categoryWiseItemsArray[sender.tag]["id"]!]
+                                            "item_id":self.categoryWiseItemsArray[sender.tag]["_id"]!]
                 self.Webservice_FavoriteItems(url: urlString, params: params, productIndex: sender.tag)
             }
         }
@@ -391,7 +391,7 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.categoryWiseItemsArray[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
-        vc.itemsId = data["id"]!
+        vc.itemsId = data["_id"]!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -401,9 +401,11 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource {
                 self.pageIndex = self.pageIndex + 1
                 if self.categoryArray.count != 0
                 {
-                    let urlString = API_URL + "item?page=\(self.pageIndex)"
-                    let params: NSDictionary = ["cat_id":SelectedCategoryId,
-                                                "user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
+                    let urlString = API_URL + "/api/products?category_id="+String(SelectedCategoryId)+"&limit=3&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+                                           
+                                          let params: NSDictionary = [:]
+                    
+                    
                     self.Webservice_getCategorywiseItems(url: urlString, params:params)
                 }
             }
@@ -423,7 +425,7 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource {
             if self.categoryWiseItemsArray[sender.tag]["isFavorite"]! == "0" {
                 let urlString = API_URL + "addfavorite"
                 let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId),
-                                            "item_id":self.categoryWiseItemsArray[sender.tag]["id"]!]
+                                            "item_id":self.categoryWiseItemsArray[sender.tag]["_id"]!]
                 self.Webservice_FavoriteItems(url: urlString, params: params, productIndex: sender.tag)
             }
         }
@@ -454,7 +456,7 @@ extension HomeVC
                         self.Webservice_getCategorywiseItems(url: urlString, params:params)
                     }
                     let urlString = API_URL + "banner"
-                    self.Webservice_getBanner(url: urlString, params: [:])
+                    //self.Webservice_getBanner(url: urlString, params: [:])
                 }
                 else {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
@@ -515,7 +517,7 @@ extension HomeVC
                     let categoryData = jsonResponse!["data"].arrayValue
                     for product in categoryData {
                         let productImage = product["default_photo"].dictionaryValue
-                        let productObj = ["item_price":product["unit_price"].stringValue,"id":product["_id"].stringValue,"item_name":product["productTitle"].stringValue,"product_image":productImage["img_path"]!.stringValue,"isFavorite":product["is_featured"].stringValue]
+                        let productObj = ["item_price":product["unit_price"].stringValue,"_id":product["_id"].stringValue,"item_name":product["productTitle"].stringValue,"product_image":productImage["img_path"]!.stringValue,"isFavorite":product["is_featured"].stringValue]
                         self.categoryWiseItemsArray.append(productObj)
                     }
                     self.Tableview_ProductList.delegate = self
@@ -563,7 +565,7 @@ extension HomeVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["status"].stringValue
                 if responseCode == "1" {
-                    let productObj = ["item_price":self.categoryWiseItemsArray[productIndex]["item_price"]!,"id":self.categoryWiseItemsArray[productIndex]["id"]!,"item_name":self.categoryWiseItemsArray[productIndex]["item_name"]!,"product_image":self.categoryWiseItemsArray[productIndex]["product_image"]!,"isFavorite":"1"]
+                    let productObj = ["item_price":self.categoryWiseItemsArray[productIndex]["item_price"]!,"_id":self.categoryWiseItemsArray[productIndex]["_id"]!,"item_name":self.categoryWiseItemsArray[productIndex]["item_name"]!,"product_image":self.categoryWiseItemsArray[productIndex]["product_image"]!,"isFavorite":"1"]
                     
                     self.categoryWiseItemsArray.remove(at: productIndex)
                     self.categoryWiseItemsArray.insert(productObj, at: productIndex)

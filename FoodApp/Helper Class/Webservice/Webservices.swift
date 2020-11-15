@@ -84,6 +84,7 @@ class WebServices: NSObject
                         req.allHTTPHeaderFields = headers as? [String:String]
                         req.setValue("application/json", forHTTPHeaderField: "content-type")
                         req.timeoutInterval = 30
+                        //req.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
                         print(req.curlString);
                         AF.request(req).responseJSON { response in
                             switch (response.result)
