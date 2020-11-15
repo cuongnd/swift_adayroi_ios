@@ -43,11 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         return true
     }
     
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-          print("Firebase registration token: \(fcmToken)")
-          let dataDict:[String: String] = ["token": fcmToken]
-          UserDefaultManager.setStringToUserDefaults(value:fcmToken, key:UD_fcmToken)
-          NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+         
       }
       
       func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
