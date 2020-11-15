@@ -251,7 +251,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let cell = self.Collectioview_categoriesList.dequeueReusableCell(withReuseIdentifier: "Categoriescell", for: indexPath) as! Categoriescell
             cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.categoryArray[indexPath.item]
-            cell.lbl_CategoriesName.text = data["category_name"].stringValue
+            cell.lbl_CategoriesName.text = data["name"].stringValue
             cell.img_categories.sd_setImage(with: URL(string: data["image"].stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             if indexPath.item == selectedindex
             {
@@ -494,7 +494,7 @@ extension HomeVC
         }
     }
     func Webservice_getCategorywiseItems(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -508,13 +508,14 @@ extension HomeVC
                     //                    let currency = jsonResponse!["currency"].dictionaryValue
                     UserDefaultManager.setStringToUserDefaults(value: jsonResponse!["currency"].stringValue, key: UD_currency)
                     if self.pageIndex == 1 {
-                        self.lastIndex = Int(responcedata["last_page"]!.stringValue)!
+                        //self.lastIndex = Int(responcedata["last_page"]!.stringValue)!
+                        self.lastIndex = 2
                         self.categoryWiseItemsArray.removeAll()
                     }
-                    let categoryData = responcedata["data"]!.arrayValue
+                    let categoryData = jsonResponse!["data"].arrayValue
                     for product in categoryData {
-                        let productImage = product["itemimage"].dictionaryValue
-                        let productObj = ["item_price":product["item_price"].stringValue,"id":product["id"].stringValue,"item_name":product["item_name"].stringValue,"product_image":productImage["image"]!.stringValue,"isFavorite":product["is_favorite"].stringValue]
+                        let productImage = product["default_photo"].dictionaryValue
+                        let productObj = ["item_price":product["unit_price"].stringValue,"id":product["_id"].stringValue,"item_name":product["productTitle"].stringValue,"product_image":productImage["img_path"]!.stringValue,"isFavorite":product["is_featured"].stringValue]
                         self.categoryWiseItemsArray.append(productObj)
                     }
                     self.Tableview_ProductList.delegate = self
