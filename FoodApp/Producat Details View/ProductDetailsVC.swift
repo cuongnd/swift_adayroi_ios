@@ -73,7 +73,11 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate {
         cornerRadius(viewName: self.text_view, radius: 6.0)
         cornerRadius(viewName: self.lbl_Cartcount, radius: self.lbl_Cartcount.frame.height / 2)
         self.productImages.removeAll()
+        let urlGetImagesString = API_URL + "/api_task/image.get_image_by_parent_id"
         
+         let paramsGetImages: NSDictionary = ["img_parent_id":self.itemsId,"img_type":"product-image"]
+        
+        self.Webservice_getImageByProductDetail(url: urlGetImagesString, params:paramsGetImages)
         self.text_view.text = "Write Notes".localiz()
         self.text_view.textColor = UIColor.lightGray
         self.text_view.delegate = self
@@ -385,6 +389,33 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
 }
 extension ProductDetailsVC
 {
+    func Webservice_getImageByProductDetail(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    let productImages = jsonResponse!["data"].arrayValue
+                    self.productImages.removeAll()
+                    for image in productImages {
+                        print(image["itemimage"].stringValue)
+                        let imageSource = SDWebImageSource(url: URL(string: image["img_path"].stringValue)!, placeholder: UIImage(named: "placeholder_image"))
+                        print(imageSource)
+                        self.productImages.append(imageSource)
+                    }
+                    self.imageSliderData()
+                    
+                }
+                else {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                }
+            }
+        }
+    }
     func Webservice_getitemsDetails(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
