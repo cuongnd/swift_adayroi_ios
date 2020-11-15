@@ -38,6 +38,7 @@ class WebServices: NSObject
                         req.setValue("application/json", forHTTPHeaderField: "content-type")
                         req.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
                         req.timeoutInterval = 30
+                        print(req.curlString);
                         AF.request(req).responseJSON { response in
                             switch (response.result)
                             {
@@ -83,6 +84,7 @@ class WebServices: NSObject
                         req.allHTTPHeaderFields = headers as? [String:String]
                         req.setValue("application/json", forHTTPHeaderField: "content-type")
                         req.timeoutInterval = 30
+                        print(req.curlString);
                         AF.request(req).responseJSON { response in
                             switch (response.result)
                             {
@@ -252,4 +254,37 @@ class WebServices: NSObject
         }
     }
     
+}
+extension URLRequest {
+
+    /**
+     Returns a cURL command representation of this URL request.
+     */
+    public var curlString: String {
+        guard let url = url else { return "" }
+        var baseCommand = #"curl "\#(url.absoluteString)""#
+
+        if httpMethod == "HEAD" {
+            baseCommand += " --head"
+        }
+
+        var command = [baseCommand]
+
+        if let method = httpMethod, method != "GET" && method != "HEAD" {
+            command.append("-X \(method)")
+        }
+
+        if let headers = allHTTPHeaderFields {
+            for (key, value) in headers where key != "Cookie" {
+                command.append("-H '\(key): \(value)'")
+            }
+        }
+
+        if let data = httpBody, let body = String(data: data, encoding: .utf8) {
+            command.append("-d '\(body)'")
+        }
+
+        return command.joined(separator: " \\\n\t")
+    }
+
 }

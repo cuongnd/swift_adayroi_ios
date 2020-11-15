@@ -93,14 +93,14 @@ class HomeVC: UIViewController {
         self.refreshControl.endRefreshing()
         self.pageIndex = 1
         self.lastIndex = 0
-        let urlString = API_URL + "category"
+        let urlString = API_URL1 + "category"
         self.Webservice_getCategory(url: urlString, params: [:])
     }
     @objc private func refreshGridData(_ sender: Any) {
            self.refreshControl.endRefreshing()
            self.pageIndex = 1
            self.lastIndex = 0
-           let urlString = API_URL + "category"
+           let urlString = API_URL1 + "category"
            self.Webservice_getCategory(url: urlString, params: [:])
        }
     @IBAction func btnTap_menu(_ sender: UIButton) {
@@ -116,11 +116,11 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if UserDefaultManager.getStringFromUserDefaults(key: UD_userId) != ""
         {
-            let urlString = API_URL + "cartcount"
+            let urlString = API_URL1 + "cartcount"
             let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
             self.Webservice_cartcount(url: urlString, params:params)
         }
-        let urlString = API_URL + "category"
+        let urlString = API_URL + "/api/categories"
         self.Webservice_getCategory(url: urlString, params: [:])
     }
     
@@ -438,8 +438,8 @@ extension HomeVC
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     let categoryData = jsonResponse!["data"].arrayValue
                     self.categoryArray = categoryData
                     self.Collectioview_categoriesList.delegate = self
@@ -447,9 +447,9 @@ extension HomeVC
                     self.Collectioview_categoriesList.reloadData()
                     if self.categoryArray.count != 0
                     {
-                        self.SelectedCategoryId = self.categoryArray[0]["id"].stringValue
-                        let urlString = API_URL + "item"
-                        let params: NSDictionary = ["cat_id":self.SelectedCategoryId,
+                        self.SelectedCategoryId = self.categoryArray[0]["_id"].stringValue
+                        let urlString = API_URL + "/api/products"
+                        let params: NSDictionary = ["category_id":self.SelectedCategoryId,
                                                     "user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
                         self.Webservice_getCategorywiseItems(url: urlString, params:params)
                     }
@@ -501,8 +501,8 @@ extension HomeVC
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     
                     let responcedata = jsonResponse!["data"].dictionaryValue
                     //                    let currency = jsonResponse!["currency"].dictionaryValue

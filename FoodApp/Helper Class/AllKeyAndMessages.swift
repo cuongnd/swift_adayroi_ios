@@ -10,6 +10,7 @@ let BLCK_COLOR = Color_RGBA(31, 33, 36, 1)
 let GRAY_COLOR = Color_RGBA(154, 154, 154, 1)
 
 let API_URL = "https://api.adayroi.online"
+let API_URL1 = "http://localhost/foody/api/"
 let Privacy_URL = "https://localhost/foody/privacy-policy"
 let UD_userId = "UD_userId"
 let UD_currency = "UD_currency"
