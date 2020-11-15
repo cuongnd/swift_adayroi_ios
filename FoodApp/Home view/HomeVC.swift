@@ -122,6 +122,8 @@ class HomeVC: UIViewController {
         }
         let urlString = API_URL + "/api/categories"
         self.Webservice_getCategory(url: urlString, params: [:])
+       let urlStringFeatureProduct = API_URL + "/api/products?is_featured"
+                            self.Webservice_getFeatureProduct(url: urlStringFeatureProduct, params: [:])
     }
     
     @IBAction func btnTap_MapPin(_ sender: UIButton) {
@@ -455,8 +457,7 @@ extension HomeVC
                                                     "user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
                         self.Webservice_getCategorywiseItems(url: urlString, params:params)
                     }
-                    let urlString = API_URL + "banner"
-                    //self.Webservice_getBanner(url: urlString, params: [:])
+                    
                 }
                 else {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
@@ -464,7 +465,7 @@ extension HomeVC
             }
         }
     }
-    func Webservice_getBanner(url:String, params:NSDictionary) -> Void {
+    func Webservice_getFeatureProduct(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)

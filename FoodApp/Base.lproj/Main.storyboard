@@ -732,7 +732,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="375" height="148"/>
                                         <connections>
-                                            <outlet property="img_Banner" destination="LO7-3E-Y5j" id="Zit-li-Pih"/>
+                                            <outlet property="imgProduct" destination="LO7-3E-Y5j" id="Zit-li-Pih"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
