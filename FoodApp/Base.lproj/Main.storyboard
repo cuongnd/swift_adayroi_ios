@@ -253,7 +253,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgp-gD-jdh" customClass="CornerView" customModule="Food_App" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="68.666666666666686" width="335" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usernam" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-I3-jFh" userLabel="username">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-I3-jFh">
                                                         <rect key="frame" x="12" y="0.0" width="315" height="50"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -514,9 +514,9 @@
                         <outlet property="btn_showPassword" destination="TPJ-dS-gJV" id="VLE-NX-dYi"/>
                         <outlet property="btn_signup" destination="Ked-Ro-J2M" id="cet-tk-RLr"/>
                         <outlet property="txt_Email" destination="1c7-iY-grD" id="RSQ-kd-6gR"/>
+                        <outlet property="txt_FirstName" destination="Yqc-I3-jFh" id="EET-fy-K6v"/>
                         <outlet property="txt_MobileNumber" destination="zgS-RV-nJg" id="Llj-l6-sNZ"/>
                         <outlet property="txt_Password" destination="gWZ-LZ-XP9" id="u8t-4M-ICc"/>
-                        <outlet property="txt_username" destination="Yqc-I3-jFh" id="EET-fy-K6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOH-2a-noL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -732,7 +732,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="375" height="148"/>
                                         <connections>
-                                            <outlet property="imgProduct" destination="LO7-3E-Y5j" id="Zit-li-Pih"/>
+                                            <outlet property="img_Banner" destination="LO7-3E-Y5j" id="Zit-li-Pih"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

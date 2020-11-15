@@ -31,9 +31,17 @@ class SearchVC: UIViewController {
             self.Collectioview_SearchList.reloadData()
         }
         else{
-            let urlString = API_URL + "searchitem"
-            let params: NSDictionary = ["keyword":searchTxt,"user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-            self.Webservice_getSearch(url: urlString, params:params)
+            let urlString = API_URL + "/api/products?keyword="+String(searchTxt)+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+           
+            
+            var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+            let params: NSDictionary = [:]
+            
+           
+            
+            
+            self.Webservice_getSearch(url: urlString1!, params:params)
         }
     }
 }
@@ -92,9 +100,11 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         if indexPath.item == self.categoryWiseItemsArray.count - 1 {
             if self.pageIndex != self.lastIndex {
                 self.pageIndex = self.pageIndex + 1
-                let urlString = API_URL + "searchitem?page=\(self.pageIndex)"
-                let params: NSDictionary = ["keyword":searchTxt,"user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-                self.Webservice_getSearch(url: urlString, params:params)
+               
+                let urlString = API_URL + "/api/products?keyword="+String(searchTxt)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+                let params: NSDictionary = [:]
+                 var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                self.Webservice_getSearch(url: urlString1!, params:params)
             }
         }
     }
@@ -122,23 +132,22 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
 extension SearchVC
 {
     func Webservice_getSearch(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
-                    let responcedata = jsonResponse!["data"].dictionaryValue
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     if self.pageIndex == 1 {
-                        self.lastIndex = Int(responcedata["last_page"]!.stringValue)!
+                        //self.lastIndex = Int(responcedata["last_page"]!.stringValue)!
                         self.categoryWiseItemsArray.removeAll()
                     }
-                    let categoryData = responcedata["data"]!.arrayValue
+                    let categoryData = jsonResponse!["data"].arrayValue
                     for product in categoryData {
-                        let productImage = product["itemimage"].dictionaryValue
-                        let productObj = ["item_price":product["item_price"].stringValue,"id":product["id"].stringValue,"item_name":product["item_name"].stringValue,"product_image":productImage["image"]!.stringValue,"isFavorite":product["is_favorite"].stringValue]
+                        let productImage = product["default_photo"].dictionaryValue
+                        let productObj = ["item_price":product["unit_price"].stringValue,"_id":product["_id"].stringValue,"item_name":product["productTitle"].stringValue,"product_image":productImage["img_path"]!.stringValue,"isFavorite":product["is_featured"].stringValue]
                         self.categoryWiseItemsArray.append(productObj)
                     }
                     

@@ -269,7 +269,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let cell = self.Collectioview_PromotionBanner.dequeueReusableCell(withReuseIdentifier: "PromotionBannerCell", for: indexPath) as! PromotionBannerCell
             cornerRadius(viewName: cell.img_Banner, radius: 6.0)
             let data = self.BannerArray[indexPath.item]
-            cell.img_Banner.sd_setImage(with: URL(string: data["image"].stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+            let productImage = data["default_photo"].dictionaryValue
+            
+            cell.img_Banner.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             
             return cell
         }
@@ -472,8 +474,8 @@ extension HomeVC
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     let responseData = jsonResponse!["data"].arrayValue
                     self.BannerArray = responseData
                     self.Collectioview_PromotionBanner.delegate = self
