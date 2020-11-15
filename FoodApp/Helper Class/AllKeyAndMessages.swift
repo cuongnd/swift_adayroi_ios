@@ -9,7 +9,7 @@ let ORENGE_COLOR = Color_RGBA(254, 114, 76, 1)
 let BLCK_COLOR = Color_RGBA(31, 33, 36, 1)
 let GRAY_COLOR = Color_RGBA(154, 154, 154, 1)
 
-let API_URL = "http://localhost/foody/api/"
+let API_URL = "http://api.dayroi.online"
 let Privacy_URL = "http://localhost/foody/privacy-policy"
 let UD_userId = "UD_userId"
 let UD_currency = "UD_currency"
