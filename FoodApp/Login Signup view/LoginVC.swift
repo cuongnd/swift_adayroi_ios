@@ -79,9 +79,9 @@ extension LoginVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnTap_Login(_ sender: UIButton) {
-        let urlString = API_URL + "login"
+        let urlString = API_URL + "/api_task/users.login"
         let params: NSDictionary = [
-            "email":self.txt_Email.text!,
+            "username":self.txt_Email.text!,
             "password":self.txt_Password.text!,
             "token":UserDefaultManager.getStringFromUserDefaults(key: UD_fcmToken)
         ]

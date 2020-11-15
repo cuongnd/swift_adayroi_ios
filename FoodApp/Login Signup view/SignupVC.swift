@@ -14,7 +14,7 @@ class SignupVC: UIViewController {
     @IBOutlet weak var txt_MobileNumber: UITextField!
     @IBOutlet weak var txt_Password: UITextField!
     @IBOutlet weak var txt_Email: UITextField!
-    @IBOutlet weak var txt_FirstName: UITextField!
+    @IBOutlet weak var txt_username: UITextField!
     @IBOutlet weak var btn_showPassword: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +40,10 @@ extension SignupVC
     
     
     @IBAction func btnTap_signup(_ sender: UIButton) {
-        let urlString = API_URL + "register"
-        let params: NSDictionary = ["name":self.txt_FirstName.text!,
-                                    "email":self.txt_Email.text!,
-                                    "mobile":self.txt_MobileNumber.text!,
+        let urlString = API_URL + "/api_task/users.register_user"
+        let params: NSDictionary = ["user_name":self.txt_username.text!,
+                                    "user_email":self.txt_Email.text!,
+                                    "user_phone":self.txt_MobileNumber.text!,
                                     "password":self.txt_Password.text!
         ]
         self.Webservice_Register(url: urlString, params: params)
@@ -65,16 +65,17 @@ extension SignupVC
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
-                    let userData = jsonResponse!["data"].dictionaryValue
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["errorMessage"].stringValue)
+                    let userData = jsonResponse!["data_user"].dictionaryValue
                     
-                    let userId = userData["id"]!.stringValue
+                    let userId = userData["_id"]!.stringValue
                     UserDefaultManager.setStringToUserDefaults(value: userId, key: UD_userId)
                     self.navigationController?.popViewController(animated: true)
                 }
                 else {
-                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["errorMessage"].stringValue)
                 }
             }
         }
