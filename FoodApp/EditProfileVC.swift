@@ -113,20 +113,16 @@ extension EditProfileVC {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
             }
             else {
-                print(jsonResponse!)
-                let responseCode = jsonResponse!["result"].stringValue
-                if responseCode == "success" {
-                    let responseData = jsonResponse!["data"].dictionaryValue
-                    print(responseData)
-                    self.img_Profile.sd_setImage(with: URL(string: responseData["profile_image"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-                    self.txt_Name.text = responseData["name"]?.stringValue
-                    self.txt_Email.text = responseData["email"]?.stringValue
-                    self.txt_Mobile.text = responseData["mobile"]?.stringValue
-                    
+                let user = jsonResponse!.dictionaryValue
+                print(user)
+                if user["image"] != nil {
+                    let userImage = user["image"]!.dictionaryValue
+                    let userImagePath = userImage["img_path"]!.stringValue
+                    self.img_Profile.sd_setImage(with: URL(string: userImagePath), placeholderImage: UIImage(named: "placeholder_image"))
                 }
-                else {
-                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
-                }
+                self.txt_Name.text = user["fullname"]?.stringValue
+                self.txt_Email.text = user["email"]?.stringValue
+                self.txt_Mobile.text = user["phonenumber"]?.stringValue
             }
         }
     }

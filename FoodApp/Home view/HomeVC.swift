@@ -537,7 +537,7 @@ extension HomeVC
                     
                     if UserDefaultManager.getStringFromUserDefaults(key: UD_userId) != ""
                     {
-                        let urlString = API_URL + "cartcount"
+                        let urlString = API_URL1 + "cartcount"
                         let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
                         self.Webservice_cartcount(url: urlString, params:params)
                     }
