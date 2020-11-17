@@ -98,11 +98,11 @@ extension LoginVC
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
-                    let userData = jsonResponse!["data"].dictionaryValue
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    let userData = jsonResponse!["data_user"].dictionaryValue
                     
-                    let userId = userData["id"]!.stringValue
+                    let userId = userData["_id"]!.stringValue
                     UserDefaultManager.setStringToUserDefaults(value: userId, key: UD_userId)
                     UserDefaultManager.setStringToUserDefaults(value: "", key: UD_isSkip)
                     
@@ -136,7 +136,7 @@ extension LoginVC
                     
                 }
                 else {
-                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["errorMessage"].stringValue)
                 }
             }
         }

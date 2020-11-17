@@ -35,9 +35,9 @@ class EditProfileVC: UIViewController {
         cornerRadius(viewName: self.btn_Camera, radius: self.btn_Camera.frame.height / 2)
         cornerRadius(viewName: self.btn_save, radius: 8)
         setBorder(viewName: self.img_Profile, borderwidth: 3, borderColor: UIColor.white.cgColor, cornerRadius: self.img_Profile.frame.height / 2)
-        let urlString = API_URL + "getprofile"
-        let params: NSDictionary = ["user_id":UserDefaults.standard.value(forKey: UD_userId) as! String]
-        self.Webservice_GetProfile(url: urlString, params: params)
+          let urlString = API_URL + "/api/users/"+String(UserDefaults.standard.value(forKey: UD_userId) as! String)
+              let params: NSDictionary = [:]
+              self.Webservice_GetProfile(url: urlString, params: params)
         
     }
     
@@ -107,15 +107,15 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
 //MARK: Webservices
 extension EditProfileVC {
     func Webservice_GetProfile(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     let responseData = jsonResponse!["data"].dictionaryValue
                     print(responseData)
                     self.img_Profile.sd_setImage(with: URL(string: responseData["profile_image"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))

@@ -98,9 +98,9 @@ class SideMenuVC: UIViewController {
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSkip) != "1"
         {
 
-            let urlString = API_URL + "getprofile"
-            let params: NSDictionary = ["user_id":UserDefaults.standard.value(forKey: UD_userId) as! String]
-            self.Webservice_GetProfile(url: urlString, params: params)
+              let urlString = API_URL + "/api/users/"+String(UserDefaults.standard.value(forKey: UD_userId) as! String)
+                  let params: NSDictionary = [:]
+                  self.Webservice_GetProfile(url: urlString, params: params)
         }
     }
 }
@@ -170,7 +170,7 @@ extension SideMenuVC : UITableViewDataSource,UITableViewDelegate
 //MARK: Webservices
 extension SideMenuVC {
     func Webservice_GetProfile(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: "", messageStr: strErrorMessage)

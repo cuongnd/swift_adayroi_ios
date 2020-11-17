@@ -51,8 +51,8 @@ class PaymentVC: UIViewController,RazorpayPaymentCompletionProtocol {
         self.paymentType = "0"
         cornerRadius(viewName: self.btn_PayNow, radius: 8.0)
         razorpay = RazorpayCheckout.initWithKey(razorpayTestKey, andDelegate: self)
-        let urlString = API_URL + "getprofile"
-        let params: NSDictionary = ["user_id":UserDefaults.standard.value(forKey: UD_userId) as! String]
+        let urlString = API_URL + "/api/users/"+String(UserDefaults.standard.value(forKey: UD_userId) as! String)
+        let params: NSDictionary = [:]
         self.Webservice_GetProfile(url: urlString, params: params)
     }
     @IBAction func btnTap_cod(_ sender: Any) {
@@ -211,7 +211,7 @@ extension PaymentVC {
         }
     }
     func Webservice_GetProfile(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: "", messageStr: strErrorMessage)

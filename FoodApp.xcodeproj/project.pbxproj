@@ -112,7 +112,7 @@
 		C8BAC0642488F44B00ECE181 /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		C8BAC06624891BB700ECE181 /* AddtoCartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtoCartVC.swift; sourceTree = "<group>"; };
 		C8BAC0682489257100ECE181 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
-		C8C99DC22488D77E00B5C187 /* Food App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8C99DC22488D77E00B5C187 /* adayroi online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "adayroi online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C99DC52488D77E00B5C187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8C99DC72488D77E00B5C187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C8C99DCF2488D77E00B5C187 /* FoodApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodApp.xcdatamodel; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		C8C99DC32488D77E00B5C187 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8C99DC22488D77E00B5C187 /* Food App.app */,
+				C8C99DC22488D77E00B5C187 /* adayroi online.app */,
 				C8C99DDB2488D77F00B5C187 /* FoodAppTests.xctest */,
 				C8C99DE62488D77F00B5C187 /* FoodAppUITests.xctest */,
 			);
@@ -403,7 +403,7 @@
 			);
 			name = FoodApp;
 			productName = FoodApp;
-			productReference = C8C99DC22488D77E00B5C187 /* Food App.app */;
+			productReference = C8C99DC22488D77E00B5C187 /* adayroi online.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C8C99DDA2488D77F00B5C187 /* FoodAppTests */ = {
@@ -833,15 +833,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 90;
+				DEVELOPMENT_TEAM = H5Y52UW26J;
 				INFOPLIST_FILE = FoodApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FoodApp1.app;
-				PRODUCT_NAME = "Food App";
+				MARKETING_VERSION = 3.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vantinviet.banhangonlineapp;
+				PRODUCT_NAME = "adayroi online";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -853,15 +855,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 90;
+				DEVELOPMENT_TEAM = H5Y52UW26J;
 				INFOPLIST_FILE = FoodApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FoodApp1.app;
-				PRODUCT_NAME = "Food App";
+				MARKETING_VERSION = 3.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vantinviet.banhangonlineapp;
+				PRODUCT_NAME = "adayroi online";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
