@@ -3902,131 +3902,6 @@
             </objects>
             <point key="canvasLocation" x="-2386" y="-655"/>
         </scene>
-        <!--HomeVC2-->
-        <scene sceneID="CaH-Dp-GzD">
-            <objects>
-                <viewController id="3Gx-we-JH6" customClass="HomeVC2" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lh1-Zt-Etm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFB-0Z-fM2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5b-ow-YGO">
-                                        <rect key="frame" x="0.0" y="44" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Xpp-Kc-2Km"/>
-                                            <constraint firstAttribute="width" constant="44" id="eCS-Cs-xss"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="line.horizontal.3.decrease" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="semibold"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exl-ZL-bP7">
-                                        <rect key="frame" x="288.33333333333331" y="44" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="D5w-Xz-eyd"/>
-                                            <constraint firstAttribute="height" constant="44" id="Dax-gE-EZK"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="cart.fill" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="067-4K-hYJ">
-                                        <rect key="frame" x="236.33333333333337" y="44" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="NMf-2o-aXI"/>
-                                            <constraint firstAttribute="height" constant="44" id="Tqf-KN-8pT"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApC-vE-cnu">
-                                        <rect key="frame" x="312.33333333333331" y="40" width="20" height="20"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="96Q-En-xE1"/>
-                                            <constraint firstAttribute="height" constant="20" id="Zpr-hB-1mt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vs8-Fz-7qC">
-                                        <rect key="frame" x="51.999999999999993" y="56.000000000000007" width="124.33333333333331" height="20.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bom-yT-qfw">
-                                        <rect key="frame" x="184.33333333333334" y="44" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="RDo-k1-eCW"/>
-                                            <constraint firstAttribute="width" constant="44" id="VeA-mF-BuP"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="mappin.and.ellipse" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="vs8-Fz-7qC" firstAttribute="leading" secondItem="f5b-ow-YGO" secondAttribute="trailing" constant="8" id="2Py-UB-Jca"/>
-                                    <constraint firstItem="Bom-yT-qfw" firstAttribute="centerY" secondItem="067-4K-hYJ" secondAttribute="centerY" id="9X1-cA-TlC"/>
-                                    <constraint firstItem="vs8-Fz-7qC" firstAttribute="centerY" secondItem="f5b-ow-YGO" secondAttribute="centerY" id="EBW-iL-GB6"/>
-                                    <constraint firstAttribute="bottom" secondItem="f5b-ow-YGO" secondAttribute="bottom" id="Ip3-Ua-Ila"/>
-                                    <constraint firstItem="067-4K-hYJ" firstAttribute="leading" secondItem="Bom-yT-qfw" secondAttribute="trailing" constant="8" id="Jn2-vV-P0L"/>
-                                    <constraint firstItem="Exl-ZL-bP7" firstAttribute="leading" secondItem="067-4K-hYJ" secondAttribute="trailing" constant="8" id="L3b-Ua-pTK"/>
-                                    <constraint firstAttribute="height" constant="88" id="NH8-Ue-Q6F"/>
-                                    <constraint firstAttribute="bottom" secondItem="Exl-ZL-bP7" secondAttribute="bottom" id="PbW-N4-d1Y"/>
-                                    <constraint firstItem="Exl-ZL-bP7" firstAttribute="top" secondItem="ApC-vE-cnu" secondAttribute="bottom" constant="-16" id="R9R-zx-UTo"/>
-                                    <constraint firstItem="f5b-ow-YGO" firstAttribute="leading" secondItem="iFB-0Z-fM2" secondAttribute="leading" id="TcH-Nc-yXh"/>
-                                    <constraint firstItem="ApC-vE-cnu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="067-4K-hYJ" secondAttribute="trailing" constant="8" symbolic="YES" id="XE6-tB-ViU"/>
-                                    <constraint firstItem="Bom-yT-qfw" firstAttribute="leading" secondItem="vs8-Fz-7qC" secondAttribute="trailing" constant="8" id="dCy-az-n4r"/>
-                                    <constraint firstItem="067-4K-hYJ" firstAttribute="centerY" secondItem="Exl-ZL-bP7" secondAttribute="centerY" id="fyW-fF-7hE"/>
-                                    <constraint firstAttribute="trailing" secondItem="ApC-vE-cnu" secondAttribute="trailing" constant="42.666666666666629" id="rnX-2S-UJw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Exl-ZL-bP7" secondAttribute="trailing" constant="42.666666666666629" id="xGF-qv-Fk6"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHF-el-L1t">
-                                <rect key="frame" x="0.0" y="96" width="375" height="1218"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNS-Kl-BBW">
-                                        <rect key="frame" x="123" y="345" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qw-O3-e87">
-                                        <rect key="frame" x="149" y="636" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="98G-sR-nbI"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Ugw-h4-ztV"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="sBq-Mm-zJM" firstAttribute="bottom" secondItem="iFB-0Z-fM2" secondAttribute="bottom" constant="690" id="69U-qY-yeS"/>
-                            <constraint firstItem="iFB-0Z-fM2" firstAttribute="centerX" secondItem="Lh1-Zt-Etm" secondAttribute="centerX" id="T8G-bL-P9n"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sBq-Mm-zJM"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qez-l6-5o2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1772" y="-855.66502463054189"/>
-        </scene>
         <!--Change PassswordVC-->
         <scene sceneID="XYk-f9-IUF">
             <objects>
@@ -7060,7 +6935,6 @@
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark.seal" catalog="system" width="128" height="122"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>

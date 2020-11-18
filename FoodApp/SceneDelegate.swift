@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
                 {
                     let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-                    let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC1") as! HomeVC2
                     let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
                     let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
                     appNavigation.setNavigationBarHidden(true, animated: true)

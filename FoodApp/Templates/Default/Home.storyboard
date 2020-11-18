@@ -517,10 +517,10 @@
             </objects>
             <point key="canvasLocation" x="-700" y="-734"/>
         </scene>
-        <!--HomeVC-->
+        <!--HomeVC1-->
         <scene sceneID="kix-bY-SSC">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="hci-27-zqJ" customClass="HomeVC" customModule="adayroi_online" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC1" id="hci-27-zqJ" userLabel="HomeVC1" customClass="HomeVC2" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8q5-Gr-HdA"/>
                         <viewControllerLayoutGuide type="bottom" id="YYY-AP-rSo"/>
