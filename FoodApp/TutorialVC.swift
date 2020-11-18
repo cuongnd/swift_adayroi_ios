@@ -35,7 +35,7 @@ class TutorialVC: UIViewController {
 extension TutorialVC {
     @IBAction func btnSkip_Clicked(_ sender: UIButton) {
         UserDefaults.standard.set("1", forKey: UD_isTutorial)
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "User", bundle: nil)
         let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let nav : UINavigationController = UINavigationController(rootViewController: objVC)
         nav.navigationBar.isHidden = true

@@ -40,7 +40,7 @@ class SettingsVC: UIViewController {
     @IBAction func btnTap_EditProfile(_ sender: UIButton) {
         if UserDefaultManager.getStringFromUserDefaults(key:UD_isSkip) == "1"
         {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let storyBoard = UIStoryboard(name: "User", bundle: nil)
             let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
             let nav : UINavigationController = UINavigationController(rootViewController: objVC)
             nav.navigationBar.isHidden = true
@@ -53,7 +53,7 @@ class SettingsVC: UIViewController {
     @IBAction func btnTap_ChangePassword(_ sender: UIButton) {
         if UserDefaultManager.getStringFromUserDefaults(key:UD_isSkip) == "1"
         {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let storyBoard = UIStoryboard(name: "User", bundle: nil)
             let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
             let nav : UINavigationController = UINavigationController(rootViewController: objVC)
             nav.navigationBar.isHidden = true

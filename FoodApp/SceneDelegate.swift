@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         else {
             if UserDefaults.standard.value(forKey: UD_userId) == nil || UserDefaults.standard.value(forKey: UD_userId) as! String == "" || UserDefaults.standard.value(forKey: UD_userId) as! String == "N/A" {
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let storyBoard = UIStoryboard(name: "User", bundle: nil)
                 let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
                 let nav : UINavigationController = UINavigationController(rootViewController: objVC)
                 nav.navigationBar.isHidden = true

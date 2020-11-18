@@ -70,25 +70,24 @@ class SideMenuVC: UIViewController {
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         self.homeViewController = UINavigationController(rootViewController: homeVC)
         self.homeViewController.setNavigationBarHidden(true, animated: true)
-        
-        let historyVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderHistoryVC") as! OrderHistoryVC
+        let historyVC = UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "OrderHistoryVC") as! OrderHistoryVC
         self.historyViewController = UINavigationController(rootViewController: historyVC)
         self.historyViewController.setNavigationBarHidden(true, animated: true)
         
-        let LoginsVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        let LoginsVC = UIStoryboard(name: "User", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.LoginViewController = UINavigationController(rootViewController: LoginsVC)
         self.LoginViewController.setNavigationBarHidden(true,animated:true)
         
         
-        let SettingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+        let SettingVC = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         self.SettingsViewController = UINavigationController(rootViewController: SettingVC)
         self.SettingsViewController.setNavigationBarHidden(true,animated:true)
         
-        let rateVC = self.storyboard?.instantiateViewController(withIdentifier: "RatingsVC") as! RatingsVC
+        let rateVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(withIdentifier: "RatingsVC") as! RatingsVC
         self.RatingsViewController = UINavigationController(rootViewController: rateVC)
         self.RatingsViewController.setNavigationBarHidden(true,animated:true)
         
-        let FavoritesVC = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteListVC") as! FavoriteListVC
+        let FavoritesVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(withIdentifier: "FavoriteListVC") as! FavoriteListVC
         self.FavoriteViewController = UINavigationController(rootViewController: FavoritesVC)
         self.FavoriteViewController.setNavigationBarHidden(true,animated:true)
         
@@ -186,7 +185,7 @@ extension SideMenuVC {
                 }
                 else if responseCode == "2"
                 {
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyBoard = UIStoryboard(name: "User", bundle: nil)
                     let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
                     let nav : UINavigationController = UINavigationController(rootViewController: objVC)
                     nav.navigationBar.isHidden = true
