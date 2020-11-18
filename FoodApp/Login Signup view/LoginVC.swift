@@ -41,8 +41,8 @@ class LoginVC: UIViewController {
         UserDefaultManager.setStringToUserDefaults(value: "", key: UD_userId)
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
         {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC2") as! HomeVC2
+            let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+            let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
             let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
             let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
             appNavigation.setNavigationBarHidden(true, animated: true)
@@ -53,8 +53,8 @@ class LoginVC: UIViewController {
         }
         else
         {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC2") as! HomeVC2
+            let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+            let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
             let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
             let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
             appNavigation.setNavigationBarHidden(true, animated: true)
