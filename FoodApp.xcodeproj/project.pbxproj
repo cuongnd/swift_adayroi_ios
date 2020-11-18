@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5170E125643E4C00C4EA7F /* HomeVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5170E025643E4C00C4EA7F /* HomeVC2.swift */; };
 		3158D387ECE044FAA2E345B4 /* Pods_FoodAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA734C84F8708E51D60AFAB /* Pods_FoodAppUITests.framework */; };
 		462E27F9DFCBDA8CC42467F9 /* Pods_FoodAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281C0BC3F3E4979D860086D0 /* Pods_FoodAppTests.framework */; };
 		809C673A70B84F1780EFDE8D /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E9028D1FEB6A09E3D77F28 /* Pods_FoodApp.framework */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		01E2E19DB1CA0A2FA3792ED6 /* Pods-FoodAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodAppUITests/Pods-FoodAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C5170E025643E4C00C4EA7F /* HomeVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC2.swift; sourceTree = "<group>"; };
 		281C0BC3F3E4979D860086D0 /* Pods_FoodAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA734C84F8708E51D60AFAB /* Pods_FoodAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE5B8DD4D09D6572CFDDBF3 /* Pods-FoodAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodAppUITests/Pods-FoodAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				C8BAC05F2488EBEB00ECE181 /* HomeVC.swift */,
+				0C5170E025643E4C00C4EA7F /* HomeVC2.swift */,
 			);
 			path = "Home view";
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				C8C99E032488D93C00B5C187 /* commonFunction.swift in Sources */,
 				C8349E3824979C59009EEF8D /* RatingsVC.swift in Sources */,
 				C8BAC05E2488E7BC00ECE181 /* SignupVC.swift in Sources */,
+				0C5170E125643E4C00C4EA7F /* HomeVC2.swift in Sources */,
 				C8BAC0622488F3FC00ECE181 /* SDWebImageSource.swift in Sources */,
 				88F7445124A5C2D300800568 /* FavoriteListVC.swift in Sources */,
 				C8C99E062488D93C00B5C187 /* UserDefaults.swift in Sources */,
