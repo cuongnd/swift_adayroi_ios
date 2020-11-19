@@ -74,12 +74,7 @@ class HomeVC: UIViewController {
     var longitude = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-       
-        
-        
+  
     }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -184,7 +179,22 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        if collectionView == self.Collectioview_lastProductList{
+            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        }else if collectionView == self.Collectioview_HomeHotCategoryList{
+            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        }else if collectionView == self.Collectioview_HomeHotProductList{
+                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        }else if collectionView == self.Collectioview_HomeDiscountProductList{
+            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        }else if collectionView == self.Collectioview_HomeCategoryList{
+           return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        }else if collectionView == self.Collectioview_HomeFeatureProductList{
+          return CGSize(width:(UIScreen.main.bounds.width) / 1, height: 250)
+        }else{
+           return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
+        }
+          
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
