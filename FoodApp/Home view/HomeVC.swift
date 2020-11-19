@@ -13,7 +13,7 @@ import SlideMenuControllerSwift
 import CoreLocation
 import MapKit
 
-class HomeProductCell: UICollectionViewCell
+class HomeLastProductCell: UICollectionViewCell
 {
     @IBOutlet weak var cell_view: UIView!
     @IBOutlet weak var img_product: UIImageView!
@@ -25,7 +25,7 @@ class HomeProductCell: UICollectionViewCell
 class HomeVC: UIViewController {
     
 
-    @IBOutlet weak var Collectioview_categoriesList: UICollectionView!
+    @IBOutlet weak var Collectioview_lastProductList: UICollectionView!
    
     
     var categoryArray = [JSON]()
@@ -48,7 +48,7 @@ class HomeVC: UIViewController {
    
     override func viewWillAppear(_ animated: Bool) {
         
-        let urlString = API_URL + "/api/categories"
+        let urlString = API_URL + "/api/products"
         self.Webservice_getCategory(url: urlString, params: [:])
        
     }
@@ -60,17 +60,28 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
          return categoryArray.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.Collectioview_categoriesList.dequeueReusableCell(withReuseIdentifier: "HomeProductCell", for: indexPath) as! HomeProductCell
-        //cornerRadius(viewName: cell.img_categories, radius: 6.0)
-        let data = self.categoryArray[indexPath.item]
-        cell.lbl_ProductName.text = data["name"].stringValue
-        let productImage = data["default_photo"].dictionaryValue
-        cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+        if collectionView == self.Collectioview_lastProductList{
+            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeProductCell", for: indexPath) as! HomeLastProductCell
+            //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+            let data = self.categoryArray[indexPath.item]
+            cell.lbl_ProductName.text = data["name"].stringValue
+            let productImage = data["default_photo"].dictionaryValue
+            cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+             return cell
+        }else{
+            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeProductCell", for: indexPath) as! HomeLastProductCell
+            //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+            let data = self.categoryArray[indexPath.item]
+            cell.lbl_ProductName.text = data["name"].stringValue
+            let productImage = data["default_photo"].dictionaryValue
+            cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+             return cell
+        }
         
-        return cell
+       
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width:(UIScreen.main.bounds.width) / 1.3, height: 120)
+          return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 120)
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -95,9 +106,9 @@ extension HomeVC
                 if responseCode == "success" {
                     let categoryData = jsonResponse!["data"].arrayValue
                     self.categoryArray = categoryData
-                    self.Collectioview_categoriesList.delegate = self
-                    self.Collectioview_categoriesList.dataSource = self
-                    self.Collectioview_categoriesList.reloadData()
+                    self.Collectioview_lastProductList.delegate = self
+                    self.Collectioview_lastProductList.dataSource = self
+                    self.Collectioview_lastProductList.reloadData()
                     
                     
                 }
