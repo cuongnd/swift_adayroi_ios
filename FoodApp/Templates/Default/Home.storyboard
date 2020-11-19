@@ -1058,7 +1058,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1n-PR-9gl">
                                                         <rect key="frame" x="0.0" y="38" width="375" height="427"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-ep-hw0">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Product" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-ep-hw0" userLabel="Collection Home Hot Product">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auG-gt-bdJ">
@@ -1068,7 +1068,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="center" reuseIdentifier="cell_hot_category" id="q1S-uz-arM" customClass="CategoryCollectionViewCell" customModule="adayroi_online" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="center" restorationIdentifier="HomeHotProductCell" reuseIdentifier="HomeHotProductCell" id="q1S-uz-arM" userLabel="homeHotProductCell" customClass="HomeHotProductCell">
                                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1119,10 +1119,6 @@
                                                                             <constraint firstAttribute="trailing" secondItem="8kY-5P-Ica" secondAttribute="trailing" id="KCg-Re-8gG"/>
                                                                             <constraint firstAttribute="bottom" secondItem="8kY-5P-Ica" secondAttribute="bottom" id="wgo-7J-nMB"/>
                                                                         </constraints>
-                                                                        <connections>
-                                                                            <outlet property="categoryImageView" destination="fFB-9K-rWK" id="7Mc-Ug-2w8"/>
-                                                                            <outlet property="categoryLabel" destination="kyb-t3-dep" id="2pY-sD-P0y"/>
-                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
@@ -1192,7 +1188,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="center" reuseIdentifier="HomeProductCell" id="rFD-sH-wEE" userLabel="homeLastProductCell" customClass="HomeLastProductCell" customModule="adayroi_online" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="center" reuseIdentifier="HomeLastProductCell" id="rFD-sH-wEE" userLabel="homeLastProductCell" customClass="HomeLastProductCell" customModule="adayroi_online" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.5" width="175" height="276"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1339,6 +1335,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="2080"/>
                     <connections>
+                        <outlet property="Collectioview_HomeHotProductList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>
                     </connections>
                 </viewController>

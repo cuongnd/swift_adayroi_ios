@@ -20,16 +20,21 @@ class HomeLastProductCell: UICollectionViewCell
     @IBOutlet weak var lbl_ProductName: UILabel!
 }
 
-
+class HomeHotProductCell: UICollectionViewCell
+{
+    @IBOutlet weak var cell_view: UIView!
+    @IBOutlet weak var img_hot_product: UIImageView!
+    @IBOutlet weak var lbl_HotProductName: UILabel!
+}
 
 class HomeVC: UIViewController {
     
 
     @IBOutlet weak var Collectioview_lastProductList: UICollectionView!
    
-    
-    var categoryArray = [JSON]()
-   
+    @IBOutlet weak var Collectioview_HomeHotProductList: UICollectionView!
+    var lastProductArray = [JSON]()
+    var homeProductArray = [JSON]()
     var pageIndex = 1
     var lastIndex = 0
     var SelectedCategoryId = String()
@@ -49,7 +54,9 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         let urlString = API_URL + "/api/products"
-        self.Webservice_getCategory(url: urlString, params: [:])
+        self.Webservice_getHomeLastProducts(url: urlString, params: [:])
+        let urlStringHomeProducts = API_URL + "/api/categories"
+        self.Webservice_getHomeHotProducts(url: urlStringHomeProducts, params: [:])
        
     }
     
@@ -57,21 +64,37 @@ class HomeVC: UIViewController {
 }
 extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return categoryArray.count
+        if collectionView == self.Collectioview_lastProductList{
+            return lastProductArray.count
+        }else if collectionView == self.Collectioview_HomeHotProductList{
+            return homeProductArray.count
+        }else{
+            
+        }
+        return 0
+         
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.Collectioview_lastProductList{
-            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeProductCell", for: indexPath) as! HomeLastProductCell
+            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
-            let data = self.categoryArray[indexPath.item]
+            let data = self.lastProductArray[indexPath.item]
             cell.lbl_ProductName.text = data["name"].stringValue
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
              return cell
-        }else{
-            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeProductCell", for: indexPath) as! HomeLastProductCell
+        }else if collectionView == self.Collectioview_HomeHotProductList{
+            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeHotProductCell", for: indexPath) as! HomeHotProductCell
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
-            let data = self.categoryArray[indexPath.item]
+            let data = self.lastProductArray[indexPath.item]
+            cell.lbl_HotProductName.text = data["name"].stringValue
+            let productImage = data["default_photo"].dictionaryValue
+            cell.img_hot_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+             return cell
+        }else{
+            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
+            //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+            let data = self.lastProductArray[indexPath.item]
             cell.lbl_ProductName.text = data["name"].stringValue
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
@@ -95,7 +118,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
 
 extension HomeVC
 {
-    func Webservice_getCategory(url:String, params:NSDictionary) -> Void {
+    func Webservice_getHomeLastProducts(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -104,11 +127,34 @@ extension HomeVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
-                    let categoryData = jsonResponse!["data"].arrayValue
-                    self.categoryArray = categoryData
+                    let homeLastProductData = jsonResponse!["data"].arrayValue
+                    self.lastProductArray = homeLastProductData
                     self.Collectioview_lastProductList.delegate = self
                     self.Collectioview_lastProductList.dataSource = self
                     self.Collectioview_lastProductList.reloadData()
+                    
+                    
+                }
+                else {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                }
+            }
+        }
+    }
+    func Webservice_getHomeHotProducts(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    let homeCategoryData = jsonResponse!["data"].arrayValue
+                    self.homeProductArray = homeCategoryData
+                    self.Collectioview_HomeHotProductList.delegate = self
+                    self.Collectioview_HomeHotProductList.dataSource = self
+                    self.Collectioview_HomeHotProductList.reloadData()
                     
                     
                 }
