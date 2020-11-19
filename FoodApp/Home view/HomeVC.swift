@@ -38,6 +38,12 @@ class HomeDiscountProductCell: UICollectionViewCell
     @IBOutlet weak var img_discount_product: UIImageView!
     @IBOutlet weak var lbl_DiscountProductName: UILabel!
 }
+class HomeCategoryCell: UICollectionViewCell
+{
+    @IBOutlet weak var cell_view: UIView!
+    @IBOutlet weak var img_category: UIImageView!
+    @IBOutlet weak var lbl_CategoryName: UILabel!
+}
 class HomeVC: UIViewController {
     
 
@@ -46,10 +52,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var Collectioview_HomeHotCategoryList: UICollectionView!
     @IBOutlet weak var Collectioview_HomeHotProductList: UICollectionView!
     @IBOutlet weak var Collectioview_HomeDiscountProductList: UICollectionView!
+    @IBOutlet weak var Collectioview_HomeCategoryList: UICollectionView!
     var lastProductArray = [JSON]()
     var homeHotCategoryArray = [JSON]()
     var homeHotProductArray = [JSON]()
     var homeDiscountProductArray = [JSON]()
+    var homeCategoryArray = [JSON]()
     var pageIndex = 1
     var lastIndex = 0
     var SelectedCategoryId = String()
@@ -76,6 +84,8 @@ class HomeVC: UIViewController {
         self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
         let urlStringHomeDiscountProduct = API_URL + "/api/products"
         self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
+        let urlStringHomeCategory = API_URL + "/api/categories"
+       self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
 
     }
     
@@ -90,7 +100,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotProductList{
             return homeHotProductArray.count
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
-        return homeDiscountProductArray.count
+            return homeDiscountProductArray.count
+        }else if collectionView == self.Collectioview_HomeCategoryList{
+            return homeCategoryArray.count
         }else{
             
         }
@@ -122,22 +134,30 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
                 let product_Image = data["default_photo"].dictionaryValue
                 cell.img_hot_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
                  return cell
-            }else if collectionView == self.Collectioview_HomeDiscountProductList{
-                let cell = self.Collectioview_HomeDiscountProductList.dequeueReusableCell(withReuseIdentifier: "HomeDiscountProductCell", for: indexPath) as! HomeDiscountProductCell
-                //cornerRadius(viewName: cell.img_categories, radius: 6.0)
-                let data = self.homeDiscountProductArray[indexPath.item]
-                cell.lbl_DiscountProductName.text = data["name"].stringValue
-                let product_Image = data["default_photo"].dictionaryValue
-                cell.img_discount_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-                 return cell
-            }else{
-                let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
-                //cornerRadius(viewName: cell.img_categories, radius: 6.0)
-                let data = self.lastProductArray[indexPath.item]
-                cell.lbl_ProductName.text = data["name"].stringValue
-                let productImage = data["default_photo"].dictionaryValue
-                cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-                 return cell
+        }else if collectionView == self.Collectioview_HomeDiscountProductList{
+            let cell = self.Collectioview_HomeDiscountProductList.dequeueReusableCell(withReuseIdentifier: "HomeDiscountProductCell", for: indexPath) as! HomeDiscountProductCell
+            //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+            let data = self.homeDiscountProductArray[indexPath.item]
+            cell.lbl_DiscountProductName.text = data["name"].stringValue
+            let product_Image = data["default_photo"].dictionaryValue
+            cell.img_discount_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+             return cell
+        }else if collectionView == self.Collectioview_HomeCategoryList{
+           let cell = self.Collectioview_HomeCategoryList.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCell", for: indexPath) as! HomeCategoryCell
+           //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+           let data = self.homeCategoryArray[indexPath.item]
+           cell.lbl_CategoryName.text = data["name"].stringValue
+           let category_Image = data["default_photo"].dictionaryValue
+           cell.img_category.sd_setImage(with: URL(string: category_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+            return cell
+        }else{
+            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
+            //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+            let data = self.lastProductArray[indexPath.item]
+            cell.lbl_ProductName.text = data["name"].stringValue
+            let productImage = data["default_photo"].dictionaryValue
+            cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+             return cell
         }
         
        
@@ -240,6 +260,29 @@ extension HomeVC
                     self.Collectioview_HomeDiscountProductList.delegate = self
                     self.Collectioview_HomeDiscountProductList.dataSource = self
                     self.Collectioview_HomeDiscountProductList.reloadData()
+                    
+                    
+                }
+                else {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                }
+            }
+        }
+    }
+    func Webservice_getHomeCategories(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    let homeCategoriesData = jsonResponse!["data"].arrayValue
+                    self.homeCategoryArray = homeCategoriesData
+                    self.Collectioview_HomeCategoryList.delegate = self
+                    self.Collectioview_HomeCategoryList.dataSource = self
+                    self.Collectioview_HomeCategoryList.reloadData()
                     
                     
                 }
