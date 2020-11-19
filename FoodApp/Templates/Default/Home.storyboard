@@ -571,7 +571,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="center" reuseIdentifier="cell_slideshow" id="Tpa-6Z-T4Y" customClass="SlideShowCollectionViewCell" customModule="adayroi_online" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="center" restorationIdentifier="HomeFeatureProductCell" reuseIdentifier="HomeFeatureProductCell" id="Tpa-6Z-T4Y" customClass="HomeFeatureProductCell" customModule="adayroi_online" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="24" width="375" height="181"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -635,9 +635,8 @@
                                                                     <constraint firstItem="vgb-7K-ysr" firstAttribute="top" secondItem="Tpa-6Z-T4Y" secondAttribute="top" constant="-11" id="k9p-fm-veE"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <outlet property="productImageView" destination="hPl-wt-QTP" id="Up1-xm-PDK"/>
-                                                                    <outlet property="productPriceLabel" destination="xRb-8a-uoQ" id="hsG-rd-xYr"/>
-                                                                    <outlet property="productTitleLabel" destination="QMi-4a-y4Y" id="eYE-vg-gvM"/>
+                                                                    <outlet property="img_featureProduct" destination="hPl-wt-QTP" id="sBr-kG-C2W"/>
+                                                                    <outlet property="lbl_FeatureProductName" destination="QMi-4a-y4Y" id="rBZ-fL-RJ5"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
@@ -1345,6 +1344,7 @@
                     <connections>
                         <outlet property="Collectioview_HomeCategoryList" destination="fr0-eM-Lbv" id="I1h-qn-PTd"/>
                         <outlet property="Collectioview_HomeDiscountProductList" destination="VPt-0s-s8r" id="fZr-SI-7NU"/>
+                        <outlet property="Collectioview_HomeFeatureProductList" destination="OSf-wV-Kdq" id="jMR-SL-t4z"/>
                         <outlet property="Collectioview_HomeHotCategoryList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
                         <outlet property="Collectioview_HomeHotProductList" destination="Iug-ic-rWk" id="OWs-r0-rMb"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>

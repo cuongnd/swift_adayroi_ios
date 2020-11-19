@@ -44,6 +44,12 @@ class HomeCategoryCell: UICollectionViewCell
     @IBOutlet weak var img_category: UIImageView!
     @IBOutlet weak var lbl_CategoryName: UILabel!
 }
+class HomeFeatureProductCell: UICollectionViewCell
+{
+    @IBOutlet weak var cell_view: UIView!
+    @IBOutlet weak var img_featureProduct: UIImageView!
+    @IBOutlet weak var lbl_FeatureProductName: UILabel!
+}
 class HomeVC: UIViewController {
     
 
@@ -53,11 +59,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var Collectioview_HomeHotProductList: UICollectionView!
     @IBOutlet weak var Collectioview_HomeDiscountProductList: UICollectionView!
     @IBOutlet weak var Collectioview_HomeCategoryList: UICollectionView!
+    @IBOutlet weak var Collectioview_HomeFeatureProductList: UICollectionView!
     var lastProductArray = [JSON]()
     var homeHotCategoryArray = [JSON]()
     var homeHotProductArray = [JSON]()
     var homeDiscountProductArray = [JSON]()
     var homeCategoryArray = [JSON]()
+    var homeFeatureProductArray = [JSON]()
     var pageIndex = 1
     var lastIndex = 0
     var SelectedCategoryId = String()
@@ -86,6 +94,9 @@ class HomeVC: UIViewController {
         self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
         let urlStringHomeCategory = API_URL + "/api/categories"
        self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
+        let urlStringHomeFeatureProducts = API_URL + "/api/products"
+      self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
+
 
     }
     
@@ -103,6 +114,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             return homeDiscountProductArray.count
         }else if collectionView == self.Collectioview_HomeCategoryList{
             return homeCategoryArray.count
+        }else if collectionView == self.Collectioview_HomeFeatureProductList{
+            return homeFeatureProductArray.count
         }else{
             
         }
@@ -150,6 +163,14 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
            let category_Image = data["default_photo"].dictionaryValue
            cell.img_category.sd_setImage(with: URL(string: category_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             return cell
+        }else if collectionView == self.Collectioview_HomeFeatureProductList{
+          let cell = self.Collectioview_HomeFeatureProductList.dequeueReusableCell(withReuseIdentifier: "HomeFeatureProductCell", for: indexPath) as! HomeFeatureProductCell
+          //cornerRadius(viewName: cell.img_categories, radius: 6.0)
+          let data = self.homeFeatureProductArray[indexPath.item]
+          cell.lbl_FeatureProductName.text = data["name"].stringValue
+          let feature_product_Image = data["default_photo"].dictionaryValue
+          cell.img_featureProduct.sd_setImage(with: URL(string: feature_product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+           return cell
         }else{
             let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
@@ -292,5 +313,28 @@ extension HomeVC
             }
         }
     }
+    func Webservice_getHomeFeatureProducts(url:String, params:NSDictionary) -> Void {
+           WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+               if strErrorMessage.count != 0 {
+                   showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+               }
+               else {
+                   print(jsonResponse!)
+                   let responseCode = jsonResponse!["result"].stringValue
+                   if responseCode == "success" {
+                       let homeFeatureProductsData = jsonResponse!["data"].arrayValue
+                       self.homeFeatureProductArray = homeFeatureProductsData
+                       self.Collectioview_HomeFeatureProductList.delegate = self
+                       self.Collectioview_HomeFeatureProductList.dataSource = self
+                       self.Collectioview_HomeFeatureProductList.reloadData()
+                       
+                       
+                   }
+                   else {
+                       showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                   }
+               }
+           }
+       }
     
 }
