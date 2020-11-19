@@ -713,7 +713,7 @@
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Anne Hathaway" translatesAutoresizingMaskIntoConstraints="NO" id="0zT-7k-otO">
-                                                                                    <rect key="frame" x="26" y="0.0" width="73" height="86"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="86"/>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <real key="value" value="20"/>
@@ -721,7 +721,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JJ-UX-6Ah">
-                                                                                    <rect key="frame" x="49" y="86" width="35.5" height="24"/>
+                                                                                    <rect key="frame" x="49" y="86" width="34" height="24"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="24" id="GNC-6O-wV5"/>
                                                                                     </constraints>
@@ -732,17 +732,14 @@
                                                                             </subviews>
                                                                         </view>
                                                                         <constraints>
-                                                                            <constraint firstItem="0zT-7k-otO" firstAttribute="top" secondItem="neA-EZ-xYO" secondAttribute="topMargin" constant="-8" id="2gn-nX-xb9"/>
-                                                                            <constraint firstItem="0zT-7k-otO" firstAttribute="leading" secondItem="neA-EZ-xYO" secondAttribute="leadingMargin" constant="18" id="M15-cd-qGT"/>
-                                                                            <constraint firstAttribute="trailingMargin" secondItem="0zT-7k-otO" secondAttribute="trailing" constant="25" id="QJk-WU-aa4"/>
-                                                                            <constraint firstItem="0zT-7k-otO" firstAttribute="centerX" secondItem="6JJ-UX-6Ah" secondAttribute="centerX" constant="-4.1666666666666714" id="fom-uF-LAi"/>
+                                                                            <constraint firstItem="0zT-7k-otO" firstAttribute="top" secondItem="neA-EZ-xYO" secondAttribute="topMargin" constant="-8" id="3ZA-0g-k9Y"/>
+                                                                            <constraint firstItem="6JJ-UX-6Ah" firstAttribute="leading" secondItem="neA-EZ-xYO" secondAttribute="leadingMargin" constant="41" id="4qf-hN-2Zc"/>
+                                                                            <constraint firstItem="6JJ-UX-6Ah" firstAttribute="centerX" secondItem="0zT-7k-otO" secondAttribute="centerX" id="FM8-QW-gG7"/>
+                                                                            <constraint firstItem="6JJ-UX-6Ah" firstAttribute="top" secondItem="0zT-7k-otO" secondAttribute="bottom" id="YQy-c8-n3f"/>
+                                                                            <constraint firstItem="0zT-7k-otO" firstAttribute="centerX" secondItem="neA-EZ-xYO" secondAttribute="centerX" id="h8b-Qe-opB"/>
                                                                             <constraint firstAttribute="bottomMargin" secondItem="6JJ-UX-6Ah" secondAttribute="bottom" constant="5" id="lQi-55-jBy"/>
-                                                                            <constraint firstItem="6JJ-UX-6Ah" firstAttribute="top" secondItem="0zT-7k-otO" secondAttribute="bottom" id="yx4-t4-oTP"/>
+                                                                            <constraint firstItem="0zT-7k-otO" firstAttribute="leading" secondItem="neA-EZ-xYO" secondAttribute="leadingMargin" constant="-8" id="m0e-1m-ipN"/>
                                                                         </constraints>
-                                                                        <connections>
-                                                                            <outlet property="categoryImageView" destination="0zT-7k-otO" id="uAc-91-j75"/>
-                                                                            <outlet property="categoryLabel" destination="6JJ-UX-6Ah" id="Fgj-SV-0Or"/>
-                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
