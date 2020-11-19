@@ -1058,7 +1058,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1n-PR-9gl">
                                                         <rect key="frame" x="0.0" y="38" width="375" height="427"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Product" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-ep-hw0" userLabel="Collection Home Hot Product">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Category" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-ep-hw0" userLabel="Collection Home Hot Category">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auG-gt-bdJ">
@@ -1068,7 +1068,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="center" restorationIdentifier="HomeHotProductCell" reuseIdentifier="HomeHotProductCell" id="q1S-uz-arM" userLabel="homeHotProductCell" customClass="HomeHotProductCell">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="center" restorationIdentifier="HomeHotCategoryCell" reuseIdentifier="HomeHotCategoryCell" id="q1S-uz-arM" userLabel="homeHotCategoryCell" customClass="HomeHotCategoryCell" customModule="adayroi_online">
                                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1078,14 +1078,15 @@
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kY-5P-Ica">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                                     <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dakota Johnson" translatesAutoresizingMaskIntoConstraints="NO" id="fFB-9K-rWK">
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dakota Johnson" translatesAutoresizingMaskIntoConstraints="NO" id="fFB-9K-rWK" userLabel="Img hot category">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                                         </imageView>
                                                                                         <view alpha="0.55000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7g-1i-Vhd">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="203"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-t3-dep">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lbl_HotCategoryName" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-t3-dep" userLabel="Lbl Hot Category Name">
                                                                                                     <rect key="frame" x="22" y="91" width="131" height="21"/>
+                                                                                                    <accessibility key="accessibilityConfiguration" identifier="lbl_HotCategoryName"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -1119,6 +1120,10 @@
                                                                             <constraint firstAttribute="trailing" secondItem="8kY-5P-Ica" secondAttribute="trailing" id="KCg-Re-8gG"/>
                                                                             <constraint firstAttribute="bottom" secondItem="8kY-5P-Ica" secondAttribute="bottom" id="wgo-7J-nMB"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <outlet property="img_hot_category" destination="fFB-9K-rWK" id="VI6-cm-ZYd"/>
+                                                                            <outlet property="lbl_HotCategoryName" destination="kyb-t3-dep" id="dEI-9q-sBB"/>
+                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
@@ -1188,7 +1193,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="center" reuseIdentifier="HomeLastProductCell" id="rFD-sH-wEE" userLabel="homeLastProductCell" customClass="HomeLastProductCell" customModule="adayroi_online" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="center" reuseIdentifier="HomeLastProductCell" id="rFD-sH-wEE" userLabel="homeLastProductCell" customClass="HomeLastProductCell" customModule="adayroi_online">
                                                                         <rect key="frame" x="0.0" y="0.5" width="175" height="276"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1335,7 +1340,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="2080"/>
                     <connections>
-                        <outlet property="Collectioview_HomeHotProductList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
+                        <outlet property="Collectioview_HomeHotCategoryList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>
                     </connections>
                 </viewController>

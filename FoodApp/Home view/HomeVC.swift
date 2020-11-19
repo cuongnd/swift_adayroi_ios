@@ -20,11 +20,11 @@ class HomeLastProductCell: UICollectionViewCell
     @IBOutlet weak var lbl_ProductName: UILabel!
 }
 
-class HomeHotProductCell: UICollectionViewCell
+class HomeHotCategoryCell: UICollectionViewCell
 {
     @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_hot_product: UIImageView!
-    @IBOutlet weak var lbl_HotProductName: UILabel!
+    @IBOutlet weak var img_hot_category: UIImageView!
+    @IBOutlet weak var lbl_HotCategoryName: UILabel!
 }
 
 class HomeVC: UIViewController {
@@ -32,9 +32,9 @@ class HomeVC: UIViewController {
 
     @IBOutlet weak var Collectioview_lastProductList: UICollectionView!
    
-    @IBOutlet weak var Collectioview_HomeHotProductList: UICollectionView!
+    @IBOutlet weak var Collectioview_HomeHotCategoryList: UICollectionView!
     var lastProductArray = [JSON]()
-    var homeProductArray = [JSON]()
+    var homeHotCategoryArray = [JSON]()
     var pageIndex = 1
     var lastIndex = 0
     var SelectedCategoryId = String()
@@ -55,8 +55,8 @@ class HomeVC: UIViewController {
         
         let urlString = API_URL + "/api/products"
         self.Webservice_getHomeLastProducts(url: urlString, params: [:])
-        let urlStringHomeProducts = API_URL + "/api/categories"
-        self.Webservice_getHomeHotProducts(url: urlStringHomeProducts, params: [:])
+        let urlStringHomeCategories = API_URL + "/api/categories"
+        self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
        
     }
     
@@ -66,8 +66,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.Collectioview_lastProductList{
             return lastProductArray.count
-        }else if collectionView == self.Collectioview_HomeHotProductList{
-            return homeProductArray.count
+        }else if collectionView == self.Collectioview_HomeHotCategoryList{
+            return homeHotCategoryArray.count
         }else{
             
         }
@@ -83,13 +83,13 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
              return cell
-        }else if collectionView == self.Collectioview_HomeHotProductList{
-            let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeHotProductCell", for: indexPath) as! HomeHotProductCell
+        }else if collectionView == self.Collectioview_HomeHotCategoryList{
+            let cell = self.Collectioview_HomeHotCategoryList.dequeueReusableCell(withReuseIdentifier: "HomeHotCategoryCell", for: indexPath) as! HomeHotCategoryCell
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
-            let data = self.lastProductArray[indexPath.item]
-            cell.lbl_HotProductName.text = data["name"].stringValue
-            let productImage = data["default_photo"].dictionaryValue
-            cell.img_hot_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+            let data = self.homeHotCategoryArray[indexPath.item]
+            cell.lbl_HotCategoryName.text = data["name"].stringValue
+            let categoryImage = data["default_photo"].dictionaryValue
+            cell.img_hot_category.sd_setImage(with: URL(string: categoryImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
              return cell
         }else{
             let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
@@ -141,7 +141,7 @@ extension HomeVC
             }
         }
     }
-    func Webservice_getHomeHotProducts(url:String, params:NSDictionary) -> Void {
+    func Webservice_getHomeHotCategories(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -151,10 +151,10 @@ extension HomeVC
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
                     let homeCategoryData = jsonResponse!["data"].arrayValue
-                    self.homeProductArray = homeCategoryData
-                    self.Collectioview_HomeHotProductList.delegate = self
-                    self.Collectioview_HomeHotProductList.dataSource = self
-                    self.Collectioview_HomeHotProductList.reloadData()
+                    self.homeHotCategoryArray = homeCategoryData
+                    self.Collectioview_HomeHotCategoryList.delegate = self
+                    self.Collectioview_HomeHotCategoryList.dataSource = self
+                    self.Collectioview_HomeHotCategoryList.reloadData()
                     
                     
                 }
