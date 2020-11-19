@@ -922,7 +922,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cad-3m-xgO">
                                                         <rect key="frame" x="0.0" y="38" width="375" height="277"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-ic-rWk">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Product" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-ic-rWk" userLabel="Collection Home Hot Product">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bh5-Rz-hBn">
@@ -932,7 +932,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" reuseIdentifier="cell" id="Qby-Oy-jhH" customClass="ProductCollectionViewCell" customModule="adayroi_online" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" reuseIdentifier="HomeHotProductCell" id="Qby-Oy-jhH" userLabel="Home hot product" customClass="HomeHotProductCell" customModule="adayroi_online" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.5" width="175" height="276"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -948,8 +948,9 @@
                                                                                                 <constraint firstAttribute="height" constant="165" id="d71-0N-Bdv"/>
                                                                                             </constraints>
                                                                                         </imageView>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duU-pt-AZC">
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lbl_HotProductName" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duU-pt-AZC" userLabel="Hot product name">
                                                                                             <rect key="frame" x="0.0" y="173" width="175" height="21"/>
+                                                                                            <accessibility key="accessibilityConfiguration" identifier="lbl_HotProductName"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
@@ -998,9 +999,8 @@
                                                                             <constraint firstItem="bo3-Vb-mwz" firstAttribute="top" secondItem="Qby-Oy-jhH" secondAttribute="top" id="rNa-Sa-3p5"/>
                                                                         </constraints>
                                                                         <connections>
-                                                                            <outlet property="productImageView" destination="iv0-hB-oPU" id="Gym-Tq-aLm"/>
-                                                                            <outlet property="productPriceLabel" destination="6Z5-6Y-V4I" id="msI-IX-0wf"/>
-                                                                            <outlet property="productTitleLabel" destination="duU-pt-AZC" id="Xzc-QA-WcG"/>
+                                                                            <outlet property="img_hot_product" destination="iv0-hB-oPU" id="imY-J8-bef"/>
+                                                                            <outlet property="lbl_HotProductName" destination="duU-pt-AZC" id="MFr-7F-TfJ"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -1341,6 +1341,7 @@
                     <size key="freeformSize" width="375" height="2080"/>
                     <connections>
                         <outlet property="Collectioview_HomeHotCategoryList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
+                        <outlet property="Collectioview_HomeHotProductList" destination="Iug-ic-rWk" id="OWs-r0-rMb"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>
                     </connections>
                 </viewController>
