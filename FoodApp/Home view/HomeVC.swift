@@ -257,7 +257,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             return 2
         }else if collectionView == self.Collectioview_HomeHotProductList{
-                return 2
+                return 1
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             return 2
         }else if collectionView == self.Collectioview_HomeCategoryList{
@@ -275,7 +275,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 200)
         }else if collectionView == self.Collectioview_HomeHotProductList{
-                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 100)
+                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeCategoryList{

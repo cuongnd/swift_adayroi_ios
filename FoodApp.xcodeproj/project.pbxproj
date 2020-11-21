@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C3C2E0725696EA6000B21C5 /* HomeLastProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3C2E0525696EA6000B21C5 /* HomeLastProductCollectionViewCell.swift */; };
+		0C3C2E0825696EA6000B21C5 /* HomeLastProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C3C2E0625696EA6000B21C5 /* HomeLastProductCollectionViewCell.xib */; };
 		0C5170E125643E4C00C4EA7F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5170E025643E4C00C4EA7F /* HomeVC.swift */; };
 		0C5170FC2565535C00C4EA7F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5170FB2565535C00C4EA7F /* Home.storyboard */; };
 		0C5170FF2565538D00C4EA7F /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5170FE2565538D00C4EA7F /* Products.storyboard */; };
@@ -84,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		01E2E19DB1CA0A2FA3792ED6 /* Pods-FoodAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodAppUITests/Pods-FoodAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C3C2E0525696EA6000B21C5 /* HomeLastProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLastProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C3C2E0625696EA6000B21C5 /* HomeLastProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeLastProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		0C5170E025643E4C00C4EA7F /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0C5170FB2565535C00C4EA7F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0C5170FE2565538D00C4EA7F /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
@@ -185,9 +189,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C3C2E0325696E63000B21C5 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				0C3C2E0425696E7A000B21C5 /* Home */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		0C3C2E0425696E7A000B21C5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0C3C2E0525696EA6000B21C5 /* HomeLastProductCollectionViewCell.swift */,
+				0C3C2E0625696EA6000B21C5 /* HomeLastProductCollectionViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		0C5170F92565262400C4EA7F /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				0C3C2E0325696E63000B21C5 /* Layout */,
 				0C5170FA2565533600C4EA7F /* Default */,
 			);
 			path = Templates;
@@ -568,6 +590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3C2E0825696EA6000B21C5 /* HomeLastProductCollectionViewCell.xib in Resources */,
 				0C5171012565551C00C4EA7F /* Checkout.storyboard in Resources */,
 				88933DC124B45D4500995AEC /* Localizable.strings in Resources */,
 				0C51710F2566066B00C4EA7F /* ProductCollectionViewCell.xib in Resources */,
@@ -705,6 +728,7 @@
 				C8BAC0692489257100ECE181 /* OrderDetails.swift in Sources */,
 				889328EF24A481C0003C27D5 /* SearchVC.swift in Sources */,
 				C8349E36249791A0009EEF8D /* ChangePassswordVC.swift in Sources */,
+				0C3C2E0725696EA6000B21C5 /* HomeLastProductCollectionViewCell.swift in Sources */,
 				C8C99E082488D93C00B5C187 /* CardViewMaster.swift in Sources */,
 				C8C99DC62488D77E00B5C187 /* AppDelegate.swift in Sources */,
 				C8BAC0602488EBEB00ECE181 /* HomeVC3.swift in Sources */,
