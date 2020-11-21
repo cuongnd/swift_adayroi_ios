@@ -31,6 +31,9 @@ class HomeHotProductCell: UICollectionViewCell
     @IBOutlet weak var cell_view: UIView!
     @IBOutlet weak var img_hot_product: UIImageView!
     @IBOutlet weak var lbl_HotProductName: UILabel!
+    @IBOutlet weak var lbl_HotProductPercent: UILabel!
+    @IBOutlet weak var lbl_HotProductOriginalPrice: UILabel!
+    @IBOutlet weak var lbl_HotProductUnitPrice: UILabel!
 }
 class HomeDiscountProductCell: UICollectionViewCell
 {
@@ -164,6 +167,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
                 //cornerRadius(viewName: cell.img_categories, radius: 6.0)
                 let data = self.homeHotProductArray[indexPath.item]
                 cell.lbl_HotProductName.text = data["name"].stringValue
+                cell.lbl_HotProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+                cell.lbl_HotProductUnitPrice.text = data["unit_price"].stringValue+" đ"
+                cell.lbl_HotProductPercent.text = data["discount_percent"].stringValue+"%"
                 let product_Image = data["default_photo"].dictionaryValue
                 cell.img_hot_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
                 cell.layer.cornerRadius = 3
@@ -275,7 +281,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 200)
         }else if collectionView == self.Collectioview_HomeHotProductList{
-                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
+                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 300)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeCategoryList{

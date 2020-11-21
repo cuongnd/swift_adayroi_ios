@@ -1061,6 +1061,13 @@
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-hB-oPU">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="175" height="196"/>
                                                                                 </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="HomeDiscountPercent" text="20%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geF-4W-7Qs">
+                                                                                    <rect key="frame" x="2" y="2" width="34.5" height="20.5"/>
+                                                                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lbl_HotProductName" text="Tinh Chất Tăng Cường Săn Chắc Da Và Giảm Nếp Nhăn L'oreal Revitalift (30ml) - G1340903" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duU-pt-AZC" userLabel="Hot product name">
                                                                                     <rect key="frame" x="5" y="201" width="165" height="41"/>
                                                                                     <accessibility key="accessibilityConfiguration" identifier="lbl_HotProductName"/>
@@ -1093,8 +1100,11 @@
                                                                             <constraint firstItem="iv0-hB-oPU" firstAttribute="leading" secondItem="Qby-Oy-jhH" secondAttribute="leading" id="EDD-it-wgA"/>
                                                                             <constraint firstItem="duU-pt-AZC" firstAttribute="top" secondItem="iv0-hB-oPU" secondAttribute="bottom" constant="5" id="GCH-M1-zKn"/>
                                                                             <constraint firstItem="mHM-7A-1Tj" firstAttribute="baseline" secondItem="6Z5-6Y-V4I" secondAttribute="baseline" id="O2O-Ph-m2C"/>
+                                                                            <constraint firstItem="6Z5-6Y-V4I" firstAttribute="leading" secondItem="Qby-Oy-jhH" secondAttribute="leading" constant="91" id="Opl-Op-Rhu"/>
                                                                             <constraint firstItem="iv0-hB-oPU" firstAttribute="centerX" secondItem="duU-pt-AZC" secondAttribute="centerX" id="Tii-XG-m66"/>
                                                                             <constraint firstItem="mHM-7A-1Tj" firstAttribute="leading" secondItem="Qby-Oy-jhH" secondAttribute="leadingMargin" id="YLe-qo-uLA"/>
+                                                                            <constraint firstItem="geF-4W-7Qs" firstAttribute="leading" secondItem="Qby-Oy-jhH" secondAttribute="leading" constant="2" id="hvj-cD-iYR"/>
+                                                                            <constraint firstItem="geF-4W-7Qs" firstAttribute="top" secondItem="Qby-Oy-jhH" secondAttribute="top" constant="2" id="j5r-Dv-JGN"/>
                                                                             <constraint firstItem="6Z5-6Y-V4I" firstAttribute="leading" secondItem="mHM-7A-1Tj" secondAttribute="trailing" constant="5" id="kHw-g7-hSa"/>
                                                                             <constraint firstItem="iv0-hB-oPU" firstAttribute="top" secondItem="Qby-Oy-jhH" secondAttribute="top" id="rmj-Cd-kEK"/>
                                                                             <constraint firstAttribute="bottomMargin" secondItem="mHM-7A-1Tj" secondAttribute="bottom" constant="0.5" id="uKr-Jh-9Fk"/>
@@ -1102,6 +1112,9 @@
                                                                         <connections>
                                                                             <outlet property="img_hot_product" destination="iv0-hB-oPU" id="imY-J8-bef"/>
                                                                             <outlet property="lbl_HotProductName" destination="duU-pt-AZC" id="MFr-7F-TfJ"/>
+                                                                            <outlet property="lbl_HotProductOriginalPrice" destination="6Z5-6Y-V4I" id="4kz-r8-HGt"/>
+                                                                            <outlet property="lbl_HotProductPercent" destination="geF-4W-7Qs" id="8FJ-Ku-xct"/>
+                                                                            <outlet property="lbl_HotProductUnitPrice" destination="mHM-7A-1Tj" id="UMY-n1-Sec"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
