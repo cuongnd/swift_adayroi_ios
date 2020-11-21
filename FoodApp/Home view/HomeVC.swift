@@ -37,6 +37,9 @@ class HomeDiscountProductCell: UICollectionViewCell
     @IBOutlet weak var cell_view: UIView!
     @IBOutlet weak var img_discount_product: UIImageView!
     @IBOutlet weak var lbl_DiscountProductName: UILabel!
+    @IBOutlet weak var lbl_DiscountProductPercent: UILabel!
+    @IBOutlet weak var lbl_DiscountProductOriginalPrice: UILabel!
+    @IBOutlet weak var lbl_DiscountProductUnitPrice: UILabel!
 }
 class HomeCategoryCell: UICollectionViewCell
 {
@@ -180,7 +183,11 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.homeDiscountProductArray[indexPath.item]
             cell.lbl_DiscountProductName.text = data["name"].stringValue
+            cell.lbl_DiscountProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            cell.lbl_DiscountProductUnitPrice.text = data["unit_price"].stringValue+" đ"
+            cell.lbl_DiscountProductPercent.text = data["discount_percent"].stringValue+"%"
             let product_Image = data["default_photo"].dictionaryValue
+            
             cell.img_discount_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             cell.layer.cornerRadius = 3
             // border
@@ -201,7 +208,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
            let category_Image = data["default_photo"].dictionaryValue
            cell.img_category.sd_setImage(with: URL(string: category_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             // corner radius
-            cell.layer.cornerRadius = 10
+            cell.layer.cornerRadius = 3
 
             // border
             cell.layer.borderWidth = 1.0
@@ -244,13 +251,31 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         
        
     }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == self.Collectioview_lastProductList{
+            return 2
+        }else if collectionView == self.Collectioview_HomeHotCategoryList{
+            return 2
+        }else if collectionView == self.Collectioview_HomeHotProductList{
+                return 2
+        }else if collectionView == self.Collectioview_HomeDiscountProductList{
+            return 2
+        }else if collectionView == self.Collectioview_HomeCategoryList{
+           return 2
+        }else if collectionView == self.Collectioview_HomeFeatureProductList{
+          return 2
+        }else{
+           return 2
+        }
+        
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.Collectioview_lastProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 200)
         }else if collectionView == self.Collectioview_HomeHotProductList{
-                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
+                return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 100)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeCategoryList{
