@@ -18,6 +18,9 @@ class HomeLastProductCell: UICollectionViewCell
     @IBOutlet weak var cell_view: UIView!
     @IBOutlet weak var img_product: UIImageView!
     @IBOutlet weak var lbl_ProductName: UILabel!
+    @IBOutlet weak var lbl_LastProductPercent: UILabel!
+   @IBOutlet weak var lbl_LastProductOriginalPrice: UILabel!
+   @IBOutlet weak var lbl_LastProductUnitPrice: UILabel!
 }
 
 class HomeHotCategoryCell: UICollectionViewCell
@@ -129,6 +132,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.lastProductArray[indexPath.item]
             cell.lbl_ProductName.text = data["name"].stringValue
+            cell.lbl_LastProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            cell.lbl_LastProductUnitPrice.text = data["unit_price"].stringValue+" đ"
+            cell.lbl_LastProductPercent.text = data["discount_percent"].stringValue+"%"
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             cell.layer.cornerRadius = 3
@@ -239,6 +245,10 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.lastProductArray[indexPath.item]
             cell.lbl_ProductName.text = data["name"].stringValue
+            cell.lbl_LastProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            cell.lbl_LastProductUnitPrice.text = data["unit_price"].stringValue+" đ"
+            cell.lbl_LastProductPercent.text = data["discount_percent"].stringValue+"%"
+            
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             cell.layer.cornerRadius = 3
