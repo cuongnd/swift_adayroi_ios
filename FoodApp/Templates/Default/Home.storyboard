@@ -1173,50 +1173,24 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="125"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
-                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kY-5P-Ica">
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cart" translatesAutoresizingMaskIntoConstraints="NO" id="fFB-9K-rWK" userLabel="Img hot category">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="175" height="125"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dakota Johnson" translatesAutoresizingMaskIntoConstraints="NO" id="fFB-9K-rWK" userLabel="Img hot category">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="125"/>
-                                                                                        </imageView>
-                                                                                        <view alpha="0.55000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7g-1i-Vhd">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="125"/>
-                                                                                            <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lbl_HotCategoryName" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-t3-dep" userLabel="Lbl Hot Category Name">
-                                                                                                    <rect key="frame" x="22" y="75" width="131" height="0.0"/>
-                                                                                                    <accessibility key="accessibilityConfiguration" identifier="lbl_HotCategoryName"/>
-                                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                    <nil key="textColor"/>
-                                                                                                    <nil key="highlightedColor"/>
-                                                                                                </label>
-                                                                                            </subviews>
-                                                                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="bottom" secondItem="kyb-t3-dep" secondAttribute="bottom" constant="50" id="EXB-hK-7F3"/>
-                                                                                                <constraint firstItem="kyb-t3-dep" firstAttribute="leading" secondItem="E7g-1i-Vhd" secondAttribute="leading" constant="22" id="GXc-Od-GSM"/>
-                                                                                                <constraint firstItem="kyb-t3-dep" firstAttribute="top" secondItem="E7g-1i-Vhd" secondAttribute="top" constant="75" id="KGs-B8-evv"/>
-                                                                                                <constraint firstItem="kyb-t3-dep" firstAttribute="centerX" secondItem="E7g-1i-Vhd" secondAttribute="centerX" id="ZX4-OJ-ZYE"/>
-                                                                                            </constraints>
-                                                                                        </view>
-                                                                                    </subviews>
-                                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstItem="fFB-9K-rWK" firstAttribute="top" secondItem="E7g-1i-Vhd" secondAttribute="top" id="1I5-us-xhf"/>
-                                                                                        <constraint firstItem="E7g-1i-Vhd" firstAttribute="leading" secondItem="fFB-9K-rWK" secondAttribute="leading" id="692-rU-yu4"/>
-                                                                                        <constraint firstItem="E7g-1i-Vhd" firstAttribute="trailing" secondItem="fFB-9K-rWK" secondAttribute="trailing" id="CHI-Mp-u5V"/>
-                                                                                        <constraint firstAttribute="bottom" secondItem="fFB-9K-rWK" secondAttribute="bottom" id="Pe1-DZ-OoN"/>
-                                                                                        <constraint firstItem="E7g-1i-Vhd" firstAttribute="bottom" secondItem="fFB-9K-rWK" secondAttribute="bottom" id="SEv-Sv-rh0"/>
-                                                                                        <constraint firstItem="E7g-1i-Vhd" firstAttribute="top" secondItem="8kY-5P-Ica" secondAttribute="top" id="dWO-hP-32J"/>
-                                                                                        <constraint firstAttribute="trailing" secondItem="fFB-9K-rWK" secondAttribute="trailing" id="tSS-t3-vfE"/>
-                                                                                        <constraint firstItem="fFB-9K-rWK" firstAttribute="leading" secondItem="8kY-5P-Ica" secondAttribute="leading" id="z7s-Zp-hM3"/>
-                                                                                    </constraints>
-                                                                                </view>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="lbl_HotCategoryName" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-t3-dep" userLabel="Lbl Hot Category Name">
+                                                                                    <rect key="frame" x="22" y="47" width="131" height="30"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="lbl_HotCategoryName"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
                                                                             </subviews>
                                                                             <constraints>
-                                                                                <constraint firstItem="8kY-5P-Ica" firstAttribute="leading" secondItem="CDd-0W-eom" secondAttribute="leading" id="LYm-9B-Tye"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="8kY-5P-Ica" secondAttribute="trailing" id="M8X-1Z-9Kd"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="8kY-5P-Ica" secondAttribute="bottom" id="WEQ-ik-2DY"/>
-                                                                                <constraint firstItem="8kY-5P-Ica" firstAttribute="top" secondItem="CDd-0W-eom" secondAttribute="top" id="d2Y-V8-6XY"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="fFB-9K-rWK" secondAttribute="trailing" id="7cQ-cg-Tf3"/>
+                                                                                <constraint firstItem="kyb-t3-dep" firstAttribute="centerX" secondItem="CDd-0W-eom" secondAttribute="centerX" id="Dav-Ak-SYg"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="fFB-9K-rWK" secondAttribute="bottom" id="EoC-Pc-0ui"/>
+                                                                                <constraint firstItem="kyb-t3-dep" firstAttribute="centerY" secondItem="CDd-0W-eom" secondAttribute="centerY" id="FeM-YL-qwA"/>
+                                                                                <constraint firstItem="fFB-9K-rWK" firstAttribute="top" secondItem="CDd-0W-eom" secondAttribute="top" id="UU5-41-ybj"/>
+                                                                                <constraint firstItem="fFB-9K-rWK" firstAttribute="leading" secondItem="CDd-0W-eom" secondAttribute="leading" id="wcB-4N-ieP"/>
                                                                             </constraints>
                                                                         </collectionViewCellContentView>
                                                                         <connections>
@@ -1555,10 +1529,10 @@
     </scenes>
     <resources>
         <image name="Anne Hathaway" width="128" height="128"/>
-        <image name="Dakota Johnson" width="128" height="128"/>
         <image name="Emma Stone" width="128" height="128"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="ic_cart" width="246" height="259"/>
         <image name="ic_list" width="512" height="512"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
