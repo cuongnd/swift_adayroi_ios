@@ -13,46 +13,8 @@ import SlideMenuControllerSwift
 import CoreLocation
 import MapKit
 
-class HomeLastProductCell: UICollectionViewCell
-{
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_product: UIImageView!
-    @IBOutlet weak var lbl_ProductName: UILabel!
-    @IBOutlet weak var lbl_LastProductPercent: UILabel!
-   @IBOutlet weak var lbl_LastProductOriginalPrice: UILabel!
-   @IBOutlet weak var lbl_LastProductUnitPrice: UILabel!
-}
 
-class HomeHotCategoryCell: UICollectionViewCell
-{
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_hot_category: UIImageView!
-    @IBOutlet weak var lbl_HotCategoryName: UILabel!
-}
-class HomeHotProductCell: UICollectionViewCell
-{
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_hot_product: UIImageView!
-    @IBOutlet weak var lbl_HotProductName: UILabel!
-    @IBOutlet weak var lbl_HotProductPercent: UILabel!
-    @IBOutlet weak var lbl_HotProductOriginalPrice: UILabel!
-    @IBOutlet weak var lbl_HotProductUnitPrice: UILabel!
-}
-class HomeDiscountProductCell: UICollectionViewCell
-{
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_discount_product: UIImageView!
-    @IBOutlet weak var lbl_DiscountProductName: UILabel!
-    @IBOutlet weak var lbl_DiscountProductPercent: UILabel!
-    @IBOutlet weak var lbl_DiscountProductOriginalPrice: UILabel!
-    @IBOutlet weak var lbl_DiscountProductUnitPrice: UILabel!
-}
-class HomeCategoryCell: UICollectionViewCell
-{
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_category: UIImageView!
-    @IBOutlet weak var lbl_CategoryName: UILabel!
-}
+
 
 class HomeVC: UIViewController {
 
@@ -238,6 +200,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
           let data = self.homeFeatureProductArray[indexPath.item]
           //cell.img.image = UIImage(named: "img_product")
           cell.lbName.text = data["name"].stringValue
+        let product_Image = data["default_photo"].dictionaryValue
+           cell.img.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+
           //cell.lbDesc.text = "sdfsdfdssdfdfds"
             
             return cell
