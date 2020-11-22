@@ -2,14 +2,16 @@
 //  ProductCollectionViewCell.swift
 //  FoodApp
 //
-//  Created by MAC OSX on 11/19/20.
+//  Created by MAC OSX on 11/22/20.
 //  Copyright © 2020 Mitesh's MAC. All rights reserved.
 //
 
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
-
+    @IBOutlet weak var img: UIImageView!
+       @IBOutlet weak var lbName: UILabel!
+       @IBOutlet weak var lbDesc: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -81,9 +81,26 @@ class HomeVC: UIViewController {
     var selectedindex = 0
     var latitued = String()
     var longitude = String()
+    var products = [ProductDto]()
+    @IBOutlet weak var collectionView: UICollectionView!
+    let productCollectionViewCellId = "ProductCollectionViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        // Do any additional setup after loading the view, typically from a nib.
+               
+       // register cell
+       let nibCell = UINib(nibName: productCollectionViewCellId, bundle: nil)
+       collectionView.register(nibCell, forCellWithReuseIdentifier: productCollectionViewCellId)
+       
+       // init data
+       for _ in 1...25 {
+           let product = ProductDto()
+           product?.name = "Wireless Headphone"
+           product?.desc = "Hear the music, Not the noise ;)"
+           products.append(product!)
+       }
+      
     }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -119,7 +136,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeCategoryList{
             return homeCategoryArray.count
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
-            return homeFeatureProductArray.count
+              return homeFeatureProductArray.count
+        }else if collectionView == self.collectionView{
+             return products.count
         }else{
             
         }
@@ -237,10 +256,19 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
           //cornerRadius(viewName: cell.img_categories, radius: 6.0)
           let data = self.homeFeatureProductArray[indexPath.item]
           cell.lbl_FeatureProductName.text = data["name"].stringValue
-          let feature_product_Image = data["default_photo"].dictionaryValue
-          cell.img_featureProduct.sd_setImage(with: URL(string: feature_product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-           return cell
-        }else{
+          let product_Image = data["default_photo"].dictionaryValue
+          cell.img_featureProduct.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+            return cell
+                 
+        }else if collectionView == self.collectionView{
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellId, for: indexPath) as! ProductCollectionViewCell
+                     let product = products[indexPath.row]
+                     cell.img.image = UIImage(named: "img_product")
+                     cell.lbName.text = product.name!
+                     cell.lbDesc.text = product.desc!
+            return cell
+                     
+            }else{
             let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.lastProductArray[indexPath.item]
@@ -444,9 +472,19 @@ extension HomeVC
                        self.Collectioview_HomeFeatureProductList.delegate = self
                        self.Collectioview_HomeFeatureProductList.dataSource = self
                        self.Collectioview_HomeFeatureProductList.reloadData()
+                    
+                   
                        
+                       self.collectionView.delegate = self
+                    self.collectionView.dataSource = self
+                    self.collectionView.reloadData()
+                    
                        
+                    
+                    
                    }
+                    
+                    
                    else {
                        showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
                    }

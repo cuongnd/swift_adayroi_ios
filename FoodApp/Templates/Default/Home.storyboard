@@ -651,10 +651,10 @@
                                                         </constraints>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OSf-wV-Kdq">
-                                                        <rect key="frame" x="0.0" y="34" width="375" height="182"/>
+                                                        <rect key="frame" x="0.0" y="34" width="125" height="99"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="182" id="bx5-OB-hcI"/>
+                                                            <constraint firstAttribute="height" constant="99" id="bx5-OB-hcI"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YtT-MB-K4H">
                                                             <size key="itemSize" width="375" height="181"/>
@@ -664,7 +664,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="center" restorationIdentifier="HomeFeatureProductCell" reuseIdentifier="HomeFeatureProductCell" id="Tpa-6Z-T4Y" customClass="HomeFeatureProductCell" customModule="adayroi_online" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.5" width="375" height="181"/>
+                                                                <rect key="frame" x="0.0" y="-41" width="375" height="181"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
@@ -733,17 +733,38 @@
                                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Mhv-I1-WSz">
                                                         <rect key="frame" x="168" y="1500" width="39" height="37"/>
                                                     </pageControl>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-QS-kPe">
+                                                        <rect key="frame" x="127" y="34" width="240" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yEs-aN-w8l">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCollectionViewCell" id="JqL-TL-nGa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T2l-g4-Ww8">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </collectionViewCellContentView>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="OSf-wV-Kdq" firstAttribute="centerX" secondItem="Mhv-I1-WSz" secondAttribute="centerX" id="9PS-Nk-nKH"/>
+                                                    <constraint firstItem="OSf-wV-Kdq" firstAttribute="centerX" secondItem="Mhv-I1-WSz" secondAttribute="centerX" constant="-125" id="9PS-Nk-nKH"/>
                                                     <constraint firstItem="gba-cX-HHi" firstAttribute="leading" secondItem="OSf-wV-Kdq" secondAttribute="leading" id="IXW-ku-iap"/>
                                                     <constraint firstItem="OSf-wV-Kdq" firstAttribute="top" secondItem="jHu-Xl-hWw" secondAttribute="top" constant="34" id="QLU-SH-oZ9"/>
                                                     <constraint firstItem="gba-cX-HHi" firstAttribute="centerX" secondItem="jHu-Xl-hWw" secondAttribute="centerX" id="dR5-7x-tgY"/>
                                                     <constraint firstItem="Mhv-I1-WSz" firstAttribute="top" secondItem="jHu-Xl-hWw" secondAttribute="top" constant="1500" id="fNP-EC-7EL"/>
                                                     <constraint firstItem="gba-cX-HHi" firstAttribute="leading" secondItem="jHu-Xl-hWw" secondAttribute="leading" id="gO6-na-CzF"/>
                                                     <constraint firstItem="gba-cX-HHi" firstAttribute="top" secondItem="jHu-Xl-hWw" secondAttribute="top" id="iQn-FD-T0O"/>
-                                                    <constraint firstItem="gba-cX-HHi" firstAttribute="trailing" secondItem="OSf-wV-Kdq" secondAttribute="trailing" id="vBy-kG-z5o"/>
+                                                    <constraint firstItem="gba-cX-HHi" firstAttribute="trailing" secondItem="OSf-wV-Kdq" secondAttribute="trailing" constant="250" id="vBy-kG-z5o"/>
                                                     <constraint firstAttribute="bottom" secondItem="gba-cX-HHi" secondAttribute="bottom" constant="180" id="xgn-GK-JgZ"/>
                                                 </constraints>
                                             </view>
@@ -1425,6 +1446,7 @@
                         <outlet property="Collectioview_HomeHotCategoryList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
                         <outlet property="Collectioview_HomeHotProductList" destination="Iug-ic-rWk" id="OWs-r0-rMb"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>
+                        <outlet property="collectionView" destination="Gjq-QS-kPe" id="75v-j9-lfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmz-X7-YYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
