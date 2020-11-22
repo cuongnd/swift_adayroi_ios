@@ -44,7 +44,13 @@ class HomeVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
                
        let nibCell = UINib(nibName: "HomeFeatureProductCell", bundle: nil)
-      Collectioview_HomeFeatureProductList.register(nibCell, forCellWithReuseIdentifier: "HomeFeatureProductCell")
+        Collectioview_HomeFeatureProductList.register(nibCell, forCellWithReuseIdentifier: "HomeFeatureProductCell")
+        Collectioview_HomeCategoryList.register(UINib(nibName: "HomeCategoryCell", bundle: nil), forCellWithReuseIdentifier: "HomeCategoryCell")
+        
+        Collectioview_HomeHotCategoryList.register(UINib(nibName: "HomeHotCategoryCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotCategoryCell")
+        Collectioview_lastProductList.register(UINib(nibName: "HomeLastProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeLastProductCell")
+        Collectioview_HomeHotProductList.register(UINib(nibName: "HomeHotProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotProductCell")
+        Collectioview_HomeDiscountProductList.register(UINib(nibName: "HomeDiscountProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeDiscountProductCell")
       
     }
    
