@@ -53,14 +53,8 @@ class HomeCategoryCell: UICollectionViewCell
     @IBOutlet weak var img_category: UIImageView!
     @IBOutlet weak var lbl_CategoryName: UILabel!
 }
-class HomeFeatureProductCell: UICollectionViewCell
-{
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_featureProduct: UIImageView!
-    @IBOutlet weak var lbl_FeatureProductName: UILabel!
-}
+
 class HomeVC: UIViewController {
-    
 
     @IBOutlet weak var Collectioview_lastProductList: UICollectionView!
    
@@ -81,25 +75,14 @@ class HomeVC: UIViewController {
     var selectedindex = 0
     var latitued = String()
     var longitude = String()
-    var products = [ProductDto]()
-    @IBOutlet weak var collectionView: UICollectionView!
-    let productCollectionViewCellId = "ProductCollectionViewCell"
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
                
-       // register cell
-       let nibCell = UINib(nibName: productCollectionViewCellId, bundle: nil)
-       collectionView.register(nibCell, forCellWithReuseIdentifier: productCollectionViewCellId)
-       
-       // init data
-       for _ in 1...25 {
-           let product = ProductDto()
-           product?.name = "Wireless Headphone"
-           product?.desc = "Hear the music, Not the noise ;)"
-           products.append(product!)
-       }
+       let nibCell = UINib(nibName: "HomeFeatureProductCell", bundle: nil)
+      Collectioview_HomeFeatureProductList.register(nibCell, forCellWithReuseIdentifier: "HomeFeatureProductCell")
       
     }
    
@@ -137,12 +120,10 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             return homeCategoryArray.count
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
               return homeFeatureProductArray.count
-        }else if collectionView == self.collectionView{
-             return products.count
         }else{
-            
+            return 0
         }
-        return 0
+        
          
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -255,19 +236,13 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
           let cell = self.Collectioview_HomeFeatureProductList.dequeueReusableCell(withReuseIdentifier: "HomeFeatureProductCell", for: indexPath) as! HomeFeatureProductCell
           //cornerRadius(viewName: cell.img_categories, radius: 6.0)
           let data = self.homeFeatureProductArray[indexPath.item]
-          cell.lbl_FeatureProductName.text = data["name"].stringValue
-          let product_Image = data["default_photo"].dictionaryValue
-          cell.img_featureProduct.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
+          //cell.img.image = UIImage(named: "img_product")
+          cell.lbName.text = data["name"].stringValue
+          //cell.lbDesc.text = "sdfsdfdssdfdfds"
+            
             return cell
                  
-        }else if collectionView == self.collectionView{
-              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellId, for: indexPath) as! ProductCollectionViewCell
-                     let product = products[indexPath.row]
-                     cell.img.image = UIImage(named: "img_product")
-                     cell.lbName.text = product.name!
-                     cell.lbDesc.text = product.desc!
-            return cell
-                     
+       
             }else{
             let cell = self.Collectioview_lastProductList.dequeueReusableCell(withReuseIdentifier: "HomeLastProductCell", for: indexPath) as! HomeLastProductCell
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
@@ -472,17 +447,7 @@ extension HomeVC
                        self.Collectioview_HomeFeatureProductList.delegate = self
                        self.Collectioview_HomeFeatureProductList.dataSource = self
                        self.Collectioview_HomeFeatureProductList.reloadData()
-                    
-                   
-                       
-                       self.collectionView.delegate = self
-                    self.collectionView.dataSource = self
-                    self.collectionView.reloadData()
-                    
-                       
-                    
-                    
-                   }
+                  }
                     
                     
                    else {

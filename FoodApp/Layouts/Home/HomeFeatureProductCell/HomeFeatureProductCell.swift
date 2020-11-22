@@ -1,5 +1,5 @@
 //
-//  ProductCollectionViewCell.swift
+//  HomeFeatureProductCell.swift
 //  FoodApp
 //
 //  Created by MAC OSX on 11/22/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductCollectionViewCell: UICollectionViewCell {
+class HomeFeatureProductCell: UICollectionViewCell {
     @IBOutlet weak var img: UIImageView!
        @IBOutlet weak var lbName: UILabel!
        @IBOutlet weak var lbDesc: UILabel!
@@ -16,5 +16,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+   
 
 }
