@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class HomeTitle: UIView {
+class HomeTitle: UIView {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var goToDetail: UILabel!
@@ -19,5 +19,18 @@ import UIKit
         // Drawing code
     }
     */
+    override init(frame: CGRect) {
+        super.init(frame:frame)
+        commitInit();
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder:coder)
+        commitInit()
+    }
+    func commitInit(){
+        let viewHomeTitle=Bundle.main.loadNibNamed("HomeTitle", owner: self, options: nil)![0] as! UIView
+        addSubview(viewHomeTitle)
+    }
+    
 
 }
