@@ -38,6 +38,12 @@ class HomeVC: UIViewController {
     var latitued = String()
     var longitude = String()
    
+    @IBOutlet weak var HomeTitleFeatureProducts: HomeTitle!
+    @IBOutlet weak var HomeTtitleCategories: HomeTitle!
+    @IBOutlet weak var HomeTtitleDiscountProducts: HomeTitle!
+    @IBOutlet weak var HomeTtitleHotProducts: HomeTitle!
+    @IBOutlet weak var HomeTitleHotCategories: HomeTitle!
+    @IBOutlet weak var HomeTtitleNewProducts: HomeTitle!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +57,13 @@ class HomeVC: UIViewController {
         Collectioview_lastProductList.register(UINib(nibName: "HomeLastProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeLastProductCell")
         Collectioview_HomeHotProductList.register(UINib(nibName: "HomeHotProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotProductCell")
         Collectioview_HomeDiscountProductList.register(UINib(nibName: "HomeDiscountProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeDiscountProductCell")
+        HomeTitleFeatureProducts.title.text="Sản phẩm yêu thích";
+        HomeTtitleCategories.title.text="Danh mục sản phẩm";
+        HomeTtitleDiscountProducts.title.text="Sản phẩm giảm giá";
+        HomeTtitleHotProducts.title.text="Sản phẩm hot";
+        HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
+        HomeTtitleNewProducts.title.text="Sản phẩm mới";
+        
       
     }
    

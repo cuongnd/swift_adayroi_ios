@@ -529,83 +529,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="2080"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjO-9g-gnp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjO-9g-gnp" customClass="HomeHeader" customModule="adayroi_online" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-Af-ewU">
-                                        <rect key="frame" x="0.0" y="44" width="44" height="44.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="qC4-rb-0iA"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="line.horizontal.3.decrease" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="semibold"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnTap_menu:" destination="o4b-vO-jes" eventType="touchUpInside" id="BiB-79-aP6"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZl-qJ-x3n">
-                                        <rect key="frame" x="52" y="56" width="124.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12d-SZ-9vq">
-                                        <rect key="frame" x="243" y="44" width="83" height="27.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvj-ss-Il3">
-                                                <rect key="frame" x="0.0" y="0.0" width="27" height="27.5"/>
-                                                <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="mappin.and.ellipse" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnTap_MapPin:" destination="o4b-vO-jes" eventType="touchUpInside" id="WxV-rH-3Ca"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfL-Qi-wBF">
-                                                <rect key="frame" x="27" y="0.0" width="26" height="27.5"/>
-                                                <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="magnifyingglass" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnTap_Search:" destination="o4b-vO-jes" eventType="touchUpInside" id="PrC-wA-Smh"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycy-uQ-lAX">
-                                                <rect key="frame" x="53" y="0.0" width="30" height="27.5"/>
-                                                <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="cart.fill" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnTap_Cart:" destination="o4b-vO-jes" eventType="touchUpInside" id="JLb-TK-2ht"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-0g-DWo">
-                                        <rect key="frame" x="364" y="48" width="7" height="12"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="NpP-0g-DWo" firstAttribute="top" secondItem="QjO-9g-gnp" secondAttribute="top" constant="48" id="3gU-Y8-5ks"/>
-                                    <constraint firstItem="12d-SZ-9vq" firstAttribute="leading" secondItem="AZl-qJ-x3n" secondAttribute="trailing" constant="66.5" id="KdY-c2-bFt"/>
-                                    <constraint firstItem="su3-Af-ewU" firstAttribute="centerY" secondItem="AZl-qJ-x3n" secondAttribute="centerY" id="Opd-77-ozk"/>
-                                    <constraint firstItem="su3-Af-ewU" firstAttribute="top" secondItem="QjO-9g-gnp" secondAttribute="top" constant="44" id="TmA-1T-xtU"/>
-                                    <constraint firstItem="NpP-0g-DWo" firstAttribute="leading" secondItem="12d-SZ-9vq" secondAttribute="trailing" constant="38" id="VaP-xg-Ecn"/>
-                                    <constraint firstItem="AZl-qJ-x3n" firstAttribute="top" secondItem="QjO-9g-gnp" secondAttribute="top" constant="56" id="dza-ZQ-XPN"/>
-                                    <constraint firstItem="su3-Af-ewU" firstAttribute="top" secondItem="12d-SZ-9vq" secondAttribute="top" id="eW2-c0-2p0"/>
-                                    <constraint firstItem="AZl-qJ-x3n" firstAttribute="leading" secondItem="su3-Af-ewU" secondAttribute="trailing" constant="8" id="tBP-ih-SqF"/>
-                                    <constraint firstAttribute="trailing" secondItem="NpP-0g-DWo" secondAttribute="trailing" constant="4" id="uJj-RF-wJm"/>
-                                </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-k1-o4g">
                                 <rect key="frame" x="0.0" y="90" width="375" height="1956"/>
@@ -858,6 +784,12 @@
                         <outlet property="Collectioview_HomeHotCategoryList" destination="tmh-ep-hw0" id="9Za-Pa-CvH"/>
                         <outlet property="Collectioview_HomeHotProductList" destination="Iug-ic-rWk" id="OWs-r0-rMb"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>
+                        <outlet property="HomeTitleFeatureProducts" destination="gba-cX-HHi" id="CVm-bR-FrN"/>
+                        <outlet property="HomeTitleHotCategories" destination="LTk-C0-UP8" id="tpu-cz-S2a"/>
+                        <outlet property="HomeTtitleCategories" destination="hYw-jW-ZeV" id="2eZ-9y-sPZ"/>
+                        <outlet property="HomeTtitleDiscountProducts" destination="9jN-du-Al0" id="l2v-FX-uBI"/>
+                        <outlet property="HomeTtitleHotProducts" destination="mFm-aG-cmi" id="FvW-3x-PyE"/>
+                        <outlet property="HomeTtitleNewProducts" destination="t1Y-Gp-cnX" id="H0D-kO-1pP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmz-X7-YYn" userLabel="First Responder" sceneMemberID="firstResponder"/>

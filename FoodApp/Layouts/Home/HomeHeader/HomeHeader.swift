@@ -17,5 +17,17 @@ class HomeHeader: UIView {
         // Drawing code
     }
     */
+    override init(frame: CGRect) {
+        super.init(frame:frame)
+        commitInit();
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder:coder)
+        commitInit()
+    }
+    func commitInit(){
+        let viewHomeTitle=Bundle.main.loadNibNamed("HomeHeader", owner: self, options: nil)![0] as! UIView
+        addSubview(viewHomeTitle)
+    }
 
 }
