@@ -12,6 +12,8 @@ import LanguageManager_iOS
 import SlideMenuControllerSwift
 import CoreLocation
 import MapKit
+@IBOutlet weak var LblProductUnitprice: UILabel!
+@IBOutlet weak var homeFeatureProductUnitPrice: UILabel!
 
 
 
