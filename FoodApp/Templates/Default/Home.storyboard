@@ -546,14 +546,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gba-cX-HHi" customClass="HomeTitle" customModule="adayroi_online" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-QS-kPe" customClass="Collectioview_HomeFeatureProductList">
-                                                                <rect key="frame" x="0.0" y="70" width="375" height="186"/>
+                                                                <rect key="frame" x="0.0" y="56" width="375" height="200"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="186" id="KFC-Gl-YaT"/>
+                                                                    <constraint firstAttribute="height" constant="200" id="KFC-Gl-YaT"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yEs-aN-w8l">
                                                                     <size key="itemSize" width="128" height="128"/>
@@ -563,7 +563,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeFeatureProductCell" id="JqL-TL-nGa" customClass="HomeFeatureProductCell" customModule="adayroi_online" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="29" width="128" height="128"/>
+                                                                        <rect key="frame" x="0.0" y="36" width="128" height="128"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T2l-g4-Ww8">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -578,14 +578,14 @@
                                                         <rect key="frame" x="0.0" y="256" width="375" height="329"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYw-jW-ZeV" customClass="HomeTitle" customModule="adayroi_online" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-eM-Lbv">
-                                                                <rect key="frame" x="0.0" y="60" width="375" height="269"/>
+                                                                <rect key="frame" x="0.0" y="79" width="375" height="250"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="269" id="EI3-ni-wvU"/>
+                                                                    <constraint firstAttribute="height" constant="250" id="EI3-ni-wvU"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jwG-Zy-qCw">
                                                                     <size key="itemSize" width="132" height="123"/>
@@ -595,7 +595,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HMO-5f-cet">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
+                                                                        <rect key="frame" x="0.0" y="63.5" width="132" height="123"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hUW-tI-sPm">
                                                                             <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
