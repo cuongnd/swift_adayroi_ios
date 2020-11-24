@@ -220,8 +220,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
           let data = self.homeFeatureProductArray[indexPath.item]
           //cell.img.image = UIImage(named: "img_product")
             cell.lbName.text = data["name"].stringValue
-            cell.lbl_LastProductOriginalPrice.text = data["original_price"].stringValue+" đ"
-            cell.lbl_LastProductUnitPrice.text = data["unit_price"].stringValue+" đ"
+            cell.lbl_FeatureProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            cell.lbl_FeatureProductUnitPrice.text = data["unit_price"].stringValue+" đ"
             cell.ProductDiscountPercent.text = data["discount_percent"].stringValue+"%"
             
         let product_Image = data["default_photo"].dictionaryValue
