@@ -12,8 +12,7 @@ import LanguageManager_iOS
 import SlideMenuControllerSwift
 import CoreLocation
 import MapKit
-@IBOutlet weak var LblProductUnitprice: UILabel!
-@IBOutlet weak var homeFeatureProductUnitPrice: UILabel!
+
 
 
 
@@ -282,7 +281,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotProductList{
                 return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 300)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
-            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
+            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 300)
         }else if collectionView == self.Collectioview_HomeCategoryList{
            return CGSize(width:(UIScreen.main.bounds.width) / 4, height: 120)
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
