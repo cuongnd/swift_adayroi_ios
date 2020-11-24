@@ -11,7 +11,9 @@ import UIKit
 class HomeFeatureProductCell: UICollectionViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lbName: UILabel!
-    @IBOutlet weak var lbUnitPrice: UILabel!
+    @IBOutlet weak var ProductDiscountPercent: UILabel!
+    @IBOutlet weak var lbl_LastProductOriginalPrice: UILabel!
+    @IBOutlet weak var lbl_LastProductUnitPrice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
