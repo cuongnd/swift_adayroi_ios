@@ -15,15 +15,15 @@
         <!--LoginVC-->
         <scene sceneID="W6T-Vj-pZv">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="Fuq-Hh-pwf" customClass="LoginVC" customModule="Food_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="Fuq-Hh-pwf" customClass="LoginVC" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aQ4-sb-bjf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqP-uc-0t4" customClass="CornerView" customModule="Food_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqP-uc-0t4" customClass="CornerView" customModule="adayroi_online" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="546" width="414" height="350"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fL-7m-lC6" customClass="CornerView" customModule="Food_App" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fL-7m-lC6" customClass="CornerView" customModule="adayroi_online" customModuleProvider="target">
                                         <rect key="frame" x="20" y="61.5" width="374" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tjI-Z8-aiv">
@@ -55,7 +55,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kI-X9-NwA" customClass="CornerView" customModule="Food_App" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kI-X9-NwA" customClass="CornerView" customModule="adayroi_online" customModuleProvider="target">
                                         <rect key="frame" x="20" y="123.5" width="374" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9s-Kj-QFY">
@@ -148,7 +148,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-2p-lMF">
-                                        <rect key="frame" x="179.5" y="16" width="55" height="26.5"/>
+                                        <rect key="frame" x="179.5" y="16" width="55" height="25.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <color key="textColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -209,6 +209,11 @@
                                     <action selector="btnTap_Skip:" destination="Fuq-Hh-pwf" eventType="touchUpInside" id="wUp-HJ-by2"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDb-ni-NJe" customClass="HomeTitle" customModule="adayroi_online" customModuleProvider="target">
+                                <rect key="frame" x="-27" y="136" width="290" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -233,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EE0-W4-DOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2386" y="151"/>
+            <point key="canvasLocation" x="-2386.9565217391305" y="150.66964285714286"/>
         </scene>
     </scenes>
     <resources>

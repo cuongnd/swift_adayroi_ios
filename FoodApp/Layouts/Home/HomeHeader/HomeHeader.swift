@@ -7,7 +7,6 @@
 //
 
 import UIKit
-@IBDesignable
 class HomeHeader: UIView {
 
     @IBOutlet weak var btnMenu: UIButton!

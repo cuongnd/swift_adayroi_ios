@@ -28,7 +28,10 @@ class HomeTitle: UIView {
         commitInit()
     }
     func commitInit(){
-        let viewHomeTitle=Bundle.main.loadNibNamed("HomeTitle", owner: self, options: nil)![0] as! UIView
+        let bundle = Bundle(for: HomeTitle.self)
+        //let viewHomeTitle=bundle.loadNibNamed("HomeTitle", owner: self, options: nil)
+        
+        let viewHomeTitle=bundle.loadNibNamed("HomeTitle", owner: self, options: nil)![0] as! UIView
         addSubview(viewHomeTitle)
     }
     
