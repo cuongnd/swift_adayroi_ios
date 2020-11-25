@@ -7,11 +7,13 @@
 //
 
 import UIKit
-
+import SlideMenuControllerSwift
 class HomeHeader: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
+    @IBOutlet weak var btnMenu: UIButton!
+    @IBOutlet weak var btnSearch: UIButton!
+    
+    /*    // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
@@ -29,5 +31,9 @@ class HomeHeader: UIView {
         let viewHomeTitle=Bundle.main.loadNibNamed("HomeHeader", owner: self, options: nil)![0] as! UIView
         addSubview(viewHomeTitle)
     }
+  
+  
+   @IBAction func buttonTapped() {
+   }
 
 }

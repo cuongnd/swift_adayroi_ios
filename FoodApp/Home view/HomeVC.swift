@@ -45,6 +45,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var HomeTtitleHotProducts: HomeTitle!
     @IBOutlet weak var HomeTitleHotCategories: HomeTitle!
     @IBOutlet weak var HomeTtitleNewProducts: HomeTitle!
+    @IBOutlet weak var homeHeader: HomeHeader!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,7 @@ class HomeVC: UIViewController {
         HomeTtitleHotProducts.title.text="Sản phẩm hot";
         HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
         HomeTtitleNewProducts.title.text="Sản phẩm mới";
-        
+        //homeHeader.btnMenu.addTarget(self, action: #selector(btnTap_menu(_:)), for: .touchUpInside)
         
     }
     
