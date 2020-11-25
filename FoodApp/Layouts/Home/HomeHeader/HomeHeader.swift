@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@IBDesignable
 class HomeHeader: UIView {
 
     @IBOutlet weak var btnMenu: UIButton!
@@ -27,8 +28,11 @@ class HomeHeader: UIView {
         commitInit()
     }
     func commitInit(){
-        let viewHomeTitle=Bundle.main.loadNibNamed("HomeHeader", owner: self, options: nil)![0] as! UIView
-        addSubview(viewHomeTitle)
+        let bundle = Bundle(for: HomeHeader.self)
+               
+       let homeHeader=bundle.loadNibNamed("HomeHeader", owner: self, options: nil)![0] as! UIView
+       addSubview(homeHeader)
+
     }
   
     @IBAction func touchUpOutSide(_ sender: UIButton) {

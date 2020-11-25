@@ -209,11 +209,6 @@
                                     <action selector="btnTap_Skip:" destination="Fuq-Hh-pwf" eventType="touchUpInside" id="wUp-HJ-by2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDb-ni-NJe" customClass="HomeTitle" customModule="adayroi_online" customModuleProvider="target">
-                                <rect key="frame" x="-27" y="136" width="290" height="143"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
