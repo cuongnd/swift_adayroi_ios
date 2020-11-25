@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class HomeTitle: UIView {
 
     @IBOutlet weak var title: UILabel!

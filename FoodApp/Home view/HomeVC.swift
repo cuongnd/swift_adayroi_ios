@@ -65,10 +65,17 @@ class HomeVC: UIViewController {
         HomeTtitleHotProducts.title.text="Sản phẩm hot";
         HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
         HomeTtitleNewProducts.title.text="Sản phẩm mới";
-        //homeHeader.btnMenu.addTarget(self, action: #selector(btnTap_menu(_:)), for: .touchUpInside)
+   }
+    @IBAction func btnTap_menu(_ sender: UIButton) {
+        if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
+        {
+            self.slideMenuController()?.openLeft()
+        }
+        else {
+            self.slideMenuController()?.openRight()
+        }
         
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         
         let urlString = API_URL + "/api/products?order_by=added_date"

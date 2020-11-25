@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
+@IBDesignable
 class HomeHeader: UIView {
 
     @IBOutlet weak var btnMenu: UIButton!
@@ -32,8 +32,10 @@ class HomeHeader: UIView {
         addSubview(viewHomeTitle)
     }
   
+    @IBAction func touchUpOutSide(_ sender: UIButton) {
+        print("hello34343");
+    }
+    
   
-   @IBAction func buttonTapped() {
-   }
 
 }

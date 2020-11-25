@@ -549,7 +549,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-QS-kPe" customClass="Collectioview_HomeFeatureProductList">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-QS-kPe">
                                                                 <rect key="frame" x="0.0" y="56" width="375" height="200"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
@@ -790,6 +790,7 @@
                         <outlet property="HomeTtitleDiscountProducts" destination="9jN-du-Al0" id="l2v-FX-uBI"/>
                         <outlet property="HomeTtitleHotProducts" destination="mFm-aG-cmi" id="FvW-3x-PyE"/>
                         <outlet property="HomeTtitleNewProducts" destination="t1Y-Gp-cnX" id="H0D-kO-1pP"/>
+                        <outlet property="homeHeader" destination="QjO-9g-gnp" id="JI0-wZ-05J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmz-X7-YYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
