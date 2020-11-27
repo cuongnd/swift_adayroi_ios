@@ -28,6 +28,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var Collectioview_HomeDiscountProductList: UICollectionView!
     @IBOutlet weak var Collectioview_HomeCategoryList: UICollectionView!
     @IBOutlet weak var Collectioview_HomeFeatureProductList: UICollectionView!
+    @IBOutlet weak var btnMenu: UIButton!
+    @IBOutlet weak var btnSearch: UIButton!
     var lastProductArray = [JSON]()
     var homeHotCategoryArray = [JSON]()
     var homeHotProductArray = [JSON]()
@@ -69,8 +71,12 @@ class HomeVC: UIViewController {
         HomeTtitleNewProducts.title.text="Sản phẩm mới";
 
    }
-    @objc func buttonTap(_ sender: UIButton) {
-        print("dfgdfgfdgfd")
+    
+    @IBAction func GoToSearch(_ sender: UIButton) {
+        let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+       self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+    @IBAction func ShowMenu(_ sender: UIButton) {
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
         {
             self.slideMenuController()?.openLeft()
@@ -78,7 +84,11 @@ class HomeVC: UIViewController {
         else {
             self.slideMenuController()?.openRight()
         }
-        
+    }
+    
+    @IBAction func GoToCart(_ sender: UIButton) {
+        let addtoCartVC = UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(identifier: "AddtoCartVC") as! AddtoCartVC
+        self.navigationController?.pushViewController(addtoCartVC, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -310,33 +320,32 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.Collectioview_lastProductList{
+            let storyBoardProduct = UIStoryboard(name: "Products", bundle: nil)
             let data = self.lastProductArray[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
+            let vc = storyBoardProduct.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             let data = self.homeHotCategoryArray[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
-            vc.itemsId = data["_id"].stringValue
-            self.navigationController?.pushViewController(vc, animated: true)
+            let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+            self.navigationController?.pushViewController(searchVC, animated: true)
         }else if collectionView == self.Collectioview_HomeHotProductList{
             let data = self.homeHotProductArray[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
+            let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             let data = self.homeDiscountProductArray[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
+            let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }else if collectionView == self.Collectioview_HomeCategoryList{
             let data = self.homeCategoryArray[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
-            vc.itemsId = data["_id"].stringValue
-            self.navigationController?.pushViewController(vc, animated: true)
+            let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+            self.navigationController?.pushViewController(searchVC, animated: true)
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
             let data = self.homeFeatureProductArray[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
+            let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }
