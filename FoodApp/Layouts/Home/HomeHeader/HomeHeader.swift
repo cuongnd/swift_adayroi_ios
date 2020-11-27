@@ -7,12 +7,16 @@
 //
 
 import UIKit
+@objc protocol SubViewDelegate {
+    func didTapOnMe( name : String , showMe : String)
+}
+
 @IBDesignable
 class HomeHeader: UIView {
 
     @IBOutlet weak var btnMenu: UIButton!
     @IBOutlet weak var btnSearch: UIButton!
-    
+    var subViewDelegate : SubViewDelegate!
     /*    // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
@@ -34,9 +38,9 @@ class HomeHeader: UIView {
        addSubview(homeHeader)
 
     }
-  
-    @IBAction func touchUpOutSide(_ sender: UIButton) {
-        print("hello34343");
+ 
+    @IBAction func touchUpOutSide(_ sender: Any) {
+        subViewDelegate.didTapOnMe(name:  "name1" , showMe: "showMe1" )
     }
     
   

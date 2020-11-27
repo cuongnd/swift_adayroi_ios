@@ -529,9 +529,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="2080"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjO-9g-gnp" customClass="HomeHeader" customModule="adayroi_online" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-G2-OF1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1S-kh-1ZT" userLabel="Menu">
+                                        <rect key="frame" x="15" y="59" width="39" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="39" id="CQC-U4-1kx"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="line.horizontal.3.decrease" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L6-RR-dwc" userLabel="Cart">
+                                        <rect key="frame" x="330" y="52" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="j1q-MV-SJ4"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="cart.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-7H-1kK" userLabel="Location">
+                                        <rect key="frame" x="292" y="49" width="21" height="33"/>
+                                        <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="mappin.and.ellipse" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-RD-sN4" userLabel="Search">
+                                        <rect key="frame" x="250" y="50" width="29" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="29" id="tNv-Vp-8tO"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Adayroi online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa5-be-yiE">
+                                        <rect key="frame" x="72.5" y="60" width="113.5" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-OB-fQ4" userLabel="Cart count">
+                                        <rect key="frame" x="353" y="44.5" width="14" height="12"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="h9I-gV-THg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bCi-RD-sN4" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="50" id="5h2-jl-F08"/>
+                                    <constraint firstItem="3L6-RR-dwc" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="topMargin" id="5km-hL-2N1"/>
+                                    <constraint firstItem="3L6-RR-dwc" firstAttribute="leading" secondItem="ktM-7H-1kK" secondAttribute="trailing" constant="17" id="6d2-hX-BY9"/>
+                                    <constraint firstItem="bCi-RD-sN4" firstAttribute="bottom" secondItem="r1S-kh-1ZT" secondAttribute="bottom" id="BCQ-Fe-2Lq"/>
+                                    <constraint firstItem="Hu1-OB-fQ4" firstAttribute="trailing" secondItem="4yw-G2-OF1" secondAttribute="trailingMargin" id="FDI-9c-N7L"/>
+                                    <constraint firstAttribute="bottom" secondItem="bCi-RD-sN4" secondAttribute="bottom" constant="18.5" id="FRI-9M-xuh"/>
+                                    <constraint firstItem="r1S-kh-1ZT" firstAttribute="leading" secondItem="4yw-G2-OF1" secondAttribute="leading" constant="15" id="FZn-EQ-dnG"/>
+                                    <constraint firstItem="Sa5-be-yiE" firstAttribute="leading" secondItem="r1S-kh-1ZT" secondAttribute="trailing" constant="18.5" id="JG9-z4-cMe"/>
+                                    <constraint firstItem="ktM-7H-1kK" firstAttribute="bottom" secondItem="r1S-kh-1ZT" secondAttribute="bottom" id="K3a-j5-zKe"/>
+                                    <constraint firstItem="Sa5-be-yiE" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="60" id="NxW-U9-rSo"/>
+                                    <constraint firstItem="Hu1-OB-fQ4" firstAttribute="centerY" secondItem="4yw-G2-OF1" secondAttribute="centerY" id="QiU-Xu-gQJ"/>
+                                    <constraint firstItem="ktM-7H-1kK" firstAttribute="leading" secondItem="bCi-RD-sN4" secondAttribute="trailing" constant="13" id="WgA-eJ-Qbu"/>
+                                    <constraint firstItem="r1S-kh-1ZT" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="59" id="bB0-s7-I3T"/>
+                                    <constraint firstItem="ktM-7H-1kK" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="49" id="gRB-Hy-1vk"/>
+                                    <constraint firstItem="Sa5-be-yiE" firstAttribute="bottom" secondItem="r1S-kh-1ZT" secondAttribute="bottom" id="nFy-Vq-9ns"/>
+                                    <constraint firstItem="3L6-RR-dwc" firstAttribute="leading" secondItem="ktM-7H-1kK" secondAttribute="trailing" constant="17" id="vBA-4P-u4x"/>
+                                    <constraint firstAttribute="trailing" secondItem="3L6-RR-dwc" secondAttribute="trailing" constant="15" id="xTA-uK-52N"/>
+                                    <constraint firstItem="3L6-RR-dwc" firstAttribute="bottom" secondItem="r1S-kh-1ZT" secondAttribute="bottom" id="yuS-CC-gi0"/>
+                                    <constraint firstItem="bCi-RD-sN4" firstAttribute="leading" secondItem="Sa5-be-yiE" secondAttribute="trailing" constant="64" id="zqw-By-SGK"/>
+                                </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-k1-o4g">
                                 <rect key="frame" x="0.0" y="89" width="375" height="2002"/>
@@ -765,12 +841,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4yw-G2-OF1" firstAttribute="top" secondItem="bjm-sk-M5J" secondAttribute="top" id="49g-HA-I4M"/>
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="height" secondItem="bjm-sk-M5J" secondAttribute="height" multiplier="0.9625" id="4Z2-l1-beO"/>
-                            <constraint firstItem="QjO-9g-gnp" firstAttribute="leading" secondItem="4vr-Vw-3TA" secondAttribute="leading" id="QWz-KU-uFg"/>
-                            <constraint firstItem="4vr-Vw-3TA" firstAttribute="trailing" secondItem="QjO-9g-gnp" secondAttribute="trailing" id="RTG-SD-0Yf"/>
+                            <constraint firstItem="4yw-G2-OF1" firstAttribute="leading" secondItem="4vr-Vw-3TA" secondAttribute="leading" id="LkD-A3-38L"/>
+                            <constraint firstItem="4yw-G2-OF1" firstAttribute="trailing" secondItem="4vr-Vw-3TA" secondAttribute="trailing" id="a5n-eQ-2Yc"/>
                             <constraint firstItem="4vr-Vw-3TA" firstAttribute="trailing" secondItem="Rps-k1-o4g" secondAttribute="trailing" id="aWB-HW-DIA"/>
-                            <constraint firstItem="QjO-9g-gnp" firstAttribute="height" secondItem="bjm-sk-M5J" secondAttribute="height" multiplier="0.0432692" id="nim-K6-pGw"/>
-                            <constraint firstItem="4vr-Vw-3TA" firstAttribute="top" secondItem="QjO-9g-gnp" secondAttribute="top" constant="44" id="uSl-KP-naD"/>
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="top" secondItem="4vr-Vw-3TA" secondAttribute="top" constant="45" id="yCO-dm-KdV"/>
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="width" secondItem="bjm-sk-M5J" secondAttribute="width" id="zIG-eb-dZj"/>
                         </constraints>
@@ -790,7 +865,6 @@
                         <outlet property="HomeTtitleDiscountProducts" destination="9jN-du-Al0" id="l2v-FX-uBI"/>
                         <outlet property="HomeTtitleHotProducts" destination="mFm-aG-cmi" id="FvW-3x-PyE"/>
                         <outlet property="HomeTtitleNewProducts" destination="t1Y-Gp-cnX" id="H0D-kO-1pP"/>
-                        <outlet property="homeHeader" destination="QjO-9g-gnp" id="JI0-wZ-05J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmz-X7-YYn" userLabel="First Responder" sceneMemberID="firstResponder"/>

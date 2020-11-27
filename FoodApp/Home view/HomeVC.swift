@@ -18,6 +18,8 @@ import MapKit
 
 
 class HomeVC: UIViewController {
+   
+    
     
     @IBOutlet weak var Collectioview_lastProductList: UICollectionView!
     
@@ -65,7 +67,6 @@ class HomeVC: UIViewController {
         HomeTtitleHotProducts.title.text="Sản phẩm hot";
         HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
         HomeTtitleNewProducts.title.text="Sản phẩm mới";
-        homeHeader.btnMenu.addTarget(self, action: #selector(HomeVC.buttonTap(_:)), for: .touchUpInside)
 
    }
     @objc func buttonTap(_ sender: UIButton) {
