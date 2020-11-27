@@ -577,7 +577,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="50g-js-1Rm" userLabel="Categories products">
                                                         <rect key="frame" x="0.0" y="256" width="375" height="329"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYw-jW-ZeV" customClass="HomeTitle" customModule="adayroi_online" customModuleProvider="target">
+                                                            <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYw-jW-ZeV" customClass="HomeTitle" customModule="adayroi_online" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>

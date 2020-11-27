@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,12 +14,12 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="tua-Nm-nRW" userLabel="HomeHeader">
-            <rect key="frame" x="0.0" y="0.0" width="453" height="121"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <view contentMode="scaleAspectFit" interfaceStyle="light" id="tua-Nm-nRW" userLabel="HomeHeader">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="104"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdN-Ik-5uA" userLabel="Menu">
-                    <rect key="frame" x="15" y="47" width="31.5" height="23"/>
+                    <rect key="frame" x="10" y="54.999999999999993" width="32" height="22.666666666666664"/>
                     <color key="tintColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="line.horizontal.3.decrease" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="semibold"/>
@@ -28,62 +28,69 @@
                         <action selector="touchUpOutSide:" destination="-1" eventType="touchUpInside" id="Le7-zr-PiL"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-ey-XZX">
-                    <rect key="frame" x="74" y="38.5" width="124.5" height="40"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adayroi online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-ey-XZX">
+                    <rect key="frame" x="62.333333333333336" y="56.666666666666657" width="113.33333333333331" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psZ-G8-eOQ" userLabel="Search">
-                    <rect key="frame" x="329" y="46" width="26" height="25"/>
-                    <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" image="magnifyingglass" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGQ-K6-nK5" userLabel="Location">
-                    <rect key="frame" x="365" y="44.5" width="27" height="28"/>
-                    <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" image="mappin.and.ellipse" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
-                    </state>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACe-xq-9Ho" userLabel="Cart">
-                    <rect key="frame" x="403" y="44" width="30" height="29"/>
+                    <rect key="frame" x="332" y="52.666666666666657" width="30" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="J3n-Dq-Jxg"/>
+                    </constraints>
                     <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="cart.fill" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-N9-JVW" userLabel="Cart count">
-                    <rect key="frame" x="431" y="42" width="7" height="12"/>
+                    <rect key="frame" x="337" y="49.666666666666664" width="7" height="12"/>
                     <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGQ-K6-nK5" userLabel="Location">
+                    <rect key="frame" x="297" y="49.666666666666664" width="27" height="27.999999999999993"/>
+                    <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="mappin.and.ellipse" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psZ-G8-eOQ" userLabel="Search">
+                    <rect key="frame" x="260" y="51" width="29" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="29" id="ewY-vC-gak"/>
+                    </constraints>
+                    <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="magnifyingglass" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="psZ-G8-eOQ" firstAttribute="top" secondItem="t6y-r1-lni" secondAttribute="top" constant="2" id="0gX-nY-QSM"/>
-                <constraint firstItem="DdN-Ik-5uA" firstAttribute="leading" secondItem="tua-Nm-nRW" secondAttribute="leadingMargin" constant="-5" id="0ty-eu-Qso"/>
-                <constraint firstItem="ACe-xq-9Ho" firstAttribute="top" secondItem="t6y-r1-lni" secondAttribute="top" id="2OO-O1-c5b"/>
-                <constraint firstItem="gHw-ey-XZX" firstAttribute="leading" secondItem="DdN-Ik-5uA" secondAttribute="trailing" constant="27.5" id="CsH-rf-cg8"/>
-                <constraint firstItem="psZ-G8-eOQ" firstAttribute="centerY" secondItem="TGQ-K6-nK5" secondAttribute="centerY" id="Ean-54-4gL"/>
-                <constraint firstItem="t6y-r1-lni" firstAttribute="trailing" secondItem="RkA-N9-JVW" secondAttribute="trailing" constant="15" id="End-Jt-4ec"/>
-                <constraint firstItem="TGQ-K6-nK5" firstAttribute="leading" secondItem="psZ-G8-eOQ" secondAttribute="trailing" constant="10" id="IIN-V8-Rcw"/>
-                <constraint firstItem="gHw-ey-XZX" firstAttribute="centerY" secondItem="psZ-G8-eOQ" secondAttribute="centerY" id="Ihg-EC-0p9"/>
-                <constraint firstItem="TGQ-K6-nK5" firstAttribute="centerY" secondItem="ACe-xq-9Ho" secondAttribute="centerY" id="LBP-Rr-I56"/>
-                <constraint firstItem="TGQ-K6-nK5" firstAttribute="top" secondItem="t6y-r1-lni" secondAttribute="top" constant="0.5" id="NIP-Ud-W5i"/>
-                <constraint firstItem="ACe-xq-9Ho" firstAttribute="trailing" secondItem="tua-Nm-nRW" secondAttribute="trailingMargin" id="TGm-8T-tzg"/>
-                <constraint firstItem="ACe-xq-9Ho" firstAttribute="leading" secondItem="TGQ-K6-nK5" secondAttribute="trailing" constant="11" id="duk-r1-e87"/>
-                <constraint firstItem="gHw-ey-XZX" firstAttribute="top" secondItem="t6y-r1-lni" secondAttribute="top" constant="-5.5" id="feg-TZ-bSI"/>
-                <constraint firstItem="ACe-xq-9Ho" firstAttribute="top" secondItem="RkA-N9-JVW" secondAttribute="top" constant="2" id="hij-tR-gMr"/>
-                <constraint firstItem="DdN-Ik-5uA" firstAttribute="centerY" secondItem="gHw-ey-XZX" secondAttribute="centerY" id="iqL-4J-3xn"/>
+                <constraint firstItem="ACe-xq-9Ho" firstAttribute="leading" secondItem="TGQ-K6-nK5" secondAttribute="trailing" constant="8" id="1pS-Eo-pcX"/>
+                <constraint firstAttribute="trailing" secondItem="psZ-G8-eOQ" secondAttribute="trailing" constant="83" id="Dw4-6o-Y6R"/>
+                <constraint firstItem="gHw-ey-XZX" firstAttribute="leading" secondItem="DdN-Ik-5uA" secondAttribute="trailing" constant="20.5" id="ElU-up-5pU"/>
+                <constraint firstItem="psZ-G8-eOQ" firstAttribute="top" secondItem="t6y-r1-lni" secondAttribute="top" constant="7" id="Gmi-aR-u3i"/>
+                <constraint firstItem="ACe-xq-9Ho" firstAttribute="bottom" secondItem="DdN-Ik-5uA" secondAttribute="bottom" id="IYT-ci-3dr"/>
+                <constraint firstItem="t6y-r1-lni" firstAttribute="trailing" secondItem="ACe-xq-9Ho" secondAttribute="trailing" constant="10" id="J3n-BL-aVn"/>
+                <constraint firstItem="TGQ-K6-nK5" firstAttribute="bottom" secondItem="DdN-Ik-5uA" secondAttribute="bottom" id="MgZ-Sc-5Nr"/>
+                <constraint firstItem="RkA-N9-JVW" firstAttribute="leading" secondItem="TGQ-K6-nK5" secondAttribute="trailing" constant="13" id="ONB-z6-bXv"/>
+                <constraint firstItem="psZ-G8-eOQ" firstAttribute="leading" secondItem="gHw-ey-XZX" secondAttribute="trailing" constant="84.333333333333343" id="OV1-lK-3h6"/>
+                <constraint firstItem="t6y-r1-lni" firstAttribute="trailing" secondItem="RkA-N9-JVW" secondAttribute="trailing" constant="28" id="PMN-XC-ExC"/>
+                <constraint firstItem="t6y-r1-lni" firstAttribute="bottom" secondItem="psZ-G8-eOQ" secondAttribute="bottom" constant="25" id="cvZ-2R-2fb"/>
+                <constraint firstItem="psZ-G8-eOQ" firstAttribute="centerY" secondItem="ACe-xq-9Ho" secondAttribute="centerY" id="dYq-Qi-04F"/>
+                <constraint firstItem="RkA-N9-JVW" firstAttribute="top" secondItem="TGQ-K6-nK5" secondAttribute="top" id="eab-ly-LQb"/>
+                <constraint firstItem="t6y-r1-lni" firstAttribute="top" secondItem="DdN-Ik-5uA" secondAttribute="top" constant="-11" id="ovr-lo-rlH"/>
+                <constraint firstItem="gHw-ey-XZX" firstAttribute="bottom" secondItem="DdN-Ik-5uA" secondAttribute="bottom" id="thk-5e-ZIW"/>
+                <constraint firstItem="DdN-Ik-5uA" firstAttribute="leading" secondItem="t6y-r1-lni" secondAttribute="leading" constant="10" id="ydu-ER-PB6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="t6y-r1-lni"/>
-            <point key="canvasLocation" x="121.0144927536232" y="-414.84375"/>
+            <point key="canvasLocation" x="-160.86956521739131" y="-677.00892857142856"/>
         </view>
     </objects>
     <resources>
