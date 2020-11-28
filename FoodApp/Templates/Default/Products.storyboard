@@ -558,7 +558,6 @@
                         <outlet property="Addons_Height" destination="QHk-XT-OX6" id="HRS-XO-bx2"/>
                         <outlet property="CollectionView_IngredientsList" destination="Nfv-0m-uzj" id="aQF-Qj-Rw0"/>
                         <outlet property="HtmlDescription" destination="AVM-jv-Oa5" id="HM1-F5-tgP"/>
-                        <outlet property="ProductDescription" destination="AVM-jv-Oa5" id="jDB-d5-TKe"/>
                         <outlet property="TableView_AddonsList" destination="pXa-d5-pX8" id="AF3-lw-0Il"/>
                         <outlet property="UnavailableView_Height" destination="DbJ-fD-xZZ" id="WoV-7a-WQQ"/>
                         <outlet property="btn_Addtocart" destination="YUn-jF-34S" id="dWY-Ql-XYi"/>
