@@ -83,6 +83,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
         self.text_view.textColor = UIColor.lightGray
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
+        self.HtmlDescription.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         let urlString = API_URL1 + "cartcount"
@@ -470,6 +471,11 @@ extension ProductDetailsVC
                 }
             }
         }
+    }
+    func webViewDidFinishLoad(webView: UIWebView) {
+        print("hell34334343");
+         webView.frame.size.height = 1
+         webView.frame.size = webView.sizeThatFits(CGSize.zero)
     }
     func webViewDidFinishLoad(_ aWebView: UIWebView) {
 
