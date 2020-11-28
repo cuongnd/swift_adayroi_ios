@@ -328,6 +328,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             let data = self.homeHotCategoryArray[indexPath.row]
             let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+            searchVC.category_id=data["_id"].stringValue;
             self.navigationController?.pushViewController(searchVC, animated: true)
         }else if collectionView == self.Collectioview_HomeHotProductList{
             let data = self.homeHotProductArray[indexPath.row]

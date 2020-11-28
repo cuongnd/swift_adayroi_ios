@@ -22,7 +22,7 @@ class IngredientsCell: UICollectionViewCell {
     @IBOutlet weak var cell_view: UIView!
     @IBOutlet weak var img_Ingredients: UIImageView!
 }
-class ProductDetailsVC: UIViewController,UITextViewDelegate {
+class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
     
     @IBOutlet weak var text_view: UITextView!
     @IBOutlet weak var Addons_Height: NSLayoutConstraint!
@@ -57,6 +57,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate {
     @IBOutlet weak var item_UnavailableView: UIView!
     @IBOutlet weak var UnavailableView_Height: NSLayoutConstraint!
     
+    @IBOutlet weak var HtmlDescription: UIWebView!
     let cartStr = "Add To Cart".localiz()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +87,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         let urlString = API_URL1 + "cartcount"
         let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-        self.Webservice_cartcount(url: urlString, params:params)
+        //self.Webservice_cartcount(url: urlString, params:params)
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -421,7 +422,7 @@ extension ProductDetailsVC
                     let itemsData = jsonResponse!["data"].dictionaryValue
                     
                     //let item_status = itemsData["item_status"]!.stringValue
-                    let item_status="2"
+                    let item_status="1"
                     if item_status == "2"
                     {
                         self.item_UnavailableView.isHidden = false
@@ -439,7 +440,7 @@ extension ProductDetailsVC
                     self.FinalTotal=200;
                     let ItemPriceTotal = formatter.string(for: self.FinalTotal)
                     self.btn_Addtocart.setTitle("\(self.cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)", for: .normal)
-                    self.lbl_itemsDescripation.text = itemsData["productDescription"]!.stringValue
+                    //self.lbl_itemsDescripation.text = itemsData["productDescription"]!.stringValue
                     //self.lbl_CategoriesName.text = itemsData["category_name"]!.stringValue
                     //self.lbl_itemsName.text = itemsData["item_name"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
@@ -458,15 +459,30 @@ extension ProductDetailsVC
                     self.CollectionView_IngredientsList.dataSource = self
                     self.CollectionView_IngredientsList.reloadData()
                     self.Addons_Height.constant = 80 * 1
-                    let urlString = API_URL1 + "cartcount"
-                    let params: NSDictionary = ["user_id":2]
-                    self.Webservice_cartcount(url: urlString, params:params)
+                    _ = API_URL1 + "cartcount"
+                    let _: NSDictionary = ["user_id":2]
+                    //self.Webservice_cartcount(url: urlString, params:params)
+                    self.HtmlDescription.loadRequest(NSURLRequest(url: NSURL(string: "https://api.adayroi.online/api/products/description/"+itemsData["_id"]!.stringValue)! as URL) as URLRequest)
+
                 }
                 else {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
                 }
             }
         }
+    }
+    func webViewDidFinishLoad(_ aWebView: UIWebView) {
+
+        aWebView.scrollView.isScrollEnabled = false
+        var frame = aWebView.frame
+
+        frame.size.width = 200
+        frame.size.height = 1
+
+        aWebView.frame = frame
+        frame.size.height = aWebView.scrollView.contentSize.height
+
+        aWebView.frame = frame;
     }
     func Webservice_AddtoCart(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
@@ -494,7 +510,7 @@ extension ProductDetailsVC
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
                     let urlString = API_URL + "cartcount"
                     let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-                    self.Webservice_cartcount(url: urlString, params:params)
+                    //self.Webservice_cartcount(url: urlString, params:params)
                 }
                 else {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)

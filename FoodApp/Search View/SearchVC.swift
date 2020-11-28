@@ -11,6 +11,7 @@ import SwiftyJSON
 class SearchVC: UIViewController {
     @IBOutlet weak var Collectioview_SearchList: UICollectionView!
     var pageIndex = 1
+    var category_id = ""
     var lastIndex = 0
     @IBOutlet weak var lbl_titleLabel: UILabel!
     var categoryWiseItemsArray = [[String:String]]()
@@ -18,6 +19,12 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lbl_titleLabel.text = "Search".localiz()
+        if(!self.category_id.isEmpty){
+            let urlString = API_URL + "/api/products?cat_id="+self.category_id+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+            var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let params: NSDictionary = [:]
+            self.Webservice_getSearch(url: urlString1!, params:params)
+        }
     }
     @IBAction func btnTap_Back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -32,15 +39,8 @@ class SearchVC: UIViewController {
         }
         else{
             let urlString = API_URL + "/api/products?keyword="+String(searchTxt)+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
-           
-            
             var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
-            let params: NSDictionary = [:]
-            
-           
-            
-            
+             let params: NSDictionary = [:]
             self.Webservice_getSearch(url: urlString1!, params:params)
         }
     }
@@ -100,10 +100,10 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         if indexPath.item == self.categoryWiseItemsArray.count - 1 {
             if self.pageIndex != self.lastIndex {
                 self.pageIndex = self.pageIndex + 1
-               
+                
                 let urlString = API_URL + "/api/products?keyword="+String(searchTxt)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
                 let params: NSDictionary = [:]
-                 var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 self.Webservice_getSearch(url: urlString1!, params:params)
             }
         }
@@ -111,21 +111,21 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     @objc func btnTap_Favorites(sender:UIButton!) {
         print("Button tapped")
         if UserDefaultManager.getStringFromUserDefaults(key:UD_isSkip) == "1"
-               {
-                   let storyBoard = UIStoryboard(name: "User", bundle: nil)
-                   let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                   let nav : UINavigationController = UINavigationController(rootViewController: objVC)
-                   nav.navigationBar.isHidden = true
-                   UIApplication.shared.windows[0].rootViewController = nav
-               }
-               else{
-                   if self.categoryWiseItemsArray[sender.tag]["isFavorite"]! == "0" {
-                       let urlString = API_URL + "addfavorite"
-                       let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId),
-                                                   "item_id":self.categoryWiseItemsArray[sender.tag]["id"]!]
-                       self.Webservice_FavoriteItems(url: urlString, params: params, productIndex: sender.tag)
-                   }
-               }
+        {
+            let storyBoard = UIStoryboard(name: "User", bundle: nil)
+            let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let nav : UINavigationController = UINavigationController(rootViewController: objVC)
+            nav.navigationBar.isHidden = true
+            UIApplication.shared.windows[0].rootViewController = nav
+        }
+        else{
+            if self.categoryWiseItemsArray[sender.tag]["isFavorite"]! == "0" {
+                let urlString = API_URL + "addfavorite"
+                let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId),
+                                            "item_id":self.categoryWiseItemsArray[sender.tag]["id"]!]
+                self.Webservice_FavoriteItems(url: urlString, params: params, productIndex: sender.tag)
+            }
+        }
         
     }
 }
