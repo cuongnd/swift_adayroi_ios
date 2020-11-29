@@ -156,25 +156,31 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("hello3434343")
-        self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
-            if complete != nil {
-                self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
-                    print("hello set height")
-                    print(height!)
-                    self.DescriptionProduct.frame.size.height = 1
-                    self.DescriptionProduct.frame.size = self.DescriptionProduct.sizeThatFits(.zero)
-                    self.DescriptionProduct.scrollView.isScrollEnabled=false;
-                    //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
-                    self.heightWebview?.constant = height as! CGFloat
-                    
-                    self.MainViewHeight?.constant += height as! CGFloat
-                   // self.DescriptionProduct.frame = CGRect(x: 0, y: 0, width: self.DescriptionProduct.frame.width, height: self.DescriptionProduct.frame.height + 6000.0)
+      self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+        if complete != nil {
+            self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                print("hello set height")
+                print(height!)
+                //self.DescriptionProduct.frame.size.height = 1
+                //self.DescriptionProduct.frame.size = self.DescriptionProduct.sizeThatFits(.zero)
+                //self.DescriptionProduct.scrollView.isScrollEnabled=false;
+                //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
+                if((height as! Double)>10000){
+                    //self.heightWebview?.constant = (height as! CGFloat)-10000
+                    //self.MainViewHeight?.constant += (height as! CGFloat)-10000
+                }else{
+                    //self.heightWebview?.constant = (height as! CGFloat)
+                    //self.MainViewHeight?.constant += (height as! CGFloat)
+                }
+               // self.DescriptionProduct.frame = CGRect(x: 0, y: 0, width: self.DescriptionProduct.frame.width, height: self.DescriptionProduct.frame.height + 6000.0)
 
-                    //self.DescriptionProduct.frame.size.height = height as! CGFloat
-                })
-            }
-
+                //self.DescriptionProduct.frame.size.height = height as! CGFloat
             })
+        }
+
+        })
+        
+        
     }
     @IBAction func btnTap_AddOns(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(identifier: "AddOnsVC") as! AddOnsVC
@@ -492,6 +498,7 @@ extension ProductDetailsVC
                     let _: NSDictionary = ["user_id":2]
                     //self.Webservice_cartcount(url: urlString, params:params)
                     let myURL = URL(string:"https://api.adayroi.online/api/products/description/"+itemsData["_id"]!.stringValue)
+                    //let myURL=URL(string:"https://vnexpress.net/viet-nam-xuat-sieu-ky-luc-hon-20-ty-usd-4198823.html"
                     let myRequest = URLRequest(url: myURL!)
                     self.DescriptionProduct.load(myRequest)
 

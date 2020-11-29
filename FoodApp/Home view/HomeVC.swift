@@ -69,6 +69,19 @@ class HomeVC: UIViewController {
         HomeTtitleHotProducts.title.text="Sản phẩm hot";
         HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
         HomeTtitleNewProducts.title.text="Sản phẩm mới";
+        let urlString = API_URL + "/api/products?order_by=added_date"
+        self.Webservice_getHomeLastProducts(url: urlString, params: [:])
+        let urlStringHomeCategories = API_URL + "/api/categories"
+        self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
+        let urlStringHomeHotProduct = API_URL + "/api/products?order_by=touch_count"
+        self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
+        let urlStringHomeDiscountProduct = API_URL + "/api/products?is_discount=1"
+        self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
+        let urlStringHomeCategory = API_URL + "/api/categories"
+        self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
+        let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
+        self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
+        
 
    }
     
@@ -92,18 +105,6 @@ class HomeVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         
-        let urlString = API_URL + "/api/products?order_by=added_date"
-        self.Webservice_getHomeLastProducts(url: urlString, params: [:])
-        let urlStringHomeCategories = API_URL + "/api/categories"
-        self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
-        let urlStringHomeHotProduct = API_URL + "/api/products?order_by=touch_count"
-        self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
-        let urlStringHomeDiscountProduct = API_URL + "/api/products?is_discount=1"
-        self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
-        let urlStringHomeCategory = API_URL + "/api/categories"
-        self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
-        let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
-        self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
         
         
     }
