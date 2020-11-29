@@ -84,8 +84,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
         self.DescriptionProduct.navigationDelegate = self
-        self.DescriptionProduct!.scrollView.isScrollEnabled = false
-        self.DescriptionProduct.sizeToFit()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         let urlString = API_URL1 + "cartcount"
@@ -152,10 +151,11 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("hello3434343")
-        self.DescriptionProduct.frame.size.height=400
         self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
             if complete != nil {
                 self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                    print("hello set height")
+                    print(height!)
                     self.DescriptionProduct.frame.size.height = height as! CGFloat
                 })
             }
@@ -473,7 +473,7 @@ extension ProductDetailsVC
                     self.CollectionView_IngredientsList.delegate = self
                     self.CollectionView_IngredientsList.dataSource = self
                     self.CollectionView_IngredientsList.reloadData()
-                    self.Addons_Height.constant = 80 * 1
+                   // self.Addons_Height.constant = 80 * 1
                     _ = API_URL1 + "cartcount"
                     let _: NSDictionary = ["user_id":2]
                     //self.Webservice_cartcount(url: urlString, params:params)
