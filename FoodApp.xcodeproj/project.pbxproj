@@ -243,6 +243,13 @@
 			path = test2;
 			sourceTree = "<group>";
 		};
+		0C293F5C25738B0700C74ED1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		0C3C2E0325696E63000B21C5 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +371,7 @@
 		0C5171062566044700C4EA7F /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				0C293F5C25738B0700C74ED1 /* Products */,
 				0C5171072566047300C4EA7F /* Home */,
 			);
 			path = Layouts;

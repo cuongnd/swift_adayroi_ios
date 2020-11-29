@@ -10,7 +10,7 @@ target 'FoodApp' do
 
     pod 'MBProgressHUD'
     pod 'SwiftyJSON'
-    pod 'Alamofire'
+    pod 'Alamofire', '~> 5.0'
     pod 'IQKeyboardManagerSwift'
     pod 'SDWebImage'
     pod 'ImageSlideshow'
@@ -20,6 +20,7 @@ target 'FoodApp' do
     pod 'Firebase/Messaging'
     pod 'Localize-Swift', '~> 2.0'
     pod 'LanguageManager-iOS'
+    pod 'Layout', '~> 0.6'
   target 'FoodAppTests' do
     inherit! :search_paths
     # Pods for testing
