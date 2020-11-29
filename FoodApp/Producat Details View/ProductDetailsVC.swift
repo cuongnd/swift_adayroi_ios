@@ -57,6 +57,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var item_UnavailableView: UIView!
     @IBOutlet weak var UnavailableView_Height: NSLayoutConstraint!
     
+    @IBOutlet weak var MainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var heightWebview: NSLayoutConstraint!
     @IBOutlet weak var DescriptionProduct: WKWebView!
     let cartStr = "Add To Cart".localiz()
@@ -166,7 +167,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
                     //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
                     self.heightWebview?.constant = height as! CGFloat
                     
-                    
+                    self.MainViewHeight?.constant += height as! CGFloat
                    // self.DescriptionProduct.frame = CGRect(x: 0, y: 0, width: self.DescriptionProduct.frame.width, height: self.DescriptionProduct.frame.height + 6000.0)
 
                     //self.DescriptionProduct.frame.size.height = height as! CGFloat
