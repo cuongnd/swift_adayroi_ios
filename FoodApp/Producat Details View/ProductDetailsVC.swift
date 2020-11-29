@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageSlideshow
+import WebKit
 import SwiftyJSON
 class AddonseCell: UITableViewCell {
     
@@ -22,7 +23,7 @@ class IngredientsCell: UICollectionViewCell {
     @IBOutlet weak var cell_view: UIView!
     @IBOutlet weak var img_Ingredients: UIImageView!
 }
-class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
+class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavigationDelegate {
     
     @IBOutlet weak var text_view: UITextView!
     @IBOutlet weak var Addons_Height: NSLayoutConstraint!
@@ -49,7 +50,6 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
     var addonsArray = [[String:String]]()
     var SelectedAddons = [[String:String]]()
     var FinalTotal = Double()
-
     @IBOutlet weak var lbl_count: UILabel!
     @IBOutlet weak var btn_Minus: UIButton!
     @IBOutlet weak var btn_Pluse: UIButton!
@@ -57,7 +57,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
     @IBOutlet weak var item_UnavailableView: UIView!
     @IBOutlet weak var UnavailableView_Height: NSLayoutConstraint!
     
-    @IBOutlet weak var HtmlDescription: UIWebView!
+    @IBOutlet weak var DescriptionProduct: WKWebView!
     let cartStr = "Add To Cart".localiz()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,9 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
         self.text_view.textColor = UIColor.lightGray
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
-        self.HtmlDescription.delegate = self
+        self.DescriptionProduct.navigationDelegate = self
+        self.DescriptionProduct!.scrollView.isScrollEnabled = false
+        self.DescriptionProduct.sizeToFit()
     }
     override func viewWillAppear(_ animated: Bool) {
         let urlString = API_URL1 + "cartcount"
@@ -147,6 +149,18 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,UIWebViewDelegate {
             self.navigationController?.pushViewController(vc, animated:true)
         }
         
+    }
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("hello3434343")
+        self.DescriptionProduct.frame.size.height=400
+        self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+            if complete != nil {
+                self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                    self.DescriptionProduct.frame.size.height = height as! CGFloat
+                })
+            }
+
+            })
     }
     @IBAction func btnTap_AddOns(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(identifier: "AddOnsVC") as! AddOnsVC
@@ -463,7 +477,9 @@ extension ProductDetailsVC
                     _ = API_URL1 + "cartcount"
                     let _: NSDictionary = ["user_id":2]
                     //self.Webservice_cartcount(url: urlString, params:params)
-                    self.HtmlDescription.loadRequest(NSURLRequest(url: NSURL(string: "https://api.adayroi.online/api/products/description/"+itemsData["_id"]!.stringValue)! as URL) as URLRequest)
+                    let myURL = URL(string:"https://api.adayroi.online/api/products/description/"+itemsData["_id"]!.stringValue)
+                    let myRequest = URLRequest(url: myURL!)
+                    self.DescriptionProduct.load(myRequest)
 
                 }
                 else {
