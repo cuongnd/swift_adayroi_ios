@@ -57,6 +57,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var item_UnavailableView: UIView!
     @IBOutlet weak var UnavailableView_Height: NSLayoutConstraint!
     
+    @IBOutlet weak var heightWebview: NSLayoutConstraint!
     @IBOutlet weak var DescriptionProduct: WKWebView!
     let cartStr = "Add To Cart".localiz()
     override func viewDidLoad() {
@@ -84,6 +85,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
         self.DescriptionProduct.navigationDelegate = self
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -149,6 +151,8 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         }
         
     }
+    
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("hello3434343")
         self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
@@ -156,7 +160,16 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
                 self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
                     print("hello set height")
                     print(height!)
-                    self.DescriptionProduct.frame.size.height = height as! CGFloat
+                    self.DescriptionProduct.frame.size.height = 1
+                    self.DescriptionProduct.frame.size = self.DescriptionProduct.sizeThatFits(.zero)
+                    self.DescriptionProduct.scrollView.isScrollEnabled=false;
+                    //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
+                    self.heightWebview?.constant = height as! CGFloat
+                    
+                    
+                   // self.DescriptionProduct.frame = CGRect(x: 0, y: 0, width: self.DescriptionProduct.frame.width, height: self.DescriptionProduct.frame.height + 6000.0)
+
+                    //self.DescriptionProduct.frame.size.height = height as! CGFloat
                 })
             }
 
