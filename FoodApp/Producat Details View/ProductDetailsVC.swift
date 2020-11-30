@@ -206,13 +206,13 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         }
         print(Prices)
         let total = Prices.reduce(0, +)
-        let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+        let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
         let Total = Double(SetTotal)! + total
         let Qtyvalue = self.lbl_count.text!
         self.FinalTotal = ((Double(Qtyvalue)!) * Double(Total))
         print(FinalTotal)
         let ItemPriceTotal = formatter.string(for: FinalTotal)
-        self.btn_Addtocart.setTitle("\(cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)".localiz(), for: .normal)
+        self.btn_Addtocart.setTitle("\(cartStr) \(ItemPriceTotal!) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))".localiz(), for: .normal)
         
     }
     @IBAction func btnTap_Minus(_ sender: UIButton) {
@@ -229,13 +229,13 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         }
         print(Prices)
         let total = Prices.reduce(0, +)
-        let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+        let SetTotal = self.lbl_itemsPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
         let Total = Double(SetTotal)! + total
         let Qtyvalue = self.lbl_count.text!
         self.FinalTotal = ((Double(Qtyvalue)!) * Double(Total))
         print(FinalTotal)
         let ItemPriceTotal = formatter.string(for: FinalTotal)
-        self.btn_Addtocart.setTitle("\(cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)".localiz(), for: .normal)
+        self.btn_Addtocart.setTitle("\(cartStr) \(ItemPriceTotal!) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))".localiz(), for: .normal)
     }
 }
 
@@ -273,14 +273,16 @@ extension ProductDetailsVC: AddOnsDelegate {
         if SelectedAddons.count != 0
         {
             self.Addons_Height.constant = CGFloat(80 * self.SelectedAddons.count)
+            self.MainViewHeight.constant+=CGFloat(80 * self.SelectedAddons.count)
             self.lbl_count.text = "1"
-            let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+            let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
             self.FinalTotal = Double(SetTotal)!
             let ItemPriceTotal = formatter.string(for: FinalTotal)
             self.btn_Addtocart.setTitle("\(cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)".localiz(), for: .normal)
         }
         else{
             self.Addons_Height.constant = 80.0
+            
             self.lbl_count.text = "1"
             let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
             self.FinalTotal = Double(SetTotal)!
@@ -299,7 +301,7 @@ extension ProductDetailsVC: AddOnsDelegate {
         }
         print(Prices)
         let total = Prices.reduce(0, +)
-        let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+        let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
         let Total = Double(SetTotal)! + total
         let Qtyvalue = self.lbl_count.text!
         self.FinalTotal = ((Double(Qtyvalue)!) * Double(Total))
@@ -332,7 +334,7 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
         let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
         cornerRadius(viewName: cell.cell_view, radius: 8.0)
         let data = self.itesmingredientsData[indexPath.item]
-        let imgUrl  = data["ingredients_image"].stringValue
+        let imgUrl  = data["img_url"].stringValue
         
         cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
         
@@ -392,6 +394,7 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
         if SelectedAddons.count != 0
         {
             self.Addons_Height.constant = CGFloat(80 * self.SelectedAddons.count)
+            self.MainViewHeight.constant-=80
             var Prices = [Double]()
             for data in self.SelectedAddons
             {
@@ -399,7 +402,7 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
             }
             print(Prices)
             let total = Prices.reduce(0, +)
-            let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+            let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
             let Total = Double(SetTotal)! + total
             let Qtyvalue = self.lbl_count.text!
             self.FinalTotal = ((Double(Qtyvalue)!) * Double(Total))
@@ -416,7 +419,7 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
             }
             print(Prices)
             let total = Prices.reduce(0, +)
-            let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+            let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
             let Total = Double(SetTotal)! + total
             let Qtyvalue = self.lbl_count.text!
             self.FinalTotal = ((Double(Qtyvalue)!) * Double(Total))
@@ -480,9 +483,9 @@ extension ProductDetailsVC
                     let unit_price = formatter.string(for: itemsData["unit_price"]!.stringValue.toDouble)
                     self.productUnitPrice.text = "\(unit_price!) \(currency)"
                     
-                    let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
+                    let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
                     //self.FinalTotal = Double(SetTotal)!
-                    self.FinalTotal=200;
+                    self.FinalTotal=itemsData["unit_price"]!.stringValue.toDouble;
                     let ItemPriceTotal = formatter.string(for: self.FinalTotal)
                     self.btn_Addtocart.setTitle("\(self.cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)", for: .normal)
                     //self.lbl_itemsDescripation.text = itemsData["productDescription"]!.stringValue
@@ -490,17 +493,17 @@ extension ProductDetailsVC
                     self.lbl_CategoriesName.text = subcategory?["name"]!.stringValue
                     self.lbl_itemsName.text = itemsData["productTitle"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
-                    //self.itesmingredientsData = itemsData["ingredients"]!.arrayValue
-                    /*
-                    let datas = itemsData["addons"]!.arrayValue
+                    self.itesmingredientsData = itemsData["colors"]!.arrayValue
+                    
+                    let datas = itemsData["colors"]!.arrayValue
                     for data in datas
                     {
                         let ItemPrice = formatter.string(for: data["price"].stringValue.toDouble)
-                        let obj = ["price":ItemPrice!,"item_id":data["item_id"].stringValue,"name":data["name"].stringValue,"id":data["id"].stringValue,"isselected":"0"]
+                        let obj = ["price":ItemPrice!,"item_id":data["_id"].stringValue,"name":data["name"].stringValue,"id":data["id"].stringValue,"isselected":"1"]
                         self.addonsArray.append(obj)
                     }
                     print(self.addonsArray)
-                    */
+                    
                     self.CollectionView_IngredientsList.delegate = self
                     self.CollectionView_IngredientsList.dataSource = self
                     self.CollectionView_IngredientsList.reloadData()
