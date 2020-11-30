@@ -40,6 +40,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var lbl_itemsPrice: UILabel!
     @IBOutlet weak var lbl_itemsDescripation: UILabel!
     
+    @IBOutlet weak var UICollectionViewColors: UICollectionView!
     @IBOutlet weak var lbl_itemTime: UILabel!
     
     @IBOutlet weak var lbl_IngredientsLavel: UILabel!
