@@ -479,8 +479,9 @@ extension ProductDetailsVC
                     let ItemPriceTotal = formatter.string(for: self.FinalTotal)
                     self.btn_Addtocart.setTitle("\(self.cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)", for: .normal)
                     //self.lbl_itemsDescripation.text = itemsData["productDescription"]!.stringValue
-                    //self.lbl_CategoriesName.text = itemsData["category_name"]!.stringValue
-                    //self.lbl_itemsName.text = itemsData["item_name"]!.stringValue
+                    let subcategory=itemsData["subcategory"]?.dictionaryValue;
+                    self.lbl_CategoriesName.text = subcategory?["name"]!.stringValue
+                    self.lbl_itemsName.text = itemsData["productTitle"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
                     //self.itesmingredientsData = itemsData["ingredients"]!.arrayValue
                     /*
