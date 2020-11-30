@@ -137,7 +137,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.lastProductArray[indexPath.item]
             cell.lbl_ProductName.text = data["name"].stringValue
-            cell.lbl_LastProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            let str_original_price=data["original_price"].stringValue+" đ";
+            cell.lbl_LastProductOriginalPrice.attributedText = str_original_price.strikeThrough()
             cell.lbl_LastProductUnitPrice.text = data["unit_price"].stringValue+" đ"
             cell.lbl_LastProductPercent.text = data["discount_percent"].stringValue+"%"
             let productImage = data["default_photo"].dictionaryValue
@@ -153,6 +154,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.layer.shadowOffset = CGSize(width: 3, height: 3)
             cell.layer.shadowOpacity = 0.7
             cell.layer.shadowRadius = 2.0
+            
             return cell
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             let cell = self.Collectioview_HomeHotCategoryList.dequeueReusableCell(withReuseIdentifier: "HomeHotCategoryCell", for: indexPath) as! HomeHotCategoryCell
@@ -178,7 +180,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.homeHotProductArray[indexPath.item]
             cell.lbl_HotProductName.text = data["name"].stringValue
-            cell.lbl_HotProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            let str_original_price=data["original_price"].stringValue+" đ";
+            cell.lbl_HotProductOriginalPrice.attributedText = str_original_price.strikeThrough()
             cell.lbl_HotProductUnitPrice.text = data["unit_price"].stringValue+" đ"
             cell.lbl_HotProductPercent.text = data["discount_percent"].stringValue+"%"
             let product_Image = data["default_photo"].dictionaryValue
@@ -200,7 +203,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.homeDiscountProductArray[indexPath.item]
             cell.lbl_DiscountProductName.text = data["name"].stringValue
-            cell.lbl_DiscountProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            let str_original_price=data["original_price"].stringValue+" đ";
+            cell.lbl_DiscountProductOriginalPrice.attributedText = str_original_price.strikeThrough()
             cell.lbl_DiscountProductUnitPrice.text = data["unit_price"].stringValue+" đ"
             cell.lbl_DiscountProductPercent.text = data["discount_percent"].stringValue+"%"
             let product_Image = data["default_photo"].dictionaryValue
@@ -243,7 +247,8 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let data = self.homeFeatureProductArray[indexPath.item]
             //cell.img.image = UIImage(named: "img_product")
             cell.lbName.text = data["name"].stringValue
-            cell.lbl_FeatureProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            let str_original_price=data["original_price"].stringValue+" đ";
+            cell.lbl_FeatureProductOriginalPrice.attributedText = str_original_price.strikeThrough()
             cell.lbl_FeatureProductUnitPrice.text = data["unit_price"].stringValue+" đ"
             cell.ProductDiscountPercent.text = data["discount_percent"].stringValue+"%"
             
@@ -260,7 +265,10 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.lastProductArray[indexPath.item]
             cell.lbl_ProductName.text = data["name"].stringValue
-            cell.lbl_LastProductOriginalPrice.text = data["original_price"].stringValue+" đ"
+            
+            let str_original_price=data["original_price"].stringValue+" đ";
+            cell.lbl_LastProductOriginalPrice.attributedText = str_original_price.strikeThrough()
+            
             cell.lbl_LastProductUnitPrice.text = data["unit_price"].stringValue+" đ"
             cell.lbl_LastProductPercent.text = data["discount_percent"].stringValue+"%"
             
@@ -501,4 +509,14 @@ extension HomeVC
         }
     }
     
+}
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString =  NSMutableAttributedString(string: self)
+        attributeString.addAttribute(
+            NSAttributedString.Key.strikethroughStyle,
+               value: NSUnderlineStyle.single.rawValue,
+                   range:NSMakeRange(0,attributeString.length))
+        return attributeString
+    }
 }

@@ -165,6 +165,10 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
                 //self.DescriptionProduct.frame.size = self.DescriptionProduct.sizeThatFits(.zero)
                 //self.DescriptionProduct.scrollView.isScrollEnabled=false;
                 //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
+                self.heightWebview?.constant = height as! CGFloat
+                print(height!)
+                self.MainViewHeight?.constant += height as! CGFloat
+                print(height!)
                 if((height as! Double)>10000){
                     //self.heightWebview?.constant = (height as! CGFloat)-10000
                     //self.MainViewHeight?.constant += (height as! CGFloat)-10000
@@ -467,7 +471,6 @@ extension ProductDetailsVC
                         self.item_UnavailableView.isHidden = true
                         
                     }
-                    
                     let ItemPrice = formatter.string(for: itemsData["productPrice"]!.stringValue.toDouble)
                     self.lbl_itemsPrice.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
                     let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
@@ -498,7 +501,7 @@ extension ProductDetailsVC
                     let _: NSDictionary = ["user_id":2]
                     //self.Webservice_cartcount(url: urlString, params:params)
                     let myURL = URL(string:"https://api.adayroi.online/api/products/description/"+itemsData["_id"]!.stringValue)
-                    //let myURL=URL(string:"https://vnexpress.net/viet-nam-xuat-sieu-ky-luc-hon-20-ty-usd-4198823.html"
+                    //let myURL=URL(string:"https://dantri.com.vn/xa-hoi/giao-thong-hon-loan-tai-nga-tu-dat-ham-chui-gan-700-ty-dong-o-ha-noi-20201102220649341.htm")
                     let myRequest = URLRequest(url: myURL!)
                     self.DescriptionProduct.load(myRequest)
 
