@@ -472,8 +472,14 @@ extension ProductDetailsVC
                         self.item_UnavailableView.isHidden = true
                         
                     }
-                    let ItemPrice = formatter.string(for: itemsData["unit_price"]!.stringValue.toDouble)
-                    self.lbl_itemsPrice.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
+                    let currency=UserDefaultManager.getStringFromUserDefaults(key: UD_currency);
+                    var original_price = formatter.string(for: itemsData["original_price"]!.stringValue.toDouble)
+                    original_price="\(original_price!) \(currency)";
+                    self.lbl_itemsPrice.attributedText = original_price?.strikeThrough()
+                    
+                    let unit_price = formatter.string(for: itemsData["unit_price"]!.stringValue.toDouble)
+                    self.productUnitPrice.text = "\(unit_price!) \(currency)"
+                    
                     let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
                     //self.FinalTotal = Double(SetTotal)!
                     self.FinalTotal=200;
@@ -630,3 +636,4 @@ class AFWrapperClass : NSObject {
         }
     }
 }
+
