@@ -57,6 +57,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var item_UnavailableView: UIView!
     @IBOutlet weak var UnavailableView_Height: NSLayoutConstraint!
     
+    @IBOutlet weak var productUnitPrice: UILabel!
     @IBOutlet weak var MainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var heightWebview: NSLayoutConstraint!
     @IBOutlet weak var DescriptionProduct: WKWebView!
@@ -471,7 +472,7 @@ extension ProductDetailsVC
                         self.item_UnavailableView.isHidden = true
                         
                     }
-                    let ItemPrice = formatter.string(for: itemsData["productPrice"]!.stringValue.toDouble)
+                    let ItemPrice = formatter.string(for: itemsData["unit_price"]!.stringValue.toDouble)
                     self.lbl_itemsPrice.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
                     let SetTotal = self.lbl_itemsPrice.text!.dropFirst().replacingOccurrences(of: " ", with: "")
                     //self.FinalTotal = Double(SetTotal)!

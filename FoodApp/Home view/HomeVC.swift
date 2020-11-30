@@ -69,18 +69,10 @@ class HomeVC: UIViewController {
         HomeTtitleHotProducts.title.text="Sản phẩm hot";
         HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
         HomeTtitleNewProducts.title.text="Sản phẩm mới";
-        let urlString = API_URL + "/api/products?order_by=added_date"
-        self.Webservice_getHomeLastProducts(url: urlString, params: [:])
-        let urlStringHomeCategories = API_URL + "/api/categories"
-        self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
-        let urlStringHomeHotProduct = API_URL + "/api/products?order_by=touch_count"
-        self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
-        let urlStringHomeDiscountProduct = API_URL + "/api/products?is_discount=1"
-        self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
-        let urlStringHomeCategory = API_URL + "/api/categories"
-        self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
-        let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
-        self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
+        let urlStringGetMainShopInfo = API_URL + "/api/ios/get_shop_info"
+        self.Webservice_getMainShopInfo(url: urlStringGetMainShopInfo, params: [:])
+        
+       
         
 
    }
@@ -370,6 +362,38 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
 
 extension HomeVC
 {
+    func Webservice_getMainShopInfo(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                     let mainShopInfo = jsonResponse!["data"].dictionaryValue
+                     UserDefaultManager.setStringToUserDefaults(value:mainShopInfo["currency"]!.stringValue, key: UD_currency)
+                     let urlString = API_URL + "/api/products?order_by=added_date"
+                       self.Webservice_getHomeLastProducts(url: urlString, params: [:])
+                       let urlStringHomeCategories = API_URL + "/api/categories"
+                       self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
+                       let urlStringHomeHotProduct = API_URL + "/api/products?order_by=touch_count"
+                       self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
+                       let urlStringHomeDiscountProduct = API_URL + "/api/products?is_discount=1"
+                       self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
+                       let urlStringHomeCategory = API_URL + "/api/categories"
+                       self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
+                       let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
+                       self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
+                    
+                    
+                }
+                else {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                }
+            }
+        }
+    }
     func Webservice_getHomeLastProducts(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
