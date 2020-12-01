@@ -89,6 +89,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
         self.DescriptionProduct.navigationDelegate = self
+        self.UICollectionViewColors.register(UINib(nibName: "ProductDetailColorCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailColorCell")
         
         
     }
@@ -350,12 +351,10 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             
             return cell
         }else if (collectionView == self.UICollectionViewColors){
-            print("hello cuong334343")
-            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCellCollectionViewCell
+            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
             let data = self.colorsData[indexPath.item]
             let imgUrl  = data["img_url"].stringValue
-            print("imgUrl:\(imgUrl)")
-            cell.colorName.text=data["name"].stringValue
+            cell.colorName.text=data["value"].stringValue
             cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
             
             return cell
@@ -531,7 +530,7 @@ extension ProductDetailsVC
                     self.colorsData = itemsData["colors"]!.arrayValue
                     self.UICollectionViewColors.delegate = self
                     self.UICollectionViewColors.dataSource = self
-                    self.CollectionView_IngredientsList.reloadData()
+                    self.UICollectionViewColors.reloadData()
                     let datas = itemsData["colors"]!.arrayValue
                     for data in datas
                     {

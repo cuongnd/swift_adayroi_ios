@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductDetailColorCellCollectionViewCell: UICollectionViewCell {
+class ProductDetailColorCell: UICollectionViewCell {
 
     @IBOutlet weak var colorImage: UIImageView!
     @IBOutlet weak var colorName: UILabel!
