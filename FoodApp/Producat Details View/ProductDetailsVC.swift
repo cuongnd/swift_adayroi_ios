@@ -350,10 +350,11 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             
             return cell
         }else if (collectionView == self.UICollectionViewColors){
-            
+            print("hello cuong334343")
             let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCellCollectionViewCell
             let data = self.colorsData[indexPath.item]
             let imgUrl  = data["img_url"].stringValue
+            print("imgUrl:\(imgUrl)")
             cell.colorName.text=data["name"].stringValue
             cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
             
@@ -528,7 +529,9 @@ extension ProductDetailsVC
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
                     self.itesmingredientsData = itemsData["colors"]!.arrayValue
                     self.colorsData = itemsData["colors"]!.arrayValue
-                    
+                    self.UICollectionViewColors.delegate = self
+                    self.UICollectionViewColors.dataSource = self
+                    self.CollectionView_IngredientsList.reloadData()
                     let datas = itemsData["colors"]!.arrayValue
                     for data in datas
                     {
