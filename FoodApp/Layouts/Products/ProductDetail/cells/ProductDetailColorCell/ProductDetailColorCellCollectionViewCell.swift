@@ -10,6 +10,8 @@ import UIKit
 
 class ProductDetailColorCellCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var colorImage: UIImageView!
+    @IBOutlet weak var colorName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

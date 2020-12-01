@@ -315,21 +315,29 @@ extension ProductDetailsVC: AddOnsDelegate {
 }
 extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.CollectionView_IngredientsList.bounds.size.width, height: self.CollectionView_IngredientsList.bounds.size.height))
-        let messageLabel = UILabel(frame: rect)
-        messageLabel.textColor = UIColor.lightGray
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        //messageLabel.font = UIFont(name: "POPPINS-REGULAR", size: 15)!
-        messageLabel.sizeToFit()
-        self.CollectionView_IngredientsList.backgroundView = messageLabel;
-        if self.itesmingredientsData.count == 0 {
-            messageLabel.text = "NO INGREDIENTS"
+        if collectionView == self.CollectionView_IngredientsList{
+            let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.CollectionView_IngredientsList.bounds.size.width, height: self.CollectionView_IngredientsList.bounds.size.height))
+            let messageLabel = UILabel(frame: rect)
+            messageLabel.textColor = UIColor.lightGray
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = .center
+            //messageLabel.font = UIFont(name: "POPPINS-REGULAR", size: 15)!
+            messageLabel.sizeToFit()
+            self.CollectionView_IngredientsList.backgroundView = messageLabel;
+            if self.itesmingredientsData.count == 0 {
+                messageLabel.text = "NO INGREDIENTS"
+            }
+            else {
+                messageLabel.text = ""
+            }
+            return itesmingredientsData.count
+        }else if (collectionView == self.UICollectionViewColors){
+            return colorsData.count
+        }else{
+            return 0
         }
-        else {
-            messageLabel.text = ""
-        }
-        return itesmingredientsData.count
+        
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.CollectionView_IngredientsList{
@@ -342,12 +350,12 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             
             return cell
         }else if (collectionView == self.UICollectionViewColors){
-            let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
-            cornerRadius(viewName: cell.cell_view, radius: 8.0)
+            
+            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCellCollectionViewCell
             let data = self.colorsData[indexPath.item]
             let imgUrl  = data["img_url"].stringValue
-            
-            cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
+            cell.colorName.text=data["name"].stringValue
+            cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
             
             return cell
         }else{
@@ -357,7 +365,16 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+        if collectionView == self.CollectionView_IngredientsList{
+             return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+        }else if (collectionView == self.UICollectionViewColors){
+            return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+            
+        }else{
+            return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+        }
+          
+       
     }
     
 }

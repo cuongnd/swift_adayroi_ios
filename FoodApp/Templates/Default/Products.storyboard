@@ -298,59 +298,16 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngredientsCell" id="ApY-3R-ce6" customClass="IngredientsCell" customModule="adayroi_online" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductDetailColorCell" id="ApY-3R-ce6" customClass="ProductDetailColorCellCollectionViewCell" customModule="adayroi_online" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="3.5" width="84" height="84"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Tl0-U3-KIv">
                                                             <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bw-X2-zUR">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
-                                                                    <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image" translatesAutoresizingMaskIntoConstraints="NO" id="3rH-Cg-Rph">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="62"/>
-                                                                            <color key="tintColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR4-vB-me5">
-                                                                            <rect key="frame" x="11.5" y="67" width="61" height="13"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="13" id="sNL-H5-eok"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="bottom" secondItem="3rH-Cg-Rph" secondAttribute="bottom" constant="22" id="B7O-La-Q8q"/>
-                                                                        <constraint firstItem="dR4-vB-me5" firstAttribute="centerX" secondItem="3rH-Cg-Rph" secondAttribute="centerX" id="MVL-HG-Jyh"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="3rH-Cg-Rph" secondAttribute="trailing" id="SkB-uV-WN8"/>
-                                                                        <constraint firstItem="3rH-Cg-Rph" firstAttribute="leading" secondItem="0bw-X2-zUR" secondAttribute="leading" id="br3-Qn-8PJ"/>
-                                                                        <constraint firstItem="dR4-vB-me5" firstAttribute="top" secondItem="3rH-Cg-Rph" secondAttribute="bottom" constant="5" id="d7a-fD-ct0"/>
-                                                                        <constraint firstItem="3rH-Cg-Rph" firstAttribute="top" secondItem="0bw-X2-zUR" secondAttribute="top" id="qgq-Cs-jow"/>
-                                                                    </constraints>
-                                                                </view>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="0bw-X2-zUR" secondAttribute="bottom" id="05L-rk-h1M"/>
-                                                                <constraint firstItem="0bw-X2-zUR" firstAttribute="top" secondItem="Tl0-U3-KIv" secondAttribute="top" id="7IZ-dJ-hGx"/>
-                                                                <constraint firstAttribute="trailing" secondItem="0bw-X2-zUR" secondAttribute="trailing" id="7jO-SW-hbW"/>
-                                                                <constraint firstAttribute="trailing" secondItem="0bw-X2-zUR" secondAttribute="trailing" id="8eD-w5-sq4"/>
-                                                                <constraint firstItem="0bw-X2-zUR" firstAttribute="leading" secondItem="Tl0-U3-KIv" secondAttribute="leading" id="WWZ-8N-mik"/>
-                                                                <constraint firstItem="0bw-X2-zUR" firstAttribute="leading" secondItem="Tl0-U3-KIv" secondAttribute="leading" id="k2P-uI-m2k"/>
-                                                                <constraint firstItem="0bw-X2-zUR" firstAttribute="top" secondItem="Tl0-U3-KIv" secondAttribute="top" id="nHI-Np-ZmU"/>
-                                                                <constraint firstAttribute="bottom" secondItem="0bw-X2-zUR" secondAttribute="bottom" id="vG3-Xt-8Au"/>
-                                                            </constraints>
                                                         </collectionViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <size key="customSize" width="84" height="84"/>
-                                                        <connections>
-                                                            <outlet property="cell_view" destination="0bw-X2-zUR" id="PYB-aP-RrS"/>
-                                                            <outlet property="img_Ingredients" destination="3rH-Cg-Rph" id="o8D-Go-cnT"/>
-                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
