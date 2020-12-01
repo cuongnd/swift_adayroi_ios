@@ -47,6 +47,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var lbl_DetailsLabel: UILabel!
     var itemsId = String()
     var itesmingredientsData = [JSON]()
+    var colorsData = [JSON]()
     var productImages = [SDWebImageSource]()
     var addonsArray = [[String:String]]()
     var SelectedAddons = [[String:String]]()
@@ -158,32 +159,32 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("hello3434343")
-      self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
-        if complete != nil {
-            self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
-                print("hello set height")
-                print(height!)
-                //self.DescriptionProduct.frame.size.height = 1
-                //self.DescriptionProduct.frame.size = self.DescriptionProduct.sizeThatFits(.zero)
-                //self.DescriptionProduct.scrollView.isScrollEnabled=false;
-                //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
-                self.heightWebview?.constant = height as! CGFloat
-                print(height!)
-                self.MainViewHeight?.constant += height as! CGFloat
-                print(height!)
-                if((height as! Double)>10000){
-                    //self.heightWebview?.constant = (height as! CGFloat)-10000
-                    //self.MainViewHeight?.constant += (height as! CGFloat)-10000
-                }else{
-                    //self.heightWebview?.constant = (height as! CGFloat)
-                    //self.MainViewHeight?.constant += (height as! CGFloat)
-                }
-               // self.DescriptionProduct.frame = CGRect(x: 0, y: 0, width: self.DescriptionProduct.frame.width, height: self.DescriptionProduct.frame.height + 6000.0)
-
-                //self.DescriptionProduct.frame.size.height = height as! CGFloat
-            })
-        }
-
+        self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+            if complete != nil {
+                self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                    print("hello set height")
+                    print(height!)
+                    //self.DescriptionProduct.frame.size.height = 1
+                    //self.DescriptionProduct.frame.size = self.DescriptionProduct.sizeThatFits(.zero)
+                    //self.DescriptionProduct.scrollView.isScrollEnabled=false;
+                    //myWebViewHeightConstraint.constant = self.DescriptionProduct.scrollView.contentSize.height
+                    self.heightWebview?.constant = height as! CGFloat
+                    print(height!)
+                    self.MainViewHeight?.constant += height as! CGFloat
+                    print(height!)
+                    if((height as! Double)>10000){
+                        //self.heightWebview?.constant = (height as! CGFloat)-10000
+                        //self.MainViewHeight?.constant += (height as! CGFloat)-10000
+                    }else{
+                        //self.heightWebview?.constant = (height as! CGFloat)
+                        //self.MainViewHeight?.constant += (height as! CGFloat)
+                    }
+                    // self.DescriptionProduct.frame = CGRect(x: 0, y: 0, width: self.DescriptionProduct.frame.width, height: self.DescriptionProduct.frame.height + 6000.0)
+                    
+                    //self.DescriptionProduct.frame.size.height = height as! CGFloat
+                })
+            }
+            
         })
         
         
@@ -331,15 +332,29 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
         return itesmingredientsData.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.CollectionView_IngredientsList{
+            let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
+            cornerRadius(viewName: cell.cell_view, radius: 8.0)
+            let data = self.itesmingredientsData[indexPath.item]
+            let imgUrl  = data["img_url"].stringValue
+            
+            cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
+            
+            return cell
+        }else if (collectionView == self.UICollectionViewColors){
+            let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
+            cornerRadius(viewName: cell.cell_view, radius: 8.0)
+            let data = self.colorsData[indexPath.item]
+            let imgUrl  = data["img_url"].stringValue
+            
+            cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
+            
+            return cell
+        }else{
+            let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
+            return cell
+        }
         
-        let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
-        cornerRadius(viewName: cell.cell_view, radius: 8.0)
-        let data = self.itesmingredientsData[indexPath.item]
-        let imgUrl  = data["img_url"].stringValue
-        
-        cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
-        
-        return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
@@ -381,7 +396,7 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
             cell.lbl_Price.text = "Free"
         }
         else{
-           cell.lbl_Price.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
+            cell.lbl_Price.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
         }
         
         cell.btn_Close.tag = indexPath.row
@@ -495,6 +510,7 @@ extension ProductDetailsVC
                     self.lbl_itemsName.text = itemsData["productTitle"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
                     self.itesmingredientsData = itemsData["colors"]!.arrayValue
+                    self.colorsData = itemsData["colors"]!.arrayValue
                     
                     let datas = itemsData["colors"]!.arrayValue
                     for data in datas
@@ -508,7 +524,7 @@ extension ProductDetailsVC
                     self.CollectionView_IngredientsList.delegate = self
                     self.CollectionView_IngredientsList.dataSource = self
                     self.CollectionView_IngredientsList.reloadData()
-                   // self.Addons_Height.constant = 80 * 1
+                    // self.Addons_Height.constant = 80 * 1
                     _ = API_URL1 + "cartcount"
                     let _: NSDictionary = ["user_id":2]
                     //self.Webservice_cartcount(url: urlString, params:params)
@@ -516,7 +532,7 @@ extension ProductDetailsVC
                     //let myURL=URL(string:"https://dantri.com.vn/xa-hoi/giao-thong-hon-loan-tai-nga-tu-dat-ham-chui-gan-700-ty-dong-o-ha-noi-20201102220649341.htm")
                     let myRequest = URLRequest(url: myURL!)
                     self.DescriptionProduct.load(myRequest)
-
+                    
                 }
                 else {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
@@ -526,20 +542,20 @@ extension ProductDetailsVC
     }
     func webViewDidFinishLoad(webView: UIWebView) {
         print("hell34334343");
-         webView.frame.size.height = 1
-         webView.frame.size = webView.sizeThatFits(CGSize.zero)
+        webView.frame.size.height = 1
+        webView.frame.size = webView.sizeThatFits(CGSize.zero)
     }
     func webViewDidFinishLoad(_ aWebView: UIWebView) {
-
+        
         aWebView.scrollView.isScrollEnabled = false
         var frame = aWebView.frame
-
+        
         frame.size.width = 200
         frame.size.height = 1
-
+        
         aWebView.frame = frame
         frame.size.height = aWebView.scrollView.contentSize.height
-
+        
         aWebView.frame = frame;
     }
     func Webservice_AddtoCart(url:String, params:NSDictionary) -> Void {
