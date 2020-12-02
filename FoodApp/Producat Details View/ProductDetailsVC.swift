@@ -18,6 +18,11 @@ class AddonseCell: UITableViewCell {
     @IBOutlet weak var lbl_Title: UILabel!
     
 }
+class ProductDetailColorCell: UICollectionViewCell {
+
+    @IBOutlet weak var colorImage: UIImageView!
+    @IBOutlet weak var colorName: UILabel!
+}
 class IngredientsCell: UICollectionViewCell {
     
     @IBOutlet weak var cell_view: UIView!
@@ -89,7 +94,6 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
         self.DescriptionProduct.navigationDelegate = self
-        self.UICollectionViewColors.register(UINib(nibName: "ProductDetailColorCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailColorCell")
         
         
     }
@@ -368,13 +372,28 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
         if collectionView == self.CollectionView_IngredientsList{
              return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
         }else if (collectionView == self.UICollectionViewColors){
-            return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
-            
+            return CGSize(width: UIScreen.main.bounds.width / 3, height: 155.0)
         }else{
             return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
         }
           
        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.CollectionView_IngredientsList{
+             
+        }else if (collectionView == self.UICollectionViewColors){
+            print("hello selected")
+            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
+            let data = self.colorsData[indexPath.item]
+            let imgUrl  = "https://i1-vnexpress.vnecdn.net/2020/12/02/sinhviendeokhautrang-160688307-4039-1690-1606884365.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=gYIV3FE_BRxdo0i4OWiXWg"
+            cell.colorName.text=data["value"].stringValue
+            cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
+        }else{
+            
+        }
+        
+        
     }
     
 }
