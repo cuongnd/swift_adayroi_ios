@@ -10,6 +10,8 @@ import UIKit
 import ImageSlideshow
 import WebKit
 import SwiftyJSON
+import iOSDropDown
+
 class AddonseCell: UITableViewCell {
     
     @IBOutlet weak var btn_Close: UIButton!
@@ -27,6 +29,7 @@ class ProductDetailColorCell: UICollectionViewCell {
 class ProductDetailAttributesHeaderCell: UICollectionViewCell {
     
     @IBOutlet weak var attributeName: UILabel!
+    @IBOutlet weak var dropDown : DropDown!
     
 }
 
@@ -387,10 +390,18 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             cell.colorName.addGestureRecognizer(tap)
             return cell
         }else if(collectionView == self.UICollectionViewAttributesHeader){
-            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailAttributesHeaderCell", for: indexPath) as! ProductDetailAttributesHeaderCell
+            let cell = self.UICollectionViewAttributesHeader.dequeueReusableCell(withReuseIdentifier: "attributesHeaderCell", for: indexPath) as! ProductDetailAttributesHeaderCell
             let item = self.attributes_header[indexPath.item]
+            let attributes_detail=item["attributes_detail"]
             cell.attributeName.text=item["name"].stringValue
-            return cell
+            for index in 0...attributes_detail.count-1 {
+                let currentItem=attributes_detail[index]
+                cell.dropDown.optionArray.append(currentItem["name"].stringValue)
+                cell.dropDown.optionIds?.insert(index, at: index)
+                
+                
+            }
+          return cell
         }
         else{
             let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
@@ -422,7 +433,7 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             cell.colorName.text=data["value"].stringValue
             cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
         }else if(collectionView == self.UICollectionViewAttributesHeader){
-            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
+            //let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
         }else{
             
         }
