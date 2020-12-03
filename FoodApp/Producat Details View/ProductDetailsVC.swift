@@ -24,6 +24,10 @@ class ProductDetailColorCell: UICollectionViewCell {
     @IBOutlet weak var colorName: UILabel!
     @IBOutlet weak var btn_Check: UIButton!
 }
+class ProductDetailAttributesHeaderCell: UICollectionViewCell {
+    
+}
+
 class IngredientsCell: UICollectionViewCell {
     
     @IBOutlet weak var cell_view: UIView!
@@ -47,6 +51,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var lbl_itemsDescripation: UILabel!
     
     @IBOutlet weak var UICollectionViewColors: UICollectionView!
+    @IBOutlet weak var UICollectionViewAttributesHeader: UICollectionView!
     @IBOutlet weak var lbl_itemTime: UILabel!
     
     @IBOutlet weak var lbl_IngredientsLavel: UILabel!
@@ -54,6 +59,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     var itemsId = String()
     var itesmingredientsData = [JSON]()
     var colorsData = [JSON]()
+    var attributes_header = [JSON]()
     var productImages = [SDWebImageSource]()
     var addonsArray = [[String:String]]()
     var SelectedAddons = [[String:String]]()
@@ -339,6 +345,8 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             return itesmingredientsData.count
         }else if (collectionView == self.UICollectionViewColors){
             return colorsData.count
+        }else if(collectionView == self.UICollectionViewAttributesHeader){
+            return attributes_header.count
         }else{
             return 0
         }
@@ -376,7 +384,11 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             cell.colorName.isUserInteractionEnabled = true
             cell.colorName.addGestureRecognizer(tap)
             return cell
-        }else{
+        }else if(collectionView == self.UICollectionViewAttributesHeader){
+            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailAttributesHeaderCell", for: indexPath) as! ProductDetailAttributesHeaderCell
+            return cell
+        }
+        else{
             let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
             return cell
         }
@@ -387,6 +399,8 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
              return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
         }else if (collectionView == self.UICollectionViewColors){
             return CGSize(width: UIScreen.main.bounds.width / 3, height: 155.0)
+        }else if(collectionView == self.UICollectionViewAttributesHeader){
+            return CGSize(width: UIScreen.main.bounds.width, height: 50)
         }else{
             return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
         }
@@ -403,6 +417,8 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             let imgUrl  = "https://i1-vnexpress.vnecdn.net/2020/12/02/sinhviendeokhautrang-160688307-4039-1690-1606884365.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=gYIV3FE_BRxdo0i4OWiXWg"
             cell.colorName.text=data["value"].stringValue
             cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
+        }else if(collectionView == self.UICollectionViewAttributesHeader){
+            let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
         }else{
             
         }
@@ -603,9 +619,9 @@ extension ProductDetailsVC
                     self.UICollectionViewColors.dataSource = self
                     self.UICollectionViewColors.reloadData()
                     self.attributes_header = itemsData["attributes_header"]!.arrayValue
-                    self.UICollectionViewColors.delegate = self
-                    self.UICollectionViewColors.dataSource = self
-                    self.UICollectionViewColors.reloadData()
+                    self.UICollectionViewAttributesHeader.delegate = self
+                    self.UICollectionViewAttributesHeader.dataSource = self
+                    self.UICollectionViewAttributesHeader.reloadData()
                     
                     let datas = itemsData["colors"]!.arrayValue
                     for data in datas
