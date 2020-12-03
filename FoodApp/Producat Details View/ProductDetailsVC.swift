@@ -22,6 +22,7 @@ class ProductDetailColorCell: UICollectionViewCell {
 
     @IBOutlet weak var colorImage: UIImageView!
     @IBOutlet weak var colorName: UILabel!
+    @IBOutlet weak var btn_Check: UIButton!
 }
 class IngredientsCell: UICollectionViewCell {
     
@@ -360,7 +361,20 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             let imgUrl  = data["img_url"].stringValue
             cell.colorName.text=data["value"].stringValue
             cell.colorImage.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
+            cell.btn_Check.tag = indexPath.row
+            if data["isselected"] == "0"
+            {
+                cell.btn_Check.setImage(UIImage(systemName: "square"), for: .normal)
+            }
+            else{
+                cell.btn_Check.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            }
             
+            cell.btn_Check.addTarget(self, action: #selector(btnTap_Check), for: .touchUpInside)
+            cell.colorName.tag = indexPath.row
+            let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTap))
+            cell.colorName.isUserInteractionEnabled = true
+            cell.colorName.addGestureRecognizer(tap)
             return cell
         }else{
             let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
@@ -393,6 +407,41 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             
         }
         
+        
+    }
+    @objc func doubleTap(sender: UITapGestureRecognizer) {
+        let current = self.colorsData[sender.view?.tag ?? 0]
+        for index in 0...self.colorsData.count-1 {
+           self.colorsData[index]["isselected"]="0"
+        }
+        for index in 0...self.colorsData.count-1 {
+            
+            if self.colorsData[index]["_id"]==current["_id"]{
+                self.colorsData[index]["isselected"]="1"
+            }
+        }
+        print("self.colorsData \(self.colorsData)")
+        self.UICollectionViewColors.reloadData()
+        
+    }
+
+    
+   
+    
+    @objc func btnTap_Check(sender:UIButton)
+    {
+        let current = colorsData[sender.tag]
+        for index in 0...self.colorsData.count-1 {
+           self.colorsData[index]["isselected"]="0"
+        }
+        for index in 0...self.colorsData.count-1 {
+            
+            if self.colorsData[index]["_id"]==current["_id"]{
+                self.colorsData[index]["isselected"]="1"
+            }
+        }
+        print("self.colorsData \(self.colorsData)")
+        self.UICollectionViewColors.reloadData()
         
     }
     
@@ -547,6 +596,9 @@ extension ProductDetailsVC
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
                     self.itesmingredientsData = itemsData["colors"]!.arrayValue
                     self.colorsData = itemsData["colors"]!.arrayValue
+                    for index in 0...self.colorsData.count-1 {
+                              self.colorsData[index]["isselected"]="0"
+                           }
                     self.UICollectionViewColors.delegate = self
                     self.UICollectionViewColors.dataSource = self
                     self.UICollectionViewColors.reloadData()

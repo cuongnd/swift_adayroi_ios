@@ -345,6 +345,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <size key="customSize" width="131" height="154"/>
                                                         <connections>
+                                                            <outlet property="btn_Check" destination="CMu-lr-jzR" id="Yfe-bb-GnD"/>
                                                             <outlet property="colorImage" destination="vhw-Y2-qx6" id="YWz-BP-R4h"/>
                                                             <outlet property="colorName" destination="YnD-Se-bAt" id="VIr-X6-afy"/>
                                                         </connections>
