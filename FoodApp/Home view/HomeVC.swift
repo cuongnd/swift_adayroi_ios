@@ -349,6 +349,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let data = self.homeFeatureProductArray[indexPath.row]
             let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
+            vc.SubCategoryId = data["sub_cat_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

@@ -62,7 +62,8 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var lbl_IngredientsLavel: UILabel!
     @IBOutlet weak var lbl_DetailsLabel: UILabel!
     var itemsId = String()
-    var itesmingredientsData = [JSON]()
+    var SubCategoryId = String()
+    var RelatedProductsData = [JSON]()
     var colorsData = [JSON]()
     var attributes_header = [JSON]()
     var productImages = [SDWebImageSource]()
@@ -106,6 +107,13 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         self.text_view.delegate = self
         self.lbl_count.text! = "1"
         self.DescriptionProduct.navigationDelegate = self
+        
+        
+        self.productImages.removeAll()
+        let urlGetRelatedProducts = API_URL + "/api/products/get_related_product_trending/product_id/\(String(self.itemsId))/sub_cat_id/\(self.SubCategoryId)"
+        let paramsRelatedProducts: NSDictionary = [:]
+        self.Webservice_getRelatedProducts(url: urlGetRelatedProducts, params:paramsRelatedProducts)
+        
         
         
     }
@@ -341,13 +349,13 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             //messageLabel.font = UIFont(name: "POPPINS-REGULAR", size: 15)!
             messageLabel.sizeToFit()
             self.CollectionView_IngredientsList.backgroundView = messageLabel;
-            if self.itesmingredientsData.count == 0 {
+            if self.RelatedProductsData.count == 0 {
                 messageLabel.text = "NO INGREDIENTS"
             }
             else {
                 messageLabel.text = ""
             }
-            return itesmingredientsData.count
+            return RelatedProductsData.count
         }else if (collectionView == self.UICollectionViewColors){
             return colorsData.count
         }else if(collectionView == self.UICollectionViewAttributesHeader){
@@ -362,7 +370,7 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
         if collectionView == self.CollectionView_IngredientsList{
             let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
             cornerRadius(viewName: cell.cell_view, radius: 8.0)
-            let data = self.itesmingredientsData[indexPath.item]
+            let data = self.RelatedProductsData[indexPath.item]
             let imgUrl  = data["img_url"].stringValue
             
             cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
@@ -625,7 +633,6 @@ extension ProductDetailsVC
                     self.lbl_CategoriesName.text = subcategory?["name"]!.stringValue
                     self.lbl_itemsName.text = itemsData["productTitle"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
-                    self.itesmingredientsData = itemsData["colors"]!.arrayValue
                     self.colorsData = itemsData["colors"]!.arrayValue
                     for index in 0...self.colorsData.count-1 {
                               self.colorsData[index]["isselected"]="0"
@@ -647,9 +654,7 @@ extension ProductDetailsVC
                     }
                     print(self.addonsArray)
                     
-                    self.CollectionView_IngredientsList.delegate = self
-                    self.CollectionView_IngredientsList.dataSource = self
-                    self.CollectionView_IngredientsList.reloadData()
+                    
                     // self.Addons_Height.constant = 80 * 1
                     _ = API_URL1 + "cartcount"
                     let _: NSDictionary = ["user_id":2]
@@ -658,6 +663,30 @@ extension ProductDetailsVC
                     //let myURL=URL(string:"https://dantri.com.vn/xa-hoi/giao-thong-hon-loan-tai-nga-tu-dat-ham-chui-gan-700-ty-dong-o-ha-noi-20201102220649341.htm")
                     let myRequest = URLRequest(url: myURL!)
                     self.DescriptionProduct.load(myRequest)
+                    
+                }
+                else {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                }
+            }
+        }
+    }
+    func Webservice_getRelatedProducts(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    let itemsData = jsonResponse!["data"].dictionaryValue
+                    self.RelatedProductsData = itemsData["colors"]!.arrayValue
+                    self.CollectionView_IngredientsList.delegate = self
+                    self.CollectionView_IngredientsList.dataSource = self
+                    self.CollectionView_IngredientsList.reloadData()
+                    
                     
                 }
                 else {
