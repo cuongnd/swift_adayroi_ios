@@ -602,6 +602,11 @@ extension ProductDetailsVC
                     self.UICollectionViewColors.delegate = self
                     self.UICollectionViewColors.dataSource = self
                     self.UICollectionViewColors.reloadData()
+                    self.attributes_header = itemsData["attributes_header"]!.arrayValue
+                    self.UICollectionViewColors.delegate = self
+                    self.UICollectionViewColors.dataSource = self
+                    self.UICollectionViewColors.reloadData()
+                    
                     let datas = itemsData["colors"]!.arrayValue
                     for data in datas
                     {
