@@ -439,9 +439,11 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.CollectionViewRelatedProducts{
-             let data = self.RelatedProductsData[indexPath.row]
+            let data = self.RelatedProductsData[indexPath.row]
+            itemsId = data["_id"].stringValue
             let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
+            vc.SubCategoryId = data["sub_cat_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else if (collectionView == self.UICollectionViewColors){
@@ -645,9 +647,11 @@ extension ProductDetailsVC
                     self.lbl_itemsName.text = itemsData["productTitle"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
                     self.colorsData = itemsData["colors"]!.arrayValue
-                    for index in 0...self.colorsData.count-1 {
+                    if self.colorsData.count>0{
+                        for index in 0...self.colorsData.count-1 {
                               self.colorsData[index]["isselected"]="0"
                            }
+                    }
                     self.UICollectionViewColors.delegate = self
                     self.UICollectionViewColors.dataSource = self
                     self.UICollectionViewColors.reloadData()

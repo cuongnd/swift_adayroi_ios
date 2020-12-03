@@ -93,7 +93,9 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         
         let data = self.categoryWiseItemsArray[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
-        vc.itemsId = data["id"]!
+        //vc.itemsId = data["id"]!
+        vc.itemsId = data["_id"]!
+        vc.SubCategoryId = data["sub_cat_id"]!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -144,10 +146,17 @@ extension SearchVC
                         //self.lastIndex = Int(responcedata["last_page"]!.stringValue)!
                         self.categoryWiseItemsArray.removeAll()
                     }
-                    let categoryData = jsonResponse!["data"].arrayValue
-                    for product in categoryData {
+                    let productsData = jsonResponse!["data"].arrayValue
+                    for product in productsData {
                         let productImage = product["default_photo"].dictionaryValue
-                        let productObj = ["item_price":product["unit_price"].stringValue,"_id":product["_id"].stringValue,"item_name":product["productTitle"].stringValue,"product_image":productImage["img_path"]!.stringValue,"isFavorite":product["is_featured"].stringValue]
+                        let productObj = [
+                            "item_price":product["unit_price"].stringValue,
+                            "_id":product["_id"].stringValue,
+                            "item_name":product["productTitle"].stringValue,
+                            "product_image":productImage["img_path"]!.stringValue,
+                            "isFavorite":product["is_featured"].stringValue,
+                            "sub_cat_id":product["sub_cat_id"].stringValue
+                        ]
                         self.categoryWiseItemsArray.append(productObj)
                     }
                     

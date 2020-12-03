@@ -325,6 +325,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let data = self.lastProductArray[indexPath.row]
             let vc = storyBoardProduct.instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
+            vc.SubCategoryId = data["sub_cat_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             let data = self.homeHotCategoryArray[indexPath.row]
@@ -335,15 +336,18 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let data = self.homeHotProductArray[indexPath.row]
             let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
+            vc.SubCategoryId = data["sub_cat_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             let data = self.homeDiscountProductArray[indexPath.row]
             let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
             vc.itemsId = data["_id"].stringValue
+            vc.SubCategoryId = data["sub_cat_id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }else if collectionView == self.Collectioview_HomeCategoryList{
             let data = self.homeCategoryArray[indexPath.row]
             let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+            searchVC.category_id=data["_id"].stringValue;
             self.navigationController?.pushViewController(searchVC, animated: true)
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
             let data = self.homeFeatureProductArray[indexPath.row]
