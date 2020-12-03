@@ -33,10 +33,13 @@ class ProductDetailAttributesHeaderCell: UICollectionViewCell {
     
 }
 
-class IngredientsCell: UICollectionViewCell {
+class RelatedProductCell: UICollectionViewCell {
     
-    @IBOutlet weak var cell_view: UIView!
-    @IBOutlet weak var img_Ingredients: UIImageView!
+     @IBOutlet weak var img_Related_product: UIImageView!
+       @IBOutlet weak var lbl_RelatedProductName: UILabel!
+       @IBOutlet weak var lbl_RelatedProductPercent: UILabel!
+       @IBOutlet weak var lbl_RelatedProductOriginalPrice: UILabel!
+       @IBOutlet weak var lbl_RelatedProductUnitPrice: UILabel!
 }
 class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavigationDelegate {
     
@@ -46,7 +49,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_Cart: UIButton!
-    @IBOutlet weak var CollectionView_IngredientsList: UICollectionView!
+    @IBOutlet weak var CollectionViewRelatedProducts: UICollectionView!
     @IBOutlet weak var btn_Addtocart: UIButton!
     @IBOutlet weak var image_Slider: ImageSlideshow!
     
@@ -340,15 +343,15 @@ extension ProductDetailsVC: AddOnsDelegate {
 }
 extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.CollectionView_IngredientsList{
-            let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.CollectionView_IngredientsList.bounds.size.width, height: self.CollectionView_IngredientsList.bounds.size.height))
+        if collectionView == self.CollectionViewRelatedProducts{
+            let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.CollectionViewRelatedProducts.bounds.size.width, height: self.CollectionViewRelatedProducts.bounds.size.height))
             let messageLabel = UILabel(frame: rect)
             messageLabel.textColor = UIColor.lightGray
             messageLabel.numberOfLines = 0
             messageLabel.textAlignment = .center
             //messageLabel.font = UIFont(name: "POPPINS-REGULAR", size: 15)!
             messageLabel.sizeToFit()
-            self.CollectionView_IngredientsList.backgroundView = messageLabel;
+            self.CollectionViewRelatedProducts.backgroundView = messageLabel;
             if self.RelatedProductsData.count == 0 {
                 messageLabel.text = "NO INGREDIENTS"
             }
@@ -367,15 +370,19 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
         
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.CollectionView_IngredientsList{
-            let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
-            cornerRadius(viewName: cell.cell_view, radius: 8.0)
+        if collectionView == self.CollectionViewRelatedProducts{
+            let cell = self.CollectionViewRelatedProducts.dequeueReusableCell(withReuseIdentifier: "RelatedProductCell", for: indexPath) as! RelatedProductCell
+            //cornerRadius(viewName: cell.img_categories, radius: 6.0)
             let data = self.RelatedProductsData[indexPath.item]
-            let imgUrl  = data["img_url"].stringValue
-            
-            cell.img_Ingredients.sd_setImage(with: URL(string: imgUrl), placeholderImage: UIImage(named: "placeholder_image"))
-            
+            cell.lbl_RelatedProductName.text = data["name"].stringValue
+            let str_original_price=data["original_price"].stringValue+" đ";
+            cell.lbl_RelatedProductOriginalPrice.attributedText = str_original_price.strikeThrough()
+            cell.lbl_RelatedProductUnitPrice.text = data["unit_price"].stringValue+" đ"
+            cell.lbl_RelatedProductPercent.text = data["discount_percent"].stringValue+"%"
+            let product_Image = data["default_photo"].dictionaryValue
+            cell.img_Related_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             return cell
+            
         }else if (collectionView == self.UICollectionViewColors){
             let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
             let data = self.colorsData[indexPath.item]
@@ -412,14 +419,14 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
           return cell
         }
         else{
-            let cell = self.CollectionView_IngredientsList.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! IngredientsCell
+            let cell = self.CollectionViewRelatedProducts.dequeueReusableCell(withReuseIdentifier: "IngredientsCell", for: indexPath) as! RelatedProductCell
             return cell
         }
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.CollectionView_IngredientsList{
-             return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+        if collectionView == self.CollectionViewRelatedProducts{
+             return CGSize(width: UIScreen.main.bounds.width / 2, height: 260.0)
         }else if (collectionView == self.UICollectionViewColors){
             return CGSize(width: UIScreen.main.bounds.width / 3, height: 155.0)
         }else if(collectionView == self.UICollectionViewAttributesHeader){
@@ -431,8 +438,12 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.CollectionView_IngredientsList{
-             
+        if collectionView == self.CollectionViewRelatedProducts{
+             let data = self.RelatedProductsData[indexPath.row]
+            let vc = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "ProductDetailsVC") as! ProductDetailsVC
+            vc.itemsId = data["_id"].stringValue
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }else if (collectionView == self.UICollectionViewColors){
             print("hello selected")
             let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailColorCell", for: indexPath) as! ProductDetailColorCell
@@ -681,12 +692,11 @@ extension ProductDetailsVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
-                    let itemsData = jsonResponse!["data"].dictionaryValue
-                    self.RelatedProductsData = itemsData["colors"]!.arrayValue
-                    self.CollectionView_IngredientsList.delegate = self
-                    self.CollectionView_IngredientsList.dataSource = self
-                    self.CollectionView_IngredientsList.reloadData()
-                    
+                    let RelatedProductsData = jsonResponse!["data"].arrayValue
+                    self.RelatedProductsData = RelatedProductsData
+                    self.CollectionViewRelatedProducts.delegate = self
+                    self.CollectionViewRelatedProducts.dataSource = self
+                    self.CollectionViewRelatedProducts.reloadData()
                     
                 }
                 else {
