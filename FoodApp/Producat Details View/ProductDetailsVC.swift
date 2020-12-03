@@ -26,6 +26,8 @@ class ProductDetailColorCell: UICollectionViewCell {
 }
 class ProductDetailAttributesHeaderCell: UICollectionViewCell {
     
+    @IBOutlet weak var attributeName: UILabel!
+    
 }
 
 class IngredientsCell: UICollectionViewCell {
@@ -386,6 +388,8 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             return cell
         }else if(collectionView == self.UICollectionViewAttributesHeader){
             let cell = self.UICollectionViewColors.dequeueReusableCell(withReuseIdentifier: "ProductDetailAttributesHeaderCell", for: indexPath) as! ProductDetailAttributesHeaderCell
+            let item = self.attributes_header[indexPath.item]
+            cell.attributeName.text=item["name"].stringValue
             return cell
         }
         else{
