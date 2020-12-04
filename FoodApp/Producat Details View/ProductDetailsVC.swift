@@ -73,6 +73,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     var addonsArray = [[String:String]]()
     var SelectedAddons = [[String:String]]()
     var FinalTotal = Double()
+    var itemsData=[String : JSON]();
     @IBOutlet weak var lbl_count: UILabel!
     @IBOutlet weak var btn_Minus: UIButton!
     @IBOutlet weak var btn_Pluse: UIButton!
@@ -143,7 +144,20 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     }
     
     @IBAction func btnTap_AddtoCart(_ sender: UIButton) {
-        Cart.shared.insert(_id: <#T##String#>, cat_id: <#T##String#>, sub_cat_id: <#T##String#>, original_price: <#T##Int64#>, unit_price: <#T##Int64#>, name: <#T##String#>, discount_amount: <#T##Int64#>, currency_symbol: <#T##String#>, discount_percent: <#T##Int64#>, color_id: <#T##String#>, color_name: <#T##String#>, quality: <#T##Int64#>)
+        Cart.shared.insert(
+            _id: self.itemsData["_id"]!.stringValue,
+            cat_id: self.itemsData["cat_id"]!.stringValue,
+            sub_cat_id: self.itemsData["sub_cat_id"]!.stringValue,
+            original_price: self.itemsData["original_price"]!.int64Value,
+            unit_price: self.itemsData["unit_price"]!.int64Value,
+            name: self.itemsData["name"]!.stringValue,
+            discount_amount: self.itemsData["discount_amount"]!.int64Value,
+            currency_symbol: self.itemsData["currency_symbol"]!.stringValue,
+            discount_percent: self.itemsData["discount_percent"]!.int64Value,
+            color_id: "sfsfds",
+            color_name: "sfsdfds",
+            quality: 4)
+        showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "San pham da them vao gio hang")
         
         if let itemsCart:AnySequence<Row> = Cart.shared.queryAll(){
                    for item in itemsCart {
@@ -152,44 +166,11 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
                    }
                }
         
-        if UserDefaultManager.getStringFromUserDefaults(key: UD_isSkip) == "1"
-        {
-            let storyBoard = UIStoryboard(name: "User", bundle: nil)
-            let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-            let nav : UINavigationController = UINavigationController(rootViewController: objVC)
-            nav.navigationBar.isHidden = true
-            UIApplication.shared.windows[0].rootViewController = nav
-        }
-        else{
-            if self.text_view.text == "Write Notes".localiz()
-            {
-                self.text_view.text = ""
-            }
-            
-            var AddoncId = [String]()
-            for data in self.SelectedAddons
-            {
-                AddoncId.append(data["id"]!)
-            }
-            
-            let ItemPriceTotal = formatter.string(for: FinalTotal)
-            let urlString = API_URL + "cart"
-            let params: NSDictionary = ["item_id":self.itemsId,"qty":self.lbl_count.text!,"price":"\(ItemPriceTotal!)","user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId),"addons_id":AddoncId.joined(separator: ","),"item_notes":self.text_view.text!]
-            self.Webservice_AddtoCart(url: urlString, params:params)
-        }
+        
     }
     @IBAction func btnTap_Cart(_ sender: UIButton) {
-        if UserDefaultManager.getStringFromUserDefaults(key:UD_isSkip) == "1"
-        {
-            let storyBoard = UIStoryboard(name: "User", bundle: nil)
-            let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-            let nav : UINavigationController = UINavigationController(rootViewController: objVC)
-            nav.navigationBar.isHidden = true
-            UIApplication.shared.windows[0].rootViewController = nav
-        }else{
-            let vc = self.storyboard?.instantiateViewController(identifier: "AddtoCartVC") as! AddtoCartVC
-            self.navigationController?.pushViewController(vc, animated:true)
-        }
+         let vc = UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(identifier: "AddtoCartVC") as! AddtoCartVC
+         self.navigationController?.pushViewController(vc, animated:true)
         
     }
     
@@ -624,8 +605,8 @@ extension ProductDetailsVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
-                    let itemsData = jsonResponse!["data"].dictionaryValue
-                    
+                    self.itemsData = jsonResponse!["data"].dictionaryValue
+                   
                     //let item_status = itemsData["item_status"]!.stringValue
                     let item_status="1"
                     if item_status == "2"
@@ -638,24 +619,24 @@ extension ProductDetailsVC
                         
                     }
                     let currency=UserDefaultManager.getStringFromUserDefaults(key: UD_currency);
-                    var original_price = formatter.string(for: itemsData["original_price"]!.stringValue.toDouble)
+                    var original_price = formatter.string(for: self.itemsData["original_price"]!.stringValue.toDouble)
                     original_price="\(original_price!) \(currency)";
                     self.lbl_itemsPrice.attributedText = original_price?.strikeThrough()
                     
-                    let unit_price = formatter.string(for: itemsData["unit_price"]!.stringValue.toDouble)
+                    let unit_price = formatter.string(for: self.itemsData["unit_price"]!.stringValue.toDouble)
                     self.productUnitPrice.text = "\(unit_price!) \(currency)"
                     
                     let SetTotal = self.productUnitPrice.text!.dropLast().replacingOccurrences(of: " ", with: "")
                     //self.FinalTotal = Double(SetTotal)!
-                    self.FinalTotal=itemsData["unit_price"]!.stringValue.toDouble;
+                    self.FinalTotal=self.itemsData["unit_price"]!.stringValue.toDouble;
                     let ItemPriceTotal = formatter.string(for: self.FinalTotal)
                     self.btn_Addtocart.setTitle("\(self.cartStr) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPriceTotal!)", for: .normal)
                     //self.lbl_itemsDescripation.text = itemsData["productDescription"]!.stringValue
-                    let subcategory=itemsData["subcategory"]?.dictionaryValue;
+                    let subcategory=self.itemsData["subcategory"]?.dictionaryValue;
                     self.lbl_CategoriesName.text = subcategory?["name"]!.stringValue
-                    self.lbl_itemsName.text = itemsData["productTitle"]!.stringValue
+                    self.lbl_itemsName.text = self.itemsData["productTitle"]!.stringValue
                     //self.lbl_itemTime.text = itemsData["delivery_time"]!.stringValue
-                    self.colorsData = itemsData["colors"]!.arrayValue
+                    self.colorsData = self.itemsData["colors"]!.arrayValue
                     if self.colorsData.count>0{
                         for index in 0...self.colorsData.count-1 {
                               self.colorsData[index]["isselected"]="0"
@@ -664,12 +645,12 @@ extension ProductDetailsVC
                     self.UICollectionViewColors.delegate = self
                     self.UICollectionViewColors.dataSource = self
                     self.UICollectionViewColors.reloadData()
-                    self.attributes_header = itemsData["attributes_header"]!.arrayValue
+                    self.attributes_header = self.itemsData["attributes_header"]!.arrayValue
                     self.UICollectionViewAttributesHeader.delegate = self
                     self.UICollectionViewAttributesHeader.dataSource = self
                     self.UICollectionViewAttributesHeader.reloadData()
                     
-                    let datas = itemsData["colors"]!.arrayValue
+                    let datas = self.itemsData["colors"]!.arrayValue
                     for data in datas
                     {
                         let ItemPrice = formatter.string(for: data["price"].stringValue.toDouble)
@@ -683,7 +664,7 @@ extension ProductDetailsVC
                     _ = API_URL1 + "cartcount"
                     let _: NSDictionary = ["user_id":2]
                     //self.Webservice_cartcount(url: urlString, params:params)
-                    let myURL = URL(string:"https://api.adayroi.online/api/products/description/"+itemsData["_id"]!.stringValue)
+                    let myURL = URL(string:"https://api.adayroi.online/api/products/description/"+self.itemsData["_id"]!.stringValue)
                     //let myURL=URL(string:"https://dantri.com.vn/xa-hoi/giao-thong-hon-loan-tai-nga-tu-dat-ham-chui-gan-700-ty-dong-o-ha-noi-20201102220649341.htm")
                     let myRequest = URLRequest(url: myURL!)
                     self.DescriptionProduct.load(myRequest)
