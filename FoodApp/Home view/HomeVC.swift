@@ -54,6 +54,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+       
         
         let nibCell = UINib(nibName: "HomeFeatureProductCell", bundle: nil)
         Collectioview_HomeFeatureProductList.register(nibCell, forCellWithReuseIdentifier: "HomeFeatureProductCell")
@@ -330,7 +331,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             let data = self.homeHotCategoryArray[indexPath.row]
             let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
-            searchVC.category_id=data["_id"].stringValue;
+            searchVC.cat_id=data["_id"].stringValue;
             self.navigationController?.pushViewController(searchVC, animated: true)
         }else if collectionView == self.Collectioview_HomeHotProductList{
             let data = self.homeHotProductArray[indexPath.row]
@@ -347,7 +348,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeCategoryList{
             let data = self.homeCategoryArray[indexPath.row]
             let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
-            searchVC.category_id=data["_id"].stringValue;
+            searchVC.cat_id=data["_id"].stringValue;
             self.navigationController?.pushViewController(searchVC, animated: true)
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
             let data = self.homeFeatureProductArray[indexPath.row]

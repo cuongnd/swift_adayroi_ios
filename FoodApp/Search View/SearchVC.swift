@@ -11,7 +11,7 @@ import SwiftyJSON
 class SearchVC: UIViewController {
     @IBOutlet weak var Collectioview_SearchList: UICollectionView!
     var pageIndex = 1
-    var category_id = ""
+    var cat_id = ""
     var lastIndex = 0
     @IBOutlet weak var lbl_titleLabel: UILabel!
     var categoryWiseItemsArray = [[String:String]]()
@@ -19,8 +19,8 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lbl_titleLabel.text = "Search".localiz()
-        if(!self.category_id.isEmpty){
-            let urlString = API_URL + "/api/products?cat_id="+self.category_id+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+        if(!self.cat_id.isEmpty){
+            let urlString = API_URL + "/api/products?cat_id="+self.cat_id+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
             var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let params: NSDictionary = [:]
             self.Webservice_getSearch(url: urlString1!, params:params)
@@ -38,7 +38,7 @@ class SearchVC: UIViewController {
             self.Collectioview_SearchList.reloadData()
         }
         else{
-            let urlString = API_URL + "/api/products?keyword="+String(searchTxt)+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+            let urlString = API_URL + "/api/products?cat_id=\(self.cat_id)&keyword="+String(searchTxt)+"&user_id="+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
             var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
              let params: NSDictionary = [:]
             self.Webservice_getSearch(url: urlString1!, params:params)
@@ -103,7 +103,7 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             if self.pageIndex != self.lastIndex {
                 self.pageIndex = self.pageIndex + 1
                 
-                let urlString = API_URL + "/api/products?keyword="+String(searchTxt)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
+                let urlString = API_URL + "/api/products?cat_id=\(self.cat_id)&keyword="+String(searchTxt)+"&limit=30&start="+String(self.pageIndex)+"&user_id"+String(UserDefaultManager.getStringFromUserDefaults(key: UD_userId));
                 let params: NSDictionary = [:]
                 var urlString1 = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 self.Webservice_getSearch(url: urlString1!, params:params)
@@ -139,7 +139,6 @@ extension SearchVC
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
             }
             else {
-                print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
                     if self.pageIndex == 1 {

@@ -92,6 +92,9 @@ PODS:
     - SDWebImage/Core (= 5.10.0)
   - SDWebImage/Core (5.10.0)
   - SlideMenuControllerSwift (4.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -108,6 +111,7 @@ DEPENDENCIES:
   - razorpay-pod
   - SDWebImage
   - SlideMenuControllerSwift
+  - SQLite.swift (~> 0.12.0)
   - SwiftyJSON
 
 SPEC REPOS:
@@ -135,6 +139,7 @@ SPEC REPOS:
     - razorpay-pod
     - SDWebImage
     - SlideMenuControllerSwift
+    - SQLite.swift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -161,8 +166,9 @@ SPEC CHECKSUMS:
   razorpay-pod: ee8dc073c65baee8df6e8c4275b1c989bab614a2
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
   SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 732890626d581fb2dd85b96a6dd5233a130a3ac8
+PODFILE CHECKSUM: bc4eb015257ca7cd0420a43cd6a1edd56a566011
 
 COCOAPODS: 1.9.3

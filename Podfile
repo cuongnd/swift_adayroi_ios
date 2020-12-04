@@ -22,6 +22,7 @@ target 'FoodApp' do
     pod 'LanguageManager-iOS'
     pod 'Layout', '~> 0.6'
     pod 'iOSDropDown'
+    pod 'SQLite.swift', '~> 0.12.0'
   target 'FoodAppTests' do
     inherit! :search_paths
     # Pods for testing
