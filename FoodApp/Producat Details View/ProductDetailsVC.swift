@@ -11,7 +11,7 @@ import ImageSlideshow
 import WebKit
 import SwiftyJSON
 import iOSDropDown
-
+import SQLite
 class AddonseCell: UITableViewCell {
     
     @IBOutlet weak var btn_Close: UIButton!
@@ -143,6 +143,15 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     }
     
     @IBAction func btnTap_AddtoCart(_ sender: UIButton) {
+        Cart.shared.insert(_id: <#T##String#>, cat_id: <#T##String#>, sub_cat_id: <#T##String#>, original_price: <#T##Int64#>, unit_price: <#T##Int64#>, name: <#T##String#>, discount_amount: <#T##Int64#>, currency_symbol: <#T##String#>, discount_percent: <#T##Int64#>, color_id: <#T##String#>, color_name: <#T##String#>, quality: <#T##Int64#>)
+        
+        if let itemsCart:AnySequence<Row> = Cart.shared.queryAll(){
+                   for item in itemsCart {
+                       Cart.shared.toString(cart: item)
+                       
+                   }
+               }
+        
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSkip) == "1"
         {
             let storyBoard = UIStoryboard(name: "User", bundle: nil)

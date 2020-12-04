@@ -22,15 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-         //let cart = Model.getInstance(modelName: "Cart")
-        Cart.shared.insert(id: "id1", name: "cuong1")
-        Cart.shared.insert(id: "id2", name: "cuong2")
-        if let itemsCart:AnySequence<Row> = Cart.shared.queryAll(){
-            for item in itemsCart {
-                print(Cart.shared.toString(cart: item))
-                
-            }
-        }
+         
+       
         IQKeyboardManager.shared.enable = true
         LanguageManager.shared.defaultLanguage = .en
         if #available(iOS 10.0, *) {
