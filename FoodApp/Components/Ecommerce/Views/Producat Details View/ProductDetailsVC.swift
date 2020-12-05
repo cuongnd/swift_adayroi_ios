@@ -12,6 +12,7 @@ import WebKit
 import SwiftyJSON
 import iOSDropDown
 import SQLite
+import ETBinding
 class AddonseCell: UITableViewCell {
     
     @IBOutlet weak var btn_Close: UIButton!
@@ -86,6 +87,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     @IBOutlet weak var heightWebview: NSLayoutConstraint!
     @IBOutlet weak var DescriptionProduct: WKWebView!
     let cartStr = "Add To Cart".localiz()
+    var liveDataCart: LiveData<[[String:Any]]> = LiveData(data: [[:]])
     override func viewDidLoad() {
         super.viewDidLoad()
         self.item_UnavailableView.isHidden = true
@@ -117,6 +119,24 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         let urlGetRelatedProducts = API_URL + "/api/products/get_related_product_trending/product_id/\(String(self.itemsId))/sub_cat_id/\(self.SubCategoryId)"
         let paramsRelatedProducts: NSDictionary = [:]
         self.Webservice_getRelatedProducts(url: urlGetRelatedProducts, params:paramsRelatedProducts)
+        let observer: Observer<[[String:Any]]> = Observer(update: { liveDataCart in
+                   print("hello \(liveDataCart)")
+               })
+               // … and later
+               
+        self.liveDataCart.observeForever(observer: observer)
+        
+        var total:Int=0;
+        if let itemsCart:AnySequence<Row> = ADRFrontEndModelCart.shared.queryAll(){
+                   for item in itemsCart {
+                    ADRFrontEndModelCart.shared.toString(cart: item)
+                    total=total+1;
+                       
+                   }
+               }
+        
+        
+        self.lbl_Cartcount.text = String(total)
         
         
         
@@ -144,27 +164,34 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     }
     
     @IBAction func btnTap_AddtoCart(_ sender: UIButton) {
-        Cart.shared.insert(
+        let product_Image = self.itemsData["default_photo"]!.dictionaryValue
+        ADRFrontEndModelCart.shared.insert(
             _id: self.itemsData["_id"]!.stringValue,
             cat_id: self.itemsData["cat_id"]!.stringValue,
             sub_cat_id: self.itemsData["sub_cat_id"]!.stringValue,
             original_price: self.itemsData["original_price"]!.int64Value,
             unit_price: self.itemsData["unit_price"]!.int64Value,
             name: self.itemsData["name"]!.stringValue,
+            image: product_Image["img_path"]!.stringValue,
             discount_amount: self.itemsData["discount_amount"]!.int64Value,
             currency_symbol: self.itemsData["currency_symbol"]!.stringValue,
             discount_percent: self.itemsData["discount_percent"]!.int64Value,
             color_id: "sfsfds",
             color_name: "sfsdfds",
-            quality: 4)
+            quality: Int64(self.lbl_count.text!)!)
         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "San pham da them vao gio hang")
-        
-        if let itemsCart:AnySequence<Row> = Cart.shared.queryAll(){
+        var total:Int=0;
+        if let itemsCart:AnySequence<Row> = ADRFrontEndModelCart.shared.queryAll(){
                    for item in itemsCart {
-                       Cart.shared.toString(cart: item)
+                    ADRFrontEndModelCart.shared.toString(cart: item)
+                    total=total+1;
                        
                    }
                }
+        
+        
+        self.lbl_Cartcount.text = String(total)
+        
         
         
     }

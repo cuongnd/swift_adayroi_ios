@@ -8,8 +8,8 @@
 
 import UIKit
 
-var sharedInstanceArray=[Model]()
-class Model: NSObject {
+var sharedInstanceArray=[ADRModel]()
+class ADRModel: NSObject {
     public var context: String {
       return ""
     }

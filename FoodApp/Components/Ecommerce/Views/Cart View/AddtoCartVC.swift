@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyJSON
+import SQLite
+import ETBinding
 import SlideMenuControllerSwift
 
 class CartCell: UITableViewCell {
@@ -31,15 +33,25 @@ class AddtoCartVC: UIViewController {
     
     @IBOutlet weak var TableView_CartList: UITableView!
     var cartDetailsarray = [[String:Any]]()
+    var cartDetailsarray1 = [[ADRFrontEndModelCart:Any]]()
     var getCartData = [JSON]()
+    var liveDataCart: LiveData<[[String:Any]]> = LiveData(data: [[:]])
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lbl_TitleLabel.text = "Cart".localiz()
         self.btn_Checkout.setTitle("Checkout".localiz(), for: .normal)
         cornerRadius(viewName:btn_Checkout, radius: 8.0)
-        let urlString = API_URL + "getcart"
-        let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-        self.Webservice_GetCartDetails(url: urlString, params:params)
+        //let urlString = API_URL + "getcart"
+        //let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
+        //self.Webservice_GetCartDetails(url: urlString, params:params)
+        self.showCart()
+        let observer: Observer<[[String:Any]]> = Observer(update: { data in
+            print("hello \(data)")
+        })
+        // … and later
+        
+        liveDataCart.observeForever(observer: observer)
+        
         
     }
     
@@ -52,7 +64,7 @@ class AddtoCartVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnTap_Home(_ sender: UIButton) {
-
+        
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
         {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -112,10 +124,10 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         cornerRadius(viewName: cell.btn_Notes, radius:4.0)
         
         let data = cartDetailsarray[indexPath.row]
-        cell.lbl_count.text! = data["qty"]! as! String
-
+        cell.lbl_count.text! = (data["qty"]! as AnyObject).stringValue
+        
         cell.lbl_Price.text! = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(data["price"]!)"
-        if Int(data["qty"]! as! String)! <= 1
+        if Int((data["qty"]! as AnyObject).stringValue)! <= 1
         {
             cell.btn_Minse.isEnabled = false
         }
@@ -136,7 +148,7 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         cell.btn_Addonse.addTarget(self, action: #selector(btnTapAddonse), for: .touchUpInside)
         cell.btn_Notes.tag = indexPath.row
         cell.btn_Notes.addTarget(self, action: #selector(btnTapNotes), for: .touchUpInside)
-        
+        /*
         let isaddonce = data["addons"]! as! [JSON]
         if isaddonce.count == 0
         {
@@ -146,7 +158,7 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         else{
             cell.btn_Addonse.isEnabled = true
         }
-        
+        */
         let item_notes = data["item_notes"] as! String
         
         if item_notes == ""
@@ -156,7 +168,7 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         }
         else
         {
-             cell.btn_Notes.isEnabled = true
+            cell.btn_Notes.isEnabled = true
             
         }
         
@@ -176,10 +188,10 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
     @objc func btnTapPluse(sender:UIButton)
     {
         let data = cartDetailsarray[sender.tag]
-        var qty = Int(data["qty"]! as! String)
-        qty = qty! + 1
+        var qty = data["qty"]! as! Int64
+        qty = qty + 1
         let urlString = API_URL + "qtyupdate"
-        let params: NSDictionary = ["cart_id":data["id"]!,"item_id":data["item_id"]!,"qty":"\(qty!)","user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
+        let params: NSDictionary = ["cart_id":data["id"]!,"item_id":data["item_id"]!,"qty":"\(qty)","user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
         self.Webservice_QtyUpdate(url: urlString, params:params)
     }
     @objc func btnTapDelete(sender:UIButton)
@@ -197,29 +209,64 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         self.present(alertVC,animated: true,completion: nil)
     }
     @objc func btnTapAddonse(sender:UIButton)
-      {
-          let data = cartDetailsarray[sender.tag]
-          let addonceData = data["addons"]!
-          print(addonceData)
-          let vc = self.storyboard?.instantiateViewController(identifier: "AddonceListVC") as! AddonceListVC
-          vc.SelectedAddons = addonceData as! [JSON]
-          self.present(vc, animated: true, completion: nil)
-      }
-      @objc func btnTapNotes(sender:UIButton)
-      {
-          let data = cartDetailsarray[sender.tag]
-          let VC = self.storyboard?.instantiateViewController(withIdentifier: "NoteVC") as! NoteVC
-          VC.modalPresentationStyle = .overFullScreen
-          VC.modalTransitionStyle = .crossDissolve
-          VC.Note = data["item_notes"] as! String
-          self.present(VC,animated: true,completion: nil)
-          
-      }
+    {
+        let data = cartDetailsarray[sender.tag]
+        let addonceData = data["addons"]!
+        print(addonceData)
+        let vc = self.storyboard?.instantiateViewController(identifier: "AddonceListVC") as! AddonceListVC
+        vc.SelectedAddons = addonceData as! [JSON]
+        self.present(vc, animated: true, completion: nil)
+    }
+    @objc func btnTapNotes(sender:UIButton)
+    {
+        let data = cartDetailsarray[sender.tag]
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "NoteVC") as! NoteVC
+        VC.modalPresentationStyle = .overFullScreen
+        VC.modalTransitionStyle = .crossDissolve
+        VC.Note = data["item_notes"] as! String
+        self.present(VC,animated: true,completion: nil)
+        
+    }
 }
 
 extension AddtoCartVC
 {
-        func Webservice_GetCartDetails(url:String, params:NSDictionary) -> Void {
+    func showCart() -> Void{
+        
+        
+        if let itemsCart:AnySequence<Row> = ADRFrontEndModelCart.shared.queryAll(){
+            for item in itemsCart {
+                do{
+                    let obj = [
+                        "id":try item.get(Expression<String>("_id")),
+                        "qty":try item.get(Expression<Int64>("quality")),
+                        "price":try item.get(Expression<Int64>("unit_price")),
+                        "price_update":try item.get(Expression<Int64>("unit_price")),
+                        "item_name":try item.get(Expression<String>("name")),
+                        "item_id":try item.get(Expression<String>("_id")),
+                        "itemimage":try item.get(Expression<String>("image")),
+                        "addons":[:],
+                        "item_notes":try item.get(Expression<String>("_id")),
+                        ] as [String : Any]
+                    self.cartDetailsarray.append(obj)
+                }catch{
+                    let nsError=error as NSError
+                    print("get value of column table Cart error. Error is \(nsError), \(nsError.userInfo)")
+                }
+                
+                
+                
+            }
+            self.liveDataCart.data=self.cartDetailsarray
+        }
+        
+        
+        
+        self.TableView_CartList.delegate = self
+        self.TableView_CartList.dataSource = self
+        self.TableView_CartList.reloadData()
+    }
+    func Webservice_GetCartDetails(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -258,7 +305,7 @@ extension AddtoCartVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["status"].stringValue
                 if responseCode == "1" {
-//                    let responceData = jsonResponse!["data"].arrayValue
+                    //                    let responceData = jsonResponse!["data"].arrayValue
                     let urlString = API_URL + "getcart"
                     let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
                     self.Webservice_GetCartDetails(url: urlString, params:params)
@@ -279,7 +326,7 @@ extension AddtoCartVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["status"].stringValue
                 if responseCode == "1" {
-//                    let responceData = jsonResponse!["data"].arrayValue
+                    //                    let responceData = jsonResponse!["data"].arrayValue
                     let urlString = API_URL + "getcart"
                     let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
                     self.Webservice_GetCartDetails(url: urlString, params:params)
@@ -290,23 +337,23 @@ extension AddtoCartVC
             }
         }
     }
-     func Webservice_OpenClose(url:String, params:NSDictionary) -> Void {
-            WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
-                
-                if strErrorMessage.count != 0 {
-                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+    func Webservice_OpenClose(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["status"].stringValue
+                if responseCode == "1" {
+                    let vc = self.storyboard?.instantiateViewController(identifier: "OrderDetails") as! OrderDetails
+                    self.navigationController?.pushViewController(vc, animated:true)
                 }
                 else {
-                    print(jsonResponse!)
-                    let responseCode = jsonResponse!["status"].stringValue
-                    if responseCode == "1" {
-                        let vc = self.storyboard?.instantiateViewController(identifier: "OrderDetails") as! OrderDetails
-                        self.navigationController?.pushViewController(vc, animated:true)
-                    }
-                    else {
-                        showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
-                    }
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
                 }
             }
         }
+    }
 }

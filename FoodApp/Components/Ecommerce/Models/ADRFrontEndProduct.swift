@@ -7,6 +7,6 @@
 //
 
 import Foundation
-class Product: Model {
+class ADRFrontEndProduct: ADRModel {
     var name: String = ""
 }

@@ -1,12 +1,12 @@
 //
-//  Temp.swift
+//  ADRTable.swift
 //  FoodApp
 //
-//  Created by MAC OSX on 12/4/20.
+//  Created by MAC OSX on 12/5/20.
 //  Copyright © 2020 Mitesh's MAC. All rights reserved.
 //
 
 import Foundation
-class Temp: Model {
+class ADRTable{
     
 }

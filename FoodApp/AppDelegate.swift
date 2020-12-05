@@ -14,6 +14,7 @@ import FirebaseMessaging
 import LanguageManager_iOS
 import CoreLocation
 import SQLite
+import ETBinding
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
     
@@ -22,8 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-         
-       
+        
+        
+        
+        
+        // observer can be used for later unregistration
+        
         IQKeyboardManager.shared.enable = true
         LanguageManager.shared.defaultLanguage = .en
         if #available(iOS 10.0, *) {
@@ -42,36 +47,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         FirebaseApp.configure()
         FirebaseApp.debugDescription()
         Messaging.messaging().delegate = self
-         self.getCurrentLocation()
+        self.getCurrentLocation()
         return true
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-         
-      }
-      
-      func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
-      {
-          print("user clicked on the notification")
-          let userInfo = response.notification.request.content.userInfo
-          reveivedNotification(notification: userInfo as! [String : AnyObject])
-          completionHandler()
-      }
-      
-      func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-          print("userInfo: \(userInfo.debugDescription)")
-          reveivedNotification(notification: userInfo as! [String : AnyObject])
-      }
-      
-      func reveivedNotification(notification: [String:AnyObject]) {
-          print(notification)
-      }
-     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-           print("user clicked on the notification")
-           let userInfo = notification.request.content.userInfo
-           reveivedNotification(notification: userInfo as! [String : AnyObject])
-           completionHandler([.alert,.badge,.sound])
-       }
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
+    {
+        print("user clicked on the notification")
+        let userInfo = response.notification.request.content.userInfo
+        reveivedNotification(notification: userInfo as! [String : AnyObject])
+        completionHandler()
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("userInfo: \(userInfo.debugDescription)")
+        reveivedNotification(notification: userInfo as! [String : AnyObject])
+    }
+    
+    func reveivedNotification(notification: [String:AnyObject]) {
+        print(notification)
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("user clicked on the notification")
+        let userInfo = notification.request.content.userInfo
+        reveivedNotification(notification: userInfo as! [String : AnyObject])
+        completionHandler([.alert,.badge,.sound])
+    }
     
     
     
@@ -95,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "FoodApp")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -130,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             }
         }
     }
-
+    
     func getCurrentLocation()
     {
         if isConnectedToNetwork()
