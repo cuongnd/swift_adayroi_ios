@@ -428,9 +428,10 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             cell.dropDown.didSelect{(selectedText , index ,id) in
                 let item = self.attributes_header[indexPath.item]
                 let attributes_detail=item["attributes_detail"]
-                let currentItem=attributes_detail[index]
+                var currentItem=attributes_detail[index]
                 let id_value=currentItem["_id"].stringValue;
                 let name_value=currentItem["name"].stringValue;
+                currentItem["key_name"]=item["name"]
                 self.SelectedAttributes[item["_id"].stringValue]=currentItem
                 print("Selected String: \(selectedText) \n id_value: \(id_value)")
             }
