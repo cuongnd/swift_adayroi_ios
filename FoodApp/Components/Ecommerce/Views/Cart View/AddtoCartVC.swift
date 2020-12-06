@@ -200,7 +200,9 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
             let data = self.cartDetailsarray[sender.tag]
             let urlString = API_URL + "deletecartitem"
             let params: NSDictionary = ["cart_id":data["id"]!]
-            self.Webservice_DeleteCartItem(url: urlString, params:params)
+            ADRFrontEndModelCartItem.shared.DeleteCartItem(id: data["id"]! as! String)
+            
+            //self.Webservice_DeleteCartItem(url: urlString, params:params)
         }
         let noAction = UIAlertAction(title: "No".localiz(), style: .destructive)
         alertVC.addAction(yesAction)

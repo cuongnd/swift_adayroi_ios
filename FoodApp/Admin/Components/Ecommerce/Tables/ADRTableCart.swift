@@ -87,7 +87,20 @@ class ADRTableCart: ADRTable{
         }
     }
     
-    func updateCartItem(id:String,plus:Int)->Bool{
+    func DeleteCartItem(id:String)->Bool{
+        do{
+            let filter=table.filter(_id==id);
+            let update=try Database.shared.connection!.run(filter.delete())
+            return true
+        }catch{
+            let nsError=error as NSError
+            print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+            return false
+        }
+        
+        return true;
+    }
+    func updateCartItem(id:String,plus:Int64)->Bool{
 
         do{
             let filter=table.filter(_id==id);
@@ -96,7 +109,7 @@ class ADRTableCart: ADRTable{
                 return true
             })
             var total:Int64=try first_row?.get(Expression<Int64>("quality")) as! Int64
-            total=total+1
+            total=total+plus
             let update_table=filter.update(
                 self.cat_id<-cat_id,
                 self.sub_cat_id<-sub_cat_id,

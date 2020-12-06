@@ -14,11 +14,14 @@ class ADRFrontEndModelCartItem: ADRModel {
         return instance
     }()
     private override init() {}
+    func DeleteCartItem(id:String){
+        ADRTableCart.shared.DeleteCartItem(id:id)
+    }
     func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
         let items:AnySequence<Row> = ADRTableCart.shared.getItemById(id:objectMapperFrontendProduct._id! )!
         let total:Int=ADRTableCart.shared.getCountItemById(id: objectMapperFrontendProduct._id!)!
         if(total>0){
-            ADRTableCart.shared.updateCartItem(id: objectMapperFrontendProduct._id!,plus: 1)
+            ADRTableCart.shared.updateCartItem(id: objectMapperFrontendProduct._id!,plus: quanlity)
         }else{
             ADRTableCart.shared.insert(
                 _id: objectMapperFrontendProduct._id!,
