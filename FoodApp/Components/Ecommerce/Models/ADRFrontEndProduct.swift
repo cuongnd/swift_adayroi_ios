@@ -9,4 +9,7 @@
 import Foundation
 class ADRFrontEndProduct: ADRModel {
     var name: String = ""
+    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
+        
+    }
 }

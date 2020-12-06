@@ -1,19 +1,19 @@
 //
-//  Cart.swift
+//  ADRTableCart.swift
 //  FoodApp
 //
-//  Created by MAC OSX on 12/4/20.
+//  Created by MAC OSX on 12/5/20.
 //  Copyright © 2020 Mitesh's MAC. All rights reserved.
 //
 import SQLite
 import Foundation
-class ADRFrontEndModelCart: ADRModel {
-    static let shared=ADRFrontEndModelCart()
-    let tableCart=Table("Cart")
-    override var  context: String {
-      return "Cart"
-    }
-    private let _id = Expression<String>("_id")
+class ADRTableCart: ADRTable{
+    static var shared: ADRTableCart = ADRTableCart()
+    public var context: String = "ADRTableCart"
+    public var table: Table = Table("ADRTableCart")
+    
+    
+    private let _id=Expression<String>("_id")
     private let cat_id=Expression<String>("cat_id")
     private let sub_cat_id=Expression<String>("sub_cat_id")
     private let original_price=Expression<Int64>("original_price")
@@ -26,11 +26,11 @@ class ADRFrontEndModelCart: ADRModel {
     private let color_id=Expression<String>("color_id")
     private let color_name=Expression<String>("color_name")
     private let quality=Expression<Int64>("quality")
-    private override init(){
+     override public   init(){
         super.init()
         do{
             if let connection=Database.shared.connection{
-                try connection.run(tableCart.create(temporary: false, ifNotExists: true, withoutRowid: false, block:{ (table) in
+                try connection.run(table.create(temporary: false, ifNotExists: true, withoutRowid: false, block:{ (table) in
                     table.column(self._id,primaryKey: true)
                     table.column(self.cat_id)
                     table.column(self.sub_cat_id)
@@ -51,15 +51,15 @@ class ADRFrontEndModelCart: ADRModel {
             }
         } catch{
             let nsError=error as NSError
-            print("Create table Cart error. Error is \(nsError), \(nsError.userInfo)")
+            print("Creoverride ate table Cart error. Error is \(nsError), \(nsError.userInfo)")
         }
     }
-    func toString(cart:Row) {
-        print("Cart detail: _id=\(cart[self._id]), cat_id=\(cart[self.cat_id]), sub_cat_id=\(cart[self.sub_cat_id]), original_price=\(cart[self.original_price]), unit_price=\(cart[self.unit_price]),name=\(cart[self.name]),image=\(cart[self.image]), discount_amount=\(cart[self.discount_amount]), currency_symbol=\(cart[self.currency_symbol]), discount_percent=\(cart[self.discount_percent]), color_id=\(cart[self.color_id]), color_name=\(cart[self.color_name]), quality=\(cart[self.quality])")
+    override func toString(cart:Row) {
+        print("Cart detail: _id=\(table[self._id]), cat_id=\(table[self.cat_id]), sub_cat_id=\(table[self.sub_cat_id]), original_price=\(table[self.original_price]), unit_price=\(table[self.unit_price]),name=\(table[self.name]),image=\(table[self.image]), discount_amount=\(table[self.discount_amount]), currency_symbol=\(table[self.currency_symbol]), discount_percent=\(table[self.discount_percent]), color_id=\(table[self.color_id]), color_name=\(table[self.color_name]), quality=\(table[self.quality])")
     }
-    func insert(_id:String,cat_id:String,sub_cat_id:String,original_price:Int64,unit_price:Int64,name:String,image:String,discount_amount:Int64,currency_symbol:String,discount_percent:Int64,color_id:String,color_name:String,quality:Int64 ) -> Int64? {
+    override func insert(_id:String,cat_id:String,sub_cat_id:String,original_price:Int64,unit_price:Int64,name:String,image:String,discount_amount:Int64,currency_symbol:String,discount_percent:Int64,color_id:String,color_name:String,quality:Int64 ) -> Int64? {
         do{
-            let insert=tableCart.insert(
+            let insert=table.insert(
                 self._id<-_id,
                 self.cat_id<-cat_id,
                 self.sub_cat_id<-sub_cat_id,
@@ -78,18 +78,10 @@ class ADRFrontEndModelCart: ADRModel {
             return insertId
         }catch{
             let nsError=error as NSError
-            print("insert new table Cart error. Error is \(nsError), \(nsError.userInfo)")
+            print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
             return nil
         }
     }
-    func queryAll() -> AnySequence<Row>? {
-        do{
-            return try Database.shared.connection?.prepare(self.tableCart)
-        }catch{
-            let nsError=error as NSError
-            print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
-            return nil
-        }
-    }
+    
     
 }

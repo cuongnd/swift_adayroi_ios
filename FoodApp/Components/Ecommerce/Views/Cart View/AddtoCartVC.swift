@@ -33,7 +33,6 @@ class AddtoCartVC: UIViewController {
     
     @IBOutlet weak var TableView_CartList: UITableView!
     var cartDetailsarray = [[String:Any]]()
-    var cartDetailsarray1 = [[ADRFrontEndModelCart:Any]]()
     var getCartData = [JSON]()
     var liveDataCart: LiveData<[[String:Any]]> = LiveData(data: [[:]])
     override func viewDidLoad() {
@@ -234,7 +233,7 @@ extension AddtoCartVC
     func showCart() -> Void{
         
         
-        if let itemsCart:AnySequence<Row> = ADRFrontEndModelCart.shared.queryAll(){
+        if let itemsCart:AnySequence<Row> = ADRFrontEndModelCartItems.getList(){
             for item in itemsCart {
                 do{
                     let obj = [

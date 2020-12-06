@@ -87,6 +87,7 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - ObjectMapper (3.5.3)
   - PromisesObjC (1.2.11)
   - razorpay-pod (1.1.10)
   - SDWebImage (5.10.0):
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - Layout (~> 0.6)
   - Localize-Swift (~> 2.0)
   - MBProgressHUD
+  - ObjectMapper (~> 3.5)
   - razorpay-pod
   - SDWebImage
   - SlideMenuControllerSwift
@@ -138,6 +140,7 @@ SPEC REPOS:
     - Localize-Swift
     - MBProgressHUD
     - nanopb
+    - ObjectMapper
     - PromisesObjC
     - razorpay-pod
     - SDWebImage
@@ -166,6 +169,7 @@ SPEC CHECKSUMS:
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   razorpay-pod: ee8dc073c65baee8df6e8c4275b1c989bab614a2
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
@@ -173,6 +177,6 @@ SPEC CHECKSUMS:
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 05dc13939a835d45eb32d1abbf13cd37a3545ff9
+PODFILE CHECKSUM: faa6cde946eabbb4107b9cb9892e54f07c2244fc
 
 COCOAPODS: 1.9.3

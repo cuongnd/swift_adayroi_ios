@@ -24,6 +24,7 @@ target 'FoodApp' do
     pod 'iOSDropDown'
     pod 'SQLite.swift', '~> 0.12.0'
     pod 'ETBinding'
+    pod 'ObjectMapper', '~> 3.5'
   target 'FoodAppTests' do
     inherit! :search_paths
     # Pods for testing
