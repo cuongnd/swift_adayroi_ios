@@ -30,6 +30,7 @@ class ADRTableCart: ADRTable{
     private let color_id=Expression<String>("color_id")
     private let color_name=Expression<String>("color_name")
     private let quality=Expression<Int64>("quality")
+    private let attributes=Expression<String>("attributes")
      override public   init(){
         super.init()
         do{
@@ -49,6 +50,7 @@ class ADRTableCart: ADRTable{
                     table.column(self.color_id)
                     table.column(self.color_name)
                     table.column(self.quality)
+                    table.column(self.attributes)
                 }))
                 print("Create table Cart successfully")
             }else{
@@ -62,7 +64,8 @@ class ADRTableCart: ADRTable{
     override func toString(cart:Row) {
         print("Cart detail: id=\(table[self.id]),product_id=\(table[self.product_id]), cat_id=\(table[self.cat_id]), sub_cat_id=\(table[self.sub_cat_id]), original_price=\(table[self.original_price]), unit_price=\(table[self.unit_price]),name=\(table[self.name]),image=\(table[self.image]), discount_amount=\(table[self.discount_amount]), currency_symbol=\(table[self.currency_symbol]), discount_percent=\(table[self.discount_percent]), color_id=\(table[self.color_id]), color_name=\(table[self.color_name]), quality=\(table[self.quality])")
     }
-    func insert(product_id:String,cat_id:String,sub_cat_id:String,original_price:Int64,unit_price:Int64,name:String,image:String,discount_amount:Int64,currency_symbol:String,discount_percent:Int64,color_id:String,color_name:String,quality:Int64 ) -> Int64? {
+    func insert(product_id:String,cat_id:String,sub_cat_id:String,original_price:Int64,unit_price:Int64,name:String,image:String,discount_amount:Int64,currency_symbol:String,discount_percent:Int64,color_id:String,color_name:String,quality:Int64,attributes:[[String:String]] ) -> Int64? {
+        let strAttribute:String=attributes.description
         do{
             let insert=table.insert(
                 self.product_id<-product_id,
@@ -77,7 +80,8 @@ class ADRTableCart: ADRTable{
                 self.discount_percent<-discount_percent,
                 self.color_id<-color_id,
                 self.color_name<-color_name,
-                self.quality<-quality
+                self.quality<-quality,
+                self.attributes<-strAttribute
             )
             let insertId=try Database.shared.connection!.run(insert)
             return insertId
@@ -102,16 +106,16 @@ class ADRTableCart: ADRTable{
         return true;
     }
     func updateCartItemByProductIdAndAttributes(product_id:String,attributes:[[String:String]],plus:Int64)->Bool{
-
+        let strAttribute:String=attributes.description
         do{
-            let filter=table.filter(self.product_id==product_id);
-            var row:AnySequence<Row>=try Database.shared.connection?.prepare(filter) as! AnySequence<Row>
+            let filter=(self.product_id==product_id) && (self.attributes==strAttribute)
+            var row:AnySequence<Row>=try Database.shared.connection?.prepare(table.filter(filter)) as! AnySequence<Row>
             let first_row = row.first(where: { (a_row) -> Bool in
                 return true
             })
             var total:Int64=try first_row?.get(Expression<Int64>("quality")) as! Int64
             total=total+plus
-            let update_table=filter.update(
+            let update_table=table.filter(filter).update(
                 self.quality<-total
             )
             let update=try Database.shared.connection!.run(update_table)
@@ -134,8 +138,9 @@ class ADRTableCart: ADRTable{
         }
     }
     func getCountItemByProductIdAndAttributes(product_id:String,attributes:[[String:String]])->Int?{
+        let strAttribute:String=attributes.description
         do{
-            let fillterCondition=(self.product_id==product_id)
+            let fillterCondition=(self.product_id==product_id) && (self.attributes==strAttribute)
             let items:AnySequence<Row> = try Database.shared.connection?.prepare(self.table.filter(fillterCondition)) as! AnySequence<Row>
             var total:Int=0;
             for item in items{
@@ -157,8 +162,9 @@ class ADRTableCart: ADRTable{
         
     }
     func getItemByProductIdAndAttributes(product_id:String,attributes:[[String:String]])->AnySequence<Row>?{
+        let strAttribute:String=attributes.description
         do{
-            let fillterCondition=(self.product_id==product_id)
+            let fillterCondition=(self.product_id==product_id) && (self.attributes==strAttribute)
             return try Database.shared.connection?.prepare(self.table.filter(fillterCondition))
         }catch{
             let nsError=error as NSError

@@ -73,6 +73,8 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     var productImages = [SDWebImageSource]()
     var addonsArray = [[String:String]]()
     var SelectedAddons = [[String:String]]()
+    var SelectedAttributes: [String: Any] = [:]
+    
     var FinalTotal = Double()
     var itemsData=[String : JSON]();
     @IBOutlet weak var lbl_count: UILabel!
@@ -154,6 +156,22 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     }
     
     @IBAction func btnTap_AddtoCart(_ sender: UIButton) {
+        var colorSelected:Bool=false
+        var color:JSON?
+        for index in 0...self.colorsData.count-1 {
+            
+            if self.colorsData[index]["isselected"]=="1"{
+                color=self.colorsData[index]
+                colorSelected=true
+            }
+        }
+        if !colorSelected{
+            showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "Vui lòng lựa chọn màu sắc")
+            return;
+        }
+        print("color \(color!.description)")
+        print("self.SelectedAttributes \(self.SelectedAttributes)")
+        
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
         ADRFrontEndModelCartItem.shared.addToCcart(
             objectMapperFrontendProduct:self.objectMapperFrontendProduct,
@@ -412,6 +430,8 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
                 let attributes_detail=item["attributes_detail"]
                 let currentItem=attributes_detail[index]
                 let id_value=currentItem["_id"].stringValue;
+                let name_value=currentItem["name"].stringValue;
+                self.SelectedAttributes[item["_id"].stringValue]=currentItem
                 print("Selected String: \(selectedText) \n id_value: \(id_value)")
             }
           return cell
@@ -470,7 +490,6 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
                 self.colorsData[index]["isselected"]="1"
             }
         }
-        print("self.colorsData \(self.colorsData)")
         self.UICollectionViewColors.reloadData()
         
     }

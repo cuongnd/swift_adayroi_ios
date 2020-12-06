@@ -36,7 +36,8 @@ class ADRFrontEndModelCartItem: ADRModel {
                 discount_percent: objectMapperFrontendProduct.discount_percent!,
                 color_id:"color_id",
                 color_name: "color name",
-                quality: quanlity
+                quality: quanlity,
+                attributes: [[String:String]]()
             )
         }
         

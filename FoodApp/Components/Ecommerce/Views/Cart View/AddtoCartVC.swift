@@ -240,15 +240,16 @@ extension AddtoCartVC
             for item in itemsCart {
                 do{
                     let obj = [
-                        "id":try item.get(Expression<String>("_id")),
+                        "id":try item.get(Expression<Int64>("id")),
+                        "product_id":try item.get(Expression<String>("product_id")),
                         "qty":try item.get(Expression<Int64>("quality")),
                         "price":try item.get(Expression<Int64>("unit_price")),
                         "price_update":try item.get(Expression<Int64>("unit_price")),
                         "item_name":try item.get(Expression<String>("name")),
-                        "item_id":try item.get(Expression<String>("_id")),
+                        "item_id":try item.get(Expression<String>("product_id")),
                         "itemimage":try item.get(Expression<String>("image")),
                         "addons":[:],
-                        "item_notes":try item.get(Expression<String>("_id")),
+                        "item_notes":try item.get(Expression<String>("product_id")),
                         ] as [String : Any]
                     self.cartDetailsarray.append(obj)
                 }catch{
