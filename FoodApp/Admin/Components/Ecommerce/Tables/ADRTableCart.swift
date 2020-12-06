@@ -90,7 +90,14 @@ class ADRTableCart: ADRTable{
     func updateCartItem(id:String,plus:Int)->Bool{
 
         do{
-            let update_table=table.filter(_id==id).update(
+            let filter=table.filter(_id==id);
+            var row:AnySequence<Row>=try Database.shared.connection?.prepare(filter) as! AnySequence<Row>
+            let first_row = row.first(where: { (a_row) -> Bool in
+                return true
+            })
+            var total:Int64=try first_row?.get(Expression<Int64>("quality")) as! Int64
+            total=total+1
+            let update_table=filter.update(
                 self.cat_id<-cat_id,
                 self.sub_cat_id<-sub_cat_id,
                 self.original_price<-original_price,
@@ -102,7 +109,7 @@ class ADRTableCart: ADRTable{
                 self.discount_percent<-discount_percent,
                 self.color_id<-color_id,
                 self.color_name<-color_name,
-                self.quality<-3
+                self.quality<-total
             )
             let update=try Database.shared.connection!.run(update_table)
             return true
