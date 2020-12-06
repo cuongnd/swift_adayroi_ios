@@ -87,5 +87,37 @@ class ADRTableCart: ADRTable{
         }
     }
     
+    func queryCountAll()->Int{
+        do{
+            return try Database.shared.connection?.scalar(self.table.count) as! Int
+        }catch{
+            let nsError=error as NSError
+            print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
+            return 0
+        }
+    }
+    func getItemById(id:String)->AnySequence<Row>?{
+        do{
+            let fillterCondition=(self._id==id)
+            return try Database.shared.connection?.prepare(self.table.filter(fillterCondition))
+        }catch{
+            let nsError=error as NSError
+            print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
+            return nil
+        }
+
+        
+    }
+    
+    func queryAll() -> AnySequence<Row>? {
+              do{
+                  return try Database.shared.connection?.prepare(self.table)
+              }catch{
+                  let nsError=error as NSError
+                  print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
+                  return nil
+              }
+          }
+    
     
 }

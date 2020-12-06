@@ -15,6 +15,8 @@ class ADRFrontEndModelCartItem: ADRModel {
     }()
     private override init() {}
     func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
+        let items:AnySequence<Row> = ADRTableCart.shared.getItemById(id:objectMapperFrontendProduct._id! )!
+        
         ADRTableCart.shared.insert(
             _id: objectMapperFrontendProduct._id!,
             cat_id: objectMapperFrontendProduct.cat_id!,
