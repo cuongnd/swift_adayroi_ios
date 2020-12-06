@@ -105,7 +105,7 @@ class ADRTableCart: ADRTable{
         
         return true;
     }
-    func updateCartItemByProductIdAndAttributes(product_id:String,attributes:[[String:String]],plus:Int64)->Bool{
+    func updateCartItemByProductIdAndAttributes(product_id:String,attributes:[String:String],plus:Int64)->Bool{
         let strAttribute:String=attributes.description
         do{
             let filter=(self.product_id==product_id) && (self.attributes==strAttribute)
@@ -137,7 +137,7 @@ class ADRTableCart: ADRTable{
             return 0
         }
     }
-    func getCountItemByProductIdAndAttributes(product_id:String,attributes:[[String:String]])->Int?{
+    func getCountItemByProductIdAndAttributes(product_id:String,attributes:[String:String])->Int?{
         let strAttribute:String=attributes.description
         do{
             let fillterCondition=(self.product_id==product_id) && (self.attributes==strAttribute)
@@ -161,7 +161,7 @@ class ADRTableCart: ADRTable{
 
         
     }
-    func getItemByProductIdAndAttributes(product_id:String,attributes:[[String:String]])->AnySequence<Row>?{
+    func getItemByProductIdAndAttributes(product_id:String,attributes:[String:String])->AnySequence<Row>?{
         let strAttribute:String=attributes.description
         do{
             let fillterCondition=(self.product_id==product_id) && (self.attributes==strAttribute)

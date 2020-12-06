@@ -73,7 +73,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     var productImages = [SDWebImageSource]()
     var addonsArray = [[String:String]]()
     var SelectedAddons = [[String:String]]()
-    var SelectedAttributes: [String: Any] = [:]
+    var SelectedAttributes: [String: JSON] = [:]
     
     var FinalTotal = Double()
     var itemsData=[String : JSON]();
@@ -169,13 +169,21 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
             showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "Vui lòng lựa chọn màu sắc")
             return;
         }
+        var list_attribute:[String:String]=[:];
+        for attribute in self.SelectedAttributes
+        {
+            print("attribute \(attribute.value)")
+            //let value=attribute["value"].dictionaryValue;
+            list_attribute[attribute.key]=attribute.value["_id"].stringValue
+        }
+        
         print("color \(color!.description)")
         print("self.SelectedAttributes \(self.SelectedAttributes)")
-        
+        print("list_attribute \(list_attribute)")
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
         ADRFrontEndModelCartItem.shared.addToCcart(
             objectMapperFrontendProduct:self.objectMapperFrontendProduct,
-            attributes: [[String:String]](),
+            attributes: list_attribute,
             quanlity: Int64(self.lbl_count.text!)!
         )
         

@@ -17,7 +17,7 @@ class ADRFrontEndModelCartItem: ADRModel {
     func DeleteCartItem(id:Int64){
         ADRTableCart.shared.DeleteCartItem(id:id)
     }
-    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes: [[String:String]],quanlity:Int64) -> Void {
+    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes: [String:String],quanlity:Int64) -> Void {
         let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,attributes: attributes )!
         let total:Int=ADRTableCart.shared.getCountItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributes: attributes)!
         if(total>0){
