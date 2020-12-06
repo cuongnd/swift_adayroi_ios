@@ -155,23 +155,15 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     
     @IBAction func btnTap_AddtoCart(_ sender: UIButton) {
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
-        
-        ADRFrontEndModelCart.shared.addToCcart(
-            ObjectMapperFrontendProduct:self.objectMapperFrontendProduct
-            quality: Int64(self.lbl_count.text!)!)
+        cartModel=ADRModel.getInstance(modelName: "Cart")
+        cartModel.addToCcart(
+            objectMapperFrontendProduct:self.objectMapperFrontendProduct,
+            quanlity: Int64(self.lbl_count.text!)!)
         
         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "San pham da them vao gio hang")
-        var total:Int=0;
-        if let itemsCart:AnySequence<Row> = ADRFrontEndModelCart.shared.queryAll(){
-                   for item in itemsCart {
-                    ADRFrontEndModelCart.shared.toString(cart: item)
-                    total=total+1;
-                       
-                   }
-               }
         
         
-        self.lbl_Cartcount.text = String(total)
+        //self.lbl_Cartcount.text = String(total)
         
         
         

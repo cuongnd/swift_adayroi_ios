@@ -9,6 +9,8 @@ import SQLite
 import Foundation
 class ADRFrontEndModelCartItem: ADRModel {
     
-    
+    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
+        
+    }
     
 }

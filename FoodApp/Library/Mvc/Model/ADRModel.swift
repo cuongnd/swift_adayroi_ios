@@ -13,8 +13,8 @@ class ADRModel: NSObject {
     public var context: String {
       return ""
     }
-    /*
-    static func getInstance(modelName:String)->Model{
+    
+    static func getInstance(modelName:String)->ADRModel{
         if(sharedInstanceArray.count>0){
             for index in 0...sharedInstanceArray.count-1{
                 let currentModel=sharedInstanceArray[index]
@@ -25,12 +25,12 @@ class ADRModel: NSObject {
         }
         switch modelName {
         case "Cart":
-            let cart = Cart()
+            let cart = ADRFrontEndModelCartItem()
             return cart
         default:
-            let temp = Temp()
+            let temp = ADRFrontEndModelCartItem()
             return temp
         }
     }
-    */
+    
 }
