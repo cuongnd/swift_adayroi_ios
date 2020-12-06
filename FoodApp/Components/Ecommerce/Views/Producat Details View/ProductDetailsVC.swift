@@ -155,8 +155,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     
     @IBAction func btnTap_AddtoCart(_ sender: UIButton) {
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
-        cartModel=ADRModel.getInstance(modelName: "Cart")
-        cartModel.addToCcart(
+        ADRFrontEndModelCartItem.shared.addToCcart(
             objectMapperFrontendProduct:self.objectMapperFrontendProduct,
             quanlity: Int64(self.lbl_count.text!)!)
         
