@@ -11,13 +11,13 @@ class ObjectMapperFrontendCart: Mappable{
     var _id: String?
     var cat_id: String?
     var sub_cat_id: String?
-    var original_price: String?
-    var unit_price: String?
+    var original_price: Int64?
+    var unit_price: Int64?
     var name: String?
     var image: String?
-    var discount_amount: String?
+    var discount_amount: Int64?
     var currency_symbol: String?
-    var discount_percent: String?
+    var discount_percent: Int64?
     var color_id: String?
     var color_name: String?
     var quality: String?

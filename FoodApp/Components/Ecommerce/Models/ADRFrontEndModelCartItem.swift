@@ -15,7 +15,21 @@ class ADRFrontEndModelCartItem: ADRModel {
     }()
     private override init() {}
     func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
-        
+        ADRTableCart.shared.insert(
+            _id: objectMapperFrontendProduct._id!,
+            cat_id: objectMapperFrontendProduct.cat_id!,
+            sub_cat_id: objectMapperFrontendProduct.sub_cat_id!,
+            original_price: objectMapperFrontendProduct.original_price!,
+            unit_price: objectMapperFrontendProduct.unit_price!,
+            name: objectMapperFrontendProduct.name!,
+            image: (objectMapperFrontendProduct.default_photo?.img_path!)!,
+            discount_amount: objectMapperFrontendProduct.discount_amount!,
+            currency_symbol: objectMapperFrontendProduct.currency_symbol!,
+            discount_percent: objectMapperFrontendProduct.discount_percent!,
+            color_id:"color_id",
+            color_name: "color name",
+            quality: quanlity
+        )
     }
     
 }

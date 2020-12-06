@@ -8,7 +8,11 @@
 import SQLite
 import Foundation
 class ADRTableCart: ADRTable{
-    static var shared: ADRTableCart = ADRTableCart()
+    static let shared: ADRTableCart = {
+        let instance = ADRTableCart()
+        // Setup code
+        return instance
+    }()
     public var context: String = "ADRTableCart"
     public var table: Table = Table("ADRTableCart")
     
