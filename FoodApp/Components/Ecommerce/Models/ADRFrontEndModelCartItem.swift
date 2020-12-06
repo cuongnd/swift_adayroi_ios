@@ -14,17 +14,17 @@ class ADRFrontEndModelCartItem: ADRModel {
         return instance
     }()
     private override init() {}
-    func DeleteCartItem(id:String){
+    func DeleteCartItem(id:Int64){
         ADRTableCart.shared.DeleteCartItem(id:id)
     }
-    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
-        let items:AnySequence<Row> = ADRTableCart.shared.getItemById(id:objectMapperFrontendProduct._id! )!
-        let total:Int=ADRTableCart.shared.getCountItemById(id: objectMapperFrontendProduct._id!)!
+    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes: [[String:String]],quanlity:Int64) -> Void {
+        let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,attributes: attributes )!
+        let total:Int=ADRTableCart.shared.getCountItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributes: attributes)!
         if(total>0){
-            ADRTableCart.shared.updateCartItem(id: objectMapperFrontendProduct._id!,plus: quanlity)
+            ADRTableCart.shared.updateCartItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributes:attributes,plus: quanlity)
         }else{
             ADRTableCart.shared.insert(
-                _id: objectMapperFrontendProduct._id!,
+                product_id: objectMapperFrontendProduct._id!,
                 cat_id: objectMapperFrontendProduct.cat_id!,
                 sub_cat_id: objectMapperFrontendProduct.sub_cat_id!,
                 original_price: objectMapperFrontendProduct.original_price!,

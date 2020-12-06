@@ -30,7 +30,7 @@ class ProductDetailColorCell: UICollectionViewCell {
 class ProductDetailAttributesHeaderCell: UICollectionViewCell {
     
     @IBOutlet weak var attributeName: UILabel!
-    @IBOutlet weak var dropDown : DropDown!
+    @IBOutlet weak var dropDown : DropDown!=DropDown(frame: CGRect(x: 110, y: 140, width: 200, height: 30))
     
 }
 
@@ -157,7 +157,9 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
         ADRFrontEndModelCartItem.shared.addToCcart(
             objectMapperFrontendProduct:self.objectMapperFrontendProduct,
-            quanlity: Int64(self.lbl_count.text!)!)
+            attributes: [[String:String]](),
+            quanlity: Int64(self.lbl_count.text!)!
+        )
         
         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "San pham da them vao gio hang")
         
@@ -400,10 +402,17 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
             cell.attributeName.text=item["name"].stringValue
             for index in 0...attributes_detail.count-1 {
                 let currentItem=attributes_detail[index]
-                cell.dropDown.optionArray.append(currentItem["name"].stringValue)
+                cell.dropDown.optionArray.append("\(currentItem["name"].stringValue) (\(currentItem["additional_price"].stringValue) đ )")
                 cell.dropDown.optionIds?.insert(index, at: index)
                 
                 
+            }
+            cell.dropDown.didSelect{(selectedText , index ,id) in
+                let item = self.attributes_header[indexPath.item]
+                let attributes_detail=item["attributes_detail"]
+                let currentItem=attributes_detail[index]
+                let id_value=currentItem["_id"].stringValue;
+                print("Selected String: \(selectedText) \n id_value: \(id_value)")
             }
           return cell
         }
@@ -643,6 +652,7 @@ extension ProductDetailsVC
                     self.UICollectionViewColors.delegate = self
                     self.UICollectionViewColors.dataSource = self
                     self.UICollectionViewColors.reloadData()
+                    print("self.itemsData \(self.itemsData["attributes_header"]!)")
                     self.attributes_header = self.itemsData["attributes_header"]!.arrayValue
                     self.UICollectionViewAttributesHeader.delegate = self
                     self.UICollectionViewAttributesHeader.dataSource = self
@@ -681,7 +691,6 @@ extension ProductDetailsVC
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
             }
             else {
-                print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
                     let RelatedProductsData = jsonResponse!["data"].arrayValue

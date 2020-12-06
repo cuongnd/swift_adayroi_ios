@@ -200,7 +200,8 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
             let data = self.cartDetailsarray[sender.tag]
             let urlString = API_URL + "deletecartitem"
             let params: NSDictionary = ["cart_id":data["id"]!]
-            ADRFrontEndModelCartItem.shared.DeleteCartItem(id: data["id"]! as! String)
+            ADRFrontEndModelCartItem.shared.DeleteCartItem(id: data["id"]! as! Int64)
+            self.showCart()
             
             //self.Webservice_DeleteCartItem(url: urlString, params:params)
         }
@@ -234,7 +235,7 @@ extension AddtoCartVC
 {
     func showCart() -> Void{
         
-        
+        self.cartDetailsarray.removeAll(keepingCapacity: true)
         if let itemsCart:AnySequence<Row> = ADRFrontEndModelCartItems.getList(){
             for item in itemsCart {
                 do{

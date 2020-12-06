@@ -55,31 +55,7 @@ class ADRTableProduct:ADRTable{
        override func toString(cart:Row) {
            print("Cart detail: _id=\(table[self._id]), cat_id=\(table[self.cat_id]), sub_cat_id=\(table[self.sub_cat_id]), original_price=\(table[self.original_price]), unit_price=\(table[self.unit_price]),name=\(table[self.name]),image=\(table[self.image]), discount_amount=\(table[self.discount_amount]), currency_symbol=\(table[self.currency_symbol]), discount_percent=\(table[self.discount_percent]), color_id=\(table[self.color_id]), color_name=\(table[self.color_name]), quality=\(table[self.quality])")
        }
-       override func insert(_id:String,cat_id:String,sub_cat_id:String,original_price:Int64,unit_price:Int64,name:String,image:String,discount_amount:Int64,currency_symbol:String,discount_percent:Int64,color_id:String,color_name:String,quality:Int64 ) -> Int64? {
-           do{
-               let insert=table.insert(
-                   self._id<-_id,
-                   self.cat_id<-cat_id,
-                   self.sub_cat_id<-sub_cat_id,
-                   self.original_price<-original_price,
-                   self.unit_price<-unit_price,
-                   self.name<-name,
-                   self.image<-image,
-                   self.discount_amount<-discount_amount,
-                   self.currency_symbol<-currency_symbol,
-                   self.discount_percent<-discount_percent,
-                   self.color_id<-color_id,
-                   self.color_name<-color_name,
-                   self.quality<-quality
-               )
-               let insertId=try Database.shared.connection!.run(insert)
-               return insertId
-           }catch{
-               let nsError=error as NSError
-               print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
-               return nil
-           }
-       }
+       
        func queryAll() -> AnySequence<Row>? {
            do{
                return try Database.shared.connection?.prepare(self.table)
