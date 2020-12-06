@@ -16,22 +16,28 @@ class ADRFrontEndModelCartItem: ADRModel {
     private override init() {}
     func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,quanlity:Int64) -> Void {
         let items:AnySequence<Row> = ADRTableCart.shared.getItemById(id:objectMapperFrontendProduct._id! )!
+        let total:Int=ADRTableCart.shared.getCountItemById(id: objectMapperFrontendProduct._id!)!
+        if(total>0){
+            ADRTableCart.shared.updateCartItem(id: objectMapperFrontendProduct._id!,plus: 1)
+        }else{
+            ADRTableCart.shared.insert(
+                _id: objectMapperFrontendProduct._id!,
+                cat_id: objectMapperFrontendProduct.cat_id!,
+                sub_cat_id: objectMapperFrontendProduct.sub_cat_id!,
+                original_price: objectMapperFrontendProduct.original_price!,
+                unit_price: objectMapperFrontendProduct.unit_price!,
+                name: objectMapperFrontendProduct.name!,
+                image: (objectMapperFrontendProduct.default_photo?.img_path!)!,
+                discount_amount: objectMapperFrontendProduct.discount_amount!,
+                currency_symbol: objectMapperFrontendProduct.currency_symbol!,
+                discount_percent: objectMapperFrontendProduct.discount_percent!,
+                color_id:"color_id",
+                color_name: "color name",
+                quality: quanlity
+            )
+        }
         
-        ADRTableCart.shared.insert(
-            _id: objectMapperFrontendProduct._id!,
-            cat_id: objectMapperFrontendProduct.cat_id!,
-            sub_cat_id: objectMapperFrontendProduct.sub_cat_id!,
-            original_price: objectMapperFrontendProduct.original_price!,
-            unit_price: objectMapperFrontendProduct.unit_price!,
-            name: objectMapperFrontendProduct.name!,
-            image: (objectMapperFrontendProduct.default_photo?.img_path!)!,
-            discount_amount: objectMapperFrontendProduct.discount_amount!,
-            currency_symbol: objectMapperFrontendProduct.currency_symbol!,
-            discount_percent: objectMapperFrontendProduct.discount_percent!,
-            color_id:"color_id",
-            color_name: "color name",
-            quality: quanlity
-        )
+        
     }
     
 }

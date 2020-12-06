@@ -87,6 +87,33 @@ class ADRTableCart: ADRTable{
         }
     }
     
+    func updateCartItem(id:String,plus:Int)->Bool{
+
+        do{
+            let update_table=table.filter(_id==id).update(
+                self.cat_id<-cat_id,
+                self.sub_cat_id<-sub_cat_id,
+                self.original_price<-original_price,
+                self.unit_price<-unit_price,
+                self.name<-name,
+                self.image<-image,
+                self.discount_amount<-discount_amount,
+                self.currency_symbol<-currency_symbol,
+                self.discount_percent<-discount_percent,
+                self.color_id<-color_id,
+                self.color_name<-color_name,
+                self.quality<-3
+            )
+            let update=try Database.shared.connection!.run(update_table)
+            return true
+        }catch{
+            let nsError=error as NSError
+            print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+            return false
+        }
+        
+        return true;
+    }
     func queryCountAll()->Int{
         do{
             return try Database.shared.connection?.scalar(self.table.count) as! Int
@@ -95,6 +122,29 @@ class ADRTableCart: ADRTable{
             print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
             return 0
         }
+    }
+    func getCountItemById(id:String)->Int?{
+        do{
+            let fillterCondition=(self._id==id)
+            let items:AnySequence<Row> = try Database.shared.connection?.prepare(self.table.filter(fillterCondition)) as! AnySequence<Row>
+            var total:Int=0;
+            for item in items{
+                do{
+                    total=total+1;
+                }catch{
+                    let nsError=error as NSError
+                    print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
+                }
+            }
+            return total
+            
+        }catch{
+            let nsError=error as NSError
+            print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
+            return 0
+        }
+
+        
     }
     func getItemById(id:String)->AnySequence<Row>?{
         do{
