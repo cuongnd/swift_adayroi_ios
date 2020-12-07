@@ -30,6 +30,7 @@ class ADRTableCart: ADRTable{
     private let discount_percent=Expression<Int64>("discount_percent")
     private let color_id=Expression<String>("color_id")
     private let color_name=Expression<String>("color_name")
+    private let color_value=Expression<String>("color_value")
     private let color_image=Expression<String>("color_image")
     private let quality=Expression<Int64>("quality")
     private let attributes_filter=Expression<String>("attributes_filter")
@@ -51,6 +52,7 @@ class ADRTableCart: ADRTable{
                     table.column(self.discount_percent)
                     table.column(self.color_id)
                     table.column(self.color_name)
+                    table.column(self.color_value)
                     table.column(self.color_image)
                     table.column(self.quality)
                     table.column(self.attributes_filter)
@@ -113,6 +115,7 @@ class ADRTableCart: ADRTable{
                 self.discount_percent<-discount_percent,
                 self.color_id<-color_id,
                 self.color_name<-color_name,
+                self.color_value<-color_value,
                 self.color_image<-color_image,
                 self.quality<-quality,
                 self.attributes_filter<-strAttributeFilter
