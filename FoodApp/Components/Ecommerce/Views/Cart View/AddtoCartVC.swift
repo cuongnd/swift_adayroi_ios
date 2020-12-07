@@ -378,16 +378,15 @@ extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attributeCell", for: indexPath) as! attributeCell
         print("collectionView.tag \(collectionView.tag)")
         let data=self.cartDetailsarray[collectionView.tag]
-        let attributes=JSON(data["attributes"]!);
-        for attribute in attributes{
-            print("attribute123 \(attribute.0)")
-        }
-        print("attributes \(attributes)")
-        print("attributes \(attributes["5f13dc2b33d84a60016acda5"])")
+        let attributes=data["attributes"];
+         
+        
+        
           return cell
         
         
