@@ -7,6 +7,7 @@
 //
 import SQLite
 import Foundation
+import SwiftyJSON
 class ADRFrontEndModelCartItem: ADRModel {
     static let shared: ADRFrontEndModelCartItem = {
         let instance = ADRFrontEndModelCartItem()
@@ -17,11 +18,11 @@ class ADRFrontEndModelCartItem: ADRModel {
     func DeleteCartItem(id:Int64){
         ADRTableCart.shared.DeleteCartItem(id:id)
     }
-    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes: [String:String],quanlity:Int64) -> Void {
-        let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,attributes: attributes )!
-        let total:Int=ADRTableCart.shared.getCountItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributes: attributes)!
+    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes:  [String: JSON],attributesFilter: [String:String],quanlity:Int64) -> Void {
+        let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,attributesFilter: attributesFilter )!
+        let total:Int=ADRTableCart.shared.getCountItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributesFilter: attributesFilter)!
         if(total>0){
-            ADRTableCart.shared.updateCartItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributes:attributes,plus: quanlity)
+            ADRTableCart.shared.updateCartItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributesFilter:attributesFilter,plus: quanlity)
         }else{
             ADRTableCart.shared.insert(
                 product_id: objectMapperFrontendProduct._id!,
@@ -37,7 +38,8 @@ class ADRFrontEndModelCartItem: ADRModel {
                 color_id:"color_id",
                 color_name: "color name",
                 quality: quanlity,
-                attributes: [[String:String]]()
+                attributes:attributes,
+                attributesFilter:attributesFilter
             )
         }
         

@@ -183,7 +183,8 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
         ADRFrontEndModelCartItem.shared.addToCcart(
             objectMapperFrontendProduct:self.objectMapperFrontendProduct,
-            attributes: list_attribute,
+            attributes: self.SelectedAttributes,
+            attributesFilter: list_attribute,
             quanlity: Int64(self.lbl_count.text!)!
         )
         
