@@ -1040,11 +1040,13 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="UICollectionViewAttributes" destination="c2I-LA-npy" id="79b-cR-hcm"/>
+                                            <outlet property="UILabelColorName" destination="gnp-1j-rCo" id="cY1-mH-7wG"/>
                                             <outlet property="btn_Addonse" destination="H8h-zJ-C9A" id="Ppy-ic-Emi"/>
                                             <outlet property="btn_Delete" destination="d7s-Tp-wxA" id="RWo-7K-JVw"/>
                                             <outlet property="btn_Minse" destination="KCi-XA-8Ng" id="hRf-Tn-GEZ"/>
                                             <outlet property="btn_Notes" destination="fhw-uF-xXm" id="yuh-AM-AdQ"/>
                                             <outlet property="btn_Pluse" destination="Zwf-he-MoI" id="T2k-XK-fco"/>
+                                            <outlet property="colorImage" destination="hd0-1O-3XZ" id="qb5-KY-Zea"/>
                                             <outlet property="img_Product" destination="Ndn-wj-Dah" id="Xh2-ds-Fgj"/>
                                             <outlet property="lbl_Price" destination="FTf-IB-hfV" id="Dsk-lN-jOv"/>
                                             <outlet property="lbl_ProductName" destination="ALe-ey-Rsk" id="nrr-0P-ilE"/>

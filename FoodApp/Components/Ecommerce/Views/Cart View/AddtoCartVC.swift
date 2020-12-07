@@ -26,6 +26,8 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var btn_Minse: UIButton!
     @IBOutlet weak var btn_Pluse: UIButton!
     @IBOutlet weak var UICollectionViewAttributes: UICollectionView!
+    @IBOutlet weak var colorImage: UIImageView!
+    @IBOutlet weak var UILabelColorName: UILabel!
 }
 class attributeCell: UICollectionViewCell {
     @IBOutlet weak var UILabelKey: UILabel!
@@ -176,7 +178,9 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
             cell.btn_Notes.isEnabled = true
             
         }
-        
+        let itemimage:String = data["color_image"] as! String
+        cell.UILabelColorName.text=data["color_name"] as! String
+        cell.colorImage.sd_setImage(with: URL(string: itemimage), placeholderImage: UIImage(named: "placeholder_image"))
         cell.UICollectionViewAttributes.tag = indexPath.row
         cell.UICollectionViewAttributes.delegate = self
         cell.UICollectionViewAttributes.dataSource = self
@@ -282,6 +286,8 @@ extension AddtoCartVC
                         "item_name":try item.get(Expression<String>("name")),
                         "item_id":try item.get(Expression<String>("product_id")),
                         "itemimage":try item.get(Expression<String>("image")),
+                        "color_name":try item.get(Expression<String>("color_name")),
+                        "color_image":try item.get(Expression<String>("color_image")),
                         "addons":[:],
                         "item_notes":try item.get(Expression<String>("product_id")),
                         "attributes":attributes,
