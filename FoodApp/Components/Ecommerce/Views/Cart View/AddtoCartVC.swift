@@ -248,8 +248,31 @@ extension AddtoCartVC
         
         self.cartDetailsarray.removeAll(keepingCapacity: true)
         if let itemsCart:AnySequence<Row> = ADRFrontEndModelCartItems.getList(){
+            
             for item in itemsCart {
+                
                 do{
+                    var attributes = [[String:Any]]()
+                    let cart_id=try item.get(Expression<Int64>("id"))
+                    if let itemsAtributeCart:AnySequence<Row> = ADRFrontEndModelCartItems.getAttributeListByCartId(cart_id: cart_id as! Int64){
+                        for item in itemsAtributeCart {
+                            do{
+                                
+                                let a_obj = [
+                                    "id":try item.get(Expression<Int64>("id")),
+                                    "product_id":try item.get(Expression<String>("product_id")),
+                                    "key_name":try item.get(Expression<String>("key_name")),
+                                    "name":try item.get(Expression<String>("name")),
+                                    "_id":try item.get(Expression<String>("_id")),
+                                    ] as [String : Any]
+                                attributes.append(a_obj)
+                            }catch{
+                                let nsError=error as NSError
+                                print("get value of column table Cart error. Error is \(nsError), \(nsError.userInfo)")
+                            }
+                        }
+                    }
+                    
                     let obj = [
                         "id":try item.get(Expression<Int64>("id")),
                         "product_id":try item.get(Expression<String>("product_id")),
@@ -261,8 +284,14 @@ extension AddtoCartVC
                         "itemimage":try item.get(Expression<String>("image")),
                         "addons":[:],
                         "item_notes":try item.get(Expression<String>("product_id")),
-                        "attributes":try item.get(Expression<String>("attributes")),
+                        "attributes":attributes,
                         ] as [String : Any]
+                    
+                    
+                    
+                    
+                    
+                    
                     self.cartDetailsarray.append(obj)
                 }catch{
                     let nsError=error as NSError
@@ -374,45 +403,19 @@ extension AddtoCartVC
 }
 extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-        
-        
-    }
+        let data=self.cartDetailsarray[collectionView.tag]
+        let attributes=JSON(data["attributes"]!);
+        return attributes.count
+     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attributeCell", for: indexPath) as! attributeCell
         print("collectionView.tag \(collectionView.tag)")
         let data=self.cartDetailsarray[collectionView.tag]
-        let cart_id=data["id"]
-        
-        if let itemsAtributeCart:AnySequence<Row> = ADRFrontEndModelCartItems.getAttributeListByCartId(cart_id: cart_id as! Int64){
-            for item in itemsAtributeCart {
-                do{
-                    let obj = [
-                        "id":try item.get(Expression<Int64>("id")),
-                        "product_id":try item.get(Expression<String>("product_id")),
-                        "qty":try item.get(Expression<Int64>("quality")),
-                        "price":try item.get(Expression<Int64>("unit_price")),
-                        "price_update":try item.get(Expression<Int64>("unit_price")),
-                        "item_name":try item.get(Expression<String>("name")),
-                        "item_id":try item.get(Expression<String>("product_id")),
-                        "itemimage":try item.get(Expression<String>("image")),
-                        "addons":[:],
-                        "item_notes":try item.get(Expression<String>("product_id")),
-                        "attributes":try item.get(Expression<String>("attributes")),
-                        ] as [String : Any]
-                    self.cartDetailsarray.append(obj)
-                }catch{
-                    let nsError=error as NSError
-                    print("get value of column table Cart error. Error is \(nsError), \(nsError.userInfo)")
-                }
-                
-                
-                
-            }
-        }
-        
-        
+        let attributes=JSON(data["attributes"]!);
+        let attribute=attributes[indexPath.row];
+        cell.UILabelKey.text=attribute["key_name"].stringValue;
+        cell.UILabelValue.text=attribute["name"].stringValue;
         return cell
         
         

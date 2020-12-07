@@ -44,6 +44,7 @@
 		0C42DC2C257C6D62007009E4 /* ObjectMapperFrontendProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC2B257C6D62007009E4 /* ObjectMapperFrontendProduct.swift */; };
 		0C42DC2E257CD061007009E4 /* ObjectMapperFrontendImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC2D257CD061007009E4 /* ObjectMapperFrontendImage.swift */; };
 		0C42DC30257E03F4007009E4 /* ADRTableCartAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC2F257E03F3007009E4 /* ADRTableCartAttribute.swift */; };
+		0C42DC32257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC31257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift */; };
 		0C5170E125643E4C00C4EA7F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5170E025643E4C00C4EA7F /* HomeVC.swift */; };
 		0C5170FC2565535C00C4EA7F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5170FB2565535C00C4EA7F /* Home.storyboard */; };
 		0C5170FF2565538D00C4EA7F /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5170FE2565538D00C4EA7F /* Products.storyboard */; };
@@ -162,6 +163,7 @@
 		0C42DC2B257C6D62007009E4 /* ObjectMapperFrontendProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperFrontendProduct.swift; sourceTree = "<group>"; };
 		0C42DC2D257CD061007009E4 /* ObjectMapperFrontendImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperFrontendImage.swift; sourceTree = "<group>"; };
 		0C42DC2F257E03F3007009E4 /* ADRTableCartAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRTableCartAttribute.swift; sourceTree = "<group>"; };
+		0C42DC31257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperFrontendProductAtribute.swift; sourceTree = "<group>"; };
 		0C5170E025643E4C00C4EA7F /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0C5170FB2565535C00C4EA7F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0C5170FE2565538D00C4EA7F /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 			children = (
 				0C42DC29257C6A6F007009E4 /* ObjectMapperFrontendCart.swift */,
 				0C42DC2B257C6D62007009E4 /* ObjectMapperFrontendProduct.swift */,
+				0C42DC31257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift */,
 				0C42DC2D257CD061007009E4 /* ObjectMapperFrontendImage.swift */,
 			);
 			path = ObjectsMapper;
@@ -1106,6 +1109,7 @@
 				0C42DC1F257BDBDA007009E4 /* ADRView.swift in Sources */,
 				0CD77A62257A30550083BC09 /* Database.swift in Sources */,
 				C8C99E042488D93C00B5C187 /* AllKeyAndMessages.swift in Sources */,
+				0C42DC32257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift in Sources */,
 				0C42DC27257BEDFB007009E4 /* ADRFrontEndModelCartItem.swift in Sources */,
 				0C42DC10257BD787007009E4 /* ADRAdminController.swift in Sources */,
 				0C42DC30257E03F4007009E4 /* ADRTableCartAttribute.swift in Sources */,
