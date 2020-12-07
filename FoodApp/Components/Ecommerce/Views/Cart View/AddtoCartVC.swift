@@ -127,7 +127,7 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         cornerRadius(viewName: cell.btn_Addonse, radius:4.0)
         cornerRadius(viewName: cell.btn_Notes, radius:4.0)
         
-        let data = cartDetailsarray[indexPath.row]
+        let data = self.cartDetailsarray[indexPath.row]
         cell.lbl_count.text! = (data["qty"]! as AnyObject).stringValue
         
         cell.lbl_Price.text! = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(data["price"]!)"
@@ -141,6 +141,7 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         cell.lbl_ProductName.text! = data["item_name"]! as! String
         let imgUrl =  data["itemimage"]!
         print(data["price_update"]!)
+        
         cell.img_Product.sd_setImage(with: URL(string: imgUrl as! String), placeholderImage: UIImage(named: "placeholder_image"))
         cell.btn_Minse.tag = indexPath.row
         cell.btn_Minse.addTarget(self, action: #selector(btnTapMines), for: .touchUpInside)
@@ -175,6 +176,8 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
             cell.btn_Notes.isEnabled = true
             
         }
+        
+        cell.UICollectionViewAttributes.tag = indexPath.row
         cell.UICollectionViewAttributes.delegate = self
         cell.UICollectionViewAttributes.dataSource = self
         cell.UICollectionViewAttributes.reloadData()
@@ -258,6 +261,7 @@ extension AddtoCartVC
                         "itemimage":try item.get(Expression<String>("image")),
                         "addons":[:],
                         "item_notes":try item.get(Expression<String>("product_id")),
+                        "attributes":try item.get(Expression<String>("attributes")),
                         ] as [String : Any]
                     self.cartDetailsarray.append(obj)
                 }catch{
@@ -376,6 +380,14 @@ extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attributeCell", for: indexPath) as! attributeCell
+        print("collectionView.tag \(collectionView.tag)")
+        let data=self.cartDetailsarray[collectionView.tag]
+        let attributes=JSON(data["attributes"]!);
+        for attribute in attributes{
+            print("attribute123 \(attribute.0)")
+        }
+        print("attributes \(attributes)")
+        print("attributes \(attributes["5f13dc2b33d84a60016acda5"])")
           return cell
         
         
