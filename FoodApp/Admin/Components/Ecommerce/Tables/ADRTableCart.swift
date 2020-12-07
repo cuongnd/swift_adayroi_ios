@@ -103,6 +103,10 @@ class ADRTableCart: ADRTable{
                 
             )
             let insertId=try Database.shared.connection!.run(insert)
+            for attribute in attributes{
+                ADRTableCartAttribute.shared.insert(_id: attribute.value["_id"].stringValue, cart_id: insertId, key_name: attribute.value["key_name"].stringValue, name: attribute.value["name"].stringValue, header_id: attribute.value["header_id"].stringValue, additional_price: Int64(attribute.value["additional_price"].stringValue)!, product_id: attribute.value["product_id"].stringValue)
+            }
+            
             return insertId
         }catch{
             let nsError=error as NSError
@@ -115,6 +119,7 @@ class ADRTableCart: ADRTable{
         do{
             let filter=table.filter(self.id==id);
             let delete=try Database.shared.connection!.run(filter.delete())
+            ADRTableCartAttribute.shared.DeleteCartAttributeByCartId(cart_id: id)
             return true
         }catch{
             let nsError=error as NSError

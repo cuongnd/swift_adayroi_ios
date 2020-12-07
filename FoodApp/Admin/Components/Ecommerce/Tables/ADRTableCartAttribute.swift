@@ -9,8 +9,8 @@ import SQLite
 import SwiftyJSON
 import Foundation
 class ADRTableCartAttribute: ADRTable{
-    static let shared: ADRTableCart = {
-        let instance = ADRTableCart()
+    static let shared: ADRTableCartAttribute = {
+        let instance = ADRTableCartAttribute()
         // Setup code
         return instance
     }()
