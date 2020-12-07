@@ -421,7 +421,7 @@ extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+        return CGSize(width: (UIScreen.main.bounds.width) / 3, height: 50.0)
         
         
     }

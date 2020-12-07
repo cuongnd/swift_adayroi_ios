@@ -969,21 +969,27 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="22"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-sg-4Wb">
-                                                                                <rect key="frame" x="4" y="0.0" width="33" height="21"/>
-                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-sg-4Wb">
+                                                                                <rect key="frame" x="4" y="0.0" width="42.5" height="21"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bn-oB-4BW">
-                                                                                <rect key="frame" x="38" y="1" width="82" height="21"/>
-                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bn-oB-4BW">
+                                                                                <rect key="frame" x="56" y="1" width="64" height="21"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="Laj-sg-4Wb" firstAttribute="top" secondItem="JTO-kP-AAk" secondAttribute="top" id="E67-RH-F08"/>
+                                                                            <constraint firstItem="1bn-oB-4BW" firstAttribute="width" secondItem="JTO-kP-AAk" secondAttribute="width" multiplier="1:2" id="Qyf-o6-tQG"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="1bn-oB-4BW" secondAttribute="trailing" constant="8" id="SyF-4L-Bdf"/>
+                                                                            <constraint firstItem="Laj-sg-4Wb" firstAttribute="width" secondItem="JTO-kP-AAk" secondAttribute="width" multiplier="1:3" id="Vlt-ln-831"/>
+                                                                            <constraint firstItem="1bn-oB-4BW" firstAttribute="top" secondItem="JTO-kP-AAk" secondAttribute="top" constant="1" id="Yvj-lX-e1H"/>
+                                                                            <constraint firstItem="Laj-sg-4Wb" firstAttribute="leading" secondItem="JTO-kP-AAk" secondAttribute="leading" constant="4" id="pA6-WU-z6V"/>
+                                                                        </constraints>
                                                                     </collectionViewCellContentView>
                                                                     <size key="customSize" width="128" height="22"/>
                                                                     <connections>
