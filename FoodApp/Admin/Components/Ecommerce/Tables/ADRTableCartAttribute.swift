@@ -52,16 +52,6 @@ class ADRTableCartAttribute: ADRTable{
     override func toString(cart:Row) {
         
     }
-    func jsonToString(json: AnyObject){
-        do {
-            let data1 =  try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted) // first of all convert json to the data
-            let convertedString = String(data: data1, encoding: String.Encoding.utf8) // the data will be converted to the string
-            print(convertedString ?? "defaultvalue")
-        } catch let myJSONError {
-            print(myJSONError)
-        }
-        
-    }
     
     func insert(
         _id:String,
@@ -126,5 +116,15 @@ class ADRTableCartAttribute: ADRTable{
         }
     }
     
+    func getAttributeListByCartId(cart_id:Int64) -> AnySequence<Row>? {
+         let filter=table.filter(self.cart_id==cart_id);
+        do{
+            return try Database.shared.connection?.prepare(filter)
+        }catch{
+            let nsError=error as NSError
+            print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
+            return nil
+        }
+    }
     
 }

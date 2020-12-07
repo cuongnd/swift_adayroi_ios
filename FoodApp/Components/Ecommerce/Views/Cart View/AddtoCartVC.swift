@@ -154,16 +154,16 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         cell.btn_Notes.tag = indexPath.row
         cell.btn_Notes.addTarget(self, action: #selector(btnTapNotes), for: .touchUpInside)
         /*
-        let isaddonce = data["addons"]! as! [JSON]
-        if isaddonce.count == 0
-        {
-            cell.btn_Addonse.isEnabled = false
-            cell.btn_Addonse.backgroundColor = UIColor.lightGray
-        }
-        else{
-            cell.btn_Addonse.isEnabled = true
-        }
-        */
+         let isaddonce = data["addons"]! as! [JSON]
+         if isaddonce.count == 0
+         {
+         cell.btn_Addonse.isEnabled = false
+         cell.btn_Addonse.backgroundColor = UIColor.lightGray
+         }
+         else{
+         cell.btn_Addonse.isEnabled = true
+         }
+         */
         let item_notes = data["item_notes"] as! String
         
         if item_notes == ""
@@ -383,18 +383,44 @@ extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attributeCell", for: indexPath) as! attributeCell
         print("collectionView.tag \(collectionView.tag)")
         let data=self.cartDetailsarray[collectionView.tag]
-        let attributes=data["attributes"];
-         
+        let cart_id=data["id"]
+        
+        if let itemsAtributeCart:AnySequence<Row> = ADRFrontEndModelCartItems.getAttributeListByCartId(cart_id: cart_id as! Int64){
+            for item in itemsAtributeCart {
+                do{
+                    let obj = [
+                        "id":try item.get(Expression<Int64>("id")),
+                        "product_id":try item.get(Expression<String>("product_id")),
+                        "qty":try item.get(Expression<Int64>("quality")),
+                        "price":try item.get(Expression<Int64>("unit_price")),
+                        "price_update":try item.get(Expression<Int64>("unit_price")),
+                        "item_name":try item.get(Expression<String>("name")),
+                        "item_id":try item.get(Expression<String>("product_id")),
+                        "itemimage":try item.get(Expression<String>("image")),
+                        "addons":[:],
+                        "item_notes":try item.get(Expression<String>("product_id")),
+                        "attributes":try item.get(Expression<String>("attributes")),
+                        ] as [String : Any]
+                    self.cartDetailsarray.append(obj)
+                }catch{
+                    let nsError=error as NSError
+                    print("get value of column table Cart error. Error is \(nsError), \(nsError.userInfo)")
+                }
+                
+                
+                
+            }
+        }
         
         
-          return cell
+        return cell
         
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
-          
-       
+        
+        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

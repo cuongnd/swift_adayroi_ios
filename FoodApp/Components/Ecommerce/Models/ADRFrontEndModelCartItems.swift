@@ -8,16 +8,13 @@
 import SQLite
 import Foundation
 class ADRFrontEndModelCartItems: ADRModel {
-    static func getList() -> AnySequence<Row>? {
-        do{
-            return try Database.shared.connection?.prepare(ADRTableCart.shared.table)
-        }catch{
-            let nsError=error as NSError
-            print("insert table Cart error. Error is \(nsError), \(nsError.userInfo)")
-            return nil
-        }
-    }
     
+    static func getList() -> AnySequence<Row>? {
+        return ADRTableCart.shared.queryAll()
+    }
+    static func getAttributeListByCartId(cart_id:Int64) -> AnySequence<Row>? {
+        return ADRTableCartAttribute.shared.getAttributeListByCartId(cart_id: cart_id)
+    }
     
     
 }
