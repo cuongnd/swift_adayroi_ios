@@ -18,11 +18,12 @@ class ADRFrontEndModelCartItem: ADRModel {
     func DeleteCartItem(id:Int64){
         ADRTableCart.shared.DeleteCartItem(id:id)
     }
-    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes:  [String: JSON],attributesFilter: [String:String],quanlity:Int64) -> Void {
-        let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,attributesFilter: attributesFilter )!
-        let total:Int=ADRTableCart.shared.getCountItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributesFilter: attributesFilter)!
+    func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes:  [String: JSON],color:JSON,attributesFilter: [String:String],quanlity:Int64) -> Void {
+        var color_id:String = color["_id"].stringValue
+        let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,color_id:color_id,attributesFilter: attributesFilter )!
+        let total:Int=ADRTableCart.shared.getCountItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,color_id:color_id,attributesFilter: attributesFilter)!
         if(total>0){
-            ADRTableCart.shared.updateCartItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,attributesFilter:attributesFilter,plus: quanlity)
+            ADRTableCart.shared.updateCartItemByProductIdAndAttributes(product_id: objectMapperFrontendProduct._id!,color_id:color_id,attributesFilter:attributesFilter,plus: quanlity)
         }else{
             ADRTableCart.shared.insert(
                 product_id: objectMapperFrontendProduct._id!,
@@ -35,8 +36,11 @@ class ADRFrontEndModelCartItem: ADRModel {
                 discount_amount: objectMapperFrontendProduct.discount_amount!,
                 currency_symbol: objectMapperFrontendProduct.currency_symbol!,
                 discount_percent: objectMapperFrontendProduct.discount_percent!,
-                color_id:"color_id",
-                color_name: "color name",
+                color_id:color["_id"].stringValue,
+                color_name: color["name"].stringValue,
+                color_value: color["value"].stringValue,
+                color_image: color["img_url"].stringValue,
+                
                 quality: quanlity,
                 attributes:attributes,
                 attributesFilter:attributesFilter

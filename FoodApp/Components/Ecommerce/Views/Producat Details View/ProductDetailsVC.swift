@@ -178,12 +178,11 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         }
         
         print("color \(color!.description)")
-        print("self.SelectedAttributes \(self.SelectedAttributes)")
-        print("list_attribute \(list_attribute)")
         let product_Image = self.itemsData["default_photo"]!.dictionaryValue
         ADRFrontEndModelCartItem.shared.addToCcart(
             objectMapperFrontendProduct:self.objectMapperFrontendProduct,
             attributes: self.SelectedAttributes,
+            color:color!,
             attributesFilter: list_attribute,
             quanlity: Int64(self.lbl_count.text!)!
         )

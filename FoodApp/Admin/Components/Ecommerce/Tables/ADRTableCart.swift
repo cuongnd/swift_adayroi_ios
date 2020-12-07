@@ -32,7 +32,6 @@ class ADRTableCart: ADRTable{
     private let color_name=Expression<String>("color_name")
     private let color_image=Expression<String>("color_image")
     private let quality=Expression<Int64>("quality")
-    private let attributes=Expression<String>("attributes")
     private let attributes_filter=Expression<String>("attributes_filter")
     override public   init(){
         super.init()
@@ -54,7 +53,6 @@ class ADRTableCart: ADRTable{
                     table.column(self.color_name)
                     table.column(self.color_image)
                     table.column(self.quality)
-                    table.column(self.attributes)
                     table.column(self.attributes_filter)
                 }))
                 print("Create table Cart successfully")
@@ -80,9 +78,25 @@ class ADRTableCart: ADRTable{
         
     }
     
-    func insert(product_id:String,cat_id:String,sub_cat_id:String,original_price:Int64,unit_price:Int64,name:String,image:String,discount_amount:Int64,currency_symbol:String,discount_percent:Int64,color_id:String,color_name:String,quality:Int64,attributes:[String:JSON] ,attributesFilter:[String:String] ) -> Int64? {
-        let strAttribute:String="sdfds"
-        //print("strAttribute \(attributes.)")
+    func insert(
+        product_id:String,
+        cat_id:String,
+        sub_cat_id:String,
+        original_price:Int64,
+        unit_price:Int64,
+        name:String,
+        image:String,
+        discount_amount:Int64,
+        currency_symbol:String,
+        discount_percent:Int64,
+        color_id:String,
+        color_name:String,
+        color_value:String,
+        color_image:String,
+        quality:Int64,
+        attributes:[String:JSON],
+        attributesFilter:[String:String]
+    ) -> Int64? {
         let strAttributeFilter:String=attributesFilter.description
         
         do{
@@ -101,7 +115,6 @@ class ADRTableCart: ADRTable{
                 self.color_name<-color_name,
                 self.color_image<-color_image,
                 self.quality<-quality,
-                self.attributes<-strAttribute,
                 self.attributes_filter<-strAttributeFilter
                 
             )
@@ -132,10 +145,10 @@ class ADRTableCart: ADRTable{
         
         return true;
     }
-    func updateCartItemByProductIdAndAttributes(product_id:String,attributesFilter:[String:String],plus:Int64)->Bool{
+    func updateCartItemByProductIdAndAttributes(product_id:String,color_id:String,attributesFilter:[String:String],plus:Int64)->Bool{
         let strAttributeFilter:String=attributesFilter.description
         do{
-            let filter=(self.product_id==product_id) && (self.attributes_filter==strAttributeFilter)
+            let filter=(self.product_id==product_id) && (self.color_id==color_id) && (self.attributes_filter==strAttributeFilter)
             var row:AnySequence<Row>=try Database.shared.connection?.prepare(table.filter(filter)) as! AnySequence<Row>
             let first_row = row.first(where: { (a_row) -> Bool in
                 return true
@@ -164,10 +177,10 @@ class ADRTableCart: ADRTable{
             return 0
         }
     }
-    func getCountItemByProductIdAndAttributes(product_id:String,attributesFilter:[String:String])->Int?{
+    func getCountItemByProductIdAndAttributes(product_id:String,color_id:String,attributesFilter:[String:String])->Int?{
         let strAttributeFilter:String=attributesFilter.description
         do{
-            let fillterCondition=(self.product_id==product_id) && (self.attributes_filter==strAttributeFilter)
+            let fillterCondition=(self.product_id==product_id) && (self.color_id==color_id) && (self.attributes_filter==strAttributeFilter)
             let items:AnySequence<Row> = try Database.shared.connection?.prepare(self.table.filter(fillterCondition)) as! AnySequence<Row>
             var total:Int=0;
             for item in items{
@@ -188,10 +201,10 @@ class ADRTableCart: ADRTable{
         
         
     }
-    func getItemByProductIdAndAttributes(product_id:String,attributesFilter:[String:String])->AnySequence<Row>?{
+    func getItemByProductIdAndAttributes(product_id:String,color_id:String,attributesFilter:[String:String])->AnySequence<Row>?{
         let strAttributeFilter:String=attributesFilter.description
         do{
-            let fillterCondition=(self.product_id==product_id) && (self.attributes_filter==strAttributeFilter)
+            let fillterCondition=(self.product_id==product_id) && (self.color_id==color_id) &&  (self.attributes_filter==strAttributeFilter)
             return try Database.shared.connection?.prepare(self.table.filter(fillterCondition))
         }catch{
             let nsError=error as NSError
