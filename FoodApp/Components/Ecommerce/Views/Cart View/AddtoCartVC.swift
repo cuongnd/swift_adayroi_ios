@@ -38,6 +38,8 @@ class AddtoCartVC: UIViewController {
     @IBOutlet weak var btn_Checkout: UIButton!
     @IBOutlet weak var lbl_TitleLabel: UILabel!
     
+    @IBOutlet weak var UILabelTotalProduct: UILabel!
+    @IBOutlet weak var UILabelTotal: UILabel!
     @IBOutlet weak var TableView_CartList: UITableView!
     var cartDetailsarray = [[String:Any]]()
     var getCartData = [JSON]()
@@ -62,8 +64,20 @@ class AddtoCartVC: UIViewController {
     }
     
     @IBAction func btnTap_Checkout(_ sender: UIButton) {
-        let urlString = API_URL + "isopen"
-        self.Webservice_OpenClose(url: urlString, params:[:])
+        if UserDefaultManager.getStringFromUserDefaults(key: UD_isSkip) == "1"
+        {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let nav : UINavigationController = UINavigationController(rootViewController: objVC)
+            nav.navigationBar.isHidden = true
+            UIApplication.shared.windows[0].rootViewController = nav
+        }
+        else{
+            
+        }
+        
+        
+        
         
     }
     @IBAction func btnTap_back(_ sender: UIButton) {
