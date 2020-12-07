@@ -25,6 +25,11 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var lbl_count: UILabel!
     @IBOutlet weak var btn_Minse: UIButton!
     @IBOutlet weak var btn_Pluse: UIButton!
+    @IBOutlet weak var UICollectionViewAttributes: UICollectionView!
+}
+class attributeCell: UICollectionViewCell {
+    @IBOutlet weak var UILabelKey: UILabel!
+    @IBOutlet weak var UILabelValue: UILabel!
 }
 class AddtoCartVC: UIViewController {
     
@@ -170,6 +175,9 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
             cell.btn_Notes.isEnabled = true
             
         }
+        cell.UICollectionViewAttributes.delegate = self
+        cell.UICollectionViewAttributes.dataSource = self
+        cell.UICollectionViewAttributes.reloadData()
         
         
         return cell
@@ -359,4 +367,28 @@ extension AddtoCartVC
             }
         }
     }
+}
+extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attributeCell", for: indexPath) as! attributeCell
+          return cell
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 20.0) / 3, height: 100.0)
+          
+       
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+    }
+    
+    
 }

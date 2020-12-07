@@ -962,7 +962,7 @@
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Izz-fG-Vc8">
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="attributeCell" id="Izz-fG-Vc8" customClass="attributeCell" customModule="adayroi_online" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JTO-kP-AAk">
@@ -986,6 +986,10 @@
                                                                         </subviews>
                                                                     </collectionViewCellContentView>
                                                                     <size key="customSize" width="128" height="22"/>
+                                                                    <connections>
+                                                                        <outlet property="UILabelKey" destination="Laj-sg-4Wb" id="2Qa-lE-3yk"/>
+                                                                        <outlet property="UILabelValue" destination="1bn-oB-4BW" id="FMj-CI-xAZ"/>
+                                                                    </connections>
                                                                 </collectionViewCell>
                                                             </cells>
                                                         </collectionView>
@@ -1029,6 +1033,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="UICollectionViewAttributes" destination="c2I-LA-npy" id="79b-cR-hcm"/>
                                             <outlet property="btn_Addonse" destination="H8h-zJ-C9A" id="Ppy-ic-Emi"/>
                                             <outlet property="btn_Delete" destination="d7s-Tp-wxA" id="RWo-7K-JVw"/>
                                             <outlet property="btn_Minse" destination="KCi-XA-8Ng" id="hRf-Tn-GEZ"/>
