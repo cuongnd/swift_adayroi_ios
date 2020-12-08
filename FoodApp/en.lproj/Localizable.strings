@@ -14,8 +14,9 @@
 "Cart" = "Cart";
 "Checkout" = "Checkout";
 
-
+"Signup"="Signup";
 "Order Summary" = "Order Summary";
+"Don't have an account?"="Don't have an account?";
 "Couponcode" = "Couponcode";
 "Payment Summary" = "Payment Summary";
 "Select Promocode" = "Select Promocode";
