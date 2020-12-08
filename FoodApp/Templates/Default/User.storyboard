@@ -487,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rl-jJ-8iH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="1569"/>
+            <point key="canvasLocation" x="-693" y="205"/>
         </scene>
         <!--SignupVC-->
         <scene sceneID="CtK-JA-5vS">
@@ -506,7 +506,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsv-WE-mmO" customClass="CornerView" customModule="adayroi_online" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="68.5" width="374" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkH-7B-58l">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkH-7B-58l">
                                                         <rect key="frame" x="12" y="0.0" width="354" height="50"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -767,9 +767,9 @@
                         <outlet property="btn_showPassword" destination="eGa-ph-Zaq" id="6oe-Zb-3AM"/>
                         <outlet property="btn_signup" destination="5ET-la-2fg" id="Mc8-CR-tKC"/>
                         <outlet property="txt_Email" destination="PGT-cr-edl" id="OB6-Wb-uhj"/>
-                        <outlet property="txt_FirstName" destination="hkH-7B-58l" id="sFv-L2-1XP"/>
                         <outlet property="txt_MobileNumber" destination="rhm-Au-RuJ" id="e8Y-Oc-4dp"/>
                         <outlet property="txt_Password" destination="vpL-B3-IFm" id="pci-y3-bWB"/>
+                        <outlet property="txt_username" destination="hkH-7B-58l" id="WtD-Zf-QbH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rET-s3-mQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
