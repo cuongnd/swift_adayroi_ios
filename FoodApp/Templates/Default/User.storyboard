@@ -26,7 +26,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fL-7m-lC6" customClass="CornerView" customModule="adayroi_online" customModuleProvider="target">
                                         <rect key="frame" x="20" y="61.5" width="374" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tjI-Z8-aiv">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tjI-Z8-aiv">
                                                 <rect key="frame" x="12" y="0.0" width="354" height="50"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -160,6 +160,9 @@
                                                 <rect key="frame" x="12" y="0.0" width="354" height="50"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -262,6 +265,7 @@
                         <outlet property="btn_Skip" destination="zEf-vF-qnA" id="iZC-vg-Y3q"/>
                         <outlet property="btn_login" destination="pNW-Ic-WCx" id="doo-K5-BAh"/>
                         <outlet property="btn_showPassword" destination="tCc-5r-Qwd" id="jhe-ac-mzv"/>
+                        <outlet property="dropDown" destination="vbK-eZ-ytA" id="0Yy-3b-2PU"/>
                         <outlet property="txt_Email" destination="tjI-Z8-aiv" id="AhH-uT-LLJ"/>
                         <outlet property="txt_Password" destination="E9s-Kj-QFY" id="zJM-ed-2sO"/>
                     </connections>

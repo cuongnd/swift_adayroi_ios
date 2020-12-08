@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         
         IQKeyboardManager.shared.enable = true
         LanguageManager.shared.defaultLanguage = .vi
+        
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

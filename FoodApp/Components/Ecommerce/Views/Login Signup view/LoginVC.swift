@@ -9,6 +9,8 @@
 import UIKit
 import SwiftyJSON
 import SlideMenuControllerSwift
+import iOSDropDown
+import LanguageManager_iOS
 
 class LoginVC: UIViewController {
     @IBOutlet weak var txt_Password: UITextField!
@@ -16,12 +18,26 @@ class LoginVC: UIViewController {
     @IBOutlet weak var txt_Email: UITextField!
     @IBOutlet weak var btn_login: UIButton!
     @IBOutlet weak var btn_Skip: UIButton!
+    @IBOutlet weak var dropDown : DropDown!
     override func viewDidLoad() {
         super.viewDidLoad()
         cornerRadius(viewName: self.btn_login, radius: 8.0)
         cornerRadius(viewName: self.btn_Skip, radius: 6.0)
         self.btn_showPassword.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         //        self.txt_Email.text = "Mitesh".localiz(comment: "123")
+        
+        // The list of array to display. Can be changed dynamically
+        dropDown.optionArray = ["Vietnamese", "English"]
+        //Its Id Values and its optional
+        dropDown.optionIds = [0,1]
+        
+        // Image Array its optional
+        // The the Closure returns Selected Index and String
+        dropDown.didSelect{(selectedText , index ,id) in
+            LanguageManager.shared.setLanguage(language: .en)
+            //LanguageManager.shared.defaultLanguage = .en
+            //self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
+        }
     }
     @IBAction func btnTap_ShowPassword(_ sender: UIButton) {
         if self.btn_showPassword.image(for: .normal) == UIImage(systemName: "eye.slash.fill")
