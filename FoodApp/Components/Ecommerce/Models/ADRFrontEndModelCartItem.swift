@@ -18,6 +18,16 @@ class ADRFrontEndModelCartItem: ADRModel {
     func DeleteCartItem(id:Int64){
         ADRTableCart.shared.DeleteCartItem(id:id)
     }
+    
+    func updateCartItemByProductIdAndAttributes(product_id:String,color_id:String,attributesFilter: [String:String],plus:Int64) -> Void {
+        ADRTableCart.shared.updateCartItemByProductIdAndAttributes(product_id: product_id, color_id: color_id, attributesFilter: attributesFilter, plus: plus)
+    }
+    func minesCartItem(cart_id:Int64, mines:Int64) -> Void {
+        ADRTableCart.shared.minesCartItem(cart_id: cart_id, mines: mines)
+    }
+    func plusCartItem(cart_id:Int64, plus:Int64) -> Void {
+        ADRTableCart.shared.plusCartItem(cart_id: cart_id, plus: plus)
+    }
     func addToCcart(objectMapperFrontendProduct:ObjectMapperFrontendProduct,attributes:  [String: JSON],color:JSON,attributesFilter: [String:String],quanlity:Int64) -> Void {
         var color_id:String = color["_id"].stringValue
         let items:AnySequence<Row> = ADRTableCart.shared.getItemByProductIdAndAttributes(product_id:objectMapperFrontendProduct._id!,color_id:color_id,attributesFilter: attributesFilter )!

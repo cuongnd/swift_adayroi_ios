@@ -61,6 +61,7 @@ class AddtoCartVC: UIViewController {
         liveDataCart.observeForever(observer: observer)
         
         
+        
     }
     
     @IBAction func btnTap_Checkout(_ sender: UIButton) {
@@ -207,20 +208,16 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
     @objc func btnTapMines(sender:UIButton)
     {
         let data = cartDetailsarray[sender.tag]
-        var qty = Int(data["qty"]! as! String )
-        qty = qty! - 1
-        let urlString = API_URL + "qtyupdate"
-        let params: NSDictionary = ["cart_id":data["id"]!,"item_id":data["item_id"]!,"qty":"\(qty!)","user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-        self.Webservice_QtyUpdate(url: urlString, params:params)
+        let cart_id = data["id"]! as! Int64
+        ADRFrontEndModelCartItem.shared.minesCartItem(cart_id: cart_id, mines: 1);
+        self.showCart()
     }
     @objc func btnTapPluse(sender:UIButton)
     {
-        let data = cartDetailsarray[sender.tag]
-        var qty = data["qty"]! as! Int64
-        qty = qty + 1
-        let urlString = API_URL + "qtyupdate"
-        let params: NSDictionary = ["cart_id":data["id"]!,"item_id":data["item_id"]!,"qty":"\(qty)","user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-        self.Webservice_QtyUpdate(url: urlString, params:params)
+         let data = cartDetailsarray[sender.tag]
+           let cart_id = data["id"]! as! Int64
+           ADRFrontEndModelCartItem.shared.plusCartItem(cart_id: cart_id, plus: 1);
+           self.showCart()
     }
     @objc func btnTapDelete(sender:UIButton)
     {

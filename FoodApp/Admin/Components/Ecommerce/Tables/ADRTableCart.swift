@@ -171,6 +171,53 @@ class ADRTableCart: ADRTable{
         
         return true;
     }
+    func minesCartItem(cart_id:Int64,mines:Int64)->Bool{
+        do{
+            let filter=(self.id == cart_id)
+            var row:AnySequence<Row>=try Database.shared.connection?.prepare(table.filter(filter)) as! AnySequence<Row>
+            let first_row = row.first(where: { (a_row) -> Bool in
+                return true
+            })
+            var total:Int64=try first_row?.get(Expression<Int64>("quality")) as! Int64
+            total=total-mines
+            if(total==0){
+                return true
+            }
+            let update_table=table.filter(filter).update(
+                self.quality<-total
+            )
+            let update=try Database.shared.connection!.run(update_table)
+            return true
+        }catch{
+            let nsError=error as NSError
+            print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+            return false
+        }
+        
+        return true;
+    }
+    func plusCartItem(cart_id:Int64,plus:Int64)->Bool{
+           do{
+               let filter=(self.id == cart_id)
+               var row:AnySequence<Row>=try Database.shared.connection?.prepare(table.filter(filter)) as! AnySequence<Row>
+               let first_row = row.first(where: { (a_row) -> Bool in
+                   return true
+               })
+               var total:Int64=try first_row?.get(Expression<Int64>("quality")) as! Int64
+               total=total+plus
+               let update_table=table.filter(filter).update(
+                   self.quality<-total
+               )
+               let update=try Database.shared.connection!.run(update_table)
+               return true
+           }catch{
+               let nsError=error as NSError
+               print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+               return false
+           }
+           
+           return true;
+       }
     func queryCountAll()->Int{
         do{
             return try Database.shared.connection?.scalar(self.table.count) as! Int
