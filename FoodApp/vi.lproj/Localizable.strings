@@ -39,7 +39,10 @@
 "On the way" = "On the way";
 "Delivered" = "Delivered";
 "Cancelled" = "Cancelled";
+"Password" = "Mật khẩu";
 "ONLINE" = "ONLINE";
+"SKIP"="Bỏ qua";
+"Change language"="Thay đổi ngôn ngữ";
 "Tax" = "Tax";
 "Search"= "Search";
 "Settings" = "Settings";

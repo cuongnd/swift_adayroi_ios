@@ -22,6 +22,9 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btn_login.setTitle("Login".localiz(), for: .normal)
+        btn_Skip.setTitle("SKIP".localiz(), for: .normal)
+        dropDown.placeholder="Change language".localiz()
+        txt_Password.placeholder="Password".localiz()
         cornerRadius(viewName: self.btn_login, radius: 8.0)
         cornerRadius(viewName: self.btn_Skip, radius: 6.0)
         self.btn_showPassword.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
@@ -35,8 +38,14 @@ class LoginVC: UIViewController {
         // Image Array its optional
         // The the Closure returns Selected Index and String
         dropDown.didSelect{(selectedText , index ,id) in
-            LanguageManager.shared.setLanguage(language: .vi)
+            print("change language")
+            if(index==0){
+                LanguageManager.shared.setLanguage(language: .vi)
+            }else{
+                LanguageManager.shared.setLanguage(language: .en)
+            }
             UserDefaults.standard.synchronize()
+            self.viewDidLoad()
             //LanguageManager.shared.defaultLanguage = .en
             //self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
         }
