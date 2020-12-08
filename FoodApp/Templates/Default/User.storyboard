@@ -266,8 +266,8 @@
                         <outlet property="btn_login" destination="pNW-Ic-WCx" id="doo-K5-BAh"/>
                         <outlet property="btn_showPassword" destination="tCc-5r-Qwd" id="jhe-ac-mzv"/>
                         <outlet property="dropDown" destination="vbK-eZ-ytA" id="0Yy-3b-2PU"/>
-                        <outlet property="txt_Email" destination="tjI-Z8-aiv" id="AhH-uT-LLJ"/>
                         <outlet property="txt_Password" destination="E9s-Kj-QFY" id="zJM-ed-2sO"/>
+                        <outlet property="txt_username" destination="tjI-Z8-aiv" id="AhH-uT-LLJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EE0-W4-DOu" userLabel="First Responder" sceneMemberID="firstResponder"/>

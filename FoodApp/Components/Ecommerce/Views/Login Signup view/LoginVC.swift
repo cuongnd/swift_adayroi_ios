@@ -15,7 +15,7 @@ import LanguageManager_iOS
 class LoginVC: UIViewController {
     @IBOutlet weak var txt_Password: UITextField!
     @IBOutlet weak var btn_showPassword: UIButton!
-    @IBOutlet weak var txt_Email: UITextField!
+    @IBOutlet weak var txt_username: UITextField!
     @IBOutlet weak var btn_login: UIButton!
     @IBOutlet weak var btn_Skip: UIButton!
     @IBOutlet weak var dropDown : DropDown!
@@ -97,7 +97,7 @@ extension LoginVC
     @IBAction func btnTap_Login(_ sender: UIButton) {
         let urlString = API_URL + "/api_task/users.login"
         let params: NSDictionary = [
-            "username":self.txt_Email.text!,
+            "username":self.txt_username.text!,
             "password":self.txt_Password.text!,
             "token":UserDefaultManager.getStringFromUserDefaults(key: UD_fcmToken)
         ]
@@ -124,9 +124,9 @@ extension LoginVC
                     
                     
                     
-                    if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
+                    if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "vi" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
                     {
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                         let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                         let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
                         let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
@@ -138,7 +138,7 @@ extension LoginVC
                     }
                     else 
                     {
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
                         let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                         let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
                         let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)

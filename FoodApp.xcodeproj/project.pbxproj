@@ -418,6 +418,7 @@
 		0C42DC02257BD649007009E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C42DC41257FB233007009E4 /* Setting */,
 				885D104424D9306500342F93 /* Review Rating View */,
 				885D104324D9305B00342F93 /* Favorites View */,
 				885D104024D9302700342F93 /* Order History View */,
@@ -535,6 +536,14 @@
 				0C42DC36257F1F98007009E4 /* Utilities.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0C42DC41257FB233007009E4 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				C82AF9E22491FD2A00464115 /* SettingsVC.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		0C5170F92565262400C4EA7F /* Templates */ = {
@@ -755,7 +764,6 @@
 				C811991C2495F57F00F9CF6F /* TutorialVC.swift */,
 				C82AF9E42492068400464115 /* TrackOrderVC.swift */,
 				C80208CB248A72B2001D8864 /* SideMenuVC.swift */,
-				C82AF9E22491FD2A00464115 /* SettingsVC.swift */,
 				C83E16C4248BA64C0067AD34 /* EditProfileVC.swift */,
 				C8349E35249791A0009EEF8D /* ChangePassswordVC.swift */,
 				C8BAC0632488F3FF00ECE181 /* Library */,
