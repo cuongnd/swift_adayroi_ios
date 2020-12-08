@@ -214,10 +214,10 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
     }
     @objc func btnTapPluse(sender:UIButton)
     {
-         let data = cartDetailsarray[sender.tag]
-           let cart_id = data["id"]! as! Int64
-           ADRFrontEndModelCartItem.shared.plusCartItem(cart_id: cart_id, plus: 1);
-           self.showCart()
+        let data = cartDetailsarray[sender.tag]
+        let cart_id = data["id"]! as! Int64
+        ADRFrontEndModelCartItem.shared.plusCartItem(cart_id: cart_id, plus: 1);
+        self.showCart()
     }
     @objc func btnTapDelete(sender:UIButton)
     {
@@ -260,9 +260,11 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
 extension AddtoCartVC
 {
     func showCart() -> Void{
-        
         self.cartDetailsarray.removeAll(keepingCapacity: true)
+        var totalProduct:Int64=0;
+        var totalPrice:Int64=0;
         if let itemsCart:AnySequence<Row> = ADRFrontEndModelCartItems.getList(){
+            
             
             for item in itemsCart {
                 
@@ -281,13 +283,15 @@ extension AddtoCartVC
                                     "_id":try item.get(Expression<String>("_id")),
                                     ] as [String : Any]
                                 attributes.append(a_obj)
+                                
                             }catch{
                                 let nsError=error as NSError
                                 print("get value of column table Cart error. Error is \(nsError), \(nsError.userInfo)")
                             }
                         }
                     }
-                    
+                    totalProduct=totalProduct+1;
+                    totalPrice=try item.get(Expression<Int64>("unit_price"))+totalPrice
                     let obj = [
                         "id":try item.get(Expression<Int64>("id")),
                         "product_id":try item.get(Expression<String>("product_id")),
@@ -318,11 +322,17 @@ extension AddtoCartVC
                 }
                 
                 
-                
             }
             self.liveDataCart.data=self.cartDetailsarray
         }
         
+        
+        print("total:\(totalProduct)")
+        print("totalPrice:\(totalPrice)")
+        //self.UILabelTotalProduct.delegate = self
+        //self.UILabelTotal.delegate = self
+        UILabelTotalProduct.text=String(totalProduct);
+        UILabelTotal.text=String(totalPrice);
         
         
         self.TableView_CartList.delegate = self
@@ -425,7 +435,7 @@ extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         let data=self.cartDetailsarray[collectionView.tag]
         let attributes=JSON(data["attributes"]!);
         return attributes.count
-     }
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "attributeCell", for: indexPath) as! attributeCell
