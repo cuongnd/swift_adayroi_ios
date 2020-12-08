@@ -46,7 +46,8 @@ class SettingsVC: UIViewController {
             nav.navigationBar.isHidden = true
             UIApplication.shared.windows[0].rootViewController = nav
         }else{
-            let vc = self.storyboard?.instantiateViewController(identifier: "EditProfileVC") as! EditProfileVC
+            let storyBoard = UIStoryboard(name: "User", bundle: nil)
+            let vc = storyBoard.instantiateViewController(identifier: "EditProfileVC") as! EditProfileVC
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

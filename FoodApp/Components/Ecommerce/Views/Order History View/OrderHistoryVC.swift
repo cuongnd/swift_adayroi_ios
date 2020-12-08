@@ -101,12 +101,12 @@ class OrderHistoryVC: UIViewController {
     }
     @objc private func refreshData(_ sender: Any) {
         self.refreshControl.endRefreshing()
-        let urlString = API_URL + "orderhistory"
+        let urlString = API_URL + "/api/orders/my_list_order/limit/30/start/0"
         let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
         self.Webservice_GetHistory(url: urlString, params:params)
     }
     override func viewWillAppear(_ animated: Bool) {
-        let urlString = API_URL + "orderhistory"
+        let urlString = API_URL + "/api/orders/my_list_order/limit/30/start/0"
         let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
         self.Webservice_GetHistory(url: urlString, params:params)
     }
@@ -457,15 +457,15 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
 extension OrderHistoryVC {
     func Webservice_GetHistory(url:String, params:NSDictionary) -> Void {
         
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: "", messageStr: strErrorMessage)
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
-                    let responseData = jsonResponse!["data"].arrayValue
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                    let responseData = jsonResponse!["list_order"].arrayValue
                     self.OrderHistoryData = responseData
                     self.selected = ""
                     self.Tableview_OrderHistory.delegate = self

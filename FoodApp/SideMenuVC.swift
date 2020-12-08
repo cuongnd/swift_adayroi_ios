@@ -176,20 +176,12 @@ extension SideMenuVC {
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     let responseData = jsonResponse!["data"].dictionaryValue
                     print(responseData)
                     self.imgProfile.sd_setImage(with: URL(string: responseData["profile_image"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
                     self.lblUsername.text = responseData["name"]?.stringValue
-                }
-                else if responseCode == "2"
-                {
-                    let storyBoard = UIStoryboard(name: "User", bundle: nil)
-                    let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                    let nav : UINavigationController = UINavigationController(rootViewController: objVC)
-                    nav.navigationBar.isHidden = true
-                    UIApplication.shared.windows[0].rootViewController = nav
                 }
                 else {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
