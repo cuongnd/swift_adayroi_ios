@@ -47,6 +47,7 @@ class AddtoCartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lbl_TitleLabel.text = "Cart".localiz()
+        
         self.btn_Checkout.setTitle("Checkout".localiz(), for: .normal)
         cornerRadius(viewName:btn_Checkout, radius: 8.0)
         //let urlString = API_URL + "getcart"

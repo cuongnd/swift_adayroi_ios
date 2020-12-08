@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         // observer can be used for later unregistration
         
         IQKeyboardManager.shared.enable = true
-        LanguageManager.shared.defaultLanguage = .en
+        LanguageManager.shared.defaultLanguage = .vi
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
