@@ -102,8 +102,8 @@ class SettingsVC: UIViewController {
             }
         }
         let cameraAction = UIAlertAction(title: "RTL".localiz(), style: .default) { (action) in
-            let selectedLanguage: Languages = .ar
-            UserDefaultManager.setStringToUserDefaults(value: "ar", key: UD_isSelectLng)
+            let selectedLanguage: Languages = .vi
+            UserDefaultManager.setStringToUserDefaults(value: "vi", key: UD_isSelectLng)
             // change the language
             LanguageManager.shared.setLanguage(language: selectedLanguage,
                                                viewControllerFactory: { title -> UIViewController in

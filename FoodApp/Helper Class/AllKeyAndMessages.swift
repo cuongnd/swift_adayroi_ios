@@ -28,7 +28,7 @@ func setDecimalNumber()
     formatter.numberStyle = .decimal
     formatter.maximumFractionDigits = 2
     formatter.minimumFractionDigits = 2
-    formatter.locale = Locale(identifier: "en_US")
+    formatter.locale = Locale(identifier: "vi_EN")
     
 }
 
