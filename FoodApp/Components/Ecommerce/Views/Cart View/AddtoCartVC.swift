@@ -290,8 +290,10 @@ extension AddtoCartVC
                             }
                         }
                     }
-                    totalProduct=totalProduct+1;
-                    totalPrice=try item.get(Expression<Int64>("unit_price"))+totalPrice
+                    let quality:Int64=try item.get(Expression<Int64>("quality"));
+                    totalProduct=totalProduct+quality;
+                    let unit_price:Int64=try item.get(Expression<Int64>("unit_price"))
+                    totalPrice=unit_price*quality+totalPrice
                     let obj = [
                         "id":try item.get(Expression<Int64>("id")),
                         "product_id":try item.get(Expression<String>("product_id")),
@@ -331,6 +333,7 @@ extension AddtoCartVC
         print("totalPrice:\(totalPrice)")
         //self.UILabelTotalProduct.delegate = self
         //self.UILabelTotal.delegate = self
+        
         UILabelTotalProduct.text=String(totalProduct);
         UILabelTotal.text=String(totalPrice);
         
