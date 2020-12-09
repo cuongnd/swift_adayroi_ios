@@ -61,6 +61,7 @@
 		0CD77A5F257A2E530083BC09 /* ADRTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A5E257A2E530083BC09 /* ADRTemp.swift */; };
 		0CD77A62257A30550083BC09 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A61257A30550083BC09 /* Database.swift */; };
 		0CD77A64257A48FC0083BC09 /* ADRFrontEndProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A63257A48FC0083BC09 /* ADRFrontEndProduct.swift */; };
+		0CDCD67F258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCD67E258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift */; };
 		3158D387ECE044FAA2E345B4 /* Pods_FoodAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA734C84F8708E51D60AFAB /* Pods_FoodAppUITests.framework */; };
 		462E27F9DFCBDA8CC42467F9 /* Pods_FoodAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281C0BC3F3E4979D860086D0 /* Pods_FoodAppTests.framework */; };
 		809C673A70B84F1780EFDE8D /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E9028D1FEB6A09E3D77F28 /* Pods_FoodApp.framework */; };
@@ -187,6 +188,7 @@
 		0CD77A5E257A2E530083BC09 /* ADRTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRTemp.swift; sourceTree = "<group>"; };
 		0CD77A61257A30550083BC09 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		0CD77A63257A48FC0083BC09 /* ADRFrontEndProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRFrontEndProduct.swift; sourceTree = "<group>"; };
+		0CDCD67E258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRFrontEndViewCheckoutVC.swift; sourceTree = "<group>"; };
 		281C0BC3F3E4979D860086D0 /* Pods_FoodAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA734C84F8708E51D60AFAB /* Pods_FoodAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE5B8DD4D09D6572CFDDBF3 /* Pods-FoodAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodAppUITests/Pods-FoodAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				C8BAC06624891BB700ECE181 /* AddtoCartVC.swift */,
+				0CDCD67E258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -1136,6 +1139,7 @@
 				C8C99DF92488D90D00B5C187 /* LoginVC.swift in Sources */,
 				0C42DC1F257BDBDA007009E4 /* ADRView.swift in Sources */,
 				0CD77A62257A30550083BC09 /* Database.swift in Sources */,
+				0CDCD67F258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift in Sources */,
 				C8C99E042488D93C00B5C187 /* AllKeyAndMessages.swift in Sources */,
 				0C42DC32257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift in Sources */,
 				0C42DC27257BEDFB007009E4 /* ADRFrontEndModelCartItem.swift in Sources */,

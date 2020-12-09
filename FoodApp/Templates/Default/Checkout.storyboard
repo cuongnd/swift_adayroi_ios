@@ -1242,10 +1242,10 @@
             </objects>
             <point key="canvasLocation" x="1039.2" y="2210.8374384236454"/>
         </scene>
-        <!--Address Checkout View Controller-->
+        <!--Front End View CheckoutVC-->
         <scene sceneID="1bq-aX-jPl">
             <objects>
-                <viewController storyboardIdentifier="AddressCheckoutViewController" id="b55-dW-m4u" customClass="AddressCheckoutViewController" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddressCheckoutViewController" id="b55-dW-m4u" customClass="ADRFrontEndViewCheckoutVC" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YSJ-Vl-3oX"/>
                         <viewControllerLayoutGuide type="bottom" id="L7a-zh-cli"/>
