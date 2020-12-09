@@ -23,11 +23,11 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     @IBOutlet weak var UISwitchSameShipping: UISwitch!
     
     
-    @IBOutlet weak var UITextFieldPaymentFullName: UITextField!
-    @IBOutlet weak var UITextFieldPaymentEmail: UITextField!
-    @IBOutlet weak var UITextFieldPaymentPhoneNumber: UITextField!
-    @IBOutlet weak var UITextViewPaymentAddress1: UITextView!
-    @IBOutlet weak var UITextViewPaymentAddress2: UITextView!
+    @IBOutlet weak var UITextFieldBillingFullName: UITextField!
+    @IBOutlet weak var UITextFieldBillingEmail: UITextField!
+    @IBOutlet weak var UITextFieldBillingPhone: UITextField!
+    @IBOutlet weak var UITextViewBillingAddress1: UITextView!
+    @IBOutlet weak var UITextViewBillingAddress2: UITextView!
     @IBOutlet weak var UITextViewNote: UITextView!
     @IBOutlet weak var UIButtonNext: UIButton!
     @IBOutlet weak var UIButtonBack: UIButton!
@@ -43,39 +43,39 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     }
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
         if(textView==self.UITextViewShippingAddress1 && UISwitchSameShipping.isOn){
-            UITextViewPaymentAddress1.text=textView.text
+            UITextViewBillingAddress1.text=textView.text
         }else if(textView==self.UITextViewShippingAddress2 && UISwitchSameShipping.isOn){
-            UITextViewPaymentAddress2.text=textView.text
+            UITextViewBillingAddress2.text=textView.text
         }
     }
     @IBAction func UITextFieldShippingFullNameChange(_ sender: UITextField) {
         if(UISwitchSameShipping.isOn){
-            UITextFieldPaymentFullName.text=sender.text
+            UITextFieldBillingFullName.text=sender.text
         }
     }
     @IBAction func UITextFieldShippingEmailChange(_ sender: UITextField) {
         if(UISwitchSameShipping.isOn){
-            UITextFieldPaymentEmail.text=sender.text
+            UITextFieldBillingEmail.text=sender.text
         }
     }
     @IBAction func UITextFieldShippingPhoneNUmberChange(_ sender: UITextField) {
         if(UISwitchSameShipping.isOn){
-            UITextFieldPaymentPhoneNumber.text=sender.text
+            UITextFieldBillingPhone.text=sender.text
         }
     }
     
     @IBAction func UISwitchValueChange(_ sender: UISwitch) {
-        UITextFieldPaymentFullName.isEnabled = !sender.isOn
-        UITextFieldPaymentEmail.isEnabled = !sender.isOn
-        UITextFieldPaymentPhoneNumber.isEnabled = !sender.isOn
-        UITextViewPaymentAddress1.isEditable = !sender.isOn
-        UITextViewPaymentAddress2.isEditable = !sender.isOn
+        UITextFieldBillingFullName.isEnabled = !sender.isOn
+        UITextFieldBillingEmail.isEnabled = !sender.isOn
+        UITextFieldBillingPhone.isEnabled = !sender.isOn
+        UITextViewBillingAddress1.isEditable = !sender.isOn
+        UITextViewBillingAddress2.isEditable = !sender.isOn
         if(sender.isOn){
-            UITextFieldPaymentFullName.text=UITextFieldShippingFullName.text
-            UITextFieldPaymentEmail.text=UITextFieldShippingEmail.text
-            UITextFieldPaymentPhoneNumber.text=UITextFieldShippingPhonenumber.text
-            UITextViewPaymentAddress1.text=UITextViewShippingAddress1.text
-            UITextViewPaymentAddress2.text=UITextViewShippingAddress2.text
+            UITextFieldBillingFullName.text=UITextFieldShippingFullName.text
+            UITextFieldBillingEmail.text=UITextFieldShippingEmail.text
+            UITextFieldBillingPhone.text=UITextFieldShippingPhonenumber.text
+            UITextViewBillingAddress1.text=UITextViewShippingAddress1.text
+            UITextViewBillingAddress2.text=UITextViewShippingAddress2.text
             
         }
     }
@@ -132,26 +132,26 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         }
         if(!UISwitchSameShipping.isOn){
             
-            if(UITextFieldPaymentFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-                UITextFieldPaymentFullName.text="";
-                UITextFieldPaymentFullName.becomeFirstResponder()
+            if(UITextFieldBillingFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldBillingFullName.text="";
+                UITextFieldBillingFullName.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập họ và tên người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
                 
                 return
             }
-            if(UITextFieldPaymentEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-                UITextFieldPaymentEmail.text="";
-                UITextFieldPaymentEmail.becomeFirstResponder()
+            if(UITextFieldBillingEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldBillingEmail.text="";
+                UITextFieldBillingEmail.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập email người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
                 
                 return
             }
-            if(!LibraryUtilitiesUtility.isValidEmail(UITextFieldPaymentEmail.text!)){
-                UITextFieldPaymentEmail.becomeFirstResponder()
+            if(!LibraryUtilitiesUtility.isValidEmail(UITextFieldBillingEmail.text!)){
+                UITextFieldBillingEmail.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đúng định dạng email người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
@@ -159,9 +159,9 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
                 return
             }
             
-            if(UITextFieldPaymentPhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-                UITextFieldPaymentPhoneNumber.text="";
-                UITextFieldPaymentPhoneNumber.becomeFirstResponder()
+            if(UITextFieldBillingPhone.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldBillingPhone.text="";
+                UITextFieldBillingPhone.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập số điện thoại người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
@@ -169,9 +169,9 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
                 return
             }
             
-            if(UITextViewPaymentAddress1.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-                UITextViewPaymentAddress1.text="";
-                UITextViewPaymentAddress1.becomeFirstResponder()
+            if(UITextViewBillingAddress1.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextViewBillingAddress1.text="";
+                UITextViewBillingAddress1.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập địa chỉ người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
@@ -181,7 +181,7 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         }
       
         
-        
+        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
             
         let params: NSDictionary = [
         "shipping_fullname": UITextFieldShippingFullName.text!,
@@ -190,14 +190,14 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         "shipping_address1": UITextViewShippingAddress1.text!,
         "shipping_address2": UITextViewShippingAddress2.text!,
         
-        "biding_fullname": UITextFieldPaymentFullName.text!,
-        "Payment_email": UITextFieldPaymentEmail.text!,
-        "Payment_phonenumber": UITextFieldPaymentPhoneNumber.text!,
-        "Payment_addrress1": UITextViewPaymentAddress1.text!,
-        "Payment_addrress2": UITextViewPaymentAddress2.text!,
+        "billing_fullname": UITextFieldBillingFullName.text!,
+        "billing_email": UITextFieldBillingEmail.text!,
+        "billing_phone": UITextFieldBillingPhone.text!,
+        "billing_addrress1": UITextViewBillingAddress1.text!,
+        "billing_addrress2": UITextViewBillingAddress2.text!,
         
         ]
-        let urlStringPostUpdateUser = API_URL + "/api_task/users.update_user_info"
+        let urlStringPostUpdateUser = API_URL + "/api_task/users.update_user_info?user_id=\(user_id)"
         self.Webservice_getUpdateUser(url: urlStringPostUpdateUser, params: params)
         
         
