@@ -62,6 +62,9 @@
 		0CD77A62257A30550083BC09 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A61257A30550083BC09 /* Database.swift */; };
 		0CD77A64257A48FC0083BC09 /* ADRFrontEndProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A63257A48FC0083BC09 /* ADRFrontEndProduct.swift */; };
 		0CDCD67F258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCD67E258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift */; };
+		0CDCD68525807B8C000B7F44 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CDCD68225807B8B000B7F44 /* Font Awesome 5 Brands-Regular-400.otf */; };
+		0CDCD68625807B8C000B7F44 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CDCD68325807B8B000B7F44 /* Font Awesome 5 Free-Regular-400.otf */; };
+		0CDCD68725807B8C000B7F44 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CDCD68425807B8B000B7F44 /* Font Awesome 5 Free-Solid-900.otf */; };
 		3158D387ECE044FAA2E345B4 /* Pods_FoodAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA734C84F8708E51D60AFAB /* Pods_FoodAppUITests.framework */; };
 		462E27F9DFCBDA8CC42467F9 /* Pods_FoodAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281C0BC3F3E4979D860086D0 /* Pods_FoodAppTests.framework */; };
 		809C673A70B84F1780EFDE8D /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E9028D1FEB6A09E3D77F28 /* Pods_FoodApp.framework */; };
@@ -189,6 +192,9 @@
 		0CD77A61257A30550083BC09 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		0CD77A63257A48FC0083BC09 /* ADRFrontEndProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRFrontEndProduct.swift; sourceTree = "<group>"; };
 		0CDCD67E258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRFrontEndViewCheckoutVC.swift; sourceTree = "<group>"; };
+		0CDCD68225807B8B000B7F44 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		0CDCD68325807B8B000B7F44 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		0CDCD68425807B8B000B7F44 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
 		281C0BC3F3E4979D860086D0 /* Pods_FoodAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA734C84F8708E51D60AFAB /* Pods_FoodAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE5B8DD4D09D6572CFDDBF3 /* Pods-FoodAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodAppUITests/Pods-FoodAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -614,6 +620,16 @@
 			path = Databases;
 			sourceTree = "<group>";
 		};
+		0CDCD68125807B5A000B7F44 /* Fronts */ = {
+			isa = PBXGroup;
+			children = (
+				0CDCD68225807B8B000B7F44 /* Font Awesome 5 Brands-Regular-400.otf */,
+				0CDCD68325807B8B000B7F44 /* Font Awesome 5 Free-Regular-400.otf */,
+				0CDCD68425807B8B000B7F44 /* Font Awesome 5 Free-Solid-900.otf */,
+			);
+			path = Fronts;
+			sourceTree = "<group>";
+		};
 		7375846AB9787D291AB10AED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +741,7 @@
 		C8BAC0632488F3FF00ECE181 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				0CDCD68125807B5A000B7F44 /* Fronts */,
 				0C42DC35257F1F6C007009E4 /* Utilities */,
 				0C42DC04257BD678007009E4 /* Mvc */,
 				0CD77A60257A303F0083BC09 /* Databases */,
@@ -940,6 +957,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5171012565551C00C4EA7F /* Checkout.storyboard in Resources */,
+				0CDCD68625807B8C000B7F44 /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				88933DC124B45D4500995AEC /* Localizable.strings in Resources */,
 				0C3C2E5B256B3A13000B21C5 /* LoginView.xib in Resources */,
 				C8C99DD52488D77F00B5C187 /* LaunchScreen.storyboard in Resources */,
@@ -951,6 +969,7 @@
 				0CCF2C52256F83620056AEC4 /* Empty.xib in Resources */,
 				C8C99DCD2488D77E00B5C187 /* Main.storyboard in Resources */,
 				0C5171052565707B00C4EA7F /* Setting.storyboard in Resources */,
+				0CDCD68525807B8C000B7F44 /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				0C172C5F256F49A6005DA537 /* homepage.storyboard in Resources */,
 				0C5170FF2565538D00C4EA7F /* Products.storyboard in Resources */,
 				0C172C5D256ED44C005DA537 /* test2.xib in Resources */,
@@ -961,6 +980,7 @@
 				0C51710325656F2200C4EA7F /* User.storyboard in Resources */,
 				0CD77A30257891340083BC09 /* HomeCategoryCell.xib in Resources */,
 				0C3C2E53256ABF3C000B21C5 /* HomeHeader.xib in Resources */,
+				0CDCD68725807B8C000B7F44 /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
