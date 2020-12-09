@@ -42,7 +42,6 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         
     }
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        print("hello text view change")
         if(textView==self.UITextViewShippingAddress1 && UISwitchSameShipping.isOn){
             UITextViewPaymentAddress1.text=textView.text
         }else if(textView==self.UITextViewShippingAddress2 && UISwitchSameShipping.isOn){
@@ -183,21 +182,23 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
       
         
         
-        let jsonAddressShippingAndPayment: [String:String]  =
-            [
-                "shipping_fullname": UITextFieldShippingFullName.text!,
-                "shipping_email": UITextFieldShippingEmail.text!,
-                "shipping_phonenumber": UITextFieldShippingPhonenumber.text!,
-                "shipping_address1": UITextViewShippingAddress1.text!,
-                "shipping_address2": UITextViewShippingAddress2.text!,
-                
-                "biding_fullname": UITextFieldPaymentFullName.text!,
-                "Payment_email": UITextFieldPaymentEmail.text!,
-                "Payment_phonenumber": UITextFieldPaymentPhoneNumber.text!,
-                "Payment_addrress1": UITextViewPaymentAddress1.text!,
-                "Payment_addrress2": UITextViewPaymentAddress2.text!,
-                
-                ]
+            
+        let params: NSDictionary = [
+        "shipping_fullname": UITextFieldShippingFullName.text!,
+        "shipping_email": UITextFieldShippingEmail.text!,
+        "shipping_phonenumber": UITextFieldShippingPhonenumber.text!,
+        "shipping_address1": UITextViewShippingAddress1.text!,
+        "shipping_address2": UITextViewShippingAddress2.text!,
+        
+        "biding_fullname": UITextFieldPaymentFullName.text!,
+        "Payment_email": UITextFieldPaymentEmail.text!,
+        "Payment_phonenumber": UITextFieldPaymentPhoneNumber.text!,
+        "Payment_addrress1": UITextViewPaymentAddress1.text!,
+        "Payment_addrress2": UITextViewPaymentAddress2.text!,
+        
+        ]
+        let urlStringPostUpdateUser = API_URL + "/api_task/users.update_user_info"
+        self.Webservice_getUpdateUser(url: urlStringPostUpdateUser, params: params)
         
         
         //let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
@@ -206,3 +207,29 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     }
     
 }
+extension ADRFrontEndViewCheckoutVC
+{
+    func Webservice_getUpdateUser(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
+                     let data = jsonResponse!["data"].dictionaryValue
+                     
+                    
+                    
+                }
+                else {
+                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
+                }
+            }
+        }
+    }
+    
+    
+}
+
