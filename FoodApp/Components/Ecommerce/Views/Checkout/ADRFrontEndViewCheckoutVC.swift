@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import SQLite
-import ETBinding
+
 import SlideMenuControllerSwift
 
 
@@ -37,6 +37,168 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    @IBAction func UISwitchValueChange(_ sender: UISwitch) {
+        UITextFieldPaymentFullName.isEnabled = !sender.isOn
+        UITextFieldPaymentEmail.isEnabled = !sender.isOn
+        UITextFieldPaymentPhoneNumber.isEnabled = !sender.isOn
+        UITextViewPaymentAddress1.isEditable = !sender.isOn
+        UITextViewPaymentAddress2.isEditable = !sender.isOn
+        if(sender.isOn){
+            UITextFieldPaymentFullName.text=UITextFieldShippingFullName.text
+            UITextFieldPaymentEmail.text=UITextFieldShippingEmail.text
+            UITextFieldPaymentPhoneNumber.text=UITextFieldShippingPhonenumber.text
+            UITextViewPaymentAddress1.text=UITextViewShippingAddress1.text
+            UITextViewPaymentAddress2.text=UITextViewShippingAddress2.text
+            
+        }
+    }
+    @IBAction func UITextFieldFullName(_ sender: UITextField) {
+        if(UISwitchSameShipping.isOn)
+        {
+            UITextFieldShippingFullName.text=sender.text
+        }
+    }
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        if(textView.tag==0 && UISwitchSameShipping.isOn){
+            UITextViewPaymentAddress1.text=textView.text
+        }
+        if(textView.tag==1 && UISwitchSameShipping.isOn){
+            UITextViewPaymentAddress2.text=textView.text
+        }
+    }
+    @IBAction func UITextFieldShippingPhoneNumberEditingChanged(_ sender: UITextField) {
+        if(UISwitchSameShipping.isOn)
+        {
+            UITextFieldPaymentPhoneNumber.text=sender.text
+        }
+    }
+    @IBAction func UITextFieldShippingEmailEditingChanged(_ sender: UITextField) {
+        if(UISwitchSameShipping.isOn)
+        {
+            UITextFieldPaymentEmail.text=sender.text
+        }
+    }
+    @IBAction func go_to_sumary_checkout(_ sender: UIButton) {
+        if(UITextFieldShippingFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+            UITextFieldShippingFullName.text="";
+            UITextFieldShippingFullName.becomeFirstResponder()
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập họ và tên người nhận hàng", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            return
+        }
+        if(UITextFieldShippingEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+            UITextFieldShippingEmail.text="";
+            UITextFieldShippingEmail.becomeFirstResponder()
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập email người nhận hàng", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            return
+        }
+        if(!LibraryUtilitiesUtility.isValidEmail(UITextFieldShippingEmail.text!)){
+            UITextFieldShippingEmail.becomeFirstResponder()
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đúng định dạng email người nhận hàng", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            return
+        }
+        
+        if(UITextFieldShippingPhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+            UITextFieldShippingPhoneNumber.text="";
+            UITextFieldShippingPhoneNumber.becomeFirstResponder()
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập số điện thoại người nhận hàng", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            return
+        }
+        
+        if(UITextViewShippingAddress1.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+            UITextViewShippingAddress1.text="";
+            UITextViewShippingAddress1.becomeFirstResponder()
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập địa chỉ người nhận hàng", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            return
+        }
+        if(!UISwitchSameShipping.isOn){
+            
+            if(UITextFieldBidingFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldBidingFullName.text="";
+                UITextFieldBidingFullName.becomeFirstResponder()
+                let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập họ và tên người thanh toán", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                
+                return
+            }
+            if(UITextFieldPaymentEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldPaymentEmail.text="";
+                UITextFieldPaymentEmail.becomeFirstResponder()
+                let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập email người thanh toán", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                
+                return
+            }
+            if(!LibraryUtilitiesUtility.isValidEmail(UITextFieldPaymentEmail.text!)){
+                UITextFieldPaymentEmail.becomeFirstResponder()
+                let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đúng định dạng email người thanh toán", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                
+                return
+            }
+            
+            if(UITextFieldPaymentPhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldPaymentPhoneNumber.text="";
+                UITextFieldPaymentPhoneNumber.becomeFirstResponder()
+                let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập số điện thoại người thanh toán", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                
+                return
+            }
+            
+            if(UITextViewPaymentAddrress1.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextViewPaymentAddrress1.text="";
+                UITextViewPaymentAddrress1.becomeFirstResponder()
+                let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập địa chỉ người thanh toán", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                
+                return
+            }
+        }
+      
+        
+        
+        let jsonAddressShippingAndPayment: [String:String]  =
+            [
+                "shipping_fullname": UITextFieldShippingFullName.text!,
+                "shipping_email": UITextFieldShippingEmail.text!,
+                "shipping_phonenumber": UITextFieldShippingPhoneNumber.text!,
+                "shipping_address1": UITextViewShippingAddress1.text!,
+                "shipping_address2": UITextViewShippingAddress2.text!,
+                
+                "biding_fullname": UITextFieldBidingFullName.text!,
+                "Payment_email": UITextFieldPaymentEmail.text!,
+                "Payment_phonenumber": UITextFieldPaymentPhoneNumber.text!,
+                "Payment_addrress1": UITextViewPaymentAddrress1.text!,
+                "Payment_addrress2": UITextViewPaymentAddrress2.text!,
+                
+                ]
+        
+         let preferentces=UserDefaults.standard
+        preferentces.set(jsonAddressShippingAndPayment, forKey: "json_address_shipping_and_Payment")
+        let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
+        sumaryCheckoutViewControllerVC.jsonAddressShippingAndPayment=jsonAddressShippingAndPayment
+        self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)
     }
     
 }

@@ -1359,6 +1359,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="UITextFieldFullName:" destination="b55-dW-m4u" eventType="editingDidEnd" id="vwr-5T-1PB"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-ds-27w">
                                         <rect key="frame" x="8" y="104" width="42" height="21"/>
@@ -1390,6 +1393,10 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="UITextFieldShippingEmailEditingChanged:" destination="b55-dW-m4u" eventType="editingDidEnd" id="YD6-vg-7TT"/>
+                                            <action selector="UITextFieldShippingPhoneNumberEditingChanged:" destination="b55-dW-m4u" eventType="editingDidEnd" id="8sz-U9-nJZ"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-gG-OaI">
                                         <rect key="frame" x="8" y="238" width="110" height="21"/>
@@ -1497,6 +1504,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-Vm-iju">
                                         <rect key="frame" x="158" y="515" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="UISwitchValueChange:" destination="b55-dW-m4u" eventType="valueChanged" id="A4N-kV-fiH"/>
+                                        </connections>
                                     </switch>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BR8-IU-aBi">
                                         <rect key="frame" x="8" y="377" width="359" height="135"/>
@@ -1686,6 +1696,9 @@
                                         <state key="normal" title="Bước tiếp theo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="go_to_sumary_checkout:" destination="b55-dW-m4u" eventType="touchUpInside" id="ist-tI-S15"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

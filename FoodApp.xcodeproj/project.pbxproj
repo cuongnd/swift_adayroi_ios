@@ -45,7 +45,7 @@
 		0C42DC2E257CD061007009E4 /* ObjectMapperFrontendImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC2D257CD061007009E4 /* ObjectMapperFrontendImage.swift */; };
 		0C42DC30257E03F4007009E4 /* ADRTableCartAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC2F257E03F3007009E4 /* ADRTableCartAttribute.swift */; };
 		0C42DC32257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC31257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift */; };
-		0C42DC37257F1F98007009E4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC36257F1F98007009E4 /* Utilities.swift */; };
+		0C42DC37257F1F98007009E4 /* LibraryUtilitiesUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC36257F1F98007009E4 /* LibraryUtilitiesUtility.swift */; };
 		0C42DC3E257F8E8C007009E4 /* ADRTableSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC3D257F8E8B007009E4 /* ADRTableSetting.swift */; };
 		0C42DC40257FB005007009E4 /* ADRTableUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42DC3F257FB005007009E4 /* ADRTableUser.swift */; };
 		0C5170E125643E4C00C4EA7F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5170E025643E4C00C4EA7F /* HomeVC.swift */; };
@@ -171,7 +171,7 @@
 		0C42DC2D257CD061007009E4 /* ObjectMapperFrontendImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperFrontendImage.swift; sourceTree = "<group>"; };
 		0C42DC2F257E03F3007009E4 /* ADRTableCartAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRTableCartAttribute.swift; sourceTree = "<group>"; };
 		0C42DC31257E15E0007009E4 /* ObjectMapperFrontendProductAtribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperFrontendProductAtribute.swift; sourceTree = "<group>"; };
-		0C42DC36257F1F98007009E4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		0C42DC36257F1F98007009E4 /* LibraryUtilitiesUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryUtilitiesUtility.swift; sourceTree = "<group>"; };
 		0C42DC38257F3134007009E4 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
 		0C42DC39257F3134007009E4 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0C42DC3A257F3135007009E4 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -541,7 +541,7 @@
 		0C42DC35257F1F6C007009E4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0C42DC36257F1F98007009E4 /* Utilities.swift */,
+				0C42DC36257F1F98007009E4 /* LibraryUtilitiesUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1097,7 +1097,7 @@
 				0C3C2E39256ABA17000B21C5 /* HomeLastProductCell.swift in Sources */,
 				0C3C2E3E256ABACB000B21C5 /* HomeHotProductCell.swift in Sources */,
 				C8C99E052488D93C00B5C187 /* DateFormats.swift in Sources */,
-				0C42DC37257F1F98007009E4 /* Utilities.swift in Sources */,
+				0C42DC37257F1F98007009E4 /* LibraryUtilitiesUtility.swift in Sources */,
 				0C3C2E48256ABBEC000B21C5 /* HomeCategoryCell.swift in Sources */,
 				C80208CC248A72B3001D8864 /* SideMenuVC.swift in Sources */,
 				0C42DC21257BDC09007009E4 /* ADRViewAdmin.swift in Sources */,
