@@ -1715,6 +1715,22 @@
                         <viewLayoutGuide key="safeArea" id="Wa3-hQ-GMp"/>
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
+                    <connections>
+                        <outlet property="UIButtonBack" destination="gLr-PO-oKq" id="kn9-ir-nYV"/>
+                        <outlet property="UIButtonNext" destination="1T2-sL-zaz" id="HrC-1I-pfr"/>
+                        <outlet property="UISwitchSameShipping" destination="lRf-Vm-iju" id="Cku-dW-B7c"/>
+                        <outlet property="UITextFieldPaymentEmail" destination="VSn-87-6HO" id="7b2-Ya-Dbb"/>
+                        <outlet property="UITextFieldPaymentFullName" destination="3Bj-gz-v1Z" id="h1x-uY-9gt"/>
+                        <outlet property="UITextFieldPaymentPhoneNumber" destination="hOw-mg-e1W" id="uZ1-3r-kLJ"/>
+                        <outlet property="UITextFieldShippingEmail" destination="b2H-ZW-rva" id="t6l-Ra-uTy"/>
+                        <outlet property="UITextFieldShippingFullName" destination="Jq2-YY-liN" id="inf-0R-mcM"/>
+                        <outlet property="UITextFieldShippingPhonenumber" destination="KpH-kI-Bjq" id="WkH-gr-BnQ"/>
+                        <outlet property="UITextViewNote" destination="APf-gN-1dx" id="SDX-xY-2XX"/>
+                        <outlet property="UITextViewPaymentAddress1" destination="YyF-hJ-2re" id="5HY-w1-gUu"/>
+                        <outlet property="UITextViewPaymentAddress2" destination="XOJ-Si-e8e" id="cTk-e4-Xt6"/>
+                        <outlet property="UITextViewShippingAddress1" destination="Jdq-XZ-GKr" id="tM6-7Y-KIb"/>
+                        <outlet property="UITextViewShippingAddress2" destination="BR8-IU-aBi" id="dIm-Gp-TKx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJL-og-V7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
