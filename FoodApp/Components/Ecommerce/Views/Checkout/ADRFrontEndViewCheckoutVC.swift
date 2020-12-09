@@ -187,14 +187,14 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         "shipping_fullname": UITextFieldShippingFullName.text!,
         "shipping_email": UITextFieldShippingEmail.text!,
         "shipping_phonenumber": UITextFieldShippingPhonenumber.text!,
-        "shipping_address1": UITextViewShippingAddress1.text!,
-        "shipping_address2": UITextViewShippingAddress2.text!,
+        "shipping_address_1": UITextViewShippingAddress1.text!,
+        "shipping_address_2": UITextViewShippingAddress2.text!,
         
         "billing_fullname": UITextFieldBillingFullName.text!,
         "billing_email": UITextFieldBillingEmail.text!,
         "billing_phone": UITextFieldBillingPhone.text!,
-        "billing_addrress1": UITextViewBillingAddress1.text!,
-        "billing_addrress2": UITextViewBillingAddress2.text!,
+        "billing_address_1": UITextViewBillingAddress1.text!,
+        "billing_address_2": UITextViewBillingAddress2.text!,
         
         ]
         let urlStringPostUpdateUser = API_URL + "/api_task/users.update_user_info?user_id=\(user_id)"
