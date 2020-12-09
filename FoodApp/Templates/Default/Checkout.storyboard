@@ -1413,9 +1413,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="UITextFieldFullName:" destination="b55-dW-m4u" eventType="editingChanged" id="zsU-aX-wlo"/>
-                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-ds-27w">
                                                 <rect key="frame" x="8" y="104" width="42" height="21"/>
@@ -1429,9 +1426,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="UITextFieldShippingEmailEditingChanged:" destination="b55-dW-m4u" eventType="editingChanged" id="tkQ-Tn-1HZ"/>
-                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb4-dX-vb9">
                                                 <rect key="frame" x="8" y="171" width="136" height="21"/>
@@ -1445,9 +1439,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="UITextFieldShippingPhoneNumberEditingChanged:" destination="b55-dW-m4u" eventType="editingChanged" id="TbV-Wk-BCO"/>
-                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Địa chỉ 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-gG-OaI">
                                                 <rect key="frame" x="14" y="238" width="130" height="21"/>
@@ -1654,9 +1645,6 @@
                                         <state key="normal" title="Bước tiếp theo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="go_to_sumary_checkout:" destination="b55-dW-m4u" eventType="touchUpInside" id="pqK-cZ-ooQ"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLr-PO-oKq">
                                         <rect key="frame" x="8" y="3" width="89" height="30"/>
@@ -1664,9 +1652,6 @@
                                         <state key="normal" title="Quay lại">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="go_to_back_product_detail:" destination="b55-dW-m4u" eventType="touchUpInside" id="hbn-u5-xWH"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1691,18 +1676,6 @@
                         <viewLayoutGuide key="safeArea" id="Wa3-hQ-GMp"/>
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
-                    <connections>
-                        <outlet property="UITextFieldBidingFullName" destination="3Bj-gz-v1Z" id="fnd-M8-UX9"/>
-                        <outlet property="UITextFieldBindingEmail" destination="VSn-87-6HO" id="pKu-J4-CUy"/>
-                        <outlet property="UITextFieldBindingPhoneNumber" destination="hOw-mg-e1W" id="dbM-eU-vFe"/>
-                        <outlet property="UITextFieldShippingEmail" destination="b2H-ZW-rva" id="OAE-Nz-MWK"/>
-                        <outlet property="UITextFieldShippingFullName" destination="Jq2-YY-liN" id="RHD-nw-eKv"/>
-                        <outlet property="UITextFieldShippingPhoneNumber" destination="KpH-kI-Bjq" id="AO5-xt-emL"/>
-                        <outlet property="UITextViewBindingAddrress1" destination="YyF-hJ-2re" id="en7-t2-4M3"/>
-                        <outlet property="UITextViewBindingAddrress2" destination="XOJ-Si-e8e" id="BAn-ly-VMZ"/>
-                        <outlet property="UITextViewShippingAddress1" destination="Jdq-XZ-GKr" id="4B7-97-1ZE"/>
-                        <outlet property="UITextViewShippingAddress2" destination="BR8-IU-aBi" id="kNk-zA-HpR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJL-og-V7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,15 +15,9 @@ import SlideMenuControllerSwift
 
 class ADRFrontEndViewCheckoutVC: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
     }
-    
-    
     
 }
