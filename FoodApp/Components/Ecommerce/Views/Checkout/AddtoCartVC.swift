@@ -68,14 +68,18 @@ class AddtoCartVC: UIViewController {
     @IBAction func btnTap_Checkout(_ sender: UIButton) {
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSkip) == "1"
         {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let storyBoard = UIStoryboard(name: "User", bundle: nil)
             let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
             let nav : UINavigationController = UINavigationController(rootViewController: objVC)
             nav.navigationBar.isHidden = true
             UIApplication.shared.windows[0].rootViewController = nav
         }
         else{
-            
+            let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
+            let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let nav : UINavigationController = UINavigationController(rootViewController: objVC)
+            nav.navigationBar.isHidden = true
+            UIApplication.shared.windows[0].rootViewController = nav
         }
         
         

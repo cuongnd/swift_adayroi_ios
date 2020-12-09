@@ -425,7 +425,7 @@
 				885D104224D9304600342F93 /* Payment View */,
 				885D104124D9303C00342F93 /* Order Details View */,
 				885D103F24D9300800342F93 /* Search View */,
-				885D103E24D92FFE00342F93 /* Cart View */,
+				885D103E24D92FFE00342F93 /* Checkout */,
 				885D103C24D92FB300342F93 /* Producat Details View */,
 				885D103D24D92FE000342F93 /* Login Signup view */,
 				885D103B24D92FA300342F93 /* Home view */,
@@ -652,12 +652,12 @@
 			path = "Login Signup view";
 			sourceTree = "<group>";
 		};
-		885D103E24D92FFE00342F93 /* Cart View */ = {
+		885D103E24D92FFE00342F93 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
 				C8BAC06624891BB700ECE181 /* AddtoCartVC.swift */,
 			);
-			path = "Cart View";
+			path = Checkout;
 			sourceTree = "<group>";
 		};
 		885D103F24D9300800342F93 /* Search View */ = {

@@ -44,7 +44,7 @@ extension SignupVC
         let params: NSDictionary = ["user_name":self.txt_username.text!,
                                     "user_email":self.txt_Email.text!,
                                     "user_phone":self.txt_MobileNumber.text!,
-                                    "password":self.txt_Password.text!
+                                    "user_password":self.txt_Password.text!
         ]
         self.Webservice_Register(url: urlString, params: params)
     }
