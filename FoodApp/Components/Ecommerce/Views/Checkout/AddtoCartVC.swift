@@ -76,7 +76,7 @@ class AddtoCartVC: UIViewController {
         }
         else{
             let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
-            let objVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let objVC = storyBoard.instantiateViewController(withIdentifier: "ADRFrontEndViewCheckoutVC") as! ADRFrontEndViewCheckoutVC
             let nav : UINavigationController = UINavigationController(rootViewController: objVC)
             nav.navigationBar.isHidden = true
             UIApplication.shared.windows[0].rootViewController = nav

@@ -1245,7 +1245,7 @@
         <!--Front End View CheckoutVC-->
         <scene sceneID="1bq-aX-jPl">
             <objects>
-                <viewController storyboardIdentifier="AddressCheckoutViewController" id="b55-dW-m4u" customClass="ADRFrontEndViewCheckoutVC" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ADRFrontEndViewCheckoutVC" id="b55-dW-m4u" customClass="ADRFrontEndViewCheckoutVC" customModule="adayroi_online" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YSJ-Vl-3oX"/>
                         <viewControllerLayoutGuide type="bottom" id="L7a-zh-cli"/>
@@ -1630,9 +1630,6 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-Vm-iju">
                                                 <rect key="frame" x="156" y="536" width="49" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="UISwitchValueChange:" destination="b55-dW-m4u" eventType="valueChanged" id="ld5-G3-Rny"/>
-                                                </connections>
                                             </switch>
                                         </subviews>
                                         <constraints>
@@ -1695,7 +1692,6 @@
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
-                        <outlet property="UISwitchIsShiping" destination="lRf-Vm-iju" id="AXh-iH-FkW"/>
                         <outlet property="UITextFieldBidingFullName" destination="3Bj-gz-v1Z" id="fnd-M8-UX9"/>
                         <outlet property="UITextFieldBindingEmail" destination="VSn-87-6HO" id="pKu-J4-CUy"/>
                         <outlet property="UITextFieldBindingPhoneNumber" destination="hOw-mg-e1W" id="dbM-eU-vFe"/>
