@@ -56,7 +56,7 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
     @IBAction func UITextFieldFullName(_ sender: UITextField) {
         if(UISwitchSameShipping.isOn)
         {
-            UITextFieldShippingFullName.text=sender.text
+            UITextFieldPaymentFullName.text=sender.text
         }
     }
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
@@ -107,9 +107,9 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
             return
         }
         
-        if(UITextFieldShippingPhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-            UITextFieldShippingPhoneNumber.text="";
-            UITextFieldShippingPhoneNumber.becomeFirstResponder()
+        if(UITextFieldShippingPhonenumber.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+            UITextFieldShippingPhonenumber.text="";
+            UITextFieldShippingPhonenumber.becomeFirstResponder()
             let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập số điện thoại người nhận hàng", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
             self.present(alert, animated: true)
@@ -128,9 +128,9 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
         }
         if(!UISwitchSameShipping.isOn){
             
-            if(UITextFieldBidingFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-                UITextFieldBidingFullName.text="";
-                UITextFieldBidingFullName.becomeFirstResponder()
+            if(UITextFieldPaymentFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextFieldPaymentFullName.text="";
+                UITextFieldPaymentFullName.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập họ và tên người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
@@ -165,9 +165,9 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
                 return
             }
             
-            if(UITextViewPaymentAddrress1.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
-                UITextViewPaymentAddrress1.text="";
-                UITextViewPaymentAddrress1.becomeFirstResponder()
+            if(UITextViewPaymentAddress1.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
+                UITextViewPaymentAddress1.text="";
+                UITextViewPaymentAddress1.becomeFirstResponder()
                 let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập địa chỉ người thanh toán", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
                 self.present(alert, animated: true)
@@ -182,23 +182,22 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
             [
                 "shipping_fullname": UITextFieldShippingFullName.text!,
                 "shipping_email": UITextFieldShippingEmail.text!,
-                "shipping_phonenumber": UITextFieldShippingPhoneNumber.text!,
+                "shipping_phonenumber": UITextFieldShippingPhonenumber.text!,
                 "shipping_address1": UITextViewShippingAddress1.text!,
                 "shipping_address2": UITextViewShippingAddress2.text!,
                 
-                "biding_fullname": UITextFieldBidingFullName.text!,
+                "biding_fullname": UITextFieldPaymentFullName.text!,
                 "Payment_email": UITextFieldPaymentEmail.text!,
                 "Payment_phonenumber": UITextFieldPaymentPhoneNumber.text!,
-                "Payment_addrress1": UITextViewPaymentAddrress1.text!,
-                "Payment_addrress2": UITextViewPaymentAddrress2.text!,
+                "Payment_addrress1": UITextViewPaymentAddress1.text!,
+                "Payment_addrress2": UITextViewPaymentAddress2.text!,
                 
                 ]
         
-         let preferentces=UserDefaults.standard
-        preferentces.set(jsonAddressShippingAndPayment, forKey: "json_address_shipping_and_Payment")
-        let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
-        sumaryCheckoutViewControllerVC.jsonAddressShippingAndPayment=jsonAddressShippingAndPayment
-        self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)
+        
+        //let sumaryCheckoutViewControllerVC = StoryboardEntityProvider().SumaryCheckoutViewControllerVC()
+        //sumaryCheckoutViewControllerVC.jsonAddressShippingAndPayment=jsonAddressShippingAndPayment
+        //self.navigationController?.pushViewController(sumaryCheckoutViewControllerVC, animated: true)
     }
     
 }
