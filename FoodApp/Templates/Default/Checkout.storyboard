@@ -1360,7 +1360,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="UITextFieldFullName:" destination="b55-dW-m4u" eventType="editingDidEnd" id="vwr-5T-1PB"/>
+                                            <action selector="UITextFieldShippingFullNameChange:" destination="b55-dW-m4u" eventType="valueChanged" id="FKH-je-L2T"/>
+                                            <action selector="UITextFieldShippingFullNameChange:" destination="b55-dW-m4u" eventType="editingChanged" id="Ika-Ij-6pu"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-ds-27w">
@@ -1379,6 +1380,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="UITextFieldShippingEmailChange:" destination="b55-dW-m4u" eventType="editingChanged" id="8af-2M-Xzb"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb4-dX-vb9">
                                         <rect key="frame" x="8" y="171" width="136" height="21"/>
@@ -1394,8 +1398,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="UITextFieldShippingEmailEditingChanged:" destination="b55-dW-m4u" eventType="editingDidEnd" id="YD6-vg-7TT"/>
-                                            <action selector="UITextFieldShippingPhoneNumberEditingChanged:" destination="b55-dW-m4u" eventType="editingDidEnd" id="8sz-U9-nJZ"/>
+                                            <action selector="UITextFieldShippingPhoneNUmberChange:" destination="b55-dW-m4u" eventType="editingChanged" id="GUH-bg-C0f"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-gG-OaI">
@@ -1736,7 +1739,7 @@
                         <outlet property="UITextFieldPaymentFullName" destination="3Bj-gz-v1Z" id="h1x-uY-9gt"/>
                         <outlet property="UITextFieldPaymentPhoneNumber" destination="hOw-mg-e1W" id="uZ1-3r-kLJ"/>
                         <outlet property="UITextFieldShippingEmail" destination="b2H-ZW-rva" id="t6l-Ra-uTy"/>
-                        <outlet property="UITextFieldShippingFullName" destination="Jq2-YY-liN" id="inf-0R-mcM"/>
+                        <outlet property="UITextFieldShippingFullName" destination="Jq2-YY-liN" id="BFG-Zf-ixp"/>
                         <outlet property="UITextFieldShippingPhonenumber" destination="KpH-kI-Bjq" id="WkH-gr-BnQ"/>
                         <outlet property="UITextViewNote" destination="APf-gN-1dx" id="SDX-xY-2XX"/>
                         <outlet property="UITextViewPaymentAddress1" destination="YyF-hJ-2re" id="5HY-w1-gUu"/>

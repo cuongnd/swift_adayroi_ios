@@ -13,7 +13,7 @@ import SQLite
 import SlideMenuControllerSwift
 
 
-class ADRFrontEndViewCheckoutVC: UIViewController {
+class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var UITextFieldShippingFullName: UITextField!
     @IBOutlet weak var UITextFieldShippingEmail: UITextField!
@@ -36,8 +36,35 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UITextViewShippingAddress1.delegate = self
+        UITextViewShippingAddress2.delegate = self
+
         
     }
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        print("hello text view change")
+        if(textView==self.UITextViewShippingAddress1 && UISwitchSameShipping.isOn){
+            UITextViewPaymentAddress1.text=textView.text
+        }else if(textView==self.UITextViewShippingAddress2 && UISwitchSameShipping.isOn){
+            UITextViewPaymentAddress2.text=textView.text
+        }
+    }
+    @IBAction func UITextFieldShippingFullNameChange(_ sender: UITextField) {
+        if(UISwitchSameShipping.isOn){
+            UITextFieldPaymentFullName.text=sender.text
+        }
+    }
+    @IBAction func UITextFieldShippingEmailChange(_ sender: UITextField) {
+        if(UISwitchSameShipping.isOn){
+            UITextFieldPaymentEmail.text=sender.text
+        }
+    }
+    @IBAction func UITextFieldShippingPhoneNUmberChange(_ sender: UITextField) {
+        if(UISwitchSameShipping.isOn){
+            UITextFieldPaymentPhoneNumber.text=sender.text
+        }
+    }
+    
     @IBAction func UISwitchValueChange(_ sender: UISwitch) {
         UITextFieldPaymentFullName.isEnabled = !sender.isOn
         UITextFieldPaymentEmail.isEnabled = !sender.isOn
@@ -53,32 +80,10 @@ class ADRFrontEndViewCheckoutVC: UIViewController {
             
         }
     }
-    @IBAction func UITextFieldFullName(_ sender: UITextField) {
-        if(UISwitchSameShipping.isOn)
-        {
-            UITextFieldPaymentFullName.text=sender.text
-        }
-    }
-    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        if(textView.tag==0 && UISwitchSameShipping.isOn){
-            UITextViewPaymentAddress1.text=textView.text
-        }
-        if(textView.tag==1 && UISwitchSameShipping.isOn){
-            UITextViewPaymentAddress2.text=textView.text
-        }
-    }
-    @IBAction func UITextFieldShippingPhoneNumberEditingChanged(_ sender: UITextField) {
-        if(UISwitchSameShipping.isOn)
-        {
-            UITextFieldPaymentPhoneNumber.text=sender.text
-        }
-    }
-    @IBAction func UITextFieldShippingEmailEditingChanged(_ sender: UITextField) {
-        if(UISwitchSameShipping.isOn)
-        {
-            UITextFieldPaymentEmail.text=sender.text
-        }
-    }
+    
+   
+    
+    
     @IBAction func go_to_sumary_checkout(_ sender: UIButton) {
         if(UITextFieldShippingFullName.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""){
             UITextFieldShippingFullName.text="";
