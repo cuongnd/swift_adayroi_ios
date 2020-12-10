@@ -16,7 +16,7 @@ import Alamofire
 import SlideMenuControllerSwift
 
 
-class ADRFrontEndViewCheckoutSummaryVC: UIViewController {
+class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
     
     
     @IBOutlet weak var UIButtonNext: UIButton!
@@ -30,8 +30,6 @@ class ADRFrontEndViewCheckoutSummaryVC: UIViewController {
         
     }
     @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutPaymentVC") as! ADRFrontEndViewCheckoutPaymentVC
-       self.navigationController?.pushViewController(vc, animated:true)
     }
     @IBAction func UIButtonTouchUpInsideBack(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutVC") as! ADRFrontEndViewCheckoutVC
