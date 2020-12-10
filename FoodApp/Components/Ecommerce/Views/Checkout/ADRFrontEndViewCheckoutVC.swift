@@ -9,7 +9,10 @@
 import UIKit
 import SwiftyJSON
 import SQLite
-
+import RxSwift
+import RxCocoa
+import Foundation
+import Alamofire
 import SlideMenuControllerSwift
 
 
@@ -33,11 +36,15 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     @IBOutlet weak var UIButtonBack: UIButton!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         UITextViewShippingAddress1.delegate = self
         UITextViewShippingAddress2.delegate = self
+         let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
+        let urlStringPostUpdateUser = API_URL + "/api/users/\(user_id)"
+        self.Webservice_getUserInfo(url: urlStringPostUpdateUser, params: [:])
+       
+        
 
         
     }
@@ -209,6 +216,43 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
 }
 extension ADRFrontEndViewCheckoutVC
 {
+    
+    func Webservice_getUserInfo(url:String, params:NSDictionary) -> Void {
+        WebServices().CallGlobalAPIResponseData(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:Data? , _ strErrorMessage:String) in
+            if strErrorMessage.count != 0 {
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+            }
+            else {
+                print(jsonResponse!)
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let getUserResponseModel = try jsonDecoder.decode(GetUserResponseModel.self, from: jsonResponse!)
+                    let userModel:UserModel=getUserResponseModel.user
+                    self.UITextFieldShippingFullName.text=userModel.shipping_fullname
+                    self.UITextFieldShippingEmail.text=userModel.shipping_email
+                    self.UITextFieldShippingPhonenumber.text=userModel.shipping_phone
+                    self.UITextViewShippingAddress1.text=userModel.shipping_address_1
+                    self.UITextViewShippingAddress2.text=userModel.shipping_address_2
+                    
+                    self.UITextFieldBillingFullName.text=userModel.billing_fullname
+                    self.UITextFieldBillingEmail.text=userModel.billing_email
+                    self.UITextFieldBillingPhone.text=userModel.billing_phone
+                    self.UITextViewBillingAddress1.text=userModel.billing_address_1
+                    self.UITextViewBillingAddress2.text=userModel.billing_address_2
+                    print("userModel:\(userModel)")
+                } catch let error as NSError  {
+                    print("error: \(error)")
+                }
+                
+                
+                //print("userModel:\(userModel)")
+                    
+            }
+        }
+        
+        
+        
+    }
     func Webservice_getUpdateUser(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {

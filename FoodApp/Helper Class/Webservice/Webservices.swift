@@ -136,7 +136,121 @@ class WebServices: NSObject
         operation.queuePriority = .normal
         operationQueue.addOperation(operation)
     }
-    
+    func CallGlobalAPIResponseData(url:String, headers:NSDictionary, parameters:NSDictionary, httpMethod:String, progressView:Bool, uiView:UIView, networkAlert:Bool, responseDict:@escaping (_ jsonResponce:Data?, _ strErrorMessage:String) -> Void) {
+        
+        print("URL: \(url)")
+        print("Headers: \n\(headers)")
+        print("Parameters: \n\(parameters)")
+        
+        if progressView == true {
+            self.ProgressViewShow(uiView:uiView)
+        }
+        let operation = BlockOperation.init {
+            DispatchQueue.global(qos: .background).async {
+                if self.internetChecker(reachability: Reachability()!) {
+                    if (httpMethod == "POST") {
+                        var req = URLRequest(url: try! url.asURL())
+                        req.httpMethod = "POST"
+                        req.allHTTPHeaderFields = headers as? [String:String]
+                        req.setValue("application/json", forHTTPHeaderField: "content-type")
+                        req.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+                        req.timeoutInterval = 30
+                        print(req.curlString);
+                        AF.request(req).responseData { response in
+                            switch (response.result)
+                            {
+                            case .success:
+                                if((response.value) != nil) {
+                                    let jsonResponce = Data(response.value!)
+                                    print("Responce: \n\(jsonResponce)")
+                                    DispatchQueue.main.async {
+                                        self.ProgressViewHide(uiView: uiView)
+                                        responseDict(jsonResponce,"")
+                                    }
+                                }
+                                break
+                            case .failure(let error):
+                                let message : String
+                                if let httpStatusCode = response.response?.statusCode {
+                                    switch(httpStatusCode) {
+                                    case 400:
+                                        message = "Something Went Wrong..Try Again"
+                                    case 401:
+                                        message = "Something Went Wrong..Try Again"
+                                        DispatchQueue.main.async {
+                                            self.ProgressViewHide(uiView: uiView)
+                                            responseDict(response.value,message)
+                                        }
+                                    default: break
+                                    }
+                                } else {
+                                    message = error.localizedDescription
+                                    let jsonError = Data(response.value!)
+                                    DispatchQueue.main.async {
+                                        self.ProgressViewHide(uiView: uiView)
+                                        responseDict(jsonError,"")
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                    else if (httpMethod == "GET") {
+                        var req = URLRequest(url: try! url.asURL())
+                        req.httpMethod = "GET"
+                        req.allHTTPHeaderFields = headers as? [String:String]
+                        req.setValue("application/json", forHTTPHeaderField: "content-type")
+                        req.timeoutInterval = 30
+                        //req.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+                        print(req.curlString);
+                        AF.request(req).responseData { response in
+                            switch (response.result)
+                            {
+                            case .success:
+                                if((response.value) != nil) {
+                                    DispatchQueue.main.async {
+                                        self.ProgressViewHide(uiView: uiView)
+                                        responseDict(response.value,"")
+                                    }
+                                }
+                                break
+                            case .failure(let error):
+                                let message : String
+                                if let httpStatusCode = response.response?.statusCode {
+                                    switch(httpStatusCode) {
+                                    case 400:
+                                        message = "Something Went Wrong..Try Again"
+                                    case 401:
+                                        message = "Something Went Wrong..Try Again"
+                                        DispatchQueue.main.async {
+                                            self.ProgressViewHide(uiView: uiView)
+                                            responseDict(response.value,message)
+                                        }
+                                    default: break
+                                    }
+                                } else {
+                                    message = error.localizedDescription
+                                    DispatchQueue.main.async {
+                                        self.ProgressViewHide(uiView: uiView)
+                                        responseDict(response.value,"")
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                }
+                else {
+                    self.ProgressViewHide(uiView: uiView)
+                    if networkAlert == true {
+                        showAlertMessage(titleStr: "Error!", messageStr: MESSAGE_ERR_NETWORK)
+                    }
+                }
+            }
+        }
+        operation.queuePriority = .normal
+        operationQueue.addOperation(operation)
+    }
     func multipartWebService(method:HTTPMethod, URLString:String, encoding:Alamofire.ParameterEncoding, parameters:[String: Any], fileData:Data!, fileUrl:URL?, headers:HTTPHeaders, keyName:String, completion: @escaping (_ response:AnyObject?, _ error: NSError?) -> ()){
         
         print("Fetching WS : \(URLString)")
