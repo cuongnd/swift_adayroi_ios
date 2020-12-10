@@ -2147,6 +2147,9 @@
                                         <state key="normal" title="Quay lại">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="UIButtonTouchUpInsideBack:" destination="wYa-JZ-DoW" eventType="touchUpInside" id="7y6-6V-TxW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsE-mJ-VV3">
                                         <rect key="frame" x="251" y="11" width="116" height="30"/>
@@ -2158,7 +2161,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="go_to_sumary_checkout:" destination="wYa-JZ-DoW" eventType="touchUpInside" id="ynD-S9-BaA"/>
+                                            <action selector="UIButtonTouchUpInsideNext:" destination="wYa-JZ-DoW" eventType="touchUpInside" id="6GU-Qy-Zqg"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -29,5 +29,8 @@ class ADRFrontEndViewCheckoutSummaryVC: UIViewController {
 
         
     }
-    
+    @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
+    }
+    @IBAction func UIButtonTouchUpInsideBack(_ sender: UIButton) {
+    }
 }
