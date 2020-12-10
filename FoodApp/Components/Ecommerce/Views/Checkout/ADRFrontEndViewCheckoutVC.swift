@@ -263,7 +263,7 @@ extension ADRFrontEndViewCheckoutVC
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
                      let data = jsonResponse!["data"].dictionaryValue
-                     let vc = self.storyboard?.instantiateViewController(identifier: "OrderDetails") as! OrderDetails
+                     let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
                      self.navigationController?.pushViewController(vc, animated:true)
                     
                     

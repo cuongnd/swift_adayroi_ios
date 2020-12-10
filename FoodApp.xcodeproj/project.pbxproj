@@ -59,6 +59,7 @@
 		0C8A564A2581A65500CAD7F1 /* ObjectMapperFrontendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56492581A65500CAD7F1 /* ObjectMapperFrontendUser.swift */; };
 		0C8A564D2581C5C900CAD7F1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A564C2581C5C900CAD7F1 /* UserModel.swift */; };
 		0C8A56512581DD4E00CAD7F1 /* GetUserResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56502581DD4E00CAD7F1 /* GetUserResponseModel.swift */; };
+		0C8A565325820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565225820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift */; };
 		0CCF2C52256F83620056AEC4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF2C51256F83620056AEC4 /* Empty.xib */; };
 		0CD77A30257891340083BC09 /* HomeCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */; };
 		0CD77A5B257A283A0083BC09 /* ADRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A5A257A283A0083BC09 /* ADRModel.swift */; };
@@ -194,6 +195,7 @@
 		0C8A56492581A65500CAD7F1 /* ObjectMapperFrontendUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapperFrontendUser.swift; sourceTree = "<group>"; };
 		0C8A564C2581C5C900CAD7F1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0C8A56502581DD4E00CAD7F1 /* GetUserResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserResponseModel.swift; sourceTree = "<group>"; };
+		0C8A565225820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRFrontEndViewCheckoutSummaryVC.swift; sourceTree = "<group>"; };
 		0CCF2C51256F83620056AEC4 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryCell.xib; sourceTree = "<group>"; };
 		0CD77A5A257A283A0083BC09 /* ADRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRModel.swift; sourceTree = "<group>"; };
@@ -698,6 +700,7 @@
 			children = (
 				C8BAC06624891BB700ECE181 /* AddtoCartVC.swift */,
 				0CDCD67E258053C2000B7F44 /* ADRFrontEndViewCheckoutVC.swift */,
+				0C8A565225820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -1184,6 +1187,7 @@
 				C8F07A2B248F879700665143 /* OrderHistoryDetailsVC.swift in Sources */,
 				0C42DC2A257C6A6F007009E4 /* ObjectMapperFrontendCart.swift in Sources */,
 				C8C99DF92488D90D00B5C187 /* LoginVC.swift in Sources */,
+				0C8A565325820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift in Sources */,
 				0C8A564A2581A65500CAD7F1 /* ObjectMapperFrontendUser.swift in Sources */,
 				0C42DC1F257BDBDA007009E4 /* ADRView.swift in Sources */,
 				0CD77A62257A30550083BC09 /* Database.swift in Sources */,
