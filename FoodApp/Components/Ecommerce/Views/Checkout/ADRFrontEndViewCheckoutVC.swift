@@ -193,7 +193,7 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         let params: NSDictionary = [
         "shipping_fullname": UITextFieldShippingFullName.text!,
         "shipping_email": UITextFieldShippingEmail.text!,
-        "shipping_phonenumber": UITextFieldShippingPhonenumber.text!,
+        "shipping_phone": UITextFieldShippingPhonenumber.text!,
         "shipping_address_1": UITextViewShippingAddress1.text!,
         "shipping_address_2": UITextViewShippingAddress2.text!,
         

@@ -27,9 +27,9 @@ struct UserModel: Codable {
     let billing_postal_code: String
     let email: String
     let billing_address_2: String
-    let billing_email: String=""
+    let billing_email: String
     let shipping_fullname: String
-    let shipping_email: String=""
+    let shipping_email: String
     let shipping_postal_code: String
     let profile_image: String
     let shipping_phone: String
