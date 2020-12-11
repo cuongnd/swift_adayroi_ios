@@ -20,7 +20,7 @@ class ADRTableUser: ADRTable{
     private let id=Expression<Int64>("id")
     private let user_id=Expression<String>("user_id")
     private let username=Expression<String>("username")
-    private let active=Expression<Int>("active")
+    private let active=Expression<Int64>("active")
     private let code=Expression<String>("code")
     private let phonenumber=Expression<String>("phonenumber")
     private let userToken=Expression<String>("userToken")
@@ -44,6 +44,9 @@ class ADRTableUser: ADRTable{
             if let connection=Database.shared.connection{
                 try connection.run(table.create(temporary: false, ifNotExists: true, withoutRowid: false, block:{ (table) in
                     table.column(self.id,primaryKey: true)
+                    
+                    
+                    
                     table.column(self.user_id)
                     table.column(self.username)
                     table.column(self.active)
@@ -63,6 +66,8 @@ class ADRTableUser: ADRTable{
                     table.column(self.billing_phone)
                     table.column(self.billing_address_1)
                     table.column(self.billing_address_2)
+                    
+                    
                 }))
                 print("Create table Cart successfully")
             }else{
@@ -109,10 +114,12 @@ class ADRTableUser: ADRTable{
     func insert(
         user_id:String,
         username:String,
-        active:Int,
+        active:Int64,
         code:String,
         phonenumber:String,
         userToken:String,
+        email:String,
+        refreshToken:String,
         role:String,
         shipping_fullname:String,
         shipping_email:String,
@@ -124,16 +131,17 @@ class ADRTableUser: ADRTable{
         billing_phone:String,
         billing_address_1:String,
         billing_address_2:String
-        
-        
     ) -> Int64? {
         do{
             let insert=table.insert(
                 self.user_id<-user_id,
                 self.username<-username,
                 self.active<-active,
+                self.code<-code,
                 self.phonenumber<-phonenumber,
                 self.userToken<-userToken,
+                self.email<-email,
+                self.refreshToken<-refreshToken,
                 self.role<-role,
                 self.shipping_fullname<-shipping_fullname,
                 self.shipping_email<-shipping_email,
