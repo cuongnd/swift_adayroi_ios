@@ -257,28 +257,6 @@ extension ADRFrontEndViewCheckoutVC
                 print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
             }
         }
-        WebServices().CallGlobalAPIResponseData(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:Data? , _ strErrorMessage:String) in
-            if strErrorMessage.count != 0 {
-                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
-            }
-            else {
-                print(jsonResponse!)
-                do {
-                    let jsonDecoder = JSONDecoder()
-                    let getUserResponseModel = try jsonDecoder.decode(GetUserResponseModel.self, from: jsonResponse!)
-                    let userModel:UserModel=getUserResponseModel.user
-                    
-                    print("userModel:\(userModel)")
-                } catch let error as NSError  {
-                    print("error: \(error)")
-                }
-                
-                
-                //print("userModel:\(userModel)")
-                
-            }
-        }
-        
         
         
     }
