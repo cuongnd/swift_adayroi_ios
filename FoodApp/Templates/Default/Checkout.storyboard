@@ -2599,6 +2599,9 @@
                                         <state key="normal" title="Thanh toán">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="UIButtonTouchUpInsideNext:" destination="Gql-xD-L3D" eventType="touchUpInside" id="0ou-GI-ac1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hn-FK-4Rk">
                                         <rect key="frame" x="8" y="3" width="69" height="30"/>
@@ -2606,6 +2609,9 @@
                                         <state key="normal" title="Quay lại">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="UIButtonTouchUpInsideBack:" destination="Gql-xD-L3D" eventType="touchUpInside" id="NI2-hb-sRU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
