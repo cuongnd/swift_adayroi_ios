@@ -33,10 +33,11 @@ class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
         
     }
     @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
+        
     }
     @IBAction func UIButtonTouchUpInsideBack(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutVC") as! ADRFrontEndViewCheckoutVC
-        self.navigationController?.pushViewController(vc, animated:true)
+       let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
+       self.navigationController?.pushViewController(vc, animated:true)
     }
 }
 extension ADRFrontEndViewCheckoutPaymentVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
