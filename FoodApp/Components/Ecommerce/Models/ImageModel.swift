@@ -10,6 +10,11 @@ struct ImageModel: Codable {
     let _id: String
     let img_parent_id: String
     let img_path: String
+    init() {
+        _id = ""
+        img_parent_id = ""
+        img_path=""
+    }
     enum CodingKeys: String, CodingKey {
         case _id = "_id"
         case img_parent_id = "img_parent_id"

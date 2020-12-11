@@ -42,7 +42,7 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         UITextViewShippingAddress2.delegate = self
         let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
         let urlStringPostUpdateUser = API_URL + "/api/users/\(user_id)"
-        self.Webservice_getUserInfo(url: urlStringPostUpdateUser, params: [:])
+        self.fill_UserInfo(url: urlStringPostUpdateUser, params: [:])
         
         
         
@@ -231,17 +231,16 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
 extension ADRFrontEndViewCheckoutVC
 {
     
-    func Webservice_getUserInfo(url:String, params:NSDictionary) -> Void {
+    func fill_UserInfo(url:String, params:NSDictionary) -> Void {
         let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
         let user:Row!=ADRTableUser.shared.getUserInfoByUserId(user_id: user_id)
         if(user==nil){
             
         }else{
-            print("user: \(user)")
             do{
                 
                 self.UITextFieldShippingFullName.text=try user.get(Expression<String>("shipping_fullname"))
-                self.UITextFieldShippingEmail.text=try user.get(Expression<String>("shipping_phone"))
+                self.UITextFieldShippingEmail.text=try user.get(Expression<String>("shipping_email"))
                 self.UITextFieldShippingPhonenumber.text=try user.get(Expression<String>("shipping_phone"))
                 self.UITextViewShippingAddress1.text=try user.get(Expression<String>("shipping_address_1"))
                 self.UITextViewShippingAddress2.text=try user.get(Expression<String>("shipping_address_2"))

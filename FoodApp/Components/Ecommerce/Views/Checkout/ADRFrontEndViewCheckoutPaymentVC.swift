@@ -39,9 +39,11 @@
         }
         @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
             var payment_is_selected:Bool=false
+            var paymentSelected:PaymentModel=PaymentModel();
             for index in 0...self.payments.count-1 {
                 if(self.payments[index].isselected == 1){
                     payment_is_selected=true
+                    paymentSelected=self.payments[index]
                 }
             }
             if(!payment_is_selected){
@@ -85,20 +87,15 @@
                         let unit_price:Int64=try item.get(Expression<Int64>("unit_price"))
                         totalPrice=unit_price*quality+totalPrice
                         let obj = [
-                            "id":try item.get(Expression<Int64>("id")),
                             "product_id":try item.get(Expression<String>("product_id")),
-                            "qty":try item.get(Expression<Int64>("quality")),
+                            "quantity":try item.get(Expression<Int64>("quality")),
                             "price":try item.get(Expression<Int64>("unit_price")),
-                            "price_update":try item.get(Expression<Int64>("unit_price")),
-                            "item_name":try item.get(Expression<String>("name")),
-                            "item_id":try item.get(Expression<String>("product_id")),
-                            "itemimage":try item.get(Expression<String>("image")),
+                            "name":try item.get(Expression<String>("name")),
+                            "imageUrl":try item.get(Expression<String>("image")),
                             "color_id":try item.get(Expression<String>("color_id")),
                             "color_name":try item.get(Expression<String>("color_name")),
                             "color_value":try item.get(Expression<String>("color_value")),
                             "color_image":try item.get(Expression<String>("color_image")),
-                            "addons":[:],
-                            "item_notes":try item.get(Expression<String>("product_id")),
                             "attributes":attributes,
                             ] as [String : Any]
                         
@@ -116,21 +113,47 @@
                     
                 }
             }
-            
-            
-            let params: NSDictionary = [
-                "userId": user_id,
-                "sub_total_amount": totalPrice,
-                "discountAmount":3343,
-                "billing":[
-                    "full_name":"sdfds",
-                    "telephone":"sdfds",
-                    "email":"email",
-                    "address1":"address1",
-                    "address2":"address2",
-                ],
+            var params_shipping: NSDictionary=[:]
+            var params_billing: NSDictionary=[:]
+            let user:Row!=ADRTableUser.shared.getUserInfoByUserId(user_id: user_id)
+            if(user==nil){
+                
+            }else{
+                do{
+                    params_shipping = [
+                        "full_name":try user.get(Expression<String>("shipping_fullname")),
+                        "telephone":try user.get(Expression<String>("shipping_phone")),
+                        "email":try user.get(Expression<String>("shipping_email")),
+                        "address1":try user.get(Expression<String>("shipping_address_1")),
+                        "address2":try user.get(Expression<String>("shipping_address_2"))
+       
+                    ];
+                     params_billing = [
+                                     "full_name":try user.get(Expression<String>("billing_fullname")),
+                                     "email":try user.get(Expression<String>("billing_email")),
+                                     "telephone":try user.get(Expression<String>("billing_phone")),
+                                     "address1":try user.get(Expression<String>("billing_address_1")),
+                                     "address2":try user.get(Expression<String>("billing_address_2"))
+                    
+                                 ];
+                    
+                    
+                }catch{
+                    let nsError=error as NSError
+                    print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+                }
+            }
+           let  params: NSDictionary=[
+                "user_id":user_id,
+                "total":totalPrice,
+                "total_item_count":totalProduct,
+                "payment_method_id":paymentSelected._id,
+                "shipping":params_shipping,
+                "billing":params_billing,
                 "items":cartDetailsarray
-            ]
+            
+            ];
+            
             let urlStringOrderCreate = API_URL + "/api_task/orders.create"
             
             self.Webservice_getCreateOrder(url: urlStringOrderCreate, params: params)
@@ -248,8 +271,10 @@
                     let responseCode = jsonResponse!["result"].stringValue
                     if responseCode == "success" {
                         let data = jsonResponse!["data"].dictionaryValue
-                        //let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
-                        //self.navigationController?.pushViewController(vc, animated:true)
+                        showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["msg"].stringValue)
+                        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+                        self.navigationController?.pushViewController(vc, animated:true)
                         
                         
                     }

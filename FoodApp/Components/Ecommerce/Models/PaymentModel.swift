@@ -11,7 +11,11 @@ struct PaymentModel: Codable {
     var name: String
     var default_photo: ImageModel
     var isselected:Int=0
-    
+    init() {
+        _id = ""
+        name = ""
+        default_photo=ImageModel()
+    }
     enum CodingKeys: String, CodingKey {
         case _id = "_id"
         case name = "name"
