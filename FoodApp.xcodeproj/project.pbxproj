@@ -64,6 +64,8 @@
 		0C8A565B2583186E00CAD7F1 /* GetPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565A2583186E00CAD7F1 /* GetPaymentResponseModel.swift */; };
 		0C8A565D25831AEC00CAD7F1 /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565C25831AEC00CAD7F1 /* PaymentModel.swift */; };
 		0C8A565F25831BA900CAD7F1 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565E25831BA900CAD7F1 /* ImageModel.swift */; };
+		0C8A5661258330ED00CAD7F1 /* OrderDataUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A5660258330ED00CAD7F1 /* OrderDataUploadModel.swift */; };
+		0C8A56632583471E00CAD7F1 /* CartOrderProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56622583471E00CAD7F1 /* CartOrderProduct.swift */; };
 		0CCF2C52256F83620056AEC4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF2C51256F83620056AEC4 /* Empty.xib */; };
 		0CD77A30257891340083BC09 /* HomeCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */; };
 		0CD77A5B257A283A0083BC09 /* ADRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A5A257A283A0083BC09 /* ADRModel.swift */; };
@@ -204,6 +206,8 @@
 		0C8A565A2583186E00CAD7F1 /* GetPaymentResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentResponseModel.swift; sourceTree = "<group>"; };
 		0C8A565C25831AEC00CAD7F1 /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		0C8A565E25831BA900CAD7F1 /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		0C8A5660258330ED00CAD7F1 /* OrderDataUploadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDataUploadModel.swift; sourceTree = "<group>"; };
+		0C8A56622583471E00CAD7F1 /* CartOrderProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartOrderProduct.swift; sourceTree = "<group>"; };
 		0CCF2C51256F83620056AEC4 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryCell.xib; sourceTree = "<group>"; };
 		0CD77A5A257A283A0083BC09 /* ADRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRModel.swift; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				0C8A564C2581C5C900CAD7F1 /* UserModel.swift */,
 				0C8A565C25831AEC00CAD7F1 /* PaymentModel.swift */,
 				0C8A565E25831BA900CAD7F1 /* ImageModel.swift */,
+				0C8A56622583471E00CAD7F1 /* CartOrderProduct.swift */,
+				0C8A5660258330ED00CAD7F1 /* OrderDataUploadModel.swift */,
 				0C8A56452581352700CAD7F1 /* APISession.swift */,
 				0CD77A5C257A29C10083BC09 /* ADRFrontEndModelCartItems.swift */,
 				0C42DC26257BEDFA007009E4 /* ADRFrontEndModelCartItem.swift */,
@@ -1158,6 +1164,7 @@
 				C8BAC0692489257100ECE181 /* OrderDetails.swift in Sources */,
 				889328EF24A481C0003C27D5 /* SearchVC.swift in Sources */,
 				C8349E36249791A0009EEF8D /* ChangePassswordVC.swift in Sources */,
+				0C8A56632583471E00CAD7F1 /* CartOrderProduct.swift in Sources */,
 				C8C99E082488D93C00B5C187 /* CardViewMaster.swift in Sources */,
 				0C42DC2E257CD061007009E4 /* ObjectMapperFrontendImage.swift in Sources */,
 				0C3C2E51256ABF2D000B21C5 /* HomeHeader.swift in Sources */,
@@ -1190,6 +1197,7 @@
 				C8BAC06724891BB700ECE181 /* AddtoCartVC.swift in Sources */,
 				C8C99E072488D93C00B5C187 /* FloatRatingView.swift in Sources */,
 				0C8A565D25831AEC00CAD7F1 /* PaymentModel.swift in Sources */,
+				0C8A5661258330ED00CAD7F1 /* OrderDataUploadModel.swift in Sources */,
 				0C8A565F25831BA900CAD7F1 /* ImageModel.swift in Sources */,
 				C8C99DC82488D77E00B5C187 /* SceneDelegate.swift in Sources */,
 				0C42DC2C257C6D62007009E4 /* ObjectMapperFrontendProduct.swift in Sources */,

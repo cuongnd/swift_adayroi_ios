@@ -49,6 +49,12 @@ class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
             alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
+            
+        let params: NSDictionary = [:]
+        let urlStringPostUpdateUser = API_URL + "/api_task/users.update_user_info?user_id=\(user_id)"
+        self.Webservice_getUpdateUser(url: urlStringPostUpdateUser, params: params)
+        
         
     }
     @IBAction func UIButtonTouchUpInsideBack(_ sender: UIButton) {
