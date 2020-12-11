@@ -283,10 +283,12 @@ extension AddtoCartVC
                                 let a_obj = [
                                     "id":try item.get(Expression<Int64>("id")),
                                     "product_id":try item.get(Expression<String>("product_id")),
-                                    "key_name":try item.get(Expression<String>("key_name")),
                                     "name":try item.get(Expression<String>("name")),
-                                    "_id":try item.get(Expression<String>("_id")),
+                                    "value":try item.get(Expression<String>("value")),
+                                    "attribute_id":try item.get(Expression<String>("attribute_id")),
+                                    "parent_attribute_id":try item.get(Expression<String>("parent_attribute_id")),
                                     ] as [String : Any]
+                                print("a_obj: \(a_obj)")
                                 attributes.append(a_obj)
                                 
                             }catch{
@@ -451,8 +453,8 @@ extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         let data=self.cartDetailsarray[collectionView.tag]
         let attributes=JSON(data["attributes"]!);
         let attribute=attributes[indexPath.row];
-        cell.UILabelKey.text=attribute["key_name"].stringValue;
-        cell.UILabelValue.text=attribute["name"].stringValue;
+        cell.UILabelKey.text=attribute["name"].stringValue;
+        cell.UILabelValue.text=attribute["value"].stringValue;
         return cell
         
         

@@ -53,7 +53,7 @@
             var totalProduct:Int64=0;
             var totalPrice:Int64=0;
             var cartDetailsarray = [[String:Any]]()
-            let params: NSDictionary = [:]
+            
             if let itemsCart:AnySequence<Row> = ADRFrontEndModelCartItems.getList(){
                 
                 
@@ -67,11 +67,10 @@
                                 do{
                                     
                                     let a_obj = [
-                                        "id":try item.get(Expression<Int64>("id")),
                                         "product_id":try item.get(Expression<String>("product_id")),
-                                        "key_name":try item.get(Expression<String>("key_name")),
                                         "name":try item.get(Expression<String>("name")),
-                                        "_id":try item.get(Expression<String>("_id")),
+                                        "value":try item.get(Expression<String>("value")),
+                                        "attribute_id":try item.get(Expression<String>("attribute_id")),
                                         ] as [String : Any]
                                     attributes.append(a_obj)
                                     
@@ -119,10 +118,22 @@
             }
             
             
+            let params: NSDictionary = [
+                "userId": user_id,
+                "sub_total_amount": totalPrice,
+                "discountAmount":3343,
+                "billing":[
+                    "full_name":"sdfds",
+                    "telephone":"sdfds",
+                    "email":"email",
+                    "address1":"address1",
+                    "address2":"address2",
+                ],
+                "items":cartDetailsarray
+            ]
+            let urlStringOrderCreate = API_URL + "/api_task/orders.create"
             
-            let urlStringPostUpdateUser = API_URL + "/api_task/users.update_user_info?user_id=\(user_id)"
-            
-            self.Webservice_getUpdateUser(url: urlStringPostUpdateUser, params: params)
+            self.Webservice_getCreateOrder(url: urlStringOrderCreate, params: params)
             
             
         }
@@ -227,7 +238,7 @@
             
             
         }
-        func Webservice_getUpdateUser(url:String, params:NSDictionary) -> Void {
+        func Webservice_getCreateOrder(url:String, params:NSDictionary) -> Void {
             WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
                 if strErrorMessage.count != 0 {
                     showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -237,8 +248,8 @@
                     let responseCode = jsonResponse!["result"].stringValue
                     if responseCode == "success" {
                         let data = jsonResponse!["data"].dictionaryValue
-                        let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
-                        self.navigationController?.pushViewController(vc, animated:true)
+                        //let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
+                        //self.navigationController?.pushViewController(vc, animated:true)
                         
                         
                     }

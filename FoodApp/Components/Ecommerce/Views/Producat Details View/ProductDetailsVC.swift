@@ -434,14 +434,19 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
                 
             }
             cell.dropDown.didSelect{(selectedText , index ,id) in
-                let item = self.attributes_header[indexPath.item]
-                let attributes_detail=item["attributes_detail"]
-                var currentItem=attributes_detail[index]
-                let id_value=currentItem["_id"].stringValue;
-                let name_value=currentItem["name"].stringValue;
-                currentItem["key_name"]=item["name"]
-                self.SelectedAttributes[item["_id"].stringValue]=currentItem
-                print("Selected String: \(selectedText) \n id_value: \(id_value)")
+                //get attribute selected
+                let attribute = self.attributes_header[indexPath.item]
+                print("attribute selected: \(attribute)")
+                //get list value of attribute
+                let list_value_attribute=attribute["attributes_detail"]
+                print("attributes_detail: \(list_value_attribute)")
+                //get current value of attribute
+                var current_value_of_attribute=list_value_attribute[index]
+                current_value_of_attribute["value"]=current_value_of_attribute["name"]
+                current_value_of_attribute["name"]=attribute["name"]
+                current_value_of_attribute["parent_attribute_id"]=current_value_of_attribute["header_id"]
+                print("currentItem: \(current_value_of_attribute)")
+                self.SelectedAttributes[attribute["_id"].stringValue]=current_value_of_attribute
             }
           return cell
         }
@@ -686,11 +691,11 @@ extension ProductDetailsVC
                     self.UICollectionViewAttributesHeader.dataSource = self
                     self.UICollectionViewAttributesHeader.reloadData()
                     
-                    let datas = self.itemsData["colors"]!.arrayValue
-                    for data in datas
+                    let colors = self.itemsData["colors"]!.arrayValue
+                    for color in colors
                     {
-                        let ItemPrice = formatter.string(for: data["price"].stringValue.toDouble)
-                        let obj = ["price":ItemPrice!,"item_id":data["_id"].stringValue,"name":data["name"].stringValue,"id":data["id"].stringValue,"isselected":"1"]
+                        let ItemPrice = formatter.string(for: color["price"].stringValue.toDouble)
+                        let obj = ["price":ItemPrice!,"item_id":color["_id"].stringValue,"name":color["name"].stringValue,"id":color["id"].stringValue,"isselected":"1"]
                         self.addonsArray.append(obj)
                     }
                     print(self.addonsArray)
@@ -735,7 +740,6 @@ extension ProductDetailsVC
         }
     }
     func webViewDidFinishLoad(webView: UIWebView) {
-        print("hell34334343");
         webView.frame.size.height = 1
         webView.frame.size = webView.sizeThatFits(CGSize.zero)
     }

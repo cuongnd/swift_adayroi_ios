@@ -18,12 +18,12 @@ class ADRTableCartAttribute: ADRTable{
     public var table: Table = Table("ADRTableCartAttribute")
     private let id=Expression<Int64>("id")
     private let cart_id=Expression<Int64>("cart_id")
-    private let _id=Expression<String>("_id")
-    private let key_name=Expression<String>("key_name")
-    private let name=Expression<String>("name")
-    private let header_id=Expression<String>("header_id")
-    private let additional_price=Expression<Int64>("additional_price")
     private let product_id=Expression<String>("product_id")
+    private let parent_attribute_id=Expression<String>("parent_attribute_id")
+    private let attribute_id=Expression<String>("attribute_id")
+    private let name=Expression<String>("name")
+    private let value=Expression<String>("value")
+    private let price=Expression<Float64>("price")
     
     override public   init(){
         super.init()
@@ -31,13 +31,13 @@ class ADRTableCartAttribute: ADRTable{
             if let connection=Database.shared.connection{
                 try connection.run(table.create(temporary: false, ifNotExists: true, withoutRowid: false, block:{ (table) in
                     table.column(self.id,primaryKey: true)
-                    table.column(self._id)
                     table.column(self.cart_id)
-                    table.column(self.key_name)
-                    table.column(self.name)
-                    table.column(self.header_id)
-                    table.column(self.additional_price)
                     table.column(self.product_id)
+                    table.column(self.name)
+                    table.column(self.value)
+                    table.column(self.parent_attribute_id)
+                    table.column(self.attribute_id)
+                    table.column(self.price)
                     
                 }))
                 print("Create table Cart successfully")
@@ -54,29 +54,30 @@ class ADRTableCartAttribute: ADRTable{
     }
     
     func insert(
-        _id:String,
         cart_id:Int64,
-        key_name:String,
+        product_id:String,
+        parent_attribute_id:String,
+        attribute_id:String,
         name:String,
-        header_id:String,
-        additional_price:Int64,
-        product_id:String
+        value:String,
+        price:Float64
          ) -> Int64? {
         do{
             let insert=table.insert(
-                self._id<-_id,
                 self.cart_id<-cart_id,
-                self.key_name<-key_name,
+                self.product_id<-product_id,
+                self.parent_attribute_id<-parent_attribute_id,
+                self.attribute_id<-attribute_id,
                 self.name<-name,
-                self.header_id<-header_id,
-                self.additional_price<-additional_price,
-                self.product_id<-product_id
+                self.value<-value,
+                self.price<-price
+                
             )
             let insertId=try Database.shared.connection!.run(insert)
             return insertId
         }catch{
             let nsError=error as NSError
-            print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+            print("insert new table ADRTableCartAttribute error. Eoverride rror is \(nsError), \(nsError.userInfo)")
             return nil
         }
     }

@@ -122,8 +122,25 @@ class ADRTableCart: ADRTable{
                 
             )
             let insertId=try Database.shared.connection!.run(insert)
+            /*
+             cart_id:Int64,
+             product_id:String,
+             parent_attribute_id:String,
+             attribute_id:String,
+             name:String,
+             value:String,
+             price:Float64
+             */
             for attribute in attributes{
-                ADRTableCartAttribute.shared.insert(_id: attribute.value["_id"].stringValue, cart_id: insertId, key_name: attribute.value["key_name"].stringValue, name: attribute.value["name"].stringValue, header_id: attribute.value["header_id"].stringValue, additional_price: Int64(attribute.value["additional_price"].stringValue)!, product_id: attribute.value["product_id"].stringValue)
+                ADRTableCartAttribute.shared.insert(
+                    cart_id:insertId,
+                    product_id:attribute.value["product_id"].stringValue,
+                    parent_attribute_id:attribute.value["parent_attribute_id"].stringValue,
+                    attribute_id:attribute.value["_id"].stringValue,
+                    name:attribute.value["name"].stringValue,
+                    value:attribute.value["value"].stringValue,
+                    price:Float64(attribute.value["price"].floatValue)
+               )
             }
             
             return insertId
