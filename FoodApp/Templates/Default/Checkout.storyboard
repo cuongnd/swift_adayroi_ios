@@ -2580,15 +2580,6 @@
                     <size key="freeformSize" width="375" height="650"/>
                     <connections>
                         <outlet property="UICollectionViewPayments" destination="71m-N0-moF" id="0U4-JG-oj9"/>
-                        <outlet property="UILabelCouponCost" destination="Qts-ZR-lc4" id="TVw-KJ-tzL"/>
-                        <outlet property="UILabelShipingCost" destination="QfI-ZR-d6m" id="nSc-Nt-vVs"/>
-                        <outlet property="UILabelTaxCost" destination="3eI-8T-GI1" id="8tt-9z-1Qg"/>
-                        <outlet property="UILabelTaxShipingCost" destination="5Fq-mY-mWA" id="bBL-xv-GO5"/>
-                        <outlet property="UILabelTotalCostAffterCouponCode1" destination="Qnf-Q4-gkM" id="Ydg-AI-kXx"/>
-                        <outlet property="UILabelTotalCostAfterCouponCode" destination="GQR-37-oPX" id="Qza-Nh-DUR"/>
-                        <outlet property="UILabelTotalCostBeforeTax" destination="qeG-t0-lag" id="Q8N-QN-gAx"/>
-                        <outlet property="UILabelTotalCostPayout" destination="kfh-uS-5b0" id="e35-D0-zrx"/>
-                        <outlet property="UILabelTotalProduct" destination="2h4-pc-ujv" id="oDy-dH-UWx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqM-uu-jeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
