@@ -38,6 +38,17 @@ class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
         
     }
     @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
+        var payment_is_selected:Bool=false
+        for index in 0...self.payments.count-1 {
+            if(self.payments[index].isselected == 1){
+                payment_is_selected=true
+            }
+        }
+        if(!payment_is_selected){
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng lựa chọn phương thức thanh toán", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Đã hiểu", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
         
     }
     @IBAction func UIButtonTouchUpInsideBack(_ sender: UIButton) {
@@ -85,7 +96,6 @@ extension ADRFrontEndViewCheckoutPaymentVC: UICollectionViewDelegate,UICollectio
         
     }
     @objc func doubleTapSelectedPayment(sender: UITapGestureRecognizer) {
-        print("hello434334")
         for index in 0...self.payments.count-1 {
             self.payments[index].isselected=0
         }
