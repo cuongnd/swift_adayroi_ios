@@ -2320,7 +2320,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="cell_payment" id="36H-7Q-J21" customClass="PaymentCollectionViewCell" customModule="adayroi_online" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="paymentCell" id="36H-7Q-J21" customClass="paymentCell" customModule="adayroi_online" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="5.5" width="112" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -2359,10 +2359,6 @@
                                                                     </subviews>
                                                                 </view>
                                                                 <size key="customSize" width="112" height="90"/>
-                                                                <connections>
-                                                                    <outlet property="UIImageViewPayment" destination="ops-x6-e86" id="SI5-LY-qMB"/>
-                                                                    <outlet property="UILabelPayment" destination="bma-dW-Rxr" id="ssc-Hc-fOb"/>
-                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
@@ -2583,7 +2579,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="650"/>
                     <connections>
-                        <outlet property="UICollectionViewPayments" destination="71m-N0-moF" id="ern-v8-BvN"/>
+                        <outlet property="UICollectionViewPayments" destination="71m-N0-moF" id="0U4-JG-oj9"/>
                         <outlet property="UILabelCouponCost" destination="Qts-ZR-lc4" id="TVw-KJ-tzL"/>
                         <outlet property="UILabelShipingCost" destination="QfI-ZR-d6m" id="nSc-Nt-vVs"/>
                         <outlet property="UILabelTaxCost" destination="3eI-8T-GI1" id="8tt-9z-1Qg"/>

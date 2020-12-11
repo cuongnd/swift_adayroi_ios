@@ -14,11 +14,14 @@ import RxCocoa
 import Foundation
 import Alamofire
 import SlideMenuControllerSwift
-
+class paymentCell: UICollectionViewCell {
+    
+}
 
 class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
     
     
+    @IBOutlet weak var UICollectionViewPayments: UICollectionView!
     @IBOutlet weak var UIButtonNext: UIButton!
        @IBOutlet weak var UIButtonBack: UIButton!
     
@@ -36,3 +39,29 @@ class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated:true)
     }
 }
+extension ADRFrontEndViewCheckoutPaymentVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "paymentCell", for: indexPath) as! paymentCell
+       
+        return cell
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width) / 3, height: 50.0)
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+    }
+    
+    
+}
+
