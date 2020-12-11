@@ -7,9 +7,10 @@
 //
 import Foundation
 struct PaymentModel: Codable {
-    let _id: String
-    let name: String
-    let default_photo: ImageModel
+    var _id: String
+    var name: String
+    var default_photo: ImageModel
+    var isselected:Int=0
     
     enum CodingKeys: String, CodingKey {
         case _id = "_id"

@@ -16,6 +16,7 @@ import Alamofire
 import SlideMenuControllerSwift
 class paymentCell: UICollectionViewCell {
     
+    @IBOutlet weak var UIButtonSelectedPayment: UIButton!
     @IBOutlet weak var UIImageViewPayment: UIImageView!
     @IBOutlet weak var UILabelPaymentName: UILabel!
 }
@@ -54,19 +55,58 @@ extension ADRFrontEndViewCheckoutPaymentVC: UICollectionViewDelegate,UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "paymentCell", for: indexPath) as! paymentCell
         let payment = self.payments[indexPath.row]
         cell.UILabelPaymentName.text! = payment.name
+        cell.UIButtonSelectedPayment.tag = indexPath.row
         cell.UIImageViewPayment.sd_setImage(with: URL(string: payment.default_photo.img_path), placeholderImage: UIImage(named: "placeholder_image"))
+        cell.UIButtonSelectedPayment.addTarget(self, action: #selector(SelectedPayment), for: .touchUpInside)
+        
+        cell.UILabelPaymentName.tag = indexPath.row
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapSelectedPayment))
+        cell.UILabelPaymentName.isUserInteractionEnabled = true
+        cell.UILabelPaymentName.addGestureRecognizer(tap)
+        if payment.isselected == 1
+        {
+            cell.UIButtonSelectedPayment.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        }
+        else{
+            cell.UIButtonSelectedPayment.setImage(UIImage(systemName: "square"), for: .normal)
+            
+        }
         return cell
         
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width) / 3, height: 50.0)
+        return CGSize(width: (UIScreen.main.bounds.width) / 2, height: 120.0)
         
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
+    }
+    @objc func doubleTapSelectedPayment(sender: UITapGestureRecognizer) {
+        print("hello434334")
+        for index in 0...self.payments.count-1 {
+            self.payments[index].isselected=0
+        }
+        self.payments[sender.view?.tag ?? 0].isselected = 1;
+        self.UICollectionViewPayments.delegate = self
+        self.UICollectionViewPayments.dataSource = self
+        self.UICollectionViewPayments.reloadData()
+        
+    }
+    @objc func SelectedPayment(sender:UIButton)
+    {
+        let payment = self.payments[sender.tag]
+        for index in 0...self.payments.count-1 {
+            self.payments[index].isselected=0
+        }
+        
+        self.payments[sender.tag].isselected = 1;
+        self.UICollectionViewPayments.delegate = self
+        self.UICollectionViewPayments.dataSource = self
+        self.UICollectionViewPayments.reloadData()
+        print("payment:payment \(payment)")
     }
     
     
