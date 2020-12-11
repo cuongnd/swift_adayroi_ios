@@ -61,6 +61,9 @@
 		0C8A56512581DD4E00CAD7F1 /* GetUserResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56502581DD4E00CAD7F1 /* GetUserResponseModel.swift */; };
 		0C8A565325820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565225820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift */; };
 		0C8A56572582E7AC00CAD7F1 /* ADRFrontEndViewCheckoutPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56562582E7AC00CAD7F1 /* ADRFrontEndViewCheckoutPaymentVC.swift */; };
+		0C8A565B2583186E00CAD7F1 /* GetPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565A2583186E00CAD7F1 /* GetPaymentResponseModel.swift */; };
+		0C8A565D25831AEC00CAD7F1 /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565C25831AEC00CAD7F1 /* PaymentModel.swift */; };
+		0C8A565F25831BA900CAD7F1 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A565E25831BA900CAD7F1 /* ImageModel.swift */; };
 		0CCF2C52256F83620056AEC4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF2C51256F83620056AEC4 /* Empty.xib */; };
 		0CD77A30257891340083BC09 /* HomeCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */; };
 		0CD77A5B257A283A0083BC09 /* ADRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A5A257A283A0083BC09 /* ADRModel.swift */; };
@@ -198,6 +201,9 @@
 		0C8A56502581DD4E00CAD7F1 /* GetUserResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserResponseModel.swift; sourceTree = "<group>"; };
 		0C8A565225820EB200CAD7F1 /* ADRFrontEndViewCheckoutSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRFrontEndViewCheckoutSummaryVC.swift; sourceTree = "<group>"; };
 		0C8A56562582E7AC00CAD7F1 /* ADRFrontEndViewCheckoutPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADRFrontEndViewCheckoutPaymentVC.swift; sourceTree = "<group>"; };
+		0C8A565A2583186E00CAD7F1 /* GetPaymentResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentResponseModel.swift; sourceTree = "<group>"; };
+		0C8A565C25831AEC00CAD7F1 /* PaymentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
+		0C8A565E25831BA900CAD7F1 /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		0CCF2C51256F83620056AEC4 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryCell.xib; sourceTree = "<group>"; };
 		0CD77A5A257A283A0083BC09 /* ADRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRModel.swift; sourceTree = "<group>"; };
@@ -430,8 +436,11 @@
 		0C42DC01257BD63E007009E4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0C8A564C2581C5C900CAD7F1 /* UserModel.swift */,
+				0C8A565A2583186E00CAD7F1 /* GetPaymentResponseModel.swift */,
 				0C8A56502581DD4E00CAD7F1 /* GetUserResponseModel.swift */,
+				0C8A564C2581C5C900CAD7F1 /* UserModel.swift */,
+				0C8A565C25831AEC00CAD7F1 /* PaymentModel.swift */,
+				0C8A565E25831BA900CAD7F1 /* ImageModel.swift */,
 				0C8A56452581352700CAD7F1 /* APISession.swift */,
 				0CD77A5C257A29C10083BC09 /* ADRFrontEndModelCartItems.swift */,
 				0C42DC26257BEDFA007009E4 /* ADRFrontEndModelCartItem.swift */,
@@ -1134,6 +1143,7 @@
 				C8349E3A2497A554009EEF8D /* WriteReviewVC.swift in Sources */,
 				0C3C2E43256ABB70000B21C5 /* HomeDiscountProductCell.swift in Sources */,
 				C8B4B8502497485A0085ACAC /* ForgotPassword.swift in Sources */,
+				0C8A565B2583186E00CAD7F1 /* GetPaymentResponseModel.swift in Sources */,
 				C82AF9E52492068400464115 /* TrackOrderVC.swift in Sources */,
 				C8C99DD02488D77E00B5C187 /* FoodApp.xcdatamodeld in Sources */,
 				0C172C5B256ED43D005DA537 /* test2.swift in Sources */,
@@ -1179,6 +1189,8 @@
 				0C3C2E34256AB8EF000B21C5 /* HomeHotCategoryCell.swift in Sources */,
 				C8BAC06724891BB700ECE181 /* AddtoCartVC.swift in Sources */,
 				C8C99E072488D93C00B5C187 /* FloatRatingView.swift in Sources */,
+				0C8A565D25831AEC00CAD7F1 /* PaymentModel.swift in Sources */,
+				0C8A565F25831BA900CAD7F1 /* ImageModel.swift in Sources */,
 				C8C99DC82488D77E00B5C187 /* SceneDelegate.swift in Sources */,
 				0C42DC2C257C6D62007009E4 /* ObjectMapperFrontendProduct.swift in Sources */,
 				0C42DC3E257F8E8C007009E4 /* ADRTableSetting.swift in Sources */,
