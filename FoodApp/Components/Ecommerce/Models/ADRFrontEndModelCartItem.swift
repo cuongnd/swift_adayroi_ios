@@ -25,9 +25,6 @@ class ADRFrontEndModelCartItem: ADRModel {
     func minesCartItem(cart_id:Int64, mines:Int64) -> Void {
         ADRTableCart.shared.minesCartItem(cart_id: cart_id, mines: mines)
     }
-    func getDataCart() -> OrderDataUploadModel {
-        
-    }
     func plusCartItem(cart_id:Int64, plus:Int64) -> Void {
         ADRTableCart.shared.plusCartItem(cart_id: cart_id, plus: plus)
     }
