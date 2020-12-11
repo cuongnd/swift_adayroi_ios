@@ -170,10 +170,16 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
             return;
         }
         var list_attribute:[String:String]=[:];
+        
+        for index in 0...self.attributes_header.count-1 {
+            let current_item=self.attributes_header[index];
+            if(self.SelectedAttributes[current_item["_id"].stringValue]==nil){
+                showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: "Vui lòng lựa chọn \(current_item["name"])")
+                return
+            }
+       }
         for attribute in self.SelectedAttributes
         {
-            print("attribute \(attribute.value)")
-            //let value=attribute["value"].dictionaryValue;
             list_attribute[attribute.key]=attribute.value["_id"].stringValue
         }
         
@@ -203,7 +209,6 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("hello3434343")
         self.DescriptionProduct.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
             if complete != nil {
                 self.DescriptionProduct.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
