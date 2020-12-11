@@ -132,9 +132,25 @@ extension LoginVC
                     let userId = userData["_id"]!.stringValue
                     UserDefaultManager.setStringToUserDefaults(value: userId, key: UD_userId)
                     UserDefaultManager.setStringToUserDefaults(value: "", key: UD_isSkip)
-                    
-                    
-                    
+                    ADRTableUser.shared.insert(
+                        user_id: userData["user_id"]!.stringValue,
+                        username: userData["username"]!.stringValue,
+                        active: userData["active"]!.intValue,
+                        code: userData["code"]!.stringValue,
+                        phonenumber: userData["phonenumber"]!.stringValue,
+                        userToken: userData["userToken"]!.stringValue,
+                        role: userData["role"]!.stringValue,
+                        shipping_fullname: userData["shipping_fullname"]!.stringValue,
+                        shipping_email: userData["shipping_email"]!.stringValue,
+                        shipping_phone: userData["shipping_phone"]!.stringValue,
+                        shipping_address_1: userData["shipping_address_1"]!.stringValue,
+                        shipping_address_2: userData["shipping_address_2"]!.stringValue,
+                        billing_fullname: userData["billing_fullname"]!.stringValue,
+                        billing_email: userData["billing_email"]!.stringValue,
+                        billing_phone: userData["billing_phone"]!.stringValue,
+                        billing_address_1: userData["billing_address_1"]!.stringValue,
+                        billing_address_2: userData["billing_address_2"]!.stringValue
+                    )
                     if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "vi" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
                     {
                         let storyBoard = UIStoryboard(name: "Home", bundle: nil)
