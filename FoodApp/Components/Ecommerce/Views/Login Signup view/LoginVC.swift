@@ -128,12 +128,13 @@ extension LoginVC
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
                     let userData = jsonResponse!["data_user"].dictionaryValue
-                    
+                    print("userData: \(userData)")
                     let userId = userData["_id"]!.stringValue
                     UserDefaultManager.setStringToUserDefaults(value: userId, key: UD_userId)
                     UserDefaultManager.setStringToUserDefaults(value: "", key: UD_isSkip)
+                    
                     ADRTableUser.shared.insert(
-                        user_id: userData["user_id"]!.stringValue,
+                        user_id: userData["_id"]!.stringValue,
                         username: userData["username"]!.stringValue,
                         active: userData["active"]!.intValue,
                         code: userData["code"]!.stringValue,

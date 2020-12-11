@@ -40,12 +40,12 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         super.viewDidLoad()
         UITextViewShippingAddress1.delegate = self
         UITextViewShippingAddress2.delegate = self
-         let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
+        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
         let urlStringPostUpdateUser = API_URL + "/api/users/\(user_id)"
         self.Webservice_getUserInfo(url: urlStringPostUpdateUser, params: [:])
-       
         
-
+        
+        
         
     }
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
@@ -87,7 +87,7 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
         }
     }
     
-   
+    
     
     
     @IBAction func go_to_sumary_checkout(_ sender: UIButton) {
@@ -186,23 +186,23 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
                 return
             }
         }
-      
+        
         
         let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
-            
+        
         let params: NSDictionary = [
-        "shipping_fullname": UITextFieldShippingFullName.text!,
-        "shipping_email": UITextFieldShippingEmail.text!,
-        "shipping_phone": UITextFieldShippingPhonenumber.text!,
-        "shipping_address_1": UITextViewShippingAddress1.text!,
-        "shipping_address_2": UITextViewShippingAddress2.text!,
-        
-        "billing_fullname": UITextFieldBillingFullName.text!,
-        "billing_email": UITextFieldBillingEmail.text!,
-        "billing_phone": UITextFieldBillingPhone.text!,
-        "billing_address_1": UITextViewBillingAddress1.text!,
-        "billing_address_2": UITextViewBillingAddress2.text!,
-        
+            "shipping_fullname": UITextFieldShippingFullName.text!,
+            "shipping_email": UITextFieldShippingEmail.text!,
+            "shipping_phone": UITextFieldShippingPhonenumber.text!,
+            "shipping_address_1": UITextViewShippingAddress1.text!,
+            "shipping_address_2": UITextViewShippingAddress2.text!,
+            
+            "billing_fullname": UITextFieldBillingFullName.text!,
+            "billing_email": UITextFieldBillingEmail.text!,
+            "billing_phone": UITextFieldBillingPhone.text!,
+            "billing_address_1": UITextViewBillingAddress1.text!,
+            "billing_address_2": UITextViewBillingAddress2.text!,
+            
         ]
         ADRTableUser.shared.updateShippingAndBilldingInfo(
             user_id:user_id,
@@ -232,6 +232,31 @@ extension ADRFrontEndViewCheckoutVC
 {
     
     func Webservice_getUserInfo(url:String, params:NSDictionary) -> Void {
+        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
+        let user:Row!=ADRTableUser.shared.getUserInfoByUserId(user_id: user_id)
+        if(user==nil){
+            
+        }else{
+            print("user: \(user)")
+            do{
+                
+                self.UITextFieldShippingFullName.text=try user.get(Expression<String>("shipping_fullname"))
+                self.UITextFieldShippingEmail.text=try user.get(Expression<String>("shipping_phone"))
+                self.UITextFieldShippingPhonenumber.text=try user.get(Expression<String>("shipping_phone"))
+                self.UITextViewShippingAddress1.text=try user.get(Expression<String>("shipping_address_1"))
+                self.UITextViewShippingAddress2.text=try user.get(Expression<String>("shipping_address_2"))
+                
+                self.UITextFieldBillingFullName.text=try user.get(Expression<String>("billing_fullname"))
+                self.UITextFieldBillingEmail.text=try user.get(Expression<String>("billing_email"))
+                self.UITextFieldBillingPhone.text=try user.get(Expression<String>("billing_phone"))
+                self.UITextViewBillingAddress1.text=try user.get(Expression<String>("billing_address_1"))
+                self.UITextViewBillingAddress2.text=try user.get(Expression<String>("billing_address_2"))
+                
+            }catch{
+                let nsError=error as NSError
+                print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+            }
+        }
         WebServices().CallGlobalAPIResponseData(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:Data? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -242,17 +267,7 @@ extension ADRFrontEndViewCheckoutVC
                     let jsonDecoder = JSONDecoder()
                     let getUserResponseModel = try jsonDecoder.decode(GetUserResponseModel.self, from: jsonResponse!)
                     let userModel:UserModel=getUserResponseModel.user
-                    self.UITextFieldShippingFullName.text=userModel.shipping_fullname
-                    self.UITextFieldShippingEmail.text=userModel.shipping_email
-                    self.UITextFieldShippingPhonenumber.text=userModel.shipping_phone
-                    self.UITextViewShippingAddress1.text=userModel.shipping_address_1
-                    self.UITextViewShippingAddress2.text=userModel.shipping_address_2
                     
-                    self.UITextFieldBillingFullName.text=userModel.billing_fullname
-                    self.UITextFieldBillingEmail.text=userModel.billing_email
-                    self.UITextFieldBillingPhone.text=userModel.billing_phone
-                    self.UITextViewBillingAddress1.text=userModel.billing_address_1
-                    self.UITextViewBillingAddress2.text=userModel.billing_address_2
                     print("userModel:\(userModel)")
                 } catch let error as NSError  {
                     print("error: \(error)")
@@ -260,7 +275,7 @@ extension ADRFrontEndViewCheckoutVC
                 
                 
                 //print("userModel:\(userModel)")
-                    
+                
             }
         }
         
@@ -276,9 +291,9 @@ extension ADRFrontEndViewCheckoutVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
-                     let data = jsonResponse!["data"].dictionaryValue
-                     let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
-                     self.navigationController?.pushViewController(vc, animated:true)
+                    let data = jsonResponse!["data"].dictionaryValue
+                    let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutSummaryVC") as! ADRFrontEndViewCheckoutSummaryVC
+                    self.navigationController?.pushViewController(vc, animated:true)
                     
                     
                 }

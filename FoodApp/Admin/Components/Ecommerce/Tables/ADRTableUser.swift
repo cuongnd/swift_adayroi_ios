@@ -150,7 +150,7 @@ class ADRTableUser: ADRTable{
             return insertId
         }catch{
             let nsError=error as NSError
-            print("insert new table Cart error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+            print("insert new table user error. Eoverride error is \(nsError), \(nsError.userInfo)")
             return nil
         }
     }
@@ -180,6 +180,22 @@ class ADRTableUser: ADRTable{
         }
     }
     
+    func getUserInfoByUserId(user_id:String)->Row!{
+        do{
+            let filter=(self.user_id == user_id)
+            var row:AnySequence<Row>=try Database.shared.connection?.prepare(table.filter(filter)) as! AnySequence<Row>
+            let first_row = row.first(where: { (a_row) -> Bool in
+                return true
+            })
+            return first_row
+            
+        }catch{
+            let nsError=error as NSError
+            print("get row user error. Eoverride rror is \(nsError), \(nsError.userInfo)")
+        }
+        
+        return nil
+    }
     
     func queryAll() -> AnySequence<Row>? {
         do{
