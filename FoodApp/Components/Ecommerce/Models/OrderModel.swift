@@ -7,61 +7,118 @@
 //
 import Foundation
 struct OrderModel: Codable {
-    let facebook_id: String
-    let shipping_address_1: String
-    let shipping_city: String
-    let billing_country: String
-    let billing_phone: String
-    let billing_address_1: String
-    let billing_fullname: String
-    let shipping_state: String
-    let active: Int64
-    let billing_company: String
+    let order_id: String
+    let total: String
+    let trans_status_title: String
+    let payment_method_name: String
+    let created_date: String
     let modify_date: String
-    let billing_state: String
-    let billing_city: String
-    let shipping_address_2: String
-    let _id: String
-    let phonenumber: String
-    let fullname: String
-    let billing_postal_code: String
-    let email: String
+    let customer_id: String
+    let user_affiliate_id: String
+    let utm_source: String
+    let user_id: String
+    let payment_method_id: String
+    let order_status_id: String
+    let order_number: String
+    let balance_amount: String
+    let payment_type: String
+    let billing_address_1: String
     let billing_address_2: String
+    let billing_city: String
+    let billing_company: String
     let billing_email: String
-    let shipping_fullname: String
+    let billing_full_name: String
+    let billing_phone: String
+    let billing_postal_code: String
+    let contact_name: String
+    let coupon_discount_amount: String
+    let currency_short_form: String
+    let currency_symbol: String
+    let discount_amount: String
+    let is_bank: String
+    let is_cod: String
+    let is_paypal: String
+    let is_stripe: String
+    let memo: String
+    let payment_method_amount: String
+    let payment_discount_percent: String
+    let shipping_full_name: String
+    let shipping_address_1: String
+    let shipping_address_2: String
+    let shipping_amount: String
+    let shipping_city: String
+    let shipping_company: String
     let shipping_email: String
-    let shipping_postal_code: String
-    let profile_image: String
+    let shipping_method_amount: String
+    let shipping_method_name: String
     let shipping_phone: String
-    let username: String
+    let shipping_postal_code: String
+    let shipping_tax_percent: String
+    let sub_total_amount: String
+    let tax_amount: String
+    let tax_percent: String
+    let total_item_count: String
+    let total_item_amount: String
+    let trans_status_id: String
+    let list_product: [OrderProductModel]
+    
+    
     enum CodingKeys: String, CodingKey {
-        case facebook_id = "facebook_id"
-        case shipping_address_1 = "shipping_address_1"
-        case shipping_city = "shipping_city"
-        case billing_country = "billing_country"
-        case billing_phone = "billing_phone"
-        case billing_email = "billing_email"
-        case billing_address_1 = "billing_address_1"
-        case billing_fullname = "billing_fullname"
-        case shipping_state = "shipping_state"
-        case active = "active"
-        case billing_company = "billing_company"
+        case order_id = "_id"
+        case total = "total"
+        case trans_status_title = "trans_status_title"
+        case payment_method_name = "payment_method_name"
+        case created_date = "created_date"
         case modify_date = "modify_date"
-        case billing_state = "billing_state"
-        case billing_city = "billing_city"
-        case shipping_address_2 = "shipping_address_2"
-        case _id = "_id"
-        case phonenumber = "phonenumber"
-        case fullname = "fullname"
-        case billing_postal_code = "billing_postal_code"
-        case email = "email"
+        case customer_id = "customer_id"
+        case user_affiliate_id = "user_affiliate_id"
+        case utm_source = "utm_source"
+        case user_id = "user_id"
+        case payment_method_id = "payment_method_id"
+        case order_status_id = "order_status_id"
+        case order_number = "order_number"
+        case balance_amount = "balance_amount"
+        case payment_type = "payment_type"
+        case billing_address_1 = "billing_address_1"
         case billing_address_2 = "billing_address_2"
+        case billing_city = "billing_city"
+        case billing_company = "billing_company"
+        case billing_email = "billing_email"
+        case billing_full_name = "billing_full_name"
+        case billing_phone = "billing_phone"
+        case billing_postal_code = "billing_postal_code"
+        case contact_name = "contact_name"
+        case coupon_discount_amount = "coupon_discount_amount"
+        case currency_short_form = "currency_short_form"
+        case currency_symbol = "currency_symbol"
+        case discount_amount = "discount_amount"
+        case is_bank = "is_bank"
+        case is_cod = "is_cod"
+        case is_paypal = "is_paypal"
+        case is_stripe = "is_stripe"
+        case memo = "memo"
+        case payment_method_amount = "payment_method_amount"
+        case payment_discount_percent = "payment_discount_percent"
+        case shipping_full_name = "shipping_full_name"
+        case shipping_address_1 = "shipping_address_1"
+        case shipping_address_2 = "shipping_address_2"
+        case shipping_amount = "shipping_amount"
+        case shipping_city = "shipping_city"
+        case shipping_company = "shipping_company"
         case shipping_email = "shipping_email"
-        
-        case shipping_fullname = "shipping_fullname"
-        case shipping_postal_code = "shipping_postal_code"
-        case profile_image = "profile_image"
+        case shipping_method_amount = "shipping_method_amount"
+        case shipping_method_name = "shipping_method_name"
         case shipping_phone = "shipping_phone"
-        case username = "username"
+        case shipping_postal_code = "shipping_postal_code"
+        case shipping_tax_percent = "shipping_tax_percent"
+        case sub_total_amount = "sub_total_amount"
+        case tax_amount = "tax_amount"
+        case tax_percent = "tax_percent"
+        case total_item_count = "total_item_count"
+        case total_item_amount = "total_item_amount"
+        case trans_status_id = "trans_status_id"
+        case list_product = "list_product"
+        
+        
     }
 }
