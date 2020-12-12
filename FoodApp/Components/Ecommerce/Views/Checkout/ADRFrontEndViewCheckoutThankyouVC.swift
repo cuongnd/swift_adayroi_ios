@@ -23,6 +23,7 @@ class orderProductCell: UICollectionViewCell {
 }
 class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     
+    @IBOutlet weak var UIButtonHomePage: UIButton!
     @IBOutlet weak var UICollectionViewOrderProducts: UICollectionView!
     var order_id:String=""
     @IBOutlet weak var UIButtonNext: UIButton!
@@ -54,6 +55,11 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
         
 
         
+    }
+    @IBAction func UIButtonHomePageClick(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+              self.navigationController?.pushViewController(vc, animated:true)
     }
     @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutPaymentVC") as! ADRFrontEndViewCheckoutPaymentVC

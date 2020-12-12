@@ -2697,9 +2697,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGh-3i-Fbj">
                                         <rect key="frame" x="118" y="0.0" width="139" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Tiếp tục mua hàng">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="UIButtonHomePageClick:" destination="BiU-Kz-8hg" eventType="touchUpInside" id="pdD-uK-UL8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2816,7 +2820,7 @@
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="orderProductCell" reuseIdentifier="orderProductCell" id="7RB-uF-pyA" customClass="orderProductCell" customModule="adayroi_online" customModuleProvider="target">
                                                         <rect key="frame" x="2" y="0.0" width="355" height="118"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="355" height="118"/>
                                                             <autoresizingMask key="autoresizingMask"/>
@@ -3334,6 +3338,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="1550"/>
                     <connections>
+                        <outlet property="UIButtonHomePage" destination="uGh-3i-Fbj" id="gR0-sH-FuS"/>
                         <outlet property="UICollectionViewOrderProducts" destination="aU6-lx-xGO" id="CX9-rM-GMU"/>
                     </connections>
                 </viewController>
