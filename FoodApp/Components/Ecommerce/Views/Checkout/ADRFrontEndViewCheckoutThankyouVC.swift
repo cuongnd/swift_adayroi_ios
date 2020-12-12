@@ -18,15 +18,14 @@ import SlideMenuControllerSwift
 
 class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     
-    
+    var order_id:String=""
     @IBOutlet weak var UIButtonNext: UIButton!
        @IBOutlet weak var UIButtonBack: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId)
-       let urlStringPostUpdateUser = API_URL + "/api/users/\(user_id)"
-       self.Webservice_getUserInfo(url: urlStringPostUpdateUser, params: [:])
+        let urlStringPostUpdateUser = API_URL + "/api/orders/\(self.order_id)"
+       self.Webservice_getOrderInfo(url: urlStringPostUpdateUser, params: [:])
 
         
 
@@ -44,7 +43,7 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
 extension ADRFrontEndViewCheckoutThankyouVC
 {
     
-    func Webservice_getUserInfo(url:String, params:NSDictionary) -> Void {
+    func Webservice_getOrderInfo(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPIResponseData(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:Data? , _ strErrorMessage:String) in
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
@@ -53,9 +52,9 @@ extension ADRFrontEndViewCheckoutThankyouVC
                 print(jsonResponse!)
                 do {
                     let jsonDecoder = JSONDecoder()
-                    let getUserResponseModel = try jsonDecoder.decode(GetUserResponseModel.self, from: jsonResponse!)
-                    let userModel:UserModel=getUserResponseModel.user
-                  print("userModel:\(userModel)")
+                    let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
+                    let orderModel:OrderModel=getOrderResponseModel.order
+                    print("orderModel:\(orderModel)")
                 } catch let error as NSError  {
                     print("error: \(error)")
                 }

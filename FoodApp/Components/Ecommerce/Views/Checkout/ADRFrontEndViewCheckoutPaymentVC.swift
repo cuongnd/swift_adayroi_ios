@@ -274,6 +274,7 @@
                         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["msg"].stringValue)
                         let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
                         let vc = storyBoard.instantiateViewController(identifier: "ADRFrontEndViewCheckoutThankyouVC") as! ADRFrontEndViewCheckoutThankyouVC
+                        vc.order_id=data["_id"]?.stringValue as! String
                         self.navigationController?.pushViewController(vc, animated:true)
                         
                         
