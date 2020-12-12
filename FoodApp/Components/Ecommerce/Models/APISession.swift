@@ -16,14 +16,15 @@ class APISession {
     
     typealias response = Single<Data>
     
-    func callApi(url:String,method:String) -> response {
-        let method1=method.lowercased()
-        var httpMethod:HTTPMethod = .post
-        if(method1=="get"){
-            httpMethod = .get
+    func callApi(path:String,method_name:String,params:NSDictionary) -> response {
+        var httpMethor:HTTPMethod = .post
+        if(method_name.lowercased()=="get"){
+            httpMethor = .get
         }
+        let path = "/summary"
+        
         return Single.create { [weak self] single in
-            let request = AF.request(URL(string: url)!, method: httpMethod, encoding: JSONEncoding.default).validate().responseData { (response) in
+            let request = AF.request(URL(string: API_URL + path)!, method: httpMethor, encoding: JSONEncoding.default).validate().responseData { (response) in
                 switch response.result {
                 case .success(let data):
                     single(.success(data))
@@ -31,11 +32,9 @@ class APISession {
                     single(.failure(error))
                 }
             }
-            print(request.cURLDescription());
             return Disposables.create {
                 request.cancel()
             }
         }
     }
 }
-

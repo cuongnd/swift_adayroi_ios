@@ -7,18 +7,21 @@
 //
 import Foundation
 struct OrderAttributeModel: Codable {
-    let attribute_id: String
+    let order_product_id: String
     let name: String
     let value: String
+    let price: Float
     init() {
-        attribute_id = ""
+        order_product_id = ""
         name = ""
         value=""
+        price=0
     }
     enum CodingKeys: String, CodingKey {
-        case attribute_id = "attribute_id"
+        case order_product_id = "order_product_id"
         case name = "name"
         case value = "value"
+        case price = "price"
         
     }
 }

@@ -2814,7 +2814,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7RB-uF-pyA">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="orderProductCell" reuseIdentifier="orderProductCell" id="7RB-uF-pyA" customClass="orderProductCell" customModule="adayroi_online" customModuleProvider="target">
                                                         <rect key="frame" x="2" y="0.0" width="355" height="118"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -2905,6 +2905,11 @@
                                                             <constraint firstAttribute="bottom" secondItem="DnJ-UF-Uws" secondAttribute="bottom" constant="5" id="J2x-87-HtY"/>
                                                             <constraint firstAttribute="trailing" secondItem="DnJ-UF-Uws" secondAttribute="trailing" id="clO-tV-wiR"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outlet property="UILabelPrice" destination="nZM-v5-vEH" id="Ph9-g6-g9Q"/>
+                                                            <outlet property="UILabelProductName" destination="M8I-FD-SsD" id="Qga-a5-zua"/>
+                                                            <outlet property="UILabelTotal" destination="9Jh-gX-2Fo" id="w4m-Pw-fKU"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -3328,6 +3333,9 @@
                         <viewLayoutGuide key="safeArea" id="T2K-z2-4xY"/>
                     </view>
                     <size key="freeformSize" width="375" height="1550"/>
+                    <connections>
+                        <outlet property="UICollectionViewOrderProducts" destination="aU6-lx-xGO" id="CX9-rM-GMU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BI-9b-MmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

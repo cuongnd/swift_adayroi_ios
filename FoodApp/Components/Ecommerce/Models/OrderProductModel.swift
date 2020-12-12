@@ -11,21 +11,21 @@ struct OrderProductModel: Codable {
     var order_id: String
     var product_name: String
     var product_description: String
-    var total: String
+    var total: Float
     var quantity: Int
     var imageUrl: String
     var created_date: String
     var currency_short_form: String
     var currency_symbol: String
-    var discount_amount: String
-    var discount_percent: String
-    var discount_price: String
-    var discount_value: String
-    var original_price: String
-    var unit_price: String
+    var discount_amount: Float
+    var discount_percent: Int
+    var discount_price: Float
+    var discount_value: Float
+    var original_price: Float
+    var unit_price: Float
     var product_id: String
-    var product_unit: String
-    var shipping_cost: String
+    var product_unit: Float
+    var shipping_cost: Float
     var list_attribute_value: [OrderAttributeModel]
     var color_id:String
     var color_value:String
@@ -35,21 +35,21 @@ struct OrderProductModel: Codable {
         order_id = ""
         product_name = ""
         product_description = ""
-        total = ""
+        total = 0
         quantity = 0
         imageUrl = ""
         created_date = ""
         currency_short_form = ""
         currency_symbol = ""
-        discount_amount = ""
-        discount_percent = ""
-        discount_price = ""
-        discount_value = ""
-        original_price = ""
-        unit_price = ""
+        discount_amount = 0
+        discount_percent = 0
+        discount_price = 0
+        discount_value = 0
+        original_price = 0
+        unit_price = 0
         product_id = ""
-        product_unit = ""
-        shipping_cost = ""
+        product_unit = 0
+        shipping_cost = 0
         list_attribute_value=[OrderAttributeModel]()
         color_id=""
         color_value=""

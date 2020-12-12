@@ -15,15 +15,39 @@ import Foundation
 import Alamofire
 import SlideMenuControllerSwift
 
-
+class orderProductCell: UICollectionViewCell {
+    
+    @IBOutlet weak var UILabelProductName: UILabel!
+    @IBOutlet weak var UILabelPrice: UILabel!
+    @IBOutlet weak var UILabelTotal: UILabel!
+}
 class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     
+    @IBOutlet weak var UICollectionViewOrderProducts: UICollectionView!
     var order_id:String=""
     @IBOutlet weak var UIButtonNext: UIButton!
        @IBOutlet weak var UIButtonBack: UIButton!
-    
+    @IBOutlet weak var loadButton: UIButton!
+    var viewmodel: ViewOrderControllerViewModel!
+    var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "orderProductCell", bundle: nil)
+        self.UICollectionViewOrderProducts.register(nib, forCellWithReuseIdentifier: "cell")
+        
+        self.viewmodel = ViewOrderControllerViewModel()
+        viewmodel.outputs.list_produt.subscribe{ (event) in
+            Observable.of(event.element!).bind(to: self.UICollectionViewOrderProducts.rx.items(cellIdentifier: "orderProductCell", cellType: orderProductCell.self)) { (row, element, cell) in
+                cell.UILabelPrice.text=String(element.unit_price)
+                cell.UILabelProductName.text=element.product_name
+                cell.UILabelTotal.text=String(element.total)
+            }
+            .disposed(by: self.disposeBag)
+        }
+        viewmodel.outputs.messageError.subscribe { (event) in
+            
+        }
+        
         let urlStringPostUpdateUser = API_URL + "/api/orders/\(self.order_id)"
        self.Webservice_getOrderInfo(url: urlStringPostUpdateUser, params: [:])
 
@@ -54,6 +78,9 @@ extension ADRFrontEndViewCheckoutThankyouVC
                     let jsonDecoder = JSONDecoder()
                     let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
                     let orderModel:OrderModel=getOrderResponseModel.order
+                    self.viewmodel.list_produt.onNext(orderModel.list_product)
+                    
+                    
                     print("orderModel:\(orderModel)")
                 } catch let error as NSError  {
                     print("error: \(error)")

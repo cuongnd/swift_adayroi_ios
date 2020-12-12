@@ -8,7 +8,7 @@
 import Foundation
 struct OrderModel: Codable {
     let order_id: String
-    let total: String
+    var total: Float=0
     let trans_status_title: String
     let payment_method_name: String
     let created_date: String
@@ -20,7 +20,7 @@ struct OrderModel: Codable {
     let payment_method_id: String
     let order_status_id: String
     let order_number: String
-    let balance_amount: String
+    let balance_amount: Int
     let payment_type: String
     let billing_address_1: String
     let billing_address_2: String
@@ -31,17 +31,17 @@ struct OrderModel: Codable {
     let billing_phone: String
     let billing_postal_code: String
     let contact_name: String
-    let coupon_discount_amount: String
+    let coupon_discount_amount: Int
     let currency_short_form: String
     let currency_symbol: String
-    let discount_amount: String
-    let is_bank: String
-    let is_cod: String
-    let is_paypal: String
-    let is_stripe: String
+    let discount_amount: Int
+    let is_bank: Int
+    let is_cod: Int
+    let is_paypal: Int
+    let is_stripe: Int
     let memo: String
-    let payment_method_amount: String
-    let payment_discount_percent: String
+    let payment_method_amount: Int
+    let payment_discount_percent: Int
     let shipping_full_name: String
     let shipping_address_1: String
     let shipping_address_2: String
@@ -54,11 +54,11 @@ struct OrderModel: Codable {
     let shipping_phone: String
     let shipping_postal_code: String
     let shipping_tax_percent: String
-    let sub_total_amount: String
-    let tax_amount: String
-    let tax_percent: String
-    let total_item_count: String
-    let total_item_amount: String
+    let sub_total_amount: Int
+    let tax_amount: Float
+    let tax_percent: Int
+    let total_item_count: Int
+    let total_item_amount: Int
     let trans_status_id: String
     let list_product: [OrderProductModel]
     
