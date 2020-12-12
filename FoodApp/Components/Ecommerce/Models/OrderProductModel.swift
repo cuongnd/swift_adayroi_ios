@@ -29,7 +29,7 @@ struct OrderProductModel: Codable {
     var qty: String
     var shipping_cost: String
     var list_attribute_value: [OrderAttributeModel]
-    var color: [OrderColorModel]
+    var color: OrderColorModel
     var isselected:Int=0
     init() {
         order_product_id = ""
@@ -53,6 +53,8 @@ struct OrderProductModel: Codable {
         product_unit = ""
         qty = ""
         shipping_cost = ""
+        list_attribute_value=[OrderAttributeModel]()
+        color=OrderColorModel()
        
     }
     enum CodingKeys: String, CodingKey {
@@ -77,5 +79,7 @@ struct OrderProductModel: Codable {
             case product_unit = "product_unit"
             case qty = "qty"
             case shipping_cost = "shipping_cost"
+            case list_attribute_value = "list_attribute_value"
+            case color = "color"
     }
 }
