@@ -8,6 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Font Awesome 5 Free-Regular-400.otf">
+            <string>FontAwesome5Free-Regular</string>
+        </array>
+        <array key="Font Awesome 5 Free-Solid-900.otf">
+            <string>FontAwesome5Free-Solid</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -16,7 +22,6 @@
         <!--LoginVC-->
         <scene sceneID="gzG-a1-wqS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QJk-Vy-7Rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginVC" id="ci1-6k-UNl" customClass="LoginVC" customModule="adayroi_online" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SPd-zk-z0z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -233,6 +238,7 @@
                         <outlet property="txt_username" destination="rA2-qz-BUi" id="PTF-Z1-jVX"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QJk-Vy-7Rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2386" y="151"/>
         </scene>
@@ -4748,7 +4754,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="106" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4S-B2-Hih">
-                                                        <rect key="frame" x="35.666666666666664" y="0.0" width="34.999999999999993" height="32"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="rbK-ew-46I"/>
                                                         </constraints>
@@ -4774,7 +4780,7 @@
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51N-Pa-Tcj">
-                                                        <rect key="frame" x="35.666666666666657" y="0.0" width="35" height="32"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="uOs-K3-DL5"/>
                                                         </constraints>
@@ -4805,7 +4811,7 @@
                                                 <rect key="frame" x="276" y="15" width="83" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL5-et-PDz">
-                                                        <rect key="frame" x="24.666666666666686" y="0.0" width="34" height="32"/>
+                                                        <rect key="frame" x="26.666666666666686" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="edC-Tv-h20"/>
                                                         </constraints>
@@ -5183,7 +5189,7 @@
                                                 <rect key="frame" x="0.0" y="15" width="106" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHF-to-HQv">
-                                                        <rect key="frame" x="35.666666666666664" y="0.0" width="34.999999999999993" height="32"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="cwf-1M-92v"/>
                                                         </constraints>
@@ -5209,7 +5215,7 @@
                                                 <rect key="frame" x="97" y="15" width="106" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCa-Ta-5OX">
-                                                        <rect key="frame" x="35.666666666666657" y="0.0" width="35" height="32"/>
+                                                        <rect key="frame" x="38" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="nSC-mv-Qct"/>
                                                         </constraints>
@@ -5240,7 +5246,7 @@
                                                 <rect key="frame" x="276" y="15" width="83" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCx-zi-AW7">
-                                                        <rect key="frame" x="24.666666666666686" y="0.0" width="34" height="32"/>
+                                                        <rect key="frame" x="26.666666666666686" y="0.0" width="30" height="32"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="32" id="D1g-QP-k1O"/>
                                                         </constraints>
@@ -5640,9 +5646,6 @@
                                         <state key="normal" title="Tiếp tục mua hàng">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="completed_order:" destination="nTW-Lf-Zdf" eventType="touchUpInside" id="hIo-KW-i03"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6163,11 +6166,6 @@
                         <viewLayoutGuide key="safeArea" id="Djg-FM-gUH"/>
                     </view>
                     <size key="freeformSize" width="375" height="1550"/>
-                    <connections>
-                        <outlet property="UICollectionViewListOrderProducts" destination="iLh-9y-e84" id="0Zr-8u-gvy"/>
-                        <outlet property="UILabelOrderNumber" destination="MYc-bi-Z32" id="fWa-27-F2w"/>
-                        <outlet property="UILabelTotalProduct" destination="J5b-eX-leM" id="3II-TR-5dr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfW-4S-e9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

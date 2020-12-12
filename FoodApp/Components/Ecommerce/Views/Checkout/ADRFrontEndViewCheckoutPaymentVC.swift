@@ -272,8 +272,8 @@
                     if responseCode == "success" {
                         let data = jsonResponse!["data"].dictionaryValue
                         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["msg"].stringValue)
-                        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+                        let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
+                        let vc = storyBoard.instantiateViewController(identifier: "ADRFrontEndViewCheckoutThankyouVC") as! ADRFrontEndViewCheckoutThankyouVC
                         self.navigationController?.pushViewController(vc, animated:true)
                         
                         
