@@ -3231,8 +3231,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mc-8t-h8A">
-                                                <rect key="frame" x="8" y="721" width="64" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mc-8t-h8A">
+                                                <rect key="frame" x="8" y="721" width="66.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3467,6 +3467,25 @@
                     <connections>
                         <outlet property="UIButtonHomePage" destination="uGh-3i-Fbj" id="gR0-sH-FuS"/>
                         <outlet property="UICollectionViewOrderProducts" destination="aU6-lx-xGO" id="FlE-ua-tKB"/>
+                        <outlet property="UILabelAddress1" destination="s17-T0-Pra" id="PS8-N7-93u"/>
+                        <outlet property="UILabelBillingAddress1" destination="Ygi-tF-s0h" id="9Va-Vf-tL8"/>
+                        <outlet property="UILabelBillingAddress2" destination="Qy3-2o-r0q" id="dOL-tF-fdD"/>
+                        <outlet property="UILabelBillingEmail" destination="tJv-LC-Kmn" id="PhJ-lX-icT"/>
+                        <outlet property="UILabelBillingPhone" destination="Kkw-hx-QU5" id="dbL-AX-OFv"/>
+                        <outlet property="UILabelBtnCopy" destination="cAN-Mh-jhj" id="D1g-U9-CMQ"/>
+                        <outlet property="UILabelDiscountAmount" destination="htW-RJ-Uvp" id="OP1-Dk-97R"/>
+                        <outlet property="UILabelOrderNumber" destination="khR-gw-G8W" id="e7b-Cy-puo"/>
+                        <outlet property="UILabelOrderStatus" destination="Tea-M8-f6L" id="xJx-Fr-xXD"/>
+                        <outlet property="UILabelShippingAddress2" destination="cp3-X0-mvC" id="9s5-wO-VPG"/>
+                        <outlet property="UILabelShippingCost" destination="aBE-jE-fLI" id="YgA-S9-z26"/>
+                        <outlet property="UILabelShippingEmail" destination="CHH-cC-QYh" id="dYF-eT-xBb"/>
+                        <outlet property="UILabelShippingPhone" destination="uci-mt-dk5" id="IHF-cD-fnJ"/>
+                        <outlet property="UILabelShippingTax" destination="vQA-95-0Kv" id="Tx6-35-IWm"/>
+                        <outlet property="UILabelTax" destination="jPc-du-dyY" id="lnS-xW-NE1"/>
+                        <outlet property="UILabelTotalCostAfterDiscount" destination="Zg4-RJ-IgU" id="xcC-EL-O5C"/>
+                        <outlet property="UILabelTotalCostAfterTax" destination="tkO-EA-JCO" id="nzt-KL-fw5"/>
+                        <outlet property="UILabelTotalCostBeforPrice" destination="r59-WG-el5" id="QGQ-u5-MXI"/>
+                        <outlet property="UILabelTotalProduct" destination="6uh-Qv-hfT" id="4hf-cW-b2G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BI-9b-MmU" userLabel="First Responder" sceneMemberID="firstResponder"/>

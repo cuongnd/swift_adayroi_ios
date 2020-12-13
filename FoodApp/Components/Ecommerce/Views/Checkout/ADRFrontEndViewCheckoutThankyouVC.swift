@@ -34,7 +34,26 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     
     @IBOutlet weak var UIButtonHomePage: UIButton!
     @IBOutlet weak var UICollectionViewOrderProducts: UICollectionView!
+    @IBOutlet weak var UILabelDiscountAmount: UILabel!
+    @IBOutlet weak var UILabelTax: UILabel!
     
+    @IBOutlet weak var UILabelBillingAddress2: UILabel!
+    @IBOutlet weak var UILabelBillingAddress1: UILabel!
+    @IBOutlet weak var UILabelBillingEmail: UILabel!
+    @IBOutlet weak var UILabelBillingPhone: UILabel!
+    @IBOutlet weak var UILabelShippingAddress2: UILabel!
+    @IBOutlet weak var UILabelAddress1: UILabel!
+    @IBOutlet weak var UILabelShippingEmail: UILabel!
+    @IBOutlet weak var UILabelShippingPhone: UILabel!
+    @IBOutlet weak var UILabelTotalCostAfterTax: UILabel!
+    @IBOutlet weak var UILabelShippingCost: UILabel!
+    @IBOutlet weak var UILabelShippingTax: UILabel!
+    @IBOutlet weak var UILabelOrderStatus: UILabel!
+    @IBOutlet weak var UILabelTotalCostAfterDiscount: UILabel!
+    @IBOutlet weak var UILabelTotalCostBeforPrice: UILabel!
+    @IBOutlet weak var UILabelTotalProduct: UILabel!
+    @IBOutlet weak var UILabelBtnCopy: UILabel!
+    @IBOutlet weak var UILabelOrderNumber: UILabel!
     var order_id:String=""
     @IBOutlet weak var UIButtonNext: UIButton!
     @IBOutlet weak var UIButtonBack: UIButton!
@@ -173,7 +192,7 @@ extension ADRFrontEndViewCheckoutThankyouVC: UICollectionViewDelegate,UICollecti
         if(collectionView==self.UICollectionViewOrderProducts){
             return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
         }else{
-            return CGSize(width: (UIScreen.main.bounds.width) / 3, height: 20.0)
+            return CGSize(width: (collectionView.bounds.width) / 2, height: 40.0)
         }
         
         
