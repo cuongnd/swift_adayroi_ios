@@ -2943,6 +2943,10 @@
                                                                                         </constraints>
                                                                                     </collectionViewCellContentView>
                                                                                     <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <connections>
+                                                                                        <outlet property="UILabelAttributeKeyValue" destination="IKa-eE-zKG" id="3LV-QT-nBQ"/>
+                                                                                        <outlet property="UILabelAttributeName" destination="WzA-UQ-kuU" id="Dc3-rE-PgP"/>
+                                                                                    </connections>
                                                                                 </collectionViewCell>
                                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZLa-xA-Not">
                                                                                     <rect key="frame" x="0.0" y="52" width="130" height="23"/>

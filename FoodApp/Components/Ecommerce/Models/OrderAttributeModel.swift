@@ -7,10 +7,10 @@
 //
 import Foundation
 struct OrderAttributeModel: Codable {
-    let order_product_id: String
-    let name: String
-    let value: String
-    let price: Float
+    var order_product_id: String=""
+    var name: String=""
+    var value: String=""
+    var price: Float=0
     init() {
         order_product_id = ""
         name = ""
