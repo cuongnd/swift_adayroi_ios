@@ -114,8 +114,8 @@ extension ADRFrontEndViewCheckoutThankyouVC
                     self.UILabelShippingEmail.text=orderModel.shipping_email
                     self.UILabelShippingPhone.text=orderModel.shipping_phone
                     self.UILabelTotalCostAfterTax.text=String(orderModel.total)
-                    self.UILabelShippingCost.text=orderModel.shipping_amount
-                    self.UILabelShippingTax.text=orderModel.shipping_amount
+                    self.UILabelShippingCost.text="0.0"
+                    self.UILabelShippingTax.text="0.0"
                     self.UILabelOrderStatus.text=orderModel.order_status_id
                     self.UILabelTotalCostAfterDiscount.text=String(orderModel.total)
                     self.UILabelTotalCostBeforPrice.text=String(orderModel.total)
