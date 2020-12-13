@@ -22,14 +22,12 @@ protocol ViewControllerViewModelOutPuts {
 protocol ViewControllerViewModelType {
     var inputs: ViewControllerViewModelInputs { get }
     var outputs: ViewControllerViewModelOutPuts { get }
-    var outputs1: ViewControllerViewModelOutPuts { get }
 }
 
 class ViewOrderControllerViewModel: ViewControllerViewModelType, ViewControllerViewModelInputs, ViewControllerViewModelOutPuts {
     
     var inputs: ViewControllerViewModelInputs { return self }
     var outputs: ViewControllerViewModelOutPuts { return self }
-    var outputs1: ViewControllerViewModelOutPuts { return self }
     private var disposeBag = DisposeBag()
 
     //MARK: - ViewControllerViewModelInputs
