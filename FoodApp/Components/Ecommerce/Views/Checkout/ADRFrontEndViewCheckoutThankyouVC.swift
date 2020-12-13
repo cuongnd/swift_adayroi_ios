@@ -42,7 +42,7 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     @IBOutlet weak var UILabelBillingEmail: UILabel!
     @IBOutlet weak var UILabelBillingPhone: UILabel!
     @IBOutlet weak var UILabelShippingAddress2: UILabel!
-    @IBOutlet weak var UILabelAddress1: UILabel!
+    @IBOutlet weak var UILabelShippingAddress1: UILabel!
     @IBOutlet weak var UILabelShippingEmail: UILabel!
     @IBOutlet weak var UILabelShippingPhone: UILabel!
     @IBOutlet weak var UILabelTotalCostAfterTax: UILabel!
@@ -104,7 +104,22 @@ extension ADRFrontEndViewCheckoutThankyouVC
                     let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
                     let orderModel:OrderModel=getOrderResponseModel.order
                     self.list_product=orderModel.list_product;
-
+                    self.UILabelOrderNumber.text=orderModel.order_number
+                    self.UILabelBillingAddress2.text=orderModel.billing_address_2
+                    self.UILabelBillingAddress1.text=orderModel.billing_address_1
+                    self.UILabelBillingEmail.text=orderModel.billing_email
+                    self.UILabelBillingPhone.text=orderModel.billing_phone
+                    self.UILabelShippingAddress2.text=orderModel.shipping_address_2
+                    self.UILabelShippingAddress1.text=orderModel.shipping_address_1
+                    self.UILabelShippingEmail.text=orderModel.shipping_email
+                    self.UILabelShippingPhone.text=orderModel.shipping_phone
+                    self.UILabelTotalCostAfterTax.text=String(orderModel.total)
+                    self.UILabelShippingCost.text=orderModel.shipping_amount
+                    self.UILabelShippingTax.text=orderModel.shipping_amount
+                    self.UILabelOrderStatus.text=orderModel.order_status_id
+                    self.UILabelTotalCostAfterDiscount.text=String(orderModel.total)
+                    self.UILabelTotalCostBeforPrice.text=String(orderModel.total)
+                    self.UILabelTotalProduct.text=String(orderModel.total_item_count)
                     self.UICollectionViewOrderProducts.delegate=self
                     self.UICollectionViewOrderProducts.dataSource = self
                     self.UICollectionViewOrderProducts.reloadData()
