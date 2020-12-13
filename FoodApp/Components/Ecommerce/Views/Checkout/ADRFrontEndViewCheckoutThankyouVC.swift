@@ -20,17 +20,27 @@ class orderProductCell: UICollectionViewCell {
     @IBOutlet weak var UILabelProductName: UILabel!
     @IBOutlet weak var UILabelPrice: UILabel!
     @IBOutlet weak var UILabelTotal: UILabel!
+    @IBOutlet weak var UICollectionViewAttributeNameValue: UICollectionView!
+    
 }
-class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
+class orderProductAttributeValueCell: UICollectionViewCell {
+    @IBOutlet weak var UILabelAttributeName: UILabel!
+    @IBOutlet weak var UILabelAttributeKeyValue: UILabel!
+}
+class ADRFrontEndViewCheckoutThankyouVC: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var UIButtonHomePage: UIButton!
     @IBOutlet weak var UICollectionViewOrderProducts: UICollectionView!
+    
     var order_id:String=""
     @IBOutlet weak var UIButtonNext: UIButton!
        @IBOutlet weak var UIButtonBack: UIButton!
     @IBOutlet weak var loadButton: UIButton!
     var viewmodel: ViewOrderControllerViewModel!
     var disposeBag = DisposeBag()
+    var disposeBag1 = DisposeBag()
+    
+    @IBOutlet weak var UICollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "orderProductCell", bundle: nil)
@@ -42,9 +52,18 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
                 cell.UILabelPrice.text=String(element.unit_price)
                 cell.UILabelProductName.text=element.product_name
                 cell.UILabelTotal.text=String(element.total)
+                self.viewmodel.outputs.list_produt_attribute.subscribe{ (event1) in
+                    Observable.of(event1.element!).bind(to: cell.UICollectionViewAttributeNameValue.rx.items(cellIdentifier: "orderProductCell", cellType: orderProductAttributeValueCell.self)) { (row1, element1, cell1) in
+                        cell1.UILabelAttributeName.text="dfgdf"
+                    }
+                    .disposed(by: self.disposeBag1)
+                }
+                
+                
             }
             .disposed(by: self.disposeBag)
         }
+        
         viewmodel.outputs.messageError.subscribe { (event) in
             
         }
@@ -84,7 +103,15 @@ extension ADRFrontEndViewCheckoutThankyouVC
                     let jsonDecoder = JSONDecoder()
                     let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
                     let orderModel:OrderModel=getOrderResponseModel.order
+                    
                     self.viewmodel.list_produt.onNext(orderModel.list_product)
+                    for product in orderModel.list_product
+                    {
+                        self.viewmodel.list_produt_attribute.onNext(product.list_attribute_value)
+                    }
+                    
+                    
+                    
                     
                     
                     print("orderModel:\(orderModel)")
@@ -124,4 +151,16 @@ extension ADRFrontEndViewCheckoutThankyouVC
     }
     
     
+}
+extension ADRFrontEndViewCheckoutThankyouVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 9 // How many cells to display
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        myCell.backgroundColor = UIColor.blue
+        return myCell
+    }
 }

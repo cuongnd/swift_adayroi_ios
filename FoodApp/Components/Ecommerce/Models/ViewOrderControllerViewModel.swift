@@ -14,18 +14,22 @@ protocol ViewControllerViewModelInputs {
 
 protocol ViewControllerViewModelOutPuts {
     var list_produt: PublishSubject<[OrderProductModel]> { get }
+    var list_produt_attribute: PublishSubject<[OrderAttributeModel]> { get }
+    
     var messageError: PublishSubject<String> { get }
 }
 
 protocol ViewControllerViewModelType {
     var inputs: ViewControllerViewModelInputs { get }
     var outputs: ViewControllerViewModelOutPuts { get }
+    var outputs1: ViewControllerViewModelOutPuts { get }
 }
 
 class ViewOrderControllerViewModel: ViewControllerViewModelType, ViewControllerViewModelInputs, ViewControllerViewModelOutPuts {
     
     var inputs: ViewControllerViewModelInputs { return self }
     var outputs: ViewControllerViewModelOutPuts { return self }
+    var outputs1: ViewControllerViewModelOutPuts { return self }
     private var disposeBag = DisposeBag()
 
     //MARK: - ViewControllerViewModelInputs
@@ -33,6 +37,7 @@ class ViewOrderControllerViewModel: ViewControllerViewModelType, ViewControllerV
     //MARK: - ViewControllerViewModelOutPuts
     
     var list_produt = PublishSubject<[OrderProductModel]>()
+    var list_produt_attribute = PublishSubject<[OrderAttributeModel]>()
     
     var messageError = PublishSubject<String>()
     

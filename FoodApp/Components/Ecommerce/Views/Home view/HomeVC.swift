@@ -379,6 +379,7 @@ extension HomeVC
                 if responseCode == "success" {
                      let mainShopInfo = jsonResponse!["data"].dictionaryValue
                      UserDefaultManager.setStringToUserDefaults(value:mainShopInfo["currency"]!.stringValue, key: UD_currency)
+                    /*
                      let urlString = API_URL + "/api/products?order_by=added_date"
                        self.Webservice_getHomeLastProducts(url: urlString, params: [:])
                        let urlStringHomeCategories = API_URL + "/api/categories"
@@ -391,6 +392,7 @@ extension HomeVC
                        self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
                        let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
                        self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
+                        */
                     
                     
                 }
