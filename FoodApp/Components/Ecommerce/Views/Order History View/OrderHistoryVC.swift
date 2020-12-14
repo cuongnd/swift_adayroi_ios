@@ -82,14 +82,14 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let data = self.OrderHistoryData[indexPath.row]
+        _ = self.OrderHistoryData[indexPath.row]
         return 135
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       let cell = self.Tableview_OrderHistory.dequeueReusableCell(withIdentifier: "OrderHistoryCell") as! OrderHistoryCell
-        var data = self.OrderHistoryData[indexPath.row]
+        let cell = self.Tableview_OrderHistory.dequeueReusableCell(withIdentifier: "OrderHistoryCell") as! OrderHistoryCell
+        let data = self.OrderHistoryData[indexPath.row]
         cell.lbl_QtyLabel.text = "QTY :".localiz()
         cell.lbl_OrderNoLabel.text = "ORDER ID :".localiz()
         cell.lbl_orderStatusLabel.text = "STATUS :".localiz()
@@ -97,7 +97,7 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
         cell.lbl_Date.text = data["date"].stringValue
         //let setdate = DateFormater.getBirthDateStringFromDateString(givenDate:data["created_date"].stringValue)
         //cell.lbl_Date.text = setdate
-        let status = data["order_status_id"].stringValue
+        _ = data["order_status_id"].stringValue
         
         cell.lbl_OrderNumber.text = data["order_number"].stringValue
         let ItemPrice = formatter.string(for: data["total"].stringValue.toDouble)
@@ -109,7 +109,7 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.OrderHistoryData[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(identifier: "OrderHistoryDetailsVC") as! OrderHistoryDetailsVC
-        vc.OrderId = data["id"].stringValue
+        vc.OrderId = data["_id"].stringValue
         vc.status = data["status"].stringValue
         self.navigationController?.pushViewController(vc, animated: true)
     }

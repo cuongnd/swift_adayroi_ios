@@ -75,9 +75,8 @@ class OrderHistoryDetailsVC: UIViewController {
         cornerRadius(viewName: self.btn_cancel, radius: 8)
         cornerRadius(viewName: self.img_Driver, radius: self.img_Driver.frame.height / 2)
         cornerRadius(viewName: self.btn_Call, radius: self.btn_Call.frame.height / 2)
-        let urlString = API_URL + "getorderdetails"
-        let params: NSDictionary = ["order_id":self.OrderId]
-        self.Webservice_GetOrderDetails(url: urlString, params:params)
+        let urlString = API_URL + "/api/orders/\(self.OrderId)"
+        self.Webservice_GetOrderDetails(url: urlString, params:[:])
     }
     @IBAction func btnTap_Back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -173,92 +172,19 @@ extension OrderHistoryDetailsVC: UITableViewDelegate,UITableViewDataSource {
 //MARK: Webservices
 extension OrderHistoryDetailsVC {
     func Webservice_GetOrderDetails(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
+        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
             if strErrorMessage.count != 0 {
                 showAlertMessage(titleStr: "", messageStr: strErrorMessage)
             }
             else {
                 print(jsonResponse!)
-                let responseCode = jsonResponse!["status"].stringValue
-                if responseCode == "1" {
+                let responseCode = jsonResponse!["result"].stringValue
+                if responseCode == "success" {
                     let responseData = jsonResponse!["data"].arrayValue
                     
                     self.OrderDetailsData = responseData
-                    let summerydata = jsonResponse!["summery"].dictionaryValue
-                    let ItemPrice = formatter.string(for: summerydata["order_total"]!.stringValue.toDouble)
-                    self.lbl_OrderTotal.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
-                    if summerydata["discount_amount"]!.stringValue != ""
-                    {
-                        self.lbl_DiscountAmount.text = "-\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(formatter.string(for: summerydata["discount_amount"]!.stringValue.toDouble)!)"
-                        self.lbl_Promocode.text = summerydata["promocode"]!.stringValue
-                    }
-                    else{
-                        self.lbl_DiscountAmount.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(0.00)"
-                        self.lbl_Promocode.text = ""
-                    }
-                    let tax = summerydata["tax"]!.doubleValue
-                    let taxrate = (summerydata["order_total"]!.doubleValue) * (Double(tax)) / 100
-                    print(taxrate)
-                    let TaxratePrice = formatter.string(for: taxrate)
-                    print(TaxratePrice)
-                    self.lbl_tax.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(TaxratePrice!)"
-                    let order_type = jsonResponse!["order_type"].stringValue
-                    var DeliveryPrice = String()
-                    if order_type == "2"
-                    {
-                        DeliveryPrice = formatter.string(for: 0.00)!
-                        self.DeliveryAddress_Height.constant = 0.0
-                        self.driverTop_Height.constant = 0.0
-                        self.driverinfo_view.isHidden = true
-                        self.driverview_Height.constant = 0.0
-                    }
-                    else
-                    {
-                        DeliveryPrice = formatter.string(for: summerydata["delivery_charge"]!.stringValue.toDouble)!
-                        if self.status == "3" || self.status == "4"
-                        {
-                            self.DeliveryAddress_Height.constant = 70.0
-                            self.driverTop_Height.constant = 8.0
-                            self.driverinfo_view.isHidden = false
-                            self.driverview_Height.constant = 100.0
-                        }
-                        else
-                        {
-                            self.DeliveryAddress_Height.constant = 70.0
-                            self.driverTop_Height.constant = 0.0
-                            self.driverinfo_view.isHidden = true
-                            self.driverview_Height.constant = 0.0
-                        }
-                        
-                    }
-                     
-                    self.lbl_driverName.text = summerydata["driver_name"]!.stringValue
-                    self.img_Driver.sd_setImage(with: URL(string: summerydata["driver_profile_image"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-                    self.driver_mobile = summerydata["driver_mobile"]!.stringValue
-                    self.lbl_DeliveryCharge.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(DeliveryPrice)"
-                    let GrandPrintTotal = "\(summerydata["order_total"]!.doubleValue + Double(TaxratePrice!)! + Double(DeliveryPrice.replacingOccurrences(of: ",", with: ""))! - summerydata["discount_amount"]!.doubleValue)"
-                    let TotalPrice = formatter.string(for: GrandPrintTotal.toDouble)
-                    print(TotalPrice)
-                    self.lbl_TotalAmount.text = "\((UserDefaultManager.getStringFromUserDefaults(key: UD_currency)))\(TotalPrice!)"
-                    self.lbl_stringTax.text = "\(self.taxStr) (\(summerydata["tax"]!.stringValue)%)"
-                    self.lbl_DeliveryAddress.text = jsonResponse!["address"].stringValue
-                    self.OrderNumber = jsonResponse!["order_number"].stringValue
                     
-                    
-                    if summerydata["order_notes"]!.stringValue == ""
-                    {
-                        self.OrderNote_Height.constant = 0.0
-                    }
-                    else{
-                        self.OrderNote_Height.constant = 90
-                        self.lbl_Notes.text = summerydata["order_notes"]!.stringValue
-                    }
-                    //                    self.lbl_OrderNotes.text = summerydata["order_notes"]!.stringValue
-                    self.tableview_Height.constant = CGFloat(105 * self.OrderDetailsData.count)
-                    self.Tableview_OrderSummary.delegate = self
-                    self.Tableview_OrderSummary.dataSource = self
-                    self.Tableview_OrderSummary.reloadData()
                     
                 }
                 else {
