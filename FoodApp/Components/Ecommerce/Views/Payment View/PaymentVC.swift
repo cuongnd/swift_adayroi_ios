@@ -173,7 +173,7 @@ extension PaymentVC {
                     {
                         let alertVC = UIAlertController(title: Bundle.main.displayName!, message: jsonResponse!["message"].stringValue, preferredStyle: .alert)
                         let yesAction = UIAlertAction(title: "Okay".localiz(), style: .default) { (action) in
-                            let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
+                            let storyBoard = UIStoryboard(name: "Order", bundle: nil)
                             let objVC = storyBoard.instantiateViewController(withIdentifier: "OrderHistoryVC") as! OrderHistoryVC
                             let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
                             let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
@@ -190,7 +190,7 @@ extension PaymentVC {
                     {
                         let alertVC = UIAlertController(title: Bundle.main.displayName!, message: jsonResponse!["message"].stringValue, preferredStyle: .alert)
                         let yesAction = UIAlertAction(title: "Okay".localiz(), style: .default) { (action) in
-                            let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
+                            let storyBoard = UIStoryboard(name: "Order", bundle: nil)
                             let objVC = storyBoard.instantiateViewController(withIdentifier: "OrderHistoryVC") as! OrderHistoryVC
                             let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
                             let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)

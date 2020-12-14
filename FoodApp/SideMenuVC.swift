@@ -70,7 +70,7 @@ class SideMenuVC: UIViewController {
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         self.homeViewController = UINavigationController(rootViewController: homeVC)
         self.homeViewController.setNavigationBarHidden(true, animated: true)
-        let historyVC = UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(withIdentifier: "OrderHistoryVC") as! OrderHistoryVC
+        let historyVC = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "OrderHistoryVC") as! OrderHistoryVC
         self.historyViewController = UINavigationController(rootViewController: historyVC)
         self.historyViewController.setNavigationBarHidden(true, animated: true)
         
