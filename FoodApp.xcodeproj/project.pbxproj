@@ -76,6 +76,7 @@
 		0C8A56752585167200CAD7F1 /* ViewOrderControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56742585167200CAD7F1 /* ViewOrderControllerViewModel.swift */; };
 		0C8A56792586323100CAD7F1 /* ViewOrderControllerViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A56782586323100CAD7F1 /* ViewOrderControllerViewModel2.swift */; };
 		0C8A567B25874F8800CAD7F1 /* OrderUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A567A25874F8700CAD7F1 /* OrderUserModel.swift */; };
+		0C8A567D258763E700CAD7F1 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A567C258763E700CAD7F1 /* Order.storyboard */; };
 		0CCF2C52256F83620056AEC4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF2C51256F83620056AEC4 /* Empty.xib */; };
 		0CD77A30257891340083BC09 /* HomeCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */; };
 		0CD77A5B257A283A0083BC09 /* ADRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD77A5A257A283A0083BC09 /* ADRModel.swift */; };
@@ -228,6 +229,7 @@
 		0C8A56742585167200CAD7F1 /* ViewOrderControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderControllerViewModel.swift; sourceTree = "<group>"; };
 		0C8A56782586323100CAD7F1 /* ViewOrderControllerViewModel2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewOrderControllerViewModel2.swift; sourceTree = "<group>"; };
 		0C8A567A25874F8700CAD7F1 /* OrderUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderUserModel.swift; sourceTree = "<group>"; };
+		0C8A567C258763E700CAD7F1 /* Order.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		0CCF2C51256F83620056AEC4 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		0CD77A2F257891340083BC09 /* HomeCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryCell.xib; sourceTree = "<group>"; };
 		0CD77A5A257A283A0083BC09 /* ADRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRModel.swift; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 				0C51710225656F2200C4EA7F /* User.storyboard */,
 				0C5171042565707B00C4EA7F /* Setting.storyboard */,
 				0C172C5E256F49A6005DA537 /* homepage.storyboard */,
+				0C8A567C258763E700CAD7F1 /* Order.storyboard */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				C8C99DD52488D77F00B5C187 /* LaunchScreen.storyboard in Resources */,
 				88D6F6EB24A63246005F1439 /* GoogleService-Info.plist in Resources */,
 				0C5170FC2565535C00C4EA7F /* Home.storyboard in Resources */,
+				0C8A567D258763E700CAD7F1 /* Order.storyboard in Resources */,
 				0C3C2E3A256ABA17000B21C5 /* HomeLastProductCell.xib in Resources */,
 				0C3C2E3F256ABACB000B21C5 /* HomeHotProductCell.xib in Resources */,
 				C8C99DD22488D77F00B5C187 /* Assets.xcassets in Resources */,

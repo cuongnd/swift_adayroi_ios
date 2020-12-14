@@ -101,14 +101,14 @@ class OrderHistoryVC: UIViewController {
     }
     @objc private func refreshData(_ sender: Any) {
         self.refreshControl.endRefreshing()
-        let urlString = API_URL + "/api/orders/my_list_order/limit/30/start/0"
-        let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-        self.Webservice_GetHistory(url: urlString, params:params)
+        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId);
+        let urlString = API_URL + "/api/orders/my_list_order/limit/30/start/0?user_id=\(user_id)"
+        self.Webservice_GetHistory(url: urlString, params:[:])
     }
     override func viewWillAppear(_ animated: Bool) {
-        let urlString = API_URL + "/api/orders/my_list_order/limit/30/start/0"
-        let params: NSDictionary = ["user_id":UserDefaultManager.getStringFromUserDefaults(key: UD_userId)]
-        self.Webservice_GetHistory(url: urlString, params:params)
+        let user_id:String=UserDefaultManager.getStringFromUserDefaults(key: UD_userId);
+        let urlString = API_URL + "/api/orders/my_list_order/limit/30/start/0?user_id=\(user_id)"
+        self.Webservice_GetHistory(url: urlString, params:[:])
     }
     @IBAction func btnTap_Menu(_ sender: UIButton) {
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
@@ -397,9 +397,9 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
             cell.lbl_orderStatusLabel.text = "STATUS :".localiz()
             cell.lbl_itemQty.text = data["qty"].stringValue
             cell.lbl_Date.text = data["date"].stringValue
-            let setdate = DateFormater.getBirthDateStringFromDateString(givenDate:data["date"].stringValue)
-            cell.lbl_Date.text = setdate
-            let status = data["status"].stringValue
+            //let setdate = DateFormater.getBirthDateStringFromDateString(givenDate:data["created_date"].stringValue)
+            //cell.lbl_Date.text = setdate
+            let status = data["order_status_id"].stringValue
             if status == "1"
             {
                 cell.lbl_itemAddress.text = "Order placed"
@@ -417,17 +417,9 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
                 cell.lbl_itemAddress.text = "Order delivered"
             }
             cell.lbl_OrderNumber.text = data["order_number"].stringValue
-            let ItemPrice = formatter.string(for: data["total_price"].stringValue.toDouble)
+            let ItemPrice = formatter.string(for: data["total"].stringValue.toDouble)
             cell.lbl_itemPrice.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemPrice!)"
-            let paymentType = data["payment_type"].stringValue
-            if paymentType == "0"
-            {
-                cell.lbl_PaymentType.text = "PAY BY CASH".localiz()
-            }
-            else if paymentType == "1"
-            {
-                cell.lbl_PaymentType.text = "RAZORPAY".localiz()
-            }
+            cell.lbl_PaymentType.text =  data["payment_method_name"].stringValue
             cell.btn_Close.tag = indexPath.row
             cell.btn_Close.addTarget(self, action: #selector(btnTapopen), for: .touchUpInside)
             return cell
