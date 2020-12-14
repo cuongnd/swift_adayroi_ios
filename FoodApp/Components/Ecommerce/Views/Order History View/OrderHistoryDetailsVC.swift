@@ -61,20 +61,7 @@ class OrderHistoryDetailsVC: UIViewController {
     var driver_mobile = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.lbl_titleLabel.text = "Order Details"
-        self.lbl_OrderSummaryLabel.text = "Order Summary".localiz()
-        self.lbl_PaymentSummaryLabel.text = "Payment Summary".localiz()
-        self.lbl_OrderTotalLabel.text = "Order Total".localiz()
-        self.lbl_DeliveryChargeLabel.text = "Delivery Charge".localiz()
-        self.lbl_DiscountOfferLabel.text = "Discount Offer".localiz()
-        self.lbl_TotalAmountLabel.text = "Total Amount".localiz()
-        self.lbl_DeliveryAddressLabel.text = "Delivery Address".localiz()
         
-        self.btn_cancel.isHidden = true
-        self.btn_cancelHeight.constant = 0.0
-        cornerRadius(viewName: self.btn_cancel, radius: 8)
-        cornerRadius(viewName: self.img_Driver, radius: self.img_Driver.frame.height / 2)
-        cornerRadius(viewName: self.btn_Call, radius: self.btn_Call.frame.height / 2)
         let urlString = API_URL + "/api/orders/\(self.OrderId)"
         self.Webservice_GetOrderDetails(url: urlString, params:[:])
     }
