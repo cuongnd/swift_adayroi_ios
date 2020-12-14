@@ -37,6 +37,7 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     @IBOutlet weak var UILabelDiscountAmount: UILabel!
     @IBOutlet weak var UILabelTax: UILabel!
     
+    @IBOutlet weak var UILabelThanhyouName: UILabel!
     @IBOutlet weak var UILabelBillingAddress2: UILabel!
     @IBOutlet weak var UILabelBillingAddress1: UILabel!
     @IBOutlet weak var UILabelBillingEmail: UILabel!
@@ -104,6 +105,7 @@ extension ADRFrontEndViewCheckoutThankyouVC
                     let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
                     let orderModel:OrderModel=getOrderResponseModel.order
                     self.list_product=orderModel.list_product;
+                    self.UILabelThanhyouName.text="Cám ơn bạn \(orderModel.)"
                     self.UILabelOrderNumber.text=orderModel.order_number
                     self.UILabelBillingAddress2.text=orderModel.billing_address_2
                     self.UILabelBillingAddress1.text=orderModel.billing_address_1

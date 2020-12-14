@@ -60,6 +60,7 @@ struct OrderModel: Codable {
     let total_item_count: Int
     let total_item_amount: Int
     let trans_status_id: String
+    let user: [OrderUserModel]
     let list_product: [OrderProductModel]
     
     
@@ -118,6 +119,7 @@ struct OrderModel: Codable {
         case total_item_amount = "total_item_amount"
         case trans_status_id = "trans_status_id"
         case list_product = "list_product"
+        case user = "user"
         
         
     }
