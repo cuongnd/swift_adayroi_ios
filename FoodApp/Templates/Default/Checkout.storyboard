@@ -2694,9 +2694,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZE-YD-rck">
                                 <rect key="frame" x="0.0" y="1514" width="375" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGh-3i-Fbj">
-                                        <rect key="frame" x="118" y="0.0" width="139" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGh-3i-Fbj">
+                                        <rect key="frame" x="120" y="0.0" width="135" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Tiếp tục mua hàng">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2708,7 +2707,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.76292492000000001" blue="0.37603111020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="uGh-3i-Fbj" firstAttribute="centerX" secondItem="iZE-YD-rck" secondAttribute="centerX" id="43V-yA-YMv"/>
                                     <constraint firstAttribute="height" constant="36" id="WJE-0Z-Pfu"/>
+                                    <constraint firstAttribute="bottom" secondItem="uGh-3i-Fbj" secondAttribute="bottom" constant="6" id="yeq-Uq-Ibq"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFI-n5-8dV">

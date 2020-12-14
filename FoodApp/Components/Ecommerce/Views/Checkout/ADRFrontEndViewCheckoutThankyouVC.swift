@@ -76,9 +76,15 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
         
     }
     @IBAction func UIButtonHomePageClick(_ sender: UIButton) {
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(vc, animated:true)
+       let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
+        appNavigation.setNavigationBarHidden(true, animated: true)
+        let slideMenuController = SlideMenuController(mainViewController: appNavigation, rightMenuViewController: sideMenuViewController)
+        slideMenuController.changeRightViewWidth(UIScreen.main.bounds.width * 0.8)
+        slideMenuController.removeRightGestures()
+        UIApplication.shared.windows[0].rootViewController = slideMenuController
     }
     @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutPaymentVC") as! ADRFrontEndViewCheckoutPaymentVC
@@ -105,7 +111,7 @@ extension ADRFrontEndViewCheckoutThankyouVC
                     let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
                     let orderModel:OrderModel=getOrderResponseModel.order
                     self.list_product=orderModel.list_product;
-                    self.UILabelThanhyouName.text="Cám ơn bạn \(orderModel.)"
+                    self.UILabelThanhyouName.text="Cám ơn bạn \(orderModel.user.fullname)"
                     self.UILabelOrderNumber.text=orderModel.order_number
                     self.UILabelBillingAddress2.text=orderModel.billing_address_2
                     self.UILabelBillingAddress1.text=orderModel.billing_address_1

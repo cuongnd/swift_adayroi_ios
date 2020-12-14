@@ -60,7 +60,7 @@ struct OrderModel: Codable {
     let total_item_count: Int
     let total_item_amount: Int
     let trans_status_id: String
-    let user: [OrderUserModel]
+    let user: OrderUserModel
     let list_product: [OrderProductModel]
     
     
