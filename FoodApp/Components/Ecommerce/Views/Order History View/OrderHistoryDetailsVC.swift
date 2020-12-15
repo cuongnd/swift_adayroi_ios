@@ -9,61 +9,67 @@
 import UIKit
 import SwiftyJSON
 
-class orderDetailscell: UITableViewCell {
+class historyOrderProductCell: UICollectionViewCell {
     
-    @IBOutlet weak var lbl_itemsName: UILabel!
-    @IBOutlet weak var img_Items: UIImageView!
-    @IBOutlet weak var lbl_Price: UILabel!
-    @IBOutlet weak var lbl_Qtycount: UILabel!
-    @IBOutlet weak var btn_Note: UIButton!
-    @IBOutlet weak var btn_Addons: UIButton!
-    
+    @IBOutlet weak var UILabelProductName: UILabel!
+    @IBOutlet weak var UILabelPrice: UILabel!
+    @IBOutlet weak var UILabelquality: UILabel!
+    @IBOutlet weak var UILabelTotal: UILabel!
+    @IBOutlet weak var UICollectionViewAttributeNameValue: UICollectionView!
+    /*
+     @IBOutlet weak var UILabelPrice: UILabel!
+       @IBOutlet weak var UILabelquality: UILabel!
+       @IBOutlet weak var UILabelTotal: UILabel!
+       @IBOutlet weak var UILabelProductName: UILabel!
+      
+       @IBOutlet weak var UICollectionViewAttributeNameValue: UICollectionView!
+    */
+  
+}
+class historyOrderProductAttributeValueCell: UICollectionViewCell {
+    @IBOutlet weak var UILabelAttributeName: UILabel!
+    @IBOutlet weak var UILabelAttributeKeyValue: UILabel!
 }
 class OrderHistoryDetailsVC: UIViewController {
     
-    @IBOutlet weak var OrderNote_Height: NSLayoutConstraint!
-    @IBOutlet weak var Tableview_OrderSummary: UITableView!
-    @IBOutlet weak var tableview_Height: NSLayoutConstraint!
-    var OrderId = String()
-    @IBOutlet weak var lbl_TotalAmount: UILabel!
-    @IBOutlet weak var lbl_OrderTotal: UILabel!
-    @IBOutlet weak var lbl_tax: UILabel!
-    @IBOutlet weak var lbl_DeliveryCharge: UILabel!
-    @IBOutlet weak var lbl_DeliveryAddress: UILabel!
-    @IBOutlet weak var lbl_stringTax: UILabel!
-    @IBOutlet weak var lbl_Promocode: UILabel!
-    @IBOutlet weak var lbl_DiscountAmount: UILabel!
-    
     @IBOutlet weak var btn_cancelHeight: NSLayoutConstraint!
     @IBOutlet weak var btn_cancel: UIButton!
-    
     @IBOutlet weak var lbl_titleLabel: UILabel!
-    @IBOutlet weak var lbl_OrderSummaryLabel: UILabel!
-    @IBOutlet weak var lbl_PaymentSummaryLabel: UILabel!
-    @IBOutlet weak var lbl_OrderTotalLabel: UILabel!
-    @IBOutlet weak var lbl_DeliveryChargeLabel: UILabel!
-    @IBOutlet weak var lbl_DiscountOfferLabel: UILabel!
-    @IBOutlet weak var lbl_TotalAmountLabel: UILabel!
-    @IBOutlet weak var lbl_DeliveryAddressLabel: UILabel!
-    @IBOutlet weak var DeliveryAddress_Height: NSLayoutConstraint!
-    @IBOutlet weak var lbl_Notes: UILabel!
-    @IBOutlet weak var driverinfo_view: CornerView!
-    
-    @IBOutlet weak var driverTop_Height: NSLayoutConstraint!
-    @IBOutlet weak var driverview_Height: NSLayoutConstraint!
-    @IBOutlet weak var lbl_driverName: UILabel!
-    @IBOutlet weak var img_Driver: UIImageView!
-    @IBOutlet weak var btn_Call: UIButton!
     var OrderNumber = String()
     var status = String()
+    var OrderId:String=""
     var OrderDetailsData = [JSON]()
+    var list_product:[OrderProductModel]=[OrderProductModel]()
     var taxStr = "Tax".localiz()
+    @IBOutlet weak var UILabelOrderNumber: UILabel!
+    @IBOutlet weak var UILabelCopyOrderNUmber: UILabel!
+    @IBOutlet weak var UILabelOrderStatus: UILabel!
+    @IBOutlet weak var UILabelTotalNumber: UILabel!
+    @IBOutlet weak var UILabelTotalCostBeforTax: UILabel!
+    @IBOutlet weak var UILabelDiscountAmount: UILabel!
+    @IBOutlet weak var UILabelTotalCostAfterDiscount: UILabel!
+    @IBOutlet weak var UILabelTax: UILabel!
+    @IBOutlet weak var UILabelShippingAmout: UILabel!
+    @IBOutlet weak var UILabelTaxPercent: UILabel!
+    @IBOutlet weak var UILabelTotalCoustAfterTax: UILabel!
+    @IBOutlet weak var UILabelShippingPhoneNumber: UILabel!
+    @IBOutlet weak var UILabelShippingEmail: UILabel!
+    @IBOutlet weak var UILabelShippingAddress1: UILabel!
+    @IBOutlet weak var UILabelShippingAddress2: UILabel!
+    @IBOutlet weak var UILabelBillingPhoneNumber: UILabel!
+    @IBOutlet weak var UILabelBillingEmail: UILabel!
+    @IBOutlet weak var UILabelBillingAddress1: UILabel!
+    @IBOutlet weak var UILabelBillingAddress2: UILabel!
+    @IBOutlet weak var UIImageViewColorImage: UIImageView!
+    @IBOutlet weak var UIImageViewProductImage: UIImageView!
+    @IBOutlet weak var UICollectionViewOrderProducts: UICollectionView!
     var driver_mobile = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let nib = UINib(nibName: "historyOrderProductCell", bundle: nil)
+        self.UICollectionViewOrderProducts.register(nib, forCellWithReuseIdentifier: "cell")
         let urlString = API_URL + "/api/orders/\(self.OrderId)"
-        self.Webservice_GetOrderDetails(url: urlString, params:[:])
+        self.Webservice_getOrderInfo(url: urlString, params:[:])
     }
     @IBAction func btnTap_Back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -86,100 +92,116 @@ class OrderHistoryDetailsVC: UIViewController {
        }
     
 }
-extension OrderHistoryDetailsVC: UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.OrderDetailsData.count
+extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if(collectionView==self.UICollectionViewOrderProducts){
+            return self.list_product.count
+        }else{
+            return self.list_product[collectionView.tag].list_attribute_value.count
+        }
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 105
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.Tableview_OrderSummary.dequeueReusableCell(withIdentifier: "orderDetailscell") as! orderDetailscell
-        cornerRadius(viewName: cell.img_Items, radius:4)
-        cornerRadius(viewName: cell.btn_Addons, radius:4.0)
-        cornerRadius(viewName: cell.btn_Note, radius:4.0)
-        let data = self.OrderDetailsData[indexPath.row]
-        cell.lbl_itemsName.text = data["item_name"].stringValue
-        
-        cell.lbl_Qtycount.text = "QTY : \(data["qty"].stringValue)"
-        let ItemtotalPrice = formatter.string(for: data["total_price"].stringValue.toDouble)
-        cell.lbl_Price.text = "\(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))\(ItemtotalPrice!)"
-        let itemImage = data["itemimage"].dictionaryValue
-        cell.img_Items.sd_setImage(with: URL(string: itemImage["image"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-        cell.btn_Addons.tag = indexPath.row
-        cell.btn_Addons.addTarget(self, action: #selector(btnTapAddons), for: .touchUpInside)
-        cell.btn_Note.tag = indexPath.row
-        cell.btn_Note.addTarget(self, action: #selector(btnTapNote), for: .touchUpInside)
-        
-        if data["addons"].arrayValue.count == 0
-        {
-            cell.btn_Addons.isEnabled = false
-            cell.btn_Addons.backgroundColor = UIColor.lightGray
-        }
-        else{
-            cell.btn_Addons.isEnabled = true
-        }
-        
-        let item_notes = data["item_notes"].stringValue
-        
-        if item_notes == ""
-        {
-            cell.btn_Note.isEnabled = false
-            cell.btn_Note.backgroundColor = UIColor.lightGray
-        }
-        else
-        {
-            cell.btn_Note.isEnabled = true
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if(collectionView==self.UICollectionViewOrderProducts){
+            let cell = self.UICollectionViewOrderProducts.dequeueReusableCell(withReuseIdentifier: "historyOrderProductCell", for: indexPath) as! historyOrderProductCell
+            let element=self.list_product[indexPath.row]
+            cell.UILabelPrice.text=String(element.unit_price)
+            cell.UILabelProductName.text=element.product_name
+            cell.UILabelTotal.text=String(element.total)
             
+            //cell.UILabelColorValue.text=element.color_value
+            //cell.UICollectionViewAttributeNameValue.delegate=self
+            //cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
+            //cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
+            
+            //cell.UICollectionViewAttributeNameValue.tag = indexPath.row
+            //cell.UICollectionViewAttributeNameValue.delegate = self
+            //cell.UICollectionViewAttributeNameValue.dataSource = self
+            //cell.UICollectionViewAttributeNameValue.reloadData()
+            return cell
+            
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "historyOrderProductAttributeValueCell", for: indexPath) as! historyOrderProductAttributeValueCell
+            let product=self.list_product[collectionView.tag]
+            let attribute=product.list_attribute_value[indexPath.row]
+            cell.UILabelAttributeName?.text=attribute.name as String
+            cell.UILabelAttributeKeyValue?.text=attribute.value as String
+            return cell
         }
-        return cell
-    }
-    @objc func btnTapAddons(sender:UIButton)
-    {
-        let data = OrderDetailsData[sender.tag]
-        let addonceData = data["addons"].arrayValue
-        print(addonceData)
-        let vc = self.storyboard?.instantiateViewController(identifier: "AddonceListVC") as! AddonceListVC
-        vc.SelectedAddons = addonceData
-        self.present(vc, animated: true, completion: nil)
+        
+        
         
     }
-    @objc func btnTapNote(sender:UIButton)
-    {
-        let data = OrderDetailsData[sender.tag]
-        //       let data = cartDetailsarray[sender.tag]
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "NoteVC") as! NoteVC
-        VC.modalPresentationStyle = .overFullScreen
-        VC.modalTransitionStyle = .crossDissolve
-        VC.Note = data["item_notes"].stringValue
-        self.present(VC,animated: true,completion: nil)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("collectionView: \(collectionView)")
+        if(collectionView==self.UICollectionViewOrderProducts){
+            return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
+        }else{
+            return CGSize(width: (collectionView.bounds.width) / 2, height: 40.0)
+        }
+        
+        
         
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+    }
+    
+    
 }
+
+
+
+
 //MARK: Webservices
 extension OrderHistoryDetailsVC {
-    func Webservice_GetOrderDetails(url:String, params:NSDictionary) -> Void {
-        WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
-            
-            if strErrorMessage.count != 0 {
-                showAlertMessage(titleStr: "", messageStr: strErrorMessage)
-            }
-            else {
-                print(jsonResponse!)
-                let responseCode = jsonResponse!["result"].stringValue
-                if responseCode == "success" {
-                    let responseData = jsonResponse!["data"].arrayValue
-                    
-                    self.OrderDetailsData = responseData
-                    
-                    
-                }
-                else {
-                    showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
-                }
-            }
-        }
-    }
+     func Webservice_getOrderInfo(url:String, params:NSDictionary) -> Void {
+           WebServices().CallGlobalAPIResponseData(url: url, headers: [:], parameters:params, httpMethod: "GET", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:Data? , _ strErrorMessage:String) in
+               if strErrorMessage.count != 0 {
+                   showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: strErrorMessage)
+               }
+               else {
+                   print(jsonResponse!)
+                   do {
+                       let jsonDecoder = JSONDecoder()
+                       let getOrderResponseModel = try jsonDecoder.decode(GetOrderResponseModel.self, from: jsonResponse!)
+                       let orderModel:OrderModel=getOrderResponseModel.order
+                       self.list_product=orderModel.list_product;
+                       self.UILabelOrderNumber.text=orderModel.order_number
+                       self.UILabelBillingAddress1.text=orderModel.billing_address_1
+                       self.UILabelBillingAddress2.text=orderModel.billing_address_2
+                       self.UILabelBillingEmail.text=orderModel.billing_email
+                       self.UILabelBillingPhoneNumber.text=orderModel.billing_phone
+                       self.UILabelShippingAddress2.text=orderModel.shipping_address_2
+                       self.UILabelShippingAddress1.text=orderModel.shipping_address_1
+                       self.UILabelShippingEmail.text=orderModel.shipping_email
+                       self.UILabelShippingPhoneNumber.text=orderModel.shipping_phone
+                       self.UILabelTotalCoustAfterTax.text=String(orderModel.total)
+                       self.UILabelShippingAmout.text="0.0"
+                       self.UILabelTaxPercent.text="0.0"
+                       self.UILabelOrderStatus.text=orderModel.order_status_id
+                       self.UILabelTotalCostAfterDiscount.text=String(orderModel.total)
+                       self.UILabelTotalCostAfterDiscount.text=String(orderModel.total)
+                       self.UILabelTotalCostAfterDiscount.text=String(orderModel.total_item_count)
+                       self.UICollectionViewOrderProducts.delegate=self
+                       self.UICollectionViewOrderProducts.dataSource = self
+                       self.UICollectionViewOrderProducts.reloadData()
+                       print("orderModel:\(orderModel)")
+                   } catch let error as NSError  {
+                       print("error: \(error)")
+                   }
+                   
+                   
+                   //print("userModel:\(userModel)")
+                   
+               }
+           }
+           
+           
+           
+       }
     func Webservice_CancelOrder(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
             
