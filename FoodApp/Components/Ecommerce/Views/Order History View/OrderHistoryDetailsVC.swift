@@ -29,10 +29,7 @@ class historyOrderProductCell: UICollectionViewCell {
     */
   
 }
-class historyOrderProductAttributeValueCell: UICollectionViewCell {
-    @IBOutlet weak var UILabelAttributeName: UILabel!
-    @IBOutlet weak var UILabelAttributeKeyValue: UILabel!
-}
+
 class OrderHistoryDetailsVC: UIViewController {
     
     @IBOutlet weak var btn_cancelHeight: NSLayoutConstraint!
@@ -117,8 +114,8 @@ extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSo
         cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
         cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
         
-        cell.tagListView.textFont = UIFont.systemFont(ofSize: 24)
-        cell.tagListView.alignment = .center // possible values are [.leading, .trailing, .left, .center, .right]
+        cell.tagListView.textFont = UIFont.systemFont(ofSize: 14)
+        cell.tagListView.alignment = .left // possible values are [.leading, .trailing, .left, .center, .right]
         for attribute in element.list_attribute_value{
             cell.tagListView.addTag("\(attribute.name):\(attribute.value)")
         }
@@ -127,14 +124,7 @@ extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSo
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("collectionView: \(collectionView)")
-        
-        if(collectionView==self.UICollectionViewOrderProducts){
-            return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "historyOrderProductAttributeValueCell", for: indexPath) as! historyOrderProductAttributeValueCell
-            return CGSize(width: (collectionView.bounds.width) / 2, height:10)
-        }
+        return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
         
         
         

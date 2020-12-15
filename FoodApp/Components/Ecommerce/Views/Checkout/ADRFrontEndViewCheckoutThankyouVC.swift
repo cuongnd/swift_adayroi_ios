@@ -14,22 +14,18 @@ import RxCocoa
 import Foundation
 import Alamofire
 import SlideMenuControllerSwift
-
+import TagListView
 class orderProductCell: UICollectionViewCell {
     
     @IBOutlet weak var UILabelProductName: UILabel!
     @IBOutlet weak var UILabelPrice: UILabel!
     @IBOutlet weak var UILabelTotal: UILabel!
     @IBOutlet weak var UIImageViewProduct: UIImageView!
-    @IBOutlet weak var UICollectionViewAttributeNameValue: UICollectionView!
     @IBOutlet weak var UIImageViewColor: UIImageView!
     @IBOutlet weak var UILabelColorValue: UILabel!
-    
+    @IBOutlet weak var tagListView: TagListView!
 }
-class orderProductAttributeValueCell: UICollectionViewCell {
-    @IBOutlet weak var UILabelAttributeName: UILabel!
-    @IBOutlet weak var UILabelAttributeKeyValue: UILabel!
-}
+
 class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     
     @IBOutlet weak var UIButtonHomePage: UIButton!
@@ -181,45 +177,27 @@ extension ADRFrontEndViewCheckoutThankyouVC: UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if(collectionView==self.UICollectionViewOrderProducts){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "orderProductCell", for: indexPath) as! orderProductCell
-            let element=self.list_product[indexPath.row]
-            cell.UILabelPrice.text=String(element.unit_price)
-            cell.UILabelProductName.text=element.product_name
-            cell.UILabelTotal.text=String(element.total)
-            cell.UILabelColorValue.text=element.color_value
-            cell.UICollectionViewAttributeNameValue.delegate=self
-            cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
-            
-            cell.UICollectionViewAttributeNameValue.tag = indexPath.row
-            cell.UICollectionViewAttributeNameValue.delegate = self
-            cell.UICollectionViewAttributeNameValue.dataSource = self
-            cell.UICollectionViewAttributeNameValue.reloadData()
-            return cell
-            
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "orderProductAttributeValueCell", for: indexPath) as! orderProductAttributeValueCell
-            let product=self.list_product[collectionView.tag]
-            let attribute=product.list_attribute_value[indexPath.row]
-            cell.UILabelAttributeName?.text=attribute.name as String
-            cell.UILabelAttributeKeyValue?.text=attribute.value as String
-            return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "orderProductCell", for: indexPath) as! orderProductCell
+        let element=self.list_product[indexPath.row]
+        cell.UILabelPrice.text=String(element.unit_price)
+        cell.UILabelProductName.text=element.product_name
+        cell.UILabelTotal.text=String(element.total)
+        cell.UILabelColorValue.text=element.color_value
+        cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
+        cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
+        cell.tagListView.textFont = UIFont.systemFont(ofSize: 14)
+        cell.tagListView.alignment = .left // possible values are [.leading, .trailing, .left, .center, .right]
+        for attribute in element.list_attribute_value{
+            cell.tagListView.addTag("\(attribute.name):\(attribute.value)")
         }
+        
+        return cell
         
         
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("collectionView: \(collectionView)")
-        if(collectionView==self.UICollectionViewOrderProducts){
-            return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
-        }else{
-            return CGSize(width: (collectionView.bounds.width) / 2, height: 40.0)
-        }
-        
-        
-        
+        return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
