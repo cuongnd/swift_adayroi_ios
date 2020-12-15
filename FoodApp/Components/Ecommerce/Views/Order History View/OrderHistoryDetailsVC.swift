@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-
+import AlignedCollectionViewFlowLayout
 class historyOrderProductCell: UICollectionViewCell {
     
     @IBOutlet weak var UILabelColorValue: UILabel!
@@ -73,6 +73,7 @@ class OrderHistoryDetailsVC: UIViewController {
         self.UICollectionViewOrderProducts.register(nib, forCellWithReuseIdentifier: "cell")
         let urlString = API_URL + "/api/orders/\(self.OrderId)"
         self.Webservice_getOrderInfo(url: urlString, params:[:])
+        
     }
     @IBAction func btnTap_Back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -117,10 +118,14 @@ extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSo
             cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
             cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
             
+            
             cell.UICollectionViewAttributeNameValue.tag = indexPath.row
             cell.UICollectionViewAttributeNameValue.delegate = self
             cell.UICollectionViewAttributeNameValue.dataSource = self
             cell.UICollectionViewAttributeNameValue.reloadData()
+             let alignedFlowLayout = cell.UICollectionViewAttributeNameValue.collectionViewLayout as? AlignedCollectionViewFlowLayout
+           alignedFlowLayout?.horizontalAlignment = .left
+           alignedFlowLayout?.verticalAlignment = .top
             return cell
             
         }else{
@@ -137,10 +142,12 @@ extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print("collectionView: \(collectionView)")
+        
         if(collectionView==self.UICollectionViewOrderProducts){
             return CGSize(width: (UIScreen.main.bounds.width) / 1, height: 220.0)
         }else{
-            return CGSize(width: (collectionView.bounds.width) / 2, height: 40.0)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "historyOrderProductAttributeValueCell", for: indexPath) as! historyOrderProductAttributeValueCell
+            return CGSize(width: (collectionView.bounds.width) / 2, height:10)
         }
         
         

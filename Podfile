@@ -27,6 +27,7 @@ target 'FoodApp' do
     pod 'ObjectMapper', '~> 3.5'
     pod 'RxSwift', '6.0.0-rc.2'
     pod 'RxCocoa', '6.0.0-rc.2'
+    pod 'TagListView', '~> 1.0'
   target 'FoodAppTests' do
     inherit! :search_paths
     # Pods for testing
