@@ -11,6 +11,9 @@ import SwiftyJSON
 
 class historyOrderProductCell: UICollectionViewCell {
     
+    @IBOutlet weak var UILabelColorValue: UILabel!
+    @IBOutlet weak var UIImageViewColor: UIImageView!
+    @IBOutlet weak var UIImageViewProduct: UIImageView!
     @IBOutlet weak var UILabelProductName: UILabel!
     @IBOutlet weak var UILabelPrice: UILabel!
     @IBOutlet weak var UILabelquality: UILabel!
@@ -110,15 +113,14 @@ extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSo
             cell.UILabelProductName.text=element.product_name
             cell.UILabelTotal.text=String(element.total)
             
-            //cell.UILabelColorValue.text=element.color_value
-            //cell.UICollectionViewAttributeNameValue.delegate=self
-            //cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
-            //cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
+            cell.UILabelColorValue.text=element.color_value
+            cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
+            cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
             
-            //cell.UICollectionViewAttributeNameValue.tag = indexPath.row
-            //cell.UICollectionViewAttributeNameValue.delegate = self
-            //cell.UICollectionViewAttributeNameValue.dataSource = self
-            //cell.UICollectionViewAttributeNameValue.reloadData()
+            cell.UICollectionViewAttributeNameValue.tag = indexPath.row
+            cell.UICollectionViewAttributeNameValue.delegate = self
+            cell.UICollectionViewAttributeNameValue.dataSource = self
+            cell.UICollectionViewAttributeNameValue.reloadData()
             return cell
             
         }else{
