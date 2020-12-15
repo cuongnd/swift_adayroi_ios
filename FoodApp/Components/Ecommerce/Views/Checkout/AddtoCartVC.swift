@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import SQLite
 import ETBinding
+import TagListView
 import SlideMenuControllerSwift
 
 class CartCell: UITableViewCell {
@@ -20,6 +21,7 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var btn_Notes: UIButton!
     @IBOutlet weak var btn_Addonse: UIButton!
     
+    @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var btn_Delete: UIButton!
     @IBOutlet weak var lbl_Price: UILabel!
     @IBOutlet weak var lbl_count: UILabel!
@@ -201,13 +203,14 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         let itemimage:String = data["color_image"] as! String
         cell.UILabelColorName.text=data["color_value"] as! String
         cell.colorImage.sd_setImage(with: URL(string: itemimage), placeholderImage: UIImage(named: "placeholder_image"))
-        cell.UICollectionViewAttributes.tag = indexPath.row
-        cell.UICollectionViewAttributes.delegate = self
-        cell.UICollectionViewAttributes.dataSource = self
-        cell.UICollectionViewAttributes.reloadData()
-        
-        
-        return cell
+        let list_attribute_value=JSON(data["attributes"]!);
+        cell.tagListView.textFont = UIFont.systemFont(ofSize: 14)
+        cell.tagListView.alignment = .left // possible values are [.leading, .trailing, .left, .center, .right]
+        for index in 0...list_attribute_value.count-1 {
+            let attribute=list_attribute_value[index]
+            cell.tagListView.addTag("\(attribute["name"].stringValue):\(attribute["value"].stringValue)")
+        }
+      return cell
     }
     
     @objc func btnTapMines(sender:UIButton)

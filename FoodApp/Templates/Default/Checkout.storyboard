@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -221,54 +220,31 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c2I-LA-npy">
-                                                            <rect key="frame" x="100" y="125" width="290" height="73"/>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9q-yW-SCd" customClass="TagListView" customModule="TagListView">
+                                                            <rect key="frame" x="96" y="125" width="294" height="73"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hY5-9d-UTm">
-                                                                <size key="itemSize" width="128" height="22"/>
-                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                            </collectionViewFlowLayout>
-                                                            <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="attributeCell" id="Izz-fG-Vc8" customClass="attributeCell" customModule="adayroi_online" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="22"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JTO-kP-AAk">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="22"/>
-                                                                        <autoresizingMask key="autoresizingMask"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-sg-4Wb">
-                                                                                <rect key="frame" x="4" y="0.0" width="42.5" height="21"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bn-oB-4BW">
-                                                                                <rect key="frame" x="56" y="1" width="64" height="21"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                        </subviews>
-                                                                        <constraints>
-                                                                            <constraint firstItem="Laj-sg-4Wb" firstAttribute="top" secondItem="JTO-kP-AAk" secondAttribute="top" id="E67-RH-F08"/>
-                                                                            <constraint firstItem="1bn-oB-4BW" firstAttribute="width" secondItem="JTO-kP-AAk" secondAttribute="width" multiplier="1:2" id="Qyf-o6-tQG"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="1bn-oB-4BW" secondAttribute="trailing" constant="8" id="SyF-4L-Bdf"/>
-                                                                            <constraint firstItem="Laj-sg-4Wb" firstAttribute="width" secondItem="JTO-kP-AAk" secondAttribute="width" multiplier="1:3" id="Vlt-ln-831"/>
-                                                                            <constraint firstItem="1bn-oB-4BW" firstAttribute="top" secondItem="JTO-kP-AAk" secondAttribute="top" constant="1" id="Yvj-lX-e1H"/>
-                                                                            <constraint firstItem="Laj-sg-4Wb" firstAttribute="leading" secondItem="JTO-kP-AAk" secondAttribute="leading" constant="4" id="pA6-WU-z6V"/>
-                                                                        </constraints>
-                                                                    </collectionViewCellContentView>
-                                                                    <size key="customSize" width="128" height="22"/>
-                                                                    <connections>
-                                                                        <outlet property="UILabelKey" destination="Laj-sg-4Wb" id="2Qa-lE-3yk"/>
-                                                                        <outlet property="UILabelValue" destination="1bn-oB-4BW" id="FMj-CI-xAZ"/>
-                                                                    </connections>
-                                                                </collectionViewCell>
-                                                            </cells>
-                                                        </collectionView>
+                                                            <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                    <color key="value" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="selectedBorderColor">
+                                                                    <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
@@ -309,7 +285,6 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="UICollectionViewAttributes" destination="c2I-LA-npy" id="79b-cR-hcm"/>
                                             <outlet property="UILabelColorName" destination="gnp-1j-rCo" id="cY1-mH-7wG"/>
                                             <outlet property="btn_Addonse" destination="H8h-zJ-C9A" id="Ppy-ic-Emi"/>
                                             <outlet property="btn_Delete" destination="d7s-Tp-wxA" id="RWo-7K-JVw"/>
@@ -321,6 +296,7 @@
                                             <outlet property="lbl_Price" destination="FTf-IB-hfV" id="Dsk-lN-jOv"/>
                                             <outlet property="lbl_ProductName" destination="ALe-ey-Rsk" id="nrr-0P-ilE"/>
                                             <outlet property="lbl_count" destination="Xim-Ky-gZE" id="KEq-cJ-aka"/>
+                                            <outlet property="tagListView" destination="x9q-yW-SCd" id="DT5-Ce-IJc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
