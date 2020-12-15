@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import AlignedCollectionViewFlowLayout
+import TagListView
 class historyOrderProductCell: UICollectionViewCell {
     
     @IBOutlet weak var UILabelColorValue: UILabel!
@@ -17,8 +17,8 @@ class historyOrderProductCell: UICollectionViewCell {
     @IBOutlet weak var UILabelProductName: UILabel!
     @IBOutlet weak var UILabelPrice: UILabel!
     @IBOutlet weak var UILabelquality: UILabel!
+    @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var UILabelTotal: UILabel!
-    @IBOutlet weak var UICollectionViewAttributeNameValue: UICollectionView!
     /*
      @IBOutlet weak var UILabelPrice: UILabel!
        @IBOutlet weak var UILabelquality: UILabel!
@@ -107,36 +107,22 @@ extension OrderHistoryDetailsVC: UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if(collectionView==self.UICollectionViewOrderProducts){
-            let cell = self.UICollectionViewOrderProducts.dequeueReusableCell(withReuseIdentifier: "historyOrderProductCell", for: indexPath) as! historyOrderProductCell
-            let element=self.list_product[indexPath.row]
-            cell.UILabelPrice.text=String(element.unit_price)
-            cell.UILabelProductName.text=element.product_name
-            cell.UILabelTotal.text=String(element.total)
-            
-            cell.UILabelColorValue.text=element.color_value
-            cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
-            
-            
-            cell.UICollectionViewAttributeNameValue.tag = indexPath.row
-            cell.UICollectionViewAttributeNameValue.delegate = self
-            cell.UICollectionViewAttributeNameValue.dataSource = self
-            cell.UICollectionViewAttributeNameValue.reloadData()
-             let alignedFlowLayout = cell.UICollectionViewAttributeNameValue.collectionViewLayout as? AlignedCollectionViewFlowLayout
-           alignedFlowLayout?.horizontalAlignment = .left
-           alignedFlowLayout?.verticalAlignment = .top
-            return cell
-            
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "historyOrderProductAttributeValueCell", for: indexPath) as! historyOrderProductAttributeValueCell
-            let product=self.list_product[collectionView.tag]
-            let attribute=product.list_attribute_value[indexPath.row]
-            cell.UILabelAttributeName?.text=attribute.name as String
-            cell.UILabelAttributeKeyValue?.text=attribute.value as String
-            return cell
-        }
+        let cell = self.UICollectionViewOrderProducts.dequeueReusableCell(withReuseIdentifier: "historyOrderProductCell", for: indexPath) as! historyOrderProductCell
+        let element=self.list_product[indexPath.row]
+        cell.UILabelPrice.text=String(element.unit_price)
+        cell.UILabelProductName.text=element.product_name
+        cell.UILabelTotal.text=String(element.total)
         
+        cell.UILabelColorValue.text=element.color_value
+        cell.UIImageViewColor.sd_setImage(with: URL(string: element.color_image), placeholderImage: UIImage(named: "placeholder_image"))
+        cell.UIImageViewProduct.sd_setImage(with: URL(string: element.imageUrl), placeholderImage: UIImage(named: "placeholder_image"))
+        
+        cell.tagListView.textFont = UIFont.systemFont(ofSize: 24)
+        cell.tagListView.alignment = .center // possible values are [.leading, .trailing, .left, .center, .right]
+        for attribute in element.list_attribute_value{
+            cell.tagListView.addTag("\(attribute.name):\(attribute.value)")
+        }
+        return cell
         
         
     }
