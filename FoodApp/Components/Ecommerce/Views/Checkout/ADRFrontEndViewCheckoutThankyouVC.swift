@@ -72,15 +72,15 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
         
     }
     @IBAction func UIButtonHomePageClick(_ sender: UIButton) {
-       let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-        let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
-        let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
-        appNavigation.setNavigationBarHidden(true, animated: true)
-        let slideMenuController = SlideMenuController(mainViewController: appNavigation, rightMenuViewController: sideMenuViewController)
-        slideMenuController.changeRightViewWidth(UIScreen.main.bounds.width * 0.8)
-        slideMenuController.removeRightGestures()
-        UIApplication.shared.windows[0].rootViewController = slideMenuController
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+          let objVC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+          let sideMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+          let appNavigation: UINavigationController = UINavigationController(rootViewController: objVC)
+          appNavigation.setNavigationBarHidden(true, animated: true)
+          let slideMenuController = SlideMenuController(mainViewController: appNavigation, leftMenuViewController: sideMenuViewController)
+          slideMenuController.changeLeftViewWidth(UIScreen.main.bounds.width * 0.8)
+          slideMenuController.removeLeftGestures()
+          UIApplication.shared.windows[0].rootViewController = slideMenuController
     }
     @IBAction func UIButtonTouchUpInsideNext(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(identifier: "ADRFrontEndViewCheckoutPaymentVC") as! ADRFrontEndViewCheckoutPaymentVC

@@ -83,6 +83,7 @@ class HomeVC: UIViewController {
        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     @IBAction func ShowMenu(_ sender: UIButton) {
+        print("hello ShowMenu")
         if UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "en" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "" || UserDefaultManager.getStringFromUserDefaults(key: UD_isSelectLng) == "N/A"
         {
             self.slideMenuController()?.openLeft()

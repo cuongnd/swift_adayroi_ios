@@ -272,12 +272,9 @@
                     if responseCode == "success" {
                         let data = jsonResponse!["data"].dictionaryValue
                         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["msg"].stringValue)
-                        let storyBoard = UIStoryboard(name: "Checkout", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "ADRFrontEndViewCheckoutThankyouVC") as! ADRFrontEndViewCheckoutThankyouVC
-                        vc.order_id=data["_id"]?.stringValue as! String
-                        self.navigationController?.pushViewController(vc, animated:true)
-                        
-                        
+                        let vc = UIStoryboard(name: "Checkout", bundle: nil).instantiateViewController(identifier: "ADRFrontEndViewCheckoutThankyouVC") as! ADRFrontEndViewCheckoutThankyouVC
+                         vc.order_id=data["_id"]?.stringValue as! String
+                        self.navigationController?.pushViewController(vc, animated: true)
                     }
                     else {
                         showAlertMessage(titleStr: Bundle.main.displayName!, messageStr: jsonResponse!["message"].stringValue)
