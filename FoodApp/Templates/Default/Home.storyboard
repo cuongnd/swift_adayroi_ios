@@ -545,11 +545,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-G2-OF1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1S-kh-1ZT" userLabel="Menu">
-                                        <rect key="frame" x="16" y="59" width="39" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1S-kh-1ZT" userLabel="Menu">
+                                        <rect key="frame" x="15.999999999999998" y="8" width="31.333333333333329" height="23"/>
                                         <color key="tintColor" red="0.99606674910000004" green="0.44583719970000002" blue="0.2983221412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="line.horizontal.3.decrease" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="semibold"/>
@@ -558,16 +557,14 @@
                                             <action selector="ShowMenu:" destination="hci-27-zqJ" eventType="touchUpInside" id="Ej8-Za-yHa"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" fixedFrame="YES" text="Adayroi online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa5-be-yiE">
-                                        <rect key="frame" x="75" y="61.000000000000007" width="113.33333333333331" height="20.333333333333336"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Adayroi online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa5-be-yiE">
+                                        <rect key="frame" x="75" y="9.9999999999999982" width="113.33333333333331" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L6-RR-dwc" userLabel="Cart">
-                                        <rect key="frame" x="328.66666666666669" y="58" width="30.333333333333314" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L6-RR-dwc" userLabel="Cart">
+                                        <rect key="frame" x="328.66666666666669" y="7" width="30.333333333333314" height="25"/>
                                         <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="cart.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
@@ -576,25 +573,22 @@
                                             <action selector="GoToCart:" destination="hci-27-zqJ" eventType="touchUpInside" id="jOC-bo-cS1"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-OB-fQ4" userLabel="Cart count">
-                                        <rect key="frame" x="353" y="53" width="14" height="12"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-OB-fQ4" userLabel="Cart count">
+                                        <rect key="frame" x="351" y="2" width="16" height="12"/>
                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-7H-1kK" userLabel="Location">
-                                        <rect key="frame" x="293.66666666666669" y="56" width="27" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-7H-1kK" userLabel="Location">
+                                        <rect key="frame" x="293.66666666666669" y="5" width="27" height="28"/>
                                         <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="mappin.and.ellipse" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-RD-sN4" userLabel="Search">
-                                        <rect key="frame" x="258.33333333333331" y="59" width="25.666666666666686" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-RD-sN4" userLabel="Search">
+                                        <rect key="frame" x="260" y="8" width="25.666666666666686" height="25"/>
                                         <color key="tintColor" red="0.99607843139999996" green="0.44705882349999998" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="magnifyingglass" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="semibold"/>
@@ -606,11 +600,23 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="FIp-wV-pA1"/>
+                                    <constraint firstItem="3L6-RR-dwc" firstAttribute="leading" secondItem="ktM-7H-1kK" secondAttribute="trailing" constant="8" id="3LZ-wB-Z9m"/>
+                                    <constraint firstItem="Hu1-OB-fQ4" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="2" id="8pZ-fc-V4l"/>
+                                    <constraint firstItem="r1S-kh-1ZT" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="8" id="8tw-SB-p1a"/>
+                                    <constraint firstItem="bCi-RD-sN4" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="8" id="AVr-Jz-Y9V"/>
+                                    <constraint firstItem="ktM-7H-1kK" firstAttribute="leading" secondItem="bCi-RD-sN4" secondAttribute="trailing" constant="8" id="BVl-4J-HU8"/>
+                                    <constraint firstAttribute="height" constant="38" id="FIp-wV-pA1"/>
+                                    <constraint firstItem="Sa5-be-yiE" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="10" id="QyA-lq-KbJ"/>
+                                    <constraint firstItem="ktM-7H-1kK" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="5" id="Wiy-gg-ggg"/>
+                                    <constraint firstItem="Sa5-be-yiE" firstAttribute="leading" secondItem="r1S-kh-1ZT" secondAttribute="trailing" constant="27.670000000000002" id="ZxE-VQ-sEl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hu1-OB-fQ4" secondAttribute="trailing" constant="8" id="lNg-c8-SMM"/>
+                                    <constraint firstAttribute="trailing" secondItem="3L6-RR-dwc" secondAttribute="trailing" constant="16" id="ov7-zG-flp"/>
+                                    <constraint firstItem="3L6-RR-dwc" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="top" constant="7" id="qMw-jM-41b"/>
+                                    <constraint firstItem="r1S-kh-1ZT" firstAttribute="leading" secondItem="4yw-G2-OF1" secondAttribute="leading" constant="16" id="y8M-v7-M93"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-k1-o4g" userLabel="Scroll View main">
-                                <rect key="frame" x="0.0" y="103" width="375" height="1957"/>
+                                <rect key="frame" x="0.0" y="38" width="375" height="2042"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evc-K3-STm" userLabel="View header sản phẩm yêu thích">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
@@ -910,7 +916,7 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Kl0-T6-3PL" secondAttribute="bottom" constant="72" id="1JP-b7-tbQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kl0-T6-3PL" secondAttribute="bottom" constant="157" id="1JP-b7-tbQ"/>
                                     <constraint firstItem="fr0-eM-Lbv" firstAttribute="leading" secondItem="Rps-k1-o4g" secondAttribute="leading" id="1eT-Ev-Z44"/>
                                     <constraint firstItem="VPt-0s-s8r" firstAttribute="leading" secondItem="Rps-k1-o4g" secondAttribute="leading" id="1uR-J4-YKd"/>
                                     <constraint firstItem="QFY-JE-uaN" firstAttribute="leading" secondItem="Rps-k1-o4g" secondAttribute="leading" id="2if-Gq-VRW"/>
@@ -968,9 +974,9 @@
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="leading" secondItem="4yw-G2-OF1" secondAttribute="leading" id="6zF-cZ-vMC"/>
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="leading" secondItem="4vr-Vw-3TA" secondAttribute="leading" id="7I3-Tb-NkL"/>
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="trailing" secondItem="4yw-G2-OF1" secondAttribute="trailing" id="Om2-rV-M6O"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Rps-k1-o4g" secondAttribute="bottom" constant="20" id="T6U-VA-mNg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Rps-k1-o4g" secondAttribute="bottom" id="T6U-VA-mNg"/>
                             <constraint firstItem="Rps-k1-o4g" firstAttribute="centerX" secondItem="bjm-sk-M5J" secondAttribute="centerX" id="hU7-l5-ij3"/>
-                            <constraint firstItem="Rps-k1-o4g" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="bottom" constant="2" id="jVW-tj-huj"/>
+                            <constraint firstItem="Rps-k1-o4g" firstAttribute="top" secondItem="4yw-G2-OF1" secondAttribute="bottom" id="jVW-tj-huj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4vr-Vw-3TA"/>
                     </view>
