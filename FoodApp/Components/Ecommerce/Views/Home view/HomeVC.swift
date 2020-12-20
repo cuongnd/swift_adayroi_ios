@@ -223,17 +223,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let category_Image = data["default_photo"].dictionaryValue
             cell.img_category.sd_setImage(with: URL(string: category_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             // corner radius
-            cell.layer.cornerRadius = 3
-            
-            // border
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-            // shadow
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 4.0
+           
             return cell
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
             let cell = self.Collectioview_HomeFeatureProductList.dequeueReusableCell(withReuseIdentifier: "HomeFeatureProductCell", for: indexPath) as! HomeFeatureProductCell
