@@ -137,17 +137,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.lbl_LastProductPercent.text = data["discount_percent"].stringValue+"%"
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.layer.cornerRadius = 3
-            
-            // border
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-            // shadow
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 2.0
+          
             
             return cell
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
@@ -157,17 +147,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.lbl_HotCategoryName.text = data["name"].stringValue
             let categoryImage = data["default_photo"].dictionaryValue
             cell.img_hot_category.sd_setImage(with: URL(string: categoryImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.layer.cornerRadius = 3
-            
-            // border
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-            // shadow
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 2.0
+           
             return cell
         }else if collectionView == self.Collectioview_HomeHotProductList{
             let cell = self.Collectioview_HomeHotProductList.dequeueReusableCell(withReuseIdentifier: "HomeHotProductCell", for: indexPath) as! HomeHotProductCell
@@ -180,17 +160,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.lbl_HotProductPercent.text = data["discount_percent"].stringValue+"%"
             let product_Image = data["default_photo"].dictionaryValue
             cell.img_hot_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.layer.cornerRadius = 3
-            
-            // border
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-            // shadow
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 2.0
+           
             return cell
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             let cell = self.Collectioview_HomeDiscountProductList.dequeueReusableCell(withReuseIdentifier: "HomeDiscountProductCell", for: indexPath) as! HomeDiscountProductCell
@@ -204,16 +174,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let product_Image = data["default_photo"].dictionaryValue
             
             cell.img_discount_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.layer.cornerRadius = 3
-            // border
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-            // shadow
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 2.0
+          
             return cell
         }else if collectionView == self.Collectioview_HomeCategoryList{
             let cell = self.Collectioview_HomeCategoryList.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCell", for: indexPath) as! HomeCategoryCell
@@ -258,17 +219,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-            cell.layer.cornerRadius = 3
             
-            // border
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-            // shadow
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 2.0
             return cell
         }
         
