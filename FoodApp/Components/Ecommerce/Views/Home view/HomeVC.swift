@@ -64,12 +64,7 @@ class HomeVC: UIViewController {
         Collectioview_lastProductList.register(UINib(nibName: "HomeLastProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeLastProductCell")
         Collectioview_HomeHotProductList.register(UINib(nibName: "HomeHotProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotProductCell")
         Collectioview_HomeDiscountProductList.register(UINib(nibName: "HomeDiscountProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeDiscountProductCell")
-        HomeTitleFeatureProducts.title.text="Sản phẩm yêu thích";
-        HomeTtitleCategories.title.text="Danh mục sản phẩm";
-        HomeTtitleDiscountProducts.title.text="Sản phẩm giảm giá";
-        HomeTtitleHotProducts.title.text="Sản phẩm hot";
-        HomeTitleHotCategories.title.text="Danh mục sản phẩm hot";
-        HomeTtitleNewProducts.title.text="Sản phẩm mới";
+       
         let urlStringGetMainShopInfo = API_URL + "/api/ios/get_shop_info"
         self.Webservice_getMainShopInfo(url: urlStringGetMainShopInfo, params: [:])
         
