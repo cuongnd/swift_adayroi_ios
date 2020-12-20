@@ -15,7 +15,12 @@ import MapKit
 
 
 
+class HomeCategoryCell: UICollectionViewCell {
+    @IBOutlet weak var img_category: UIImageView!
+    @IBOutlet weak var lbl_CategoryName: UILabel!
+  
 
+}
 
 class HomeVC: UIViewController {
    
@@ -58,7 +63,7 @@ class HomeVC: UIViewController {
         
         let nibCell = UINib(nibName: "HomeFeatureProductCell", bundle: nil)
         Collectioview_HomeFeatureProductList.register(nibCell, forCellWithReuseIdentifier: "HomeFeatureProductCell")
-        Collectioview_HomeCategoryList.register(UINib(nibName: "HomeCategoryCell", bundle: nil), forCellWithReuseIdentifier: "HomeCategoryCell")
+       
         
         Collectioview_HomeHotCategoryList.register(UINib(nibName: "HomeHotCategoryCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotCategoryCell")
         Collectioview_lastProductList.register(UINib(nibName: "HomeLastProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeLastProductCell")
@@ -307,7 +312,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 300)
         }else if collectionView == self.Collectioview_HomeCategoryList{
-            return CGSize(width:(UIScreen.main.bounds.width) / 4, height: 120)
+            return CGSize(width:(UIScreen.main.bounds.width) / 3, height: 150)
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 1, height: 200)
         }else{
