@@ -695,30 +695,55 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-eM-Lbv" userLabel="Collectioview Danh mục sản phẩm">
-                                        <rect key="frame" x="0.0" y="310" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="310" width="375" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="P4f-o9-Kga"/>
+                                            <constraint firstAttribute="height" constant="300" id="P4f-o9-Kga"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jwG-Zy-qCw">
-                                            <size key="itemSize" width="132" height="123"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jwG-Zy-qCw">
+                                            <size key="itemSize" width="132" height="150"/>
+                                            <size key="estimatedItemSize" width="132" height="150"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HMO-5f-cet">
-                                                <rect key="frame" x="0.0" y="63.666666666666664" width="132" height="123"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HMO-5f-cet" customClass="HomeCategoryCell" customModule="adayroi_online" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hUW-tI-sPm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hUW-tI-sPm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Wh2-my-xcn">
+                                                <rect key="frame" x="0.0" y="150" width="132" height="150"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qsd-7s-6uW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FIB-eR-scx">
+                                                <rect key="frame" x="132" y="0.0" width="132" height="150"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3VS-M4-Tfx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lVg-DX-AjU">
+                                                <rect key="frame" x="132" y="150" width="132" height="150"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Yb-Lw-h7m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="150"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFY-JE-uaN" userLabel="View header sản phẩm giảm giá">
-                                        <rect key="frame" x="0.0" y="560" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="610" width="375" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sản phẩm giảm giá" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zG-tY-gLl">
                                                 <rect key="frame" x="8" y="17" width="154" height="21"/>
@@ -745,29 +770,29 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VPt-0s-s8r" userLabel="Collectioview Sản phẩm giảm giá">
-                                        <rect key="frame" x="0.0" y="615" width="375" height="400"/>
+                                        <rect key="frame" x="0.0" y="665" width="375" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="400" id="V2x-KW-GKl"/>
+                                            <constraint firstAttribute="height" constant="250" id="V2x-KW-GKl"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J8U-B9-XTU">
-                                            <size key="itemSize" width="175" height="276"/>
+                                            <size key="itemSize" width="175" height="250"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DgV-Ki-Dto">
-                                                <rect key="frame" x="0.0" y="62" width="175" height="276"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="250"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SlN-de-xJy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="276"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="250"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OME-Oe-ONq" userLabel="View header sản phẩm hot">
-                                        <rect key="frame" x="0.0" y="1015" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="915" width="375" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sản phẩm hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDc-dL-bRZ">
                                                 <rect key="frame" x="7.9999999999999929" y="17" width="112.33333333333331" height="21"/>
@@ -794,7 +819,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Product" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-ic-rWk" userLabel="Collection sản phẩm hot">
-                                        <rect key="frame" x="0.0" y="1070" width="375" height="277"/>
+                                        <rect key="frame" x="0.0" y="970" width="375" height="277"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="277" id="EPU-RH-bVV"/>
                                         </constraints>
@@ -816,7 +841,7 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saT-qQ-dgf" userLabel="View header danh mục hot">
-                                        <rect key="frame" x="0.0" y="1347" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="1247" width="375" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh mục hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsS-Hr-Fn0">
                                                 <rect key="frame" x="7.9999999999999929" y="17" width="113.33333333333331" height="21"/>
@@ -843,7 +868,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Category" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-ep-hw0" userLabel="Collection danh mục hot">
-                                        <rect key="frame" x="0.0" y="1402" width="375" height="259"/>
+                                        <rect key="frame" x="0.0" y="1302" width="375" height="259"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="259" id="KZz-vH-LTJ"/>
                                         </constraints>
@@ -865,7 +890,7 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWW-Ph-LvC" userLabel="View header sản phẩm mới">
-                                        <rect key="frame" x="0.0" y="1661" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="1561" width="375" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sản phẩm mới" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUZ-un-QdW">
                                                 <rect key="frame" x="8" y="17" width="116" height="21"/>
@@ -892,7 +917,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kl0-T6-3PL">
-                                        <rect key="frame" x="0.0" y="1716" width="375" height="290"/>
+                                        <rect key="frame" x="0.0" y="1616" width="375" height="290"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="290" id="e88-Vf-8R5"/>

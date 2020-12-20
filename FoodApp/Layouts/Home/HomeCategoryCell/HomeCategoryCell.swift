@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class HomeCategoryCell: UICollectionViewCell {
        @IBOutlet weak var img_category: UIImageView!
        @IBOutlet weak var lbl_CategoryName: UILabel!
