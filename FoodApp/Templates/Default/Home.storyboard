@@ -650,21 +650,21 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="bUc-ht-p3U"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yEs-aN-w8l">
-                                            <size key="itemSize" width="194" height="100"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yEs-aN-w8l">
+                                            <size key="itemSize" width="209" height="125"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeFeatureProductCell" id="JqL-TL-nGa" customClass="HomeFeatureProductCell" customModule="adayroi_online" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PDX-Qk-hZV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="300" height="200"/>
+                                                <size key="customSize" width="350" height="200"/>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -881,29 +881,37 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Product" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-ic-rWk" userLabel="Collection sản phẩm hot">
-                                        <rect key="frame" x="0.0" y="974" width="375" height="277"/>
+                                        <rect key="frame" x="0.0" y="974" width="375" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="277" id="EPU-RH-bVV"/>
+                                            <constraint firstAttribute="height" constant="250" id="EPU-RH-bVV"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bh5-Rz-hBn">
-                                            <size key="itemSize" width="180" height="276"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="10" id="Bh5-Rz-hBn">
+                                            <size key="itemSize" width="200" height="250"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yc8-vQ-834">
-                                                <rect key="frame" x="0.0" y="0.66666666666666663" width="180" height="276"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KOL-vy-RY0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="276"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jlc-fG-dBi">
+                                                <rect key="frame" x="202" y="0.0" width="200" height="250"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cY4-By-2E0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saT-qQ-dgf" userLabel="View header danh mục hot">
-                                        <rect key="frame" x="0.0" y="1251" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="1224" width="375" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh mục hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsS-Hr-Fn0">
                                                 <rect key="frame" x="7.9999999999999929" y="17" width="113.33333333333331" height="21"/>
@@ -930,7 +938,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" restorationIdentifier="Collection Home Hot Category" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-ep-hw0" userLabel="Collection danh mục hot">
-                                        <rect key="frame" x="0.0" y="1306" width="375" height="304"/>
+                                        <rect key="frame" x="0.0" y="1279" width="375" height="304"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="304" id="KZz-vH-LTJ"/>
                                         </constraints>
@@ -992,7 +1000,7 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWW-Ph-LvC" userLabel="View header sản phẩm mới">
-                                        <rect key="frame" x="0.0" y="1610" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="1583" width="375" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sản phẩm mới" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUZ-un-QdW">
                                                 <rect key="frame" x="8" y="17" width="116" height="21"/>
@@ -1019,25 +1027,35 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kl0-T6-3PL">
-                                        <rect key="frame" x="0.0" y="1665" width="375" height="290"/>
+                                        <rect key="frame" x="0.0" y="1638" width="375" height="250"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="290" id="e88-Vf-8R5"/>
+                                            <constraint firstAttribute="height" constant="250" id="e88-Vf-8R5"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ROt-jK-HDR">
-                                            <size key="itemSize" width="175" height="276"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="10" id="ROt-jK-HDR">
+                                            <size key="itemSize" width="200" height="200"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hP0-3T-ZTx">
-                                                <rect key="frame" x="0.0" y="7" width="175" height="276"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="250"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XuL-1h-R8O">
-                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="276"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="250"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
+                                                <size key="customSize" width="186" height="250"/>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P29-R0-noU">
+                                                <rect key="frame" x="188" y="0.0" width="186" height="250"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="W7x-AW-ctF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="186" height="250"/>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>

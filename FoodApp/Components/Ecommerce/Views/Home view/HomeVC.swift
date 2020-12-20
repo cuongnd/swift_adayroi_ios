@@ -298,7 +298,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
             return CGSize(width:(UIScreen.main.bounds.width) / 3, height: 150)
         }else if collectionView == self.Collectioview_HomeHotProductList{
-            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 300)
+            return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             return CGSize(width:(UIScreen.main.bounds.width) / 2, height: 250)
         }else if collectionView == self.Collectioview_HomeCategoryList{
