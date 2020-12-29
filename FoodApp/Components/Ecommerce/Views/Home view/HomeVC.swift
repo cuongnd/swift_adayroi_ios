@@ -227,19 +227,19 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == self.Collectioview_lastProductList{
-            return 2
+            return 1
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
-            return 2
+            return 1
         }else if collectionView == self.Collectioview_HomeHotProductList{
             return 1
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
-            return 2
+            return 1
         }else if collectionView == self.Collectioview_HomeCategoryList{
-            return 2
+            return 1
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
-            return 2
+            return 1
         }else{
-            return 2
+            return 1
         }
         
     }
