@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import FoodApp
+@testable import AdayroiOnline
 
 class FoodAppTests: XCTestCase {
 
