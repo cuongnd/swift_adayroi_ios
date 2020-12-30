@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>25059337256-8k70al84ainhpbcp2nvqm6mgu6caddh0.apps.googleusercontent.com</string>
+	<string>637111112587-btgfrlmcajrfn3vihtvmsean7v9frdnk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.25059337256-8k70al84ainhpbcp2nvqm6mgu6caddh0</string>
+	<string>com.googleusercontent.apps.637111112587-btgfrlmcajrfn3vihtvmsean7v9frdnk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>637111112587-usqvmone815gofvkb4cme7qnhesj1mh7.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCuCAd6ox0aQNE05Atc_qGLpk99DR4Twds</string>
+	<string>AIzaSyD39-i5XzAcDvBnd2iM9AyHRc00xFtI_L0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>25059337256</string>
+	<string>637111112587</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.AdayroiOnline.app</string>
+	<string>com.vantinviet.banhangonlineapp</string>
 	<key>PROJECT_ID</key>
-	<string>foodapp-6b40c</string>
+	<string>calling-vantinvit</string>
 	<key>STORAGE_BUCKET</key>
-	<string>foodapp-6b40c.appspot.com</string>
+	<string>calling-vantinvit.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:25059337256:ios:b6cf026b2fd51bb9ba411d</string>
+	<string>1:637111112587:ios:f5dec4b13f35ff38f1158e</string>
 	<key>DATABASE_URL</key>
-	<string>https://foodapp-6b40c.firebaseio.com</string>
+	<string>https://calling-vantinvit.firebaseio.com</string>
 </dict>
 </plist>
