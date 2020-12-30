@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04971253259C42CD0024883E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971252259C42CC0024883E /* Default-568h@2x.png */; };
 		0C172C5B256ED43D005DA537 /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C172C5A256ED43D005DA537 /* test2.swift */; };
 		0C172C5D256ED44C005DA537 /* test2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C172C5C256ED44C005DA537 /* test2.xib */; };
 		0C172C5F256F49A6005DA537 /* homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C172C5E256F49A6005DA537 /* homepage.storyboard */; };
@@ -118,11 +117,11 @@
 		C8C99DC62488D77E00B5C187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DC52488D77E00B5C187 /* AppDelegate.swift */; };
 		C8C99DC82488D77E00B5C187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DC72488D77E00B5C187 /* SceneDelegate.swift */; };
 		C8C99DCD2488D77E00B5C187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8C99DCB2488D77E00B5C187 /* Main.storyboard */; };
-		C8C99DD02488D77E00B5C187 /* AdayroiOnline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DCE2488D77E00B5C187 /* AdayroiOnline.xcdatamodeld */; };
+		C8C99DD02488D77E00B5C187 /* FoodApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DCE2488D77E00B5C187 /* FoodApp.xcdatamodeld */; };
 		C8C99DD22488D77F00B5C187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8C99DD12488D77F00B5C187 /* Assets.xcassets */; };
 		C8C99DD52488D77F00B5C187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8C99DD32488D77F00B5C187 /* LaunchScreen.storyboard */; };
-		C8C99DE02488D77F00B5C187 /* AdayroiOnlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DDF2488D77F00B5C187 /* AdayroiOnlineTests.swift */; };
-		C8C99DEB2488D77F00B5C187 /* AdayroiOnlineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DEA2488D77F00B5C187 /* AdayroiOnlineUITests.swift */; };
+		C8C99DE02488D77F00B5C187 /* FoodAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DDF2488D77F00B5C187 /* FoodAppTests.swift */; };
+		C8C99DEB2488D77F00B5C187 /* FoodAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DEA2488D77F00B5C187 /* FoodAppUITests.swift */; };
 		C8C99DF92488D90D00B5C187 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DF82488D90D00B5C187 /* LoginVC.swift */; };
 		C8C99E022488D93C00B5C187 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DFA2488D93B00B5C187 /* Reachability.swift */; };
 		C8C99E032488D93C00B5C187 /* commonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99DFB2488D93B00B5C187 /* commonFunction.swift */; };
@@ -155,7 +154,6 @@
 
 /* Begin PBXFileReference section */
 		01E2E19DB1CA0A2FA3792ED6 /* Pods-FoodAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodAppUITests/Pods-FoodAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		04971252259C42CC0024883E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0C172C5A256ED43D005DA537 /* test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2.swift; sourceTree = "<group>"; };
 		0C172C5C256ED44C005DA537 /* test2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = test2.xib; sourceTree = "<group>"; };
 		0C172C5E256F49A6005DA537 /* homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = homepage.storyboard; sourceTree = "<group>"; };
@@ -273,18 +271,18 @@
 		C8BAC0642488F44B00ECE181 /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		C8BAC06624891BB700ECE181 /* AddtoCartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtoCartVC.swift; sourceTree = "<group>"; };
 		C8BAC0682489257100ECE181 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
-		C8C99DC22488D77E00B5C187 /* Adayroi Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adayroi Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8C99DC22488D77E00B5C187 /* adayroi online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "adayroi online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C99DC52488D77E00B5C187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8C99DC72488D77E00B5C187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C8C99DCF2488D77E00B5C187 /* FoodApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodApp.xcdatamodel; sourceTree = "<group>"; };
 		C8C99DD12488D77F00B5C187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8C99DD42488D77F00B5C187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8C99DD62488D77F00B5C187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8C99DDB2488D77F00B5C187 /* AdayroiOnlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdayroiOnlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8C99DDF2488D77F00B5C187 /* AdayroiOnlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdayroiOnlineTests.swift; sourceTree = "<group>"; };
+		C8C99DDB2488D77F00B5C187 /* FoodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8C99DDF2488D77F00B5C187 /* FoodAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAppTests.swift; sourceTree = "<group>"; };
 		C8C99DE12488D77F00B5C187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8C99DE62488D77F00B5C187 /* AdayroiOnlineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdayroiOnlineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8C99DEA2488D77F00B5C187 /* AdayroiOnlineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdayroiOnlineUITests.swift; sourceTree = "<group>"; };
+		C8C99DE62488D77F00B5C187 /* FoodAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8C99DEA2488D77F00B5C187 /* FoodAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAppUITests.swift; sourceTree = "<group>"; };
 		C8C99DEC2488D77F00B5C187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8C99DF82488D90D00B5C187 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C8C99DFA2488D93B00B5C187 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -818,10 +816,9 @@
 		C8C99DB92488D77E00B5C187 = {
 			isa = PBXGroup;
 			children = (
-				04971252259C42CC0024883E /* Default-568h@2x.png */,
-				C8C99DC42488D77E00B5C187 /* AdayroiOnline */,
-				C8C99DDE2488D77F00B5C187 /* AdayroiOnlineTests */,
-				C8C99DE92488D77F00B5C187 /* AdayroiOnlineUITests */,
+				C8C99DC42488D77E00B5C187 /* FoodApp */,
+				C8C99DDE2488D77F00B5C187 /* FoodAppTests */,
+				C8C99DE92488D77F00B5C187 /* FoodAppUITests */,
 				C8C99DC32488D77E00B5C187 /* Products */,
 				EE9A72D6B2945F7873CDD215 /* Pods */,
 				7375846AB9787D291AB10AED /* Frameworks */,
@@ -831,14 +828,14 @@
 		C8C99DC32488D77E00B5C187 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8C99DC22488D77E00B5C187 /* Adayroi Online.app */,
-				C8C99DDB2488D77F00B5C187 /* AdayroiOnlineTests.xctest */,
-				C8C99DE62488D77F00B5C187 /* AdayroiOnlineUITests.xctest */,
+				C8C99DC22488D77E00B5C187 /* adayroi online.app */,
+				C8C99DDB2488D77F00B5C187 /* FoodAppTests.xctest */,
+				C8C99DE62488D77F00B5C187 /* FoodAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C8C99DC42488D77E00B5C187 /* AdayroiOnline */ = {
+		C8C99DC42488D77E00B5C187 /* FoodApp */ = {
 			isa = PBXGroup;
 			children = (
 				0C42DC14257BD8CD007009E4 /* Admin */,
@@ -860,28 +857,28 @@
 				C8C99DD32488D77F00B5C187 /* LaunchScreen.storyboard */,
 				88D6F6EA24A63245005F1439 /* GoogleService-Info.plist */,
 				C8C99DD62488D77F00B5C187 /* Info.plist */,
-				C8C99DCE2488D77E00B5C187 /* AdayroiOnline.xcdatamodeld */,
+				C8C99DCE2488D77E00B5C187 /* FoodApp.xcdatamodeld */,
 				0C42DC24257BDD27007009E4 /* ADRIndex.swift */,
 			);
-			path = AdayroiOnline;
+			path = FoodApp;
 			sourceTree = "<group>";
 		};
-		C8C99DDE2488D77F00B5C187 /* AdayroiOnlineTests */ = {
+		C8C99DDE2488D77F00B5C187 /* FoodAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				C8C99DDF2488D77F00B5C187 /* AdayroiOnlineTests.swift */,
+				C8C99DDF2488D77F00B5C187 /* FoodAppTests.swift */,
 				C8C99DE12488D77F00B5C187 /* Info.plist */,
 			);
-			path = AdayroiOnlineTests;
+			path = FoodAppTests;
 			sourceTree = "<group>";
 		};
-		C8C99DE92488D77F00B5C187 /* AdayroiOnlineUITests */ = {
+		C8C99DE92488D77F00B5C187 /* FoodAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C8C99DEA2488D77F00B5C187 /* AdayroiOnlineUITests.swift */,
+				C8C99DEA2488D77F00B5C187 /* FoodAppUITests.swift */,
 				C8C99DEC2488D77F00B5C187 /* Info.plist */,
 			);
-			path = AdayroiOnlineUITests;
+			path = FoodAppUITests;
 			sourceTree = "<group>";
 		};
 		C8C99E0B2488D95000B5C187 /* Helper Class */ = {
@@ -916,9 +913,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C8C99DC12488D77E00B5C187 /* AdayroiOnline */ = {
+		C8C99DC12488D77E00B5C187 /* FoodApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8C99DEF2488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnline" */;
+			buildConfigurationList = C8C99DEF2488D77F00B5C187 /* Build configuration list for PBXNativeTarget "FoodApp" */;
 			buildPhases = (
 				79BB0E904C513A606C45568E /* [CP] Check Pods Manifest.lock */,
 				C8C99DBE2488D77E00B5C187 /* Sources */,
@@ -930,14 +927,14 @@
 			);
 			dependencies = (
 			);
-			name = AdayroiOnline;
+			name = FoodApp;
 			productName = FoodApp;
-			productReference = C8C99DC22488D77E00B5C187 /* Adayroi Online.app */;
+			productReference = C8C99DC22488D77E00B5C187 /* adayroi online.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C8C99DDA2488D77F00B5C187 /* AdayroiOnlineTests */ = {
+		C8C99DDA2488D77F00B5C187 /* FoodAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8C99DF22488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnlineTests" */;
+			buildConfigurationList = C8C99DF22488D77F00B5C187 /* Build configuration list for PBXNativeTarget "FoodAppTests" */;
 			buildPhases = (
 				2C52937642C5939B3BC2E2B3 /* [CP] Check Pods Manifest.lock */,
 				C8C99DD72488D77F00B5C187 /* Sources */,
@@ -949,14 +946,14 @@
 			dependencies = (
 				C8C99DDD2488D77F00B5C187 /* PBXTargetDependency */,
 			);
-			name = AdayroiOnlineTests;
+			name = FoodAppTests;
 			productName = FoodAppTests;
-			productReference = C8C99DDB2488D77F00B5C187 /* AdayroiOnlineTests.xctest */;
+			productReference = C8C99DDB2488D77F00B5C187 /* FoodAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C8C99DE52488D77F00B5C187 /* AdayroiOnlineUITests */ = {
+		C8C99DE52488D77F00B5C187 /* FoodAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8C99DF52488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnlineUITests" */;
+			buildConfigurationList = C8C99DF52488D77F00B5C187 /* Build configuration list for PBXNativeTarget "FoodAppUITests" */;
 			buildPhases = (
 				FC88FCBE900B6CF0ED979508 /* [CP] Check Pods Manifest.lock */,
 				C8C99DE22488D77F00B5C187 /* Sources */,
@@ -968,9 +965,9 @@
 			dependencies = (
 				C8C99DE82488D77F00B5C187 /* PBXTargetDependency */,
 			);
-			name = AdayroiOnlineUITests;
+			name = FoodAppUITests;
 			productName = FoodAppUITests;
-			productReference = C8C99DE62488D77F00B5C187 /* AdayroiOnlineUITests.xctest */;
+			productReference = C8C99DE62488D77F00B5C187 /* FoodAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -996,7 +993,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C8C99DBD2488D77E00B5C187 /* Build configuration list for PBXProject "AdayroiOnline" */;
+			buildConfigurationList = C8C99DBD2488D77E00B5C187 /* Build configuration list for PBXProject "FoodApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1010,9 +1007,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C8C99DC12488D77E00B5C187 /* AdayroiOnline */,
-				C8C99DDA2488D77F00B5C187 /* AdayroiOnlineTests */,
-				C8C99DE52488D77F00B5C187 /* AdayroiOnlineUITests */,
+				C8C99DC12488D77E00B5C187 /* FoodApp */,
+				C8C99DDA2488D77F00B5C187 /* FoodAppTests */,
+				C8C99DE52488D77F00B5C187 /* FoodAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1031,7 +1028,6 @@
 				0C5170FC2565535C00C4EA7F /* Home.storyboard in Resources */,
 				0C8A567D258763E700CAD7F1 /* Order.storyboard in Resources */,
 				0C3C2E3A256ABA17000B21C5 /* HomeLastProductCell.xib in Resources */,
-				04971253259C42CD0024883E /* Default-568h@2x.png in Resources */,
 				0C3C2E3F256ABACB000B21C5 /* HomeHotProductCell.xib in Resources */,
 				C8C99DD22488D77F00B5C187 /* Assets.xcassets in Resources */,
 				0CCF2C52256F83620056AEC4 /* Empty.xib in Resources */,
@@ -1175,7 +1171,7 @@
 				C8B4B8502497485A0085ACAC /* ForgotPassword.swift in Sources */,
 				0C8A565B2583186E00CAD7F1 /* GetPaymentResponseModel.swift in Sources */,
 				C82AF9E52492068400464115 /* TrackOrderVC.swift in Sources */,
-				C8C99DD02488D77E00B5C187 /* AdayroiOnline.xcdatamodeld in Sources */,
+				C8C99DD02488D77E00B5C187 /* FoodApp.xcdatamodeld in Sources */,
 				0C172C5B256ED43D005DA537 /* test2.swift in Sources */,
 				C8C99E022488D93C00B5C187 /* Reachability.swift in Sources */,
 				0CD77A5B257A283A0083BC09 /* ADRModel.swift in Sources */,
@@ -1261,7 +1257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8C99DE02488D77F00B5C187 /* AdayroiOnlineTests.swift in Sources */,
+				C8C99DE02488D77F00B5C187 /* FoodAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1269,7 +1265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8C99DEB2488D77F00B5C187 /* AdayroiOnlineUITests.swift in Sources */,
+				C8C99DEB2488D77F00B5C187 /* FoodAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,12 +1274,12 @@
 /* Begin PBXTargetDependency section */
 		C8C99DDD2488D77F00B5C187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C8C99DC12488D77E00B5C187 /* AdayroiOnline */;
+			target = C8C99DC12488D77E00B5C187 /* FoodApp */;
 			targetProxy = C8C99DDC2488D77F00B5C187 /* PBXContainerItemProxy */;
 		};
 		C8C99DE82488D77F00B5C187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C8C99DC12488D77E00B5C187 /* AdayroiOnline */;
+			target = C8C99DC12488D77E00B5C187 /* FoodApp */;
 			targetProxy = C8C99DE72488D77F00B5C187 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1445,7 +1441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 94;
 				DEVELOPMENT_TEAM = H5Y52UW26J;
-				INFOPLIST_FILE = "$(SRCROOT)/AdayroiOnline/Info.plist";
+				INFOPLIST_FILE = FoodApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1453,7 +1449,7 @@
 				);
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vantinviet.banhangonlineapp;
-				PRODUCT_NAME = "Adayroi Online";
+				PRODUCT_NAME = "adayroi online";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1467,7 +1463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 94;
 				DEVELOPMENT_TEAM = H5Y52UW26J;
-				INFOPLIST_FILE = "$(SRCROOT)/AdayroiOnline/Info.plist";
+				INFOPLIST_FILE = FoodApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1475,7 +1471,7 @@
 				);
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vantinviet.banhangonlineapp;
-				PRODUCT_NAME = "Adayroi Online";
+				PRODUCT_NAME = "adayroi online";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1499,7 +1495,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdayroiOnline.app/AdayroiOnline";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodApp.app/FoodApp";
 			};
 			name = Debug;
 		};
@@ -1521,7 +1517,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdayroiOnline.app/AdayroiOnline";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodApp.app/FoodApp";
 			};
 			name = Release;
 		};
@@ -1568,7 +1564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C8C99DBD2488D77E00B5C187 /* Build configuration list for PBXProject "AdayroiOnline" */ = {
+		C8C99DBD2488D77E00B5C187 /* Build configuration list for PBXProject "FoodApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8C99DED2488D77F00B5C187 /* Debug */,
@@ -1577,7 +1573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8C99DEF2488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnline" */ = {
+		C8C99DEF2488D77F00B5C187 /* Build configuration list for PBXNativeTarget "FoodApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8C99DF02488D77F00B5C187 /* Debug */,
@@ -1586,7 +1582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8C99DF22488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnlineTests" */ = {
+		C8C99DF22488D77F00B5C187 /* Build configuration list for PBXNativeTarget "FoodAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8C99DF32488D77F00B5C187 /* Debug */,
@@ -1595,7 +1591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8C99DF52488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnlineUITests" */ = {
+		C8C99DF52488D77F00B5C187 /* Build configuration list for PBXNativeTarget "FoodAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8C99DF62488D77F00B5C187 /* Debug */,
@@ -1607,13 +1603,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C8C99DCE2488D77E00B5C187 /* AdayroiOnline.xcdatamodeld */ = {
+		C8C99DCE2488D77E00B5C187 /* FoodApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				C8C99DCF2488D77E00B5C187 /* FoodApp.xcdatamodel */,
 			);
 			currentVersion = C8C99DCF2488D77E00B5C187 /* FoodApp.xcdatamodel */;
-			path = AdayroiOnline.xcdatamodeld;
+			path = FoodApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
