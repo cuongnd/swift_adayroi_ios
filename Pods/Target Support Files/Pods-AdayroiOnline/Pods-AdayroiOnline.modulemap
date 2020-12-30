@@ -1,0 +1,6 @@
+framework module Pods_AdayroiOnline {
+  umbrella header "Pods-AdayroiOnline-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,12 +1,12 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'FoodApp' do
+target 'AdayroiOnline' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
 
-  # Pods for FoodApp
+  # Pods for AdayroiOnline
 
     pod 'MBProgressHUD'
     pod 'SwiftyJSON'
@@ -28,12 +28,12 @@ target 'FoodApp' do
     pod 'RxSwift', '6.0.0-rc.2'
     pod 'RxCocoa', '6.0.0-rc.2'
     pod 'TagListView', '~> 1.0'
-  target 'FoodAppTests' do
+  target 'AdayroiOnlineTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'FoodAppUITests' do
+  target 'AdayroiOnlineUITests' do
     inherit! :search_paths
     # Pods for testing
   end

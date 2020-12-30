@@ -1,0 +1,6 @@
+framework module Pods_AdayroiOnlineUITests {
+  umbrella header "Pods-AdayroiOnlineUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
