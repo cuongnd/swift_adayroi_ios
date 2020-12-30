@@ -18,6 +18,8 @@ target 'AdayroiOnline' do
     pod 'razorpay-pod'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/DynamicLinks'
     pod 'Localize-Swift', '~> 2.0'
     pod 'LanguageManager-iOS'
     pod 'Layout', '~> 0.6'

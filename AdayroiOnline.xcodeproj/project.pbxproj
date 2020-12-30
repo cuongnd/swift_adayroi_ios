@@ -1442,7 +1442,7 @@
 				CURRENT_PROJECT_VERSION = 95;
 				DEVELOPMENT_TEAM = H5Y52UW26J;
 				INFOPLIST_FILE = AdayroiOnline/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1464,7 +1464,7 @@
 				CURRENT_PROJECT_VERSION = 95;
 				DEVELOPMENT_TEAM = H5Y52UW26J;
 				INFOPLIST_FILE = AdayroiOnline/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
