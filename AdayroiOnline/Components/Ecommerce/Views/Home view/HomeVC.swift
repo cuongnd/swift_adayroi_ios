@@ -56,6 +56,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var HomeTtitleNewProducts: HomeTitle!
     @IBOutlet weak var homeHeader: HomeHeader!
     
+    @IBOutlet weak var UILabelXemThemSanPhamHot: UILabel!
+    @IBOutlet weak var UILabelXemThemDanhMucHot: UILabel!
+    @IBOutlet weak var UILabelXemThemSanPhamMoi: UILabel!
+    @IBOutlet weak var UILabelXemThemSanPhamGiamGia: UILabel!
+    @IBOutlet weak var UILabelXemThemDanhMucSanPham: UILabel!
+    @IBOutlet weak var UILabelXemThemSanPhamYeuThich: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

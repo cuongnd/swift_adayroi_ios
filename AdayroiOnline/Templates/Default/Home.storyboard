@@ -1134,6 +1134,12 @@
                         <outlet property="Collectioview_HomeHotProductList" destination="Iug-ic-rWk" id="OWs-r0-rMb"/>
                         <outlet property="Collectioview_lastProductList" destination="Kl0-T6-3PL" id="tty-XA-5qs"/>
                         <outlet property="HomeTitleFeatureProducts" destination="gba-cX-HHi" id="CVm-bR-FrN"/>
+                        <outlet property="UILabelXemThemDanhMucHot" destination="Vtf-ph-Xbs" id="MM9-Ur-6Z2"/>
+                        <outlet property="UILabelXemThemDanhMucSanPham" destination="6ku-Wz-EkD" id="3vS-SG-6z9"/>
+                        <outlet property="UILabelXemThemSanPhamGiamGia" destination="k0R-1Z-VZp" id="tuQ-mv-JDB"/>
+                        <outlet property="UILabelXemThemSanPhamHot" destination="Ghx-Q7-Iok" id="U6Z-BV-zFy"/>
+                        <outlet property="UILabelXemThemSanPhamMoi" destination="GP7-3S-ROY" id="Y05-z9-pUa"/>
+                        <outlet property="UILabelXemThemSanPhamYeuThich" destination="jPT-GZ-1gE" id="y2g-7h-SnZ"/>
                         <outlet property="btnMenu" destination="r1S-kh-1ZT" id="Ndm-sj-bSe"/>
                         <outlet property="btnSearch" destination="bCi-RD-sN4" id="CCL-j2-b4l"/>
                     </connections>
