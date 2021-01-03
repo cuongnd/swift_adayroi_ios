@@ -49,12 +49,6 @@ class HomeVC: UIViewController {
     var longitude = String()
     
     @IBOutlet weak var HomeTitleFeatureProducts: HomeTitle!
-    @IBOutlet weak var HomeTtitleCategories: HomeTitle!
-    @IBOutlet weak var HomeTtitleDiscountProducts: HomeTitle!
-    @IBOutlet weak var HomeTtitleHotProducts: HomeTitle!
-    @IBOutlet weak var HomeTitleHotCategories: HomeTitle!
-    @IBOutlet weak var HomeTtitleNewProducts: HomeTitle!
-    @IBOutlet weak var homeHeader: HomeHeader!
     
     @IBOutlet weak var UILabelXemThemSanPhamHot: UILabel!
     @IBOutlet weak var UILabelXemThemDanhMucHot: UILabel!
