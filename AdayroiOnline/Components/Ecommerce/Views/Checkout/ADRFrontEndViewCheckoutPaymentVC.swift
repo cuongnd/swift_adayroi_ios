@@ -13,7 +13,7 @@
     import RxCocoa
     import Foundation
     import Alamofire
-    import SlideMenuControllerSwift
+    
     class paymentCell: UICollectionViewCell {
         
         @IBOutlet weak var UIButtonSelectedPayment: UIButton!

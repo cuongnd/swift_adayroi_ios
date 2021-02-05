@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyJSON
 import LanguageManager_iOS
-import SlideMenuControllerSwift
 import CoreLocation
 import MapKit
 class PromotionBannerCell : UICollectionViewCell

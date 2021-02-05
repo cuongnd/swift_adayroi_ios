@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import LanguageManager_iOS
-import SlideMenuControllerSwift
+
 import CoreLocation
 import MapKit
 
@@ -18,12 +18,12 @@ import MapKit
 class HomeCategoryCell: UICollectionViewCell {
     @IBOutlet weak var img_category: UIImageView!
     @IBOutlet weak var lbl_CategoryName: UILabel!
-  
-
+    
+    
 }
 
 class HomeVC: UIViewController {
-   
+    
     
     
     @IBOutlet weak var Collectioview_lastProductList: UICollectionView!
@@ -59,28 +59,88 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
+        
         
         let nibCell = UINib(nibName: "HomeFeatureProductCell", bundle: nil)
         Collectioview_HomeFeatureProductList.register(nibCell, forCellWithReuseIdentifier: "HomeFeatureProductCell")
-       
+        
         
         Collectioview_HomeHotCategoryList.register(UINib(nibName: "HomeHotCategoryCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotCategoryCell")
         Collectioview_lastProductList.register(UINib(nibName: "HomeLastProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeLastProductCell")
         Collectioview_HomeHotProductList.register(UINib(nibName: "HomeHotProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeHotProductCell")
         Collectioview_HomeDiscountProductList.register(UINib(nibName: "HomeDiscountProductCell", bundle: nil), forCellWithReuseIdentifier: "HomeDiscountProductCell")
-       
+        
         let urlStringGetMainShopInfo = API_URL + "/api/ios/get_shop_info"
         self.Webservice_getMainShopInfo(url: urlStringGetMainShopInfo, params: [:])
         
-       
         
-
-   }
+        let tapOpenXemThem = UITapGestureRecognizer(target: self, action: #selector(btnTap_XemThem))
+        
+        self.UILabelXemThemSanPhamHot.isUserInteractionEnabled = true
+        self.UILabelXemThemSanPhamHot.addGestureRecognizer(tapOpenXemThem)
+        
+        self.UILabelXemThemDanhMucHot.isUserInteractionEnabled = true
+        self.UILabelXemThemDanhMucHot.addGestureRecognizer(tapOpenXemThem)
+        
+        
+        self.UILabelXemThemSanPhamMoi.isUserInteractionEnabled = true
+        self.UILabelXemThemSanPhamMoi.addGestureRecognizer(tapOpenXemThem)
+        
+        
+        self.UILabelXemThemDanhMucHot.isUserInteractionEnabled = true
+        self.UILabelXemThemDanhMucHot.addGestureRecognizer(tapOpenXemThem)
+        
+        
+        self.UILabelXemThemSanPhamGiamGia.isUserInteractionEnabled = true
+        self.UILabelXemThemSanPhamGiamGia.addGestureRecognizer(tapOpenXemThem)
+        
+        
+        self.UILabelXemThemDanhMucSanPham.isUserInteractionEnabled = true
+        self.UILabelXemThemDanhMucSanPham.addGestureRecognizer(tapOpenXemThem)
+        
+        self.UILabelXemThemSanPhamYeuThich.isUserInteractionEnabled = true
+        self.UILabelXemThemSanPhamYeuThich.addGestureRecognizer(tapOpenXemThem)
+        
+        
+        
+    }
+    @objc func btnTap_XemThem(sender: UITapGestureRecognizer)
+    {
+        
+        
+        if(sender.view == self.UILabelXemThemSanPhamHot){
+            let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+           
+            self.navigationController?.pushViewController(searchVC, animated: true)
+                   
+        }else if(sender.view == self.UILabelXemThemDanhMucHot){
+            
+            
+        }else if(sender.view == self.UILabelXemThemSanPhamMoi){
+            let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
+           
+            self.navigationController?.pushViewController(searchVC, animated: true)
+            
+        }else if(sender.view == self.UILabelXemThemDanhMucHot){
+            
+        }else if(sender.view == self.UILabelXemThemSanPhamGiamGia){
+            
+        }else if(sender.view == self.UILabelXemThemDanhMucSanPham){
+            
+        }else if(sender.view == self.UILabelXemThemSanPhamYeuThich){
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
     
     @IBAction func GoToSearch(_ sender: UIButton) {
         let searchVC = UIStoryboard(name: "Products", bundle: nil).instantiateViewController(identifier: "SearchVC") as! SearchVC
-       self.navigationController?.pushViewController(searchVC, animated: true)
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     @IBAction func ShowMenu(_ sender: UIButton) {
         print("hello ShowMenu")
@@ -137,7 +197,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.lbl_LastProductPercent.text = data["discount_percent"].stringValue+"%"
             let productImage = data["default_photo"].dictionaryValue
             cell.img_product.sd_setImage(with: URL(string: productImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-          
+            
             
             return cell
         }else if collectionView == self.Collectioview_HomeHotCategoryList{
@@ -147,7 +207,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.lbl_HotCategoryName.text = data["name"].stringValue
             let categoryImage = data["default_photo"].dictionaryValue
             cell.img_hot_category.sd_setImage(with: URL(string: categoryImage["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-           
+            
             return cell
         }else if collectionView == self.Collectioview_HomeHotProductList{
             let cell = self.Collectioview_HomeHotProductList.dequeueReusableCell(withReuseIdentifier: "HomeHotProductCell", for: indexPath) as! HomeHotProductCell
@@ -160,7 +220,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             cell.lbl_HotProductPercent.text = data["discount_percent"].stringValue+"%"
             let product_Image = data["default_photo"].dictionaryValue
             cell.img_hot_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-           
+            
             return cell
         }else if collectionView == self.Collectioview_HomeDiscountProductList{
             let cell = self.Collectioview_HomeDiscountProductList.dequeueReusableCell(withReuseIdentifier: "HomeDiscountProductCell", for: indexPath) as! HomeDiscountProductCell
@@ -174,7 +234,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let product_Image = data["default_photo"].dictionaryValue
             
             cell.img_discount_product.sd_setImage(with: URL(string: product_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
-          
+            
             return cell
         }else if collectionView == self.Collectioview_HomeCategoryList{
             let cell = self.Collectioview_HomeCategoryList.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCell", for: indexPath) as! HomeCategoryCell
@@ -184,7 +244,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let category_Image = data["default_photo"].dictionaryValue
             cell.img_category.sd_setImage(with: URL(string: category_Image["img_path"]!.stringValue), placeholderImage: UIImage(named: "placeholder_image"))
             // corner radius
-           
+            
             return cell
         }else if collectionView == self.Collectioview_HomeFeatureProductList{
             let cell = self.Collectioview_HomeFeatureProductList.dequeueReusableCell(withReuseIdentifier: "HomeFeatureProductCell", for: indexPath) as! HomeFeatureProductCell
@@ -319,22 +379,22 @@ extension HomeVC
                 print(jsonResponse!)
                 let responseCode = jsonResponse!["result"].stringValue
                 if responseCode == "success" {
-                     let mainShopInfo = jsonResponse!["data"].dictionaryValue
-                     UserDefaultManager.setStringToUserDefaults(value:mainShopInfo["currency"]!.stringValue, key: UD_currency)
+                    let mainShopInfo = jsonResponse!["data"].dictionaryValue
+                    UserDefaultManager.setStringToUserDefaults(value:mainShopInfo["currency"]!.stringValue, key: UD_currency)
                     
-                     let urlString = API_URL + "/api/products?order_by=added_date"
-                       self.Webservice_getHomeLastProducts(url: urlString, params: [:])
-                       let urlStringHomeCategories = API_URL + "/api/categories"
-                       self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
-                       let urlStringHomeHotProduct = API_URL + "/api/products?order_by=touch_count"
-                       self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
-                       let urlStringHomeDiscountProduct = API_URL + "/api/products?is_discount=1"
-                       self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
-                       let urlStringHomeCategory = API_URL + "/api/categories"
-                       self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
-                       let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
-                       self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
-                        
+                    let urlString = API_URL + "/api/products?order_by=added_date"
+                    self.Webservice_getHomeLastProducts(url: urlString, params: [:])
+                    let urlStringHomeCategories = API_URL + "/api/categories"
+                    self.Webservice_getHomeHotCategories(url: urlStringHomeCategories, params: [:])
+                    let urlStringHomeHotProduct = API_URL + "/api/products?order_by=touch_count"
+                    self.Webservice_getHomeHotProducts(url: urlStringHomeHotProduct, params: [:])
+                    let urlStringHomeDiscountProduct = API_URL + "/api/products?is_discount=1"
+                    self.Webservice_getHomeDiscountProducts(url: urlStringHomeDiscountProduct, params: [:])
+                    let urlStringHomeCategory = API_URL + "/api/categories"
+                    self.Webservice_getHomeCategories(url: urlStringHomeCategory, params: [:])
+                    let urlStringHomeFeatureProducts = API_URL + "/api/products?is_featured=1"
+                    self.Webservice_getHomeFeatureProducts(url: urlStringHomeFeatureProducts, params: [:])
+                    
                     
                     
                 }
@@ -489,8 +549,8 @@ extension String {
         let attributeString =  NSMutableAttributedString(string: self)
         attributeString.addAttribute(
             NSAttributedString.Key.strikethroughStyle,
-               value: NSUnderlineStyle.single.rawValue,
-                   range:NSMakeRange(0,attributeString.length))
+            value: NSUnderlineStyle.single.rawValue,
+            range:NSMakeRange(0,attributeString.length))
         return attributeString
     }
 }

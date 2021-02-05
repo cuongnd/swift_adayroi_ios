@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
+
 
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

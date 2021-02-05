@@ -205,13 +205,6 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>33</integer>
-		</dict>
-		<key>SlideMenuControllerSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
 			<integer>32</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
@@ -219,14 +212,14 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>34</integer>
+			<integer>33</integer>
 		</dict>
 		<key>TagListView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>35</integer>
+			<integer>34</integer>
 		</dict>
 		<key>iOSDropDown.xcscheme</key>
 		<dict>

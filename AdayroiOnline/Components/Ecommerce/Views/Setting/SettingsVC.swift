@@ -8,7 +8,7 @@
 
 import UIKit
 import LanguageManager_iOS
-import SlideMenuControllerSwift
+
 class SettingsVC: UIViewController {
     @IBOutlet weak var lbl_Version: UILabel!
     @IBOutlet weak var lbl_titleLabel: UILabel!

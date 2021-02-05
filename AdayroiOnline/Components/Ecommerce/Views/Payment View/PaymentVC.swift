@@ -9,7 +9,7 @@
 import UIKit
 import Razorpay
 import SwiftyJSON
-import SlideMenuControllerSwift
+
 
 
 class PaymentVC: UIViewController,RazorpayPaymentCompletionProtocol {

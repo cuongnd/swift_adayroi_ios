@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import SlideMenuControllerSwift
+
 import iOSDropDown
 import LanguageManager_iOS
 

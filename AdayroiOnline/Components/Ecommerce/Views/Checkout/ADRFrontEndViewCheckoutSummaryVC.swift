@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 import Foundation
 import Alamofire
-import SlideMenuControllerSwift
+
 
 
 class ADRFrontEndViewCheckoutSummaryVC: UIViewController {

@@ -11,7 +11,7 @@ import SwiftyJSON
 import SQLite
 import ETBinding
 import TagListView
-import SlideMenuControllerSwift
+
 
 class CartCell: UITableViewCell {
     
