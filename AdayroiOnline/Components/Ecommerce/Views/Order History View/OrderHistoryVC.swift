@@ -23,7 +23,7 @@ class OrderHistoryCell: UITableViewCell {
     @IBOutlet weak var lbl_itemQty: UILabel!
 }
 
-
+@available(iOS 13.0, *)
 class OrderHistoryVC: UIViewController {
     @IBOutlet weak var Tableview_OrderHistory: UITableView!
     @IBOutlet weak var lbl_titleLabel: UILabel!
@@ -58,6 +58,7 @@ class OrderHistoryVC: UIViewController {
         }
     }
 }
+@available(iOS 13.0, *)
 extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.Tableview_OrderHistory.bounds.size.width, height: self.Tableview_OrderHistory.bounds.size.height))
@@ -116,6 +117,7 @@ extension OrderHistoryVC: UITableViewDelegate,UITableViewDataSource {
     
 }
 //MARK: Webservices
+@available(iOS 13.0, *)
 extension OrderHistoryVC {
     func Webservice_GetHistory(url:String, params:NSDictionary) -> Void {
         

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+@available(iOS 13.0, *)
 class FavoriteListVC: UIViewController {
     @IBOutlet weak var Collectioview_FavoriteList: UICollectionView!
     var pageIndex = 1
@@ -33,6 +34,7 @@ class FavoriteListVC: UIViewController {
         }
     }
 }
+@available(iOS 13.0, *)
 extension FavoriteListVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.Collectioview_FavoriteList.bounds.size.width, height: self.Collectioview_FavoriteList.bounds.size.height))
@@ -106,6 +108,7 @@ extension FavoriteListVC: UICollectionViewDelegate,UICollectionViewDataSource,UI
         self.present(alertVC,animated: true,completion: nil)
     }
 }
+@available(iOS 13.0, *)
 extension FavoriteListVC
 {
     func Webservice_getFavoriteList(url:String, params:NSDictionary) -> Void {

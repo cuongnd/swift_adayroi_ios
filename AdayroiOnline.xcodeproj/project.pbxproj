@@ -87,9 +87,7 @@
 		0CDCD68525807B8C000B7F44 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CDCD68225807B8B000B7F44 /* Font Awesome 5 Brands-Regular-400.otf */; };
 		0CDCD68625807B8C000B7F44 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CDCD68325807B8B000B7F44 /* Font Awesome 5 Free-Regular-400.otf */; };
 		0CDCD68725807B8C000B7F44 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CDCD68425807B8B000B7F44 /* Font Awesome 5 Free-Solid-900.otf */; };
-		3789C406A92544829C330A86 /* Pods_AdayroiOnlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5D5BE15D5650D0E2F11F0F /* Pods_AdayroiOnlineUITests.framework */; };
-		415F3143BDD7FD0FEF604414 /* Pods_AdayroiOnlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FDDFC48422C5E1070C210A /* Pods_AdayroiOnlineTests.framework */; };
-		55D4C0AEB8B76D42DECD857B /* Pods_AdayroiOnline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F38146E37C0D43924ABA6 /* Pods_AdayroiOnline.framework */; };
+		29B50646E10060435B3C0398 /* Pods_AdayroiOnline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5589EB6D401DA528287B44F6 /* Pods_AdayroiOnline.framework */; };
 		880BDE8E24D552310085FC1D /* AddOnsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BDE8D24D552310085FC1D /* AddOnsVC.swift */; };
 		880BDE9024D5524F0085FC1D /* AddonceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BDE8F24D5524F0085FC1D /* AddonceListVC.swift */; };
 		880BDE9224D55F870085FC1D /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BDE9124D55F870085FC1D /* NoteVC.swift */; };
@@ -98,6 +96,7 @@
 		88D6F6EB24A63246005F1439 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88D6F6EA24A63245005F1439 /* GoogleService-Info.plist */; };
 		88F6721E24A4ADE5000061FB /* PromoCodeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6721D24A4ADE5000061FB /* PromoCodeListVC.swift */; };
 		88F7445124A5C2D300800568 /* FavoriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7445024A5C2D300800568 /* FavoriteListVC.swift */; };
+		BC06DFC4B062EC95AD7D1494 /* Pods_AdayroiOnlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93241B94F5088839E57D25B5 /* Pods_AdayroiOnlineTests.framework */; };
 		C80208CC248A72B3001D8864 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80208CB248A72B2001D8864 /* SideMenuVC.swift */; };
 		C811991D2495F58000F9CF6F /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C811991C2495F57F00F9CF6F /* TutorialVC.swift */; };
 		C82AF9E32491FD2A00464115 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82AF9E22491FD2A00464115 /* SettingsVC.swift */; };
@@ -134,6 +133,7 @@
 		C8C99E092488D93C00B5C187 /* CornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C99E012488D93C00B5C187 /* CornerView.swift */; };
 		C8F07A2B248F879700665143 /* OrderHistoryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F07A2A248F879700665143 /* OrderHistoryDetailsVC.swift */; };
 		C8F882D2248CB79F0064D74F /* OrderHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F882D1248CB79F0064D74F /* OrderHistoryVC.swift */; };
+		D148AF7F55DEC02508E2E22D /* Pods_AdayroiOnlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAB2008E9B023D70B292133 /* Pods_AdayroiOnlineUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,14 +238,14 @@
 		0CDCD68225807B8B000B7F44 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		0CDCD68325807B8B000B7F44 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		0CDCD68425807B8B000B7F44 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
-		4F5D5BE15D5650D0E2F11F0F /* Pods_AdayroiOnlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdayroiOnlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5228713D74588E57492D7E40 /* Pods-AdayroiOnlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineTests.debug.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineTests/Pods-AdayroiOnlineTests.debug.xcconfig"; sourceTree = "<group>"; };
-		557F38146E37C0D43924ABA6 /* Pods_AdayroiOnline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdayroiOnline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		68FDDFC48422C5E1070C210A /* Pods_AdayroiOnlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdayroiOnlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1282830C1B981694A9009B18 /* Pods-AdayroiOnlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineTests.release.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineTests/Pods-AdayroiOnlineTests.release.xcconfig"; sourceTree = "<group>"; };
+		1282D47310D7989729FD2F0D /* Pods-AdayroiOnlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineTests.debug.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineTests/Pods-AdayroiOnlineTests.debug.xcconfig"; sourceTree = "<group>"; };
+		374C2D94E6DC92DDC1DF1448 /* Pods-AdayroiOnlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineUITests.release.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineUITests/Pods-AdayroiOnlineUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5109A893FF22522F568BC25A /* Pods-AdayroiOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnline.debug.xcconfig"; path = "Target Support Files/Pods-AdayroiOnline/Pods-AdayroiOnline.debug.xcconfig"; sourceTree = "<group>"; };
+		5589EB6D401DA528287B44F6 /* Pods_AdayroiOnline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdayroiOnline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880BDE8D24D552310085FC1D /* AddOnsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOnsVC.swift; sourceTree = "<group>"; };
 		880BDE8F24D5524F0085FC1D /* AddonceListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddonceListVC.swift; sourceTree = "<group>"; };
 		880BDE9124D55F870085FC1D /* NoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
-		8890FEF4CC496369BFEE1883 /* Pods-AdayroiOnlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineTests.release.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineTests/Pods-AdayroiOnlineTests.release.xcconfig"; sourceTree = "<group>"; };
 		889328EE24A481C0003C27D5 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		88933DC224B45D4500995AEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		88933DDF24B4683100995AEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -253,9 +253,9 @@
 		88D6F6EA24A63245005F1439 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88F6721D24A4ADE5000061FB /* PromoCodeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeListVC.swift; sourceTree = "<group>"; };
 		88F7445024A5C2D300800568 /* FavoriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListVC.swift; sourceTree = "<group>"; };
-		8D396FB5B2085C1245A57143 /* Pods-AdayroiOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnline.release.xcconfig"; path = "Target Support Files/Pods-AdayroiOnline/Pods-AdayroiOnline.release.xcconfig"; sourceTree = "<group>"; };
-		99825A62245F5E0A1F214293 /* Pods-AdayroiOnlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineUITests.debug.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineUITests/Pods-AdayroiOnlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C61F132174B8DF9DD21DCB32 /* Pods-AdayroiOnlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineUITests.release.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineUITests/Pods-AdayroiOnlineUITests.release.xcconfig"; sourceTree = "<group>"; };
+		93241B94F5088839E57D25B5 /* Pods_AdayroiOnlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdayroiOnlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABAB2008E9B023D70B292133 /* Pods_AdayroiOnlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdayroiOnlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4FFC2B1DCC316D84630E0F4 /* Pods-AdayroiOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnline.release.xcconfig"; path = "Target Support Files/Pods-AdayroiOnline/Pods-AdayroiOnline.release.xcconfig"; sourceTree = "<group>"; };
 		C80208CB248A72B2001D8864 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		C811991C2495F57F00F9CF6F /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		C82AF9E22491FD2A00464115 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		C8C99E012488D93C00B5C187 /* CornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerView.swift; sourceTree = "<group>"; };
 		C8F07A2A248F879700665143 /* OrderHistoryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryDetailsVC.swift; sourceTree = "<group>"; };
 		C8F882D1248CB79F0064D74F /* OrderHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryVC.swift; sourceTree = "<group>"; };
-		E3E398B46DF5FC8F87AA4013 /* Pods-AdayroiOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnline.debug.xcconfig"; path = "Target Support Files/Pods-AdayroiOnline/Pods-AdayroiOnline.debug.xcconfig"; sourceTree = "<group>"; };
+		D9CDC205FBA370B4419368DE /* Pods-AdayroiOnlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdayroiOnlineUITests.debug.xcconfig"; path = "Target Support Files/Pods-AdayroiOnlineUITests/Pods-AdayroiOnlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,7 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D4C0AEB8B76D42DECD857B /* Pods_AdayroiOnline.framework in Frameworks */,
+				29B50646E10060435B3C0398 /* Pods_AdayroiOnline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				415F3143BDD7FD0FEF604414 /* Pods_AdayroiOnlineTests.framework in Frameworks */,
+				BC06DFC4B062EC95AD7D1494 /* Pods_AdayroiOnlineTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +321,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3789C406A92544829C330A86 /* Pods_AdayroiOnlineUITests.framework in Frameworks */,
+				D148AF7F55DEC02508E2E22D /* Pods_AdayroiOnlineUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,12 +693,12 @@
 			path = Fronts;
 			sourceTree = "<group>";
 		};
-		0FD08464E569D2BB07393ACA /* Frameworks */ = {
+		12BD38681A0BDBEE6CC8B706 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				557F38146E37C0D43924ABA6 /* Pods_AdayroiOnline.framework */,
-				68FDDFC48422C5E1070C210A /* Pods_AdayroiOnlineTests.framework */,
-				4F5D5BE15D5650D0E2F11F0F /* Pods_AdayroiOnlineUITests.framework */,
+				5589EB6D401DA528287B44F6 /* Pods_AdayroiOnline.framework */,
+				93241B94F5088839E57D25B5 /* Pods_AdayroiOnlineTests.framework */,
+				ABAB2008E9B023D70B292133 /* Pods_AdayroiOnlineUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -799,12 +799,12 @@
 		C254AA5ADFF53E10EE9748C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E3E398B46DF5FC8F87AA4013 /* Pods-AdayroiOnline.debug.xcconfig */,
-				8D396FB5B2085C1245A57143 /* Pods-AdayroiOnline.release.xcconfig */,
-				5228713D74588E57492D7E40 /* Pods-AdayroiOnlineTests.debug.xcconfig */,
-				8890FEF4CC496369BFEE1883 /* Pods-AdayroiOnlineTests.release.xcconfig */,
-				99825A62245F5E0A1F214293 /* Pods-AdayroiOnlineUITests.debug.xcconfig */,
-				C61F132174B8DF9DD21DCB32 /* Pods-AdayroiOnlineUITests.release.xcconfig */,
+				5109A893FF22522F568BC25A /* Pods-AdayroiOnline.debug.xcconfig */,
+				C4FFC2B1DCC316D84630E0F4 /* Pods-AdayroiOnline.release.xcconfig */,
+				1282D47310D7989729FD2F0D /* Pods-AdayroiOnlineTests.debug.xcconfig */,
+				1282830C1B981694A9009B18 /* Pods-AdayroiOnlineTests.release.xcconfig */,
+				D9CDC205FBA370B4419368DE /* Pods-AdayroiOnlineUITests.debug.xcconfig */,
+				374C2D94E6DC92DDC1DF1448 /* Pods-AdayroiOnlineUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -837,7 +837,7 @@
 				C8C99DE92488D77F00B5C187 /* AdayroiOnlineUITests */,
 				C8C99DC32488D77E00B5C187 /* Products */,
 				C254AA5ADFF53E10EE9748C0 /* Pods */,
-				0FD08464E569D2BB07393ACA /* Frameworks */,
+				12BD38681A0BDBEE6CC8B706 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -920,11 +920,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8C99DEF2488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnline" */;
 			buildPhases = (
-				62BD5C6E07621066458754BA /* [CP] Check Pods Manifest.lock */,
+				2A0DBE61495E0603A93F909A /* [CP] Check Pods Manifest.lock */,
 				C8C99DBE2488D77E00B5C187 /* Sources */,
 				C8C99DBF2488D77E00B5C187 /* Frameworks */,
 				C8C99DC02488D77E00B5C187 /* Resources */,
-				E9221DE89A950746C256D18D /* [CP] Embed Pods Frameworks */,
+				F0B3382E6A80F7DED8EB58BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -939,7 +939,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8C99DF22488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnlineTests" */;
 			buildPhases = (
-				A0D33C0D495A40B2A8D4B136 /* [CP] Check Pods Manifest.lock */,
+				2AEC38ADABCECF3712A37B17 /* [CP] Check Pods Manifest.lock */,
 				C8C99DD72488D77F00B5C187 /* Sources */,
 				C8C99DD82488D77F00B5C187 /* Frameworks */,
 				C8C99DD92488D77F00B5C187 /* Resources */,
@@ -958,7 +958,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8C99DF52488D77F00B5C187 /* Build configuration list for PBXNativeTarget "AdayroiOnlineUITests" */;
 			buildPhases = (
-				9840D72855796EF381E975AE /* [CP] Check Pods Manifest.lock */,
+				B9E94C3F4037592CF2F4479C /* [CP] Check Pods Manifest.lock */,
 				C8C99DE22488D77F00B5C187 /* Sources */,
 				C8C99DE32488D77F00B5C187 /* Frameworks */,
 				C8C99DE42488D77F00B5C187 /* Resources */,
@@ -1067,7 +1067,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		62BD5C6E07621066458754BA /* [CP] Check Pods Manifest.lock */ = {
+		2A0DBE61495E0603A93F909A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1089,29 +1089,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9840D72855796EF381E975AE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AdayroiOnlineUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0D33C0D495A40B2A8D4B136 /* [CP] Check Pods Manifest.lock */ = {
+		2AEC38ADABCECF3712A37B17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1133,7 +1111,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E9221DE89A950746C256D18D /* [CP] Embed Pods Frameworks */ = {
+		B9E94C3F4037592CF2F4479C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdayroiOnlineUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0B3382E6A80F7DED8EB58BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1372,7 +1372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1427,7 +1427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1439,14 +1439,14 @@
 		};
 		C8C99DF02488D77F00B5C187 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3E398B46DF5FC8F87AA4013 /* Pods-AdayroiOnline.debug.xcconfig */;
+			baseConfigurationReference = 5109A893FF22522F568BC25A /* Pods-AdayroiOnline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 95;
 				DEVELOPMENT_TEAM = H5Y52UW26J;
 				INFOPLIST_FILE = AdayroiOnline/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1454,21 +1454,21 @@
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vantinviet.banhangonlineapp;
 				PRODUCT_NAME = "adayroi online";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C8C99DF12488D77F00B5C187 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D396FB5B2085C1245A57143 /* Pods-AdayroiOnline.release.xcconfig */;
+			baseConfigurationReference = C4FFC2B1DCC316D84630E0F4 /* Pods-AdayroiOnline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 95;
 				DEVELOPMENT_TEAM = H5Y52UW26J;
 				INFOPLIST_FILE = AdayroiOnline/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1476,14 +1476,14 @@
 				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vantinviet.banhangonlineapp;
 				PRODUCT_NAME = "adayroi online";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		C8C99DF32488D77F00B5C187 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5228713D74588E57492D7E40 /* Pods-AdayroiOnlineTests.debug.xcconfig */;
+			baseConfigurationReference = 1282D47310D7989729FD2F0D /* Pods-AdayroiOnlineTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1505,7 +1505,7 @@
 		};
 		C8C99DF42488D77F00B5C187 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8890FEF4CC496369BFEE1883 /* Pods-AdayroiOnlineTests.release.xcconfig */;
+			baseConfigurationReference = 1282830C1B981694A9009B18 /* Pods-AdayroiOnlineTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1527,7 +1527,7 @@
 		};
 		C8C99DF62488D77F00B5C187 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99825A62245F5E0A1F214293 /* Pods-AdayroiOnlineUITests.debug.xcconfig */;
+			baseConfigurationReference = D9CDC205FBA370B4419368DE /* Pods-AdayroiOnlineUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1547,7 +1547,7 @@
 		};
 		C8C99DF72488D77F00B5C187 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C61F132174B8DF9DD21DCB32 /* Pods-AdayroiOnlineUITests.release.xcconfig */;
+			baseConfigurationReference = 374C2D94E6DC92DDC1DF1448 /* Pods-AdayroiOnlineUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

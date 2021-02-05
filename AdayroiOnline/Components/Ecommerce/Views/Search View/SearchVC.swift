@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+@available(iOS 13.0, *)
 class SearchVC: UIViewController {
     @IBOutlet weak var Collectioview_SearchList: UICollectionView!
     var pageIndex = 1
@@ -45,6 +46,7 @@ class SearchVC: UIViewController {
         }
     }
 }
+@available(iOS 13.0, *)
 extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.Collectioview_SearchList.bounds.size.width, height: self.Collectioview_SearchList.bounds.size.height))
@@ -131,6 +133,7 @@ extension SearchVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         
     }
 }
+@available(iOS 13.0, *)
 extension SearchVC
 {
     func Webservice_getSearch(url:String, params:NSDictionary) -> Void {

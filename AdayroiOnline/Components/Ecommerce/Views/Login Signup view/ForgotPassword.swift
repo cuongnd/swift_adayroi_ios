@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+@available(iOS 13.0, *)
 class ForgotPassword: UIViewController {
     
     @IBOutlet weak var btn_submit: UIButton!
@@ -27,6 +28,7 @@ class ForgotPassword: UIViewController {
     }
 }
 //MARK: Webservices
+@available(iOS 13.0, *)
 extension ForgotPassword
 {
     func Webservice_ForgotPassword(url:String, params:NSDictionary) -> Void {

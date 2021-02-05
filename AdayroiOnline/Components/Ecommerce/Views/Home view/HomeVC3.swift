@@ -34,7 +34,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var img_Product: UIImageView!
     @IBOutlet weak var btn_Favorite: UIButton!
 }
-
+@available(iOS 13.0, *)
 class HomeVC3: UIViewController {
     
     @IBOutlet weak var collectionview_BannerHeight: NSLayoutConstraint!
@@ -182,6 +182,7 @@ class HomeVC3: UIViewController {
         mapItem.openInMaps(launchOptions: options)
     }
 }
+@available(iOS 13.0, *)
 extension HomeVC3: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectioView_GirdList
@@ -345,6 +346,7 @@ extension HomeVC3: UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         }
     }
 }
+@available(iOS 13.0, *)
 extension HomeVC3: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.Tableview_ProductList.bounds.size.width, height: self.Tableview_ProductList.bounds.size.height))
@@ -434,6 +436,7 @@ extension HomeVC3: UITableViewDelegate,UITableViewDataSource {
         }
     }
 }
+@available(iOS 13.0, *)
 extension HomeVC3
 {
     func Webservice_getCategory(url:String, params:NSDictionary) -> Void {
@@ -628,6 +631,7 @@ extension HomeVC3
         }
     }
 }
+@available(iOS 13.0, *)
 extension HomeVC3 {
     func addViewDynamically(subview : UIView)
     {

@@ -11,7 +11,7 @@ import UIKit
 protocol AddOnsDelegate {
     func refreshData(AddonsArray : [[String:String]])
 }
-
+@available(iOS 13.0, *)
 class AddOnsVC: UIViewController {
     
     @IBOutlet weak var TableView_AddonceList: UITableView!
@@ -35,6 +35,7 @@ class AddOnsVC: UIViewController {
     }
     
 }
+@available(iOS 13.0, *)
 extension AddOnsVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.TableView_AddonceList.bounds.size.width, height: self.TableView_AddonceList.bounds.size.height))

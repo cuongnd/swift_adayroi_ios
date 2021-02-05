@@ -15,7 +15,7 @@ import Foundation
 import Alamofire
 
 
-
+@available(iOS 13.0, *)
 class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var UITextFieldShippingFullName: UITextField!
@@ -228,6 +228,7 @@ class ADRFrontEndViewCheckoutVC: UIViewController,UITextViewDelegate {
     }
     
 }
+@available(iOS 13.0, *)
 extension ADRFrontEndViewCheckoutVC
 {
     

@@ -13,14 +13,14 @@
     import RxCocoa
     import Foundation
     import Alamofire
-    
+    @available(iOS 13.0, *)
     class paymentCell: UICollectionViewCell {
         
         @IBOutlet weak var UIButtonSelectedPayment: UIButton!
         @IBOutlet weak var UIImageViewPayment: UIImageView!
         @IBOutlet weak var UILabelPaymentName: UILabel!
     }
-    
+    @available(iOS 13.0, *)
     class ADRFrontEndViewCheckoutPaymentVC: UIViewController {
         
         
@@ -165,6 +165,7 @@
             self.navigationController?.pushViewController(vc, animated:true)
         }
     }
+    @available(iOS 13.0, *)
     extension ADRFrontEndViewCheckoutPaymentVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             
@@ -230,7 +231,7 @@
         
         
     }
-    
+    @available(iOS 13.0, *)
     extension ADRFrontEndViewCheckoutPaymentVC
     {
         

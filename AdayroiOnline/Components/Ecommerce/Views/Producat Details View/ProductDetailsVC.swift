@@ -42,6 +42,7 @@ class RelatedProductCell: UICollectionViewCell {
        @IBOutlet weak var lbl_RelatedProductOriginalPrice: UILabel!
        @IBOutlet weak var lbl_RelatedProductUnitPrice: UILabel!
 }
+@available(iOS 13.0, *)
 class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavigationDelegate {
     
     @IBOutlet weak var text_view: UITextView!
@@ -290,7 +291,7 @@ class ProductDetailsVC: UIViewController,UITextViewDelegate,WKUIDelegate, WKNavi
         self.btn_Addtocart.setTitle("\(cartStr) \(ItemPriceTotal!) \(UserDefaultManager.getStringFromUserDefaults(key: UD_currency))".localiz(), for: .normal)
     }
 }
-
+@available(iOS 13.0, *)
 extension ProductDetailsVC {
     func imageSliderData() {
         self.image_Slider.slideshowInterval = 3.0
@@ -309,6 +310,7 @@ extension ProductDetailsVC {
         self.image_Slider.presentFullScreenController(from: self)
     }
 }
+@available(iOS 13.0, *)
 extension ProductDetailsVC: AddOnsDelegate {
     
     func refreshData(AddonsArray: [[String : String]]) {
@@ -363,6 +365,7 @@ extension ProductDetailsVC: AddOnsDelegate {
     }
     
 }
+@available(iOS 13.0, *)
 extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.CollectionViewRelatedProducts{
@@ -534,6 +537,7 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
     }
     
 }
+@available(iOS 13.0, *)
 extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.TableView_AddonsList.bounds.size.width, height: self.TableView_AddonsList.bounds.size.height))
@@ -620,6 +624,7 @@ extension ProductDetailsVC: UITableViewDelegate,UITableViewDataSource {
         self.TableView_AddonsList.reloadData()
     }
 }
+@available(iOS 13.0, *)
 extension ProductDetailsVC
 {
     func Webservice_getImageByProductDetail(url:String, params:NSDictionary) -> Void {

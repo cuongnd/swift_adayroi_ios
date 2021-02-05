@@ -14,6 +14,7 @@ class TutorialCollectionCell: UICollectionViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
 }
+@available(iOS 13.0, *)
 class TutorialVC: UIViewController {
     
     //MARK: Outlets
@@ -32,6 +33,7 @@ class TutorialVC: UIViewController {
     }
 }
 //MARK: Actions
+@available(iOS 13.0, *)
 extension TutorialVC {
     @IBAction func btnSkip_Clicked(_ sender: UIButton) {
         UserDefaults.standard.set("1", forKey: UD_isTutorial)
@@ -43,6 +45,7 @@ extension TutorialVC {
     }
 }
 //MARK: Collectionview methods
+@available(iOS 13.0, *)
 extension TutorialVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tutorialArr.count
@@ -60,6 +63,7 @@ extension TutorialVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     }
 }
 //MARK: Functions
+@available(iOS 13.0, *)
 extension TutorialVC {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var visibleRect = CGRect()

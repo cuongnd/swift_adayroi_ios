@@ -21,7 +21,7 @@ class HomeCategoryCell: UICollectionViewCell {
     
     
 }
-
+@available(iOS 13.0, *)
 class HomeVC: UIViewController {
     
     
@@ -165,6 +165,7 @@ class HomeVC: UIViewController {
     
     
 }
+@available(iOS 13.0, *)
 extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.Collectioview_lastProductList{
@@ -367,7 +368,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
     }
     
 }
-
+@available(iOS 13.0, *)
 extension HomeVC
 {
     func Webservice_getMainShopInfo(url:String, params:NSDictionary) -> Void {

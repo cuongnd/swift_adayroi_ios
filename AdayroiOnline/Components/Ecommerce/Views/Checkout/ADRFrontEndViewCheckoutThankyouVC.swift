@@ -25,7 +25,7 @@ class orderProductCell: UICollectionViewCell {
     @IBOutlet weak var UILabelColorValue: UILabel!
     @IBOutlet weak var tagListView: TagListView!
 }
-
+@available(iOS 13.0, *)
 class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     
     @IBOutlet weak var UIButtonHomePage: UIButton!
@@ -92,6 +92,7 @@ class ADRFrontEndViewCheckoutThankyouVC: UIViewController {
     }
     
 }
+@available(iOS 13.0, *)
 extension ADRFrontEndViewCheckoutThankyouVC
 {
     
@@ -165,7 +166,7 @@ extension ADRFrontEndViewCheckoutThankyouVC
     
     
 }
-
+@available(iOS 13.0, *)
 extension ADRFrontEndViewCheckoutThankyouVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

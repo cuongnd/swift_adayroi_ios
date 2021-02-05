@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-
+@available(iOS 13.0, *)
 class SignupVC: UIViewController {
     @IBOutlet weak var btn_signup: UIButton!
     @IBOutlet weak var txt_MobileNumber: UITextField!
@@ -22,6 +22,7 @@ class SignupVC: UIViewController {
         self.btn_showPassword.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
     }
 }
+@available(iOS 13.0, *)
 extension SignupVC
 {
     
@@ -55,6 +56,7 @@ extension SignupVC
         
     }
 }
+@available(iOS 13.0, *)
 extension SignupVC
 {
     func Webservice_Register(url:String, params:NSDictionary) -> Void {

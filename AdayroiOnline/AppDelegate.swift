@@ -18,8 +18,9 @@ import ETBinding
 import Firebase
 
 @UIApplicationMain
+@available(iOS 13.0, *)
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
-    
+    var window: UIWindow?
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
     
@@ -57,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         print("handled \(handled)")
       return handled
     }
-    @available(iOS 9.0, *)
+    @available(iOS 13.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
       return application(app, open: url,
                          sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,

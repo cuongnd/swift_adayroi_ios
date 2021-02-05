@@ -8,7 +8,7 @@
 
 import UIKit
 import LanguageManager_iOS
-
+@available(iOS 13.0, *)
 class SettingsVC: UIViewController {
     @IBOutlet weak var lbl_Version: UILabel!
     @IBOutlet weak var lbl_titleLabel: UILabel!

@@ -35,6 +35,7 @@ class attributeCell: UICollectionViewCell {
     @IBOutlet weak var UILabelKey: UILabel!
     @IBOutlet weak var UILabelValue: UILabel!
 }
+@available(iOS 13.0, *)
 class AddtoCartVC: UIViewController {
     
     @IBOutlet weak var btn_Checkout: UIButton!
@@ -119,6 +120,7 @@ class AddtoCartVC: UIViewController {
         }
     }
 }
+@available(iOS 13.0, *)
 extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rect = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: self.TableView_CartList.bounds.size.width, height: self.TableView_CartList.bounds.size.height))
@@ -264,7 +266,7 @@ extension AddtoCartVC: UITableViewDelegate,UITableViewDataSource {
         
     }
 }
-
+@available(iOS 13.0, *)
 extension AddtoCartVC
 {
     func showCart() -> Void{
@@ -443,6 +445,7 @@ extension AddtoCartVC
         }
     }
 }
+@available(iOS 13.0, *)
 extension AddtoCartVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let data=self.cartDetailsarray[collectionView.tag]

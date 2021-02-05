@@ -11,7 +11,7 @@ import SwiftyJSON
 
 import iOSDropDown
 import LanguageManager_iOS
-
+@available(iOS 13.0, *)
 class LoginVC: UIViewController {
     @IBOutlet weak var txt_Password: UITextField!
     @IBOutlet weak var btn_showPassword: UIButton!
@@ -23,32 +23,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         btn_login.setTitle("Login".localiz(), for: .normal)
         btn_Skip.setTitle("SKIP".localiz(), for: .normal)
-        dropDown.placeholder="Change language".localiz()
-        txt_Password.placeholder="Password".localiz()
-        cornerRadius(viewName: self.btn_login, radius: 8.0)
-        cornerRadius(viewName: self.btn_Skip, radius: 6.0)
-        self.btn_showPassword.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
-        //        self.txt_Email.text = "Mitesh".localiz(comment: "123")
         
-        // The list of array to display. Can be changed dynamically
-        dropDown.optionArray = ["Vietnamese", "English"]
-        //Its Id Values and its optional
-        dropDown.optionIds = [0,1]
-        
-        // Image Array its optional
-        // The the Closure returns Selected Index and String
-        dropDown.didSelect{(selectedText , index ,id) in
-            print("change language")
-            if(index==0){
-                LanguageManager.shared.setLanguage(language: .vi)
-            }else{
-                LanguageManager.shared.setLanguage(language: .en)
-            }
-            UserDefaults.standard.synchronize()
-            self.viewDidLoad()
-            //LanguageManager.shared.defaultLanguage = .en
-            //self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
-        }
     }
     @IBAction func btnTap_ShowPassword(_ sender: UIButton) {
         if self.btn_showPassword.image(for: .normal) == UIImage(systemName: "eye.slash.fill")
@@ -95,6 +70,7 @@ class LoginVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+@available(iOS 13.0, *)
 extension LoginVC
 {
     @IBAction func btnTap_forgotPassword(_ sender: UIButton) {
@@ -116,6 +92,7 @@ extension LoginVC
     }
     
 }
+@available(iOS 13.0, *)
 extension LoginVC
 {
     func Webservice_Login(url:String, params:NSDictionary) -> Void {

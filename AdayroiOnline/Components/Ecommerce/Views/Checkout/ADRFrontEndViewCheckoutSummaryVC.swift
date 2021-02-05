@@ -15,7 +15,7 @@ import Foundation
 import Alamofire
 
 
-
+@available(iOS 13.0, *)
 class ADRFrontEndViewCheckoutSummaryVC: UIViewController {
     
     
@@ -41,6 +41,7 @@ class ADRFrontEndViewCheckoutSummaryVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated:true)
     }
 }
+@available(iOS 13.0, *)
 extension ADRFrontEndViewCheckoutSummaryVC
 {
     

@@ -23,6 +23,7 @@ class OrderSummaryCell : UITableViewCell
     @IBOutlet weak var btn_Note: UIButton!
     
 }
+@available(iOS 13.0, *)
 class OrderDetails: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var Tableview_Height: NSLayoutConstraint!
@@ -484,6 +485,7 @@ class OrderDetails: UIViewController,UITextViewDelegate {
     }
     
 }
+@available(iOS 13.0, *)
 extension OrderDetails: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.getsummaryData.count
@@ -548,6 +550,7 @@ extension OrderDetails: UITableViewDelegate,UITableViewDataSource {
     }
 }
 //MARK: Webservices
+@available(iOS 13.0, *)
 extension OrderDetails {
     func Webservice_GetSummary(url:String, params:NSDictionary) -> Void {
         WebServices().CallGlobalAPI(url: url, headers: [:], parameters:params, httpMethod: "POST", progressView:true, uiView:self.view, networkAlert: true) {(_ jsonResponse:JSON? , _ strErrorMessage:String) in
